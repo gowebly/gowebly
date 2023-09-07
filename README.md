@@ -26,7 +26,8 @@ go install github.com/gowebly/gowebly@latest
 ```
 
 > 💡 Note: See the repository's [Release page][repo_releases_url], if you want
-> to download a ready-made `deb`, `rpm`, `apk` or `Arch Linux` package.
+> to download ready-made MS Windows `exe` files, `deb`, `rpm`, `apk` or 
+> `Arch Linux` packages.
 
 Also, GNU/Linux and macOS users available way to install via 
 [Homebrew][brew_url]:
