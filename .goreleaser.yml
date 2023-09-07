@@ -1,0 +1,185 @@
+project_name: gowebly
+report_sizes: true
+
+env_files:
+  github_token: ~/.github_token
+
+before:
+  hooks:
+    - go mod download
+    - go mod tidy
+    - go run github.com/google/wire/cmd/wire@latest ./...
+    - go run golang.org/x/vuln/cmd/govulncheck@latest -test ./...
+    - go run github.com/google/osv-scanner/cmd/osv-scanner@latest -r .
+    - go run github.com/securego/gosec/v2/cmd/gosec@latest -quiet ./...
+    - go run github.com/go-critic/go-critic/cmd/gocritic@latest check -enableAll ./...
+    - go test -race ./...
+
+builds:
+  -
+    id: default
+    main: ./cmd/gowebly/main.go
+    env: [ CGO_ENABLED=0 ]
+    goos: [ linux, windows, darwin ]
+    goarch: [ amd64, arm64 ]
+
+upx:
+  -
+    ids: [ default ]
+    enabled: true
+    compress: best
+    lzma: true
+    brute: true
+    goos: [ linux, windows ] # skip darwin (macOS 13.x Ventura is not supported now)
+    goarch: [ amd64, arm64 ]
+
+release:
+  ids: [ default ]
+  draft: true
+  replace_existing_draft: true
+  target_commitish: '{{ .Commit }}'
+  prerelease: auto
+  mode: replace
+  header: |
+    ## ⚙️ The `{{ .Tag }}` release
+  footer: |
+    ## Install or update
+    
+    For native Go installation (any platforms):
+    
+    ```console
+    go install github.com/gowebly/gowebly@latest
+    ```
+    
+    For Docker-way users (any platforms):
+    
+    ```console
+    docker run --rm -it -v ${PWD}:${PWD} -w ${PWD} gowebly/gowebly:latest [COMMANDS]
+    ```
+
+    For [Homebrew][brew_url] users (GNU/Linux, macOS):
+    
+    ```console
+    # Tap a new formula:
+    brew tap gowebly/tap
+    
+    # Installation:
+    brew install gowebly/tap/gowebly
+    
+    # Upgrade to the latest:
+    brew upgrade gowebly/tap/gowebly
+    ```
+    
+    > 💡 Note: See the [`Wiki page`][wiki_url] to get general recommendations.
+    
+    ## Your help to improve project
+    
+    I'd be truly grateful for help with:
+    
+    - Creating tests (and/or benchmarks) for code
+    - Improving existing functions, structs, or tests
+    - Feature requests with interesting functions that would be good to add
+    
+    Your PRs & issues are welcome! Thanks 😉
+    
+    [brew_url]: https://brew.sh
+    [wiki_url]: https://github.com/gowebly/gowebly/wiki
+  disable: false
+  skip_upload: false
+
+dockers:
+  -
+    id: '{{ .ProjectName }}'
+    ids: [ default ]
+    image_templates:
+      - 'gowebly/{{ .ProjectName }}:latest'
+      - 'gowebly/{{ .ProjectName }}:{{ .Tag }}'
+      - 'gowebly/{{ .ProjectName }}:v{{ .Major }}'
+      - 'gowebly/{{ .ProjectName }}:v{{ .Major }}.{{ .Minor }}'
+    build_flag_templates:
+      - '--pull'
+      - '--label=org.opencontainers.image.created={{ .Date }}'
+      - '--label=org.opencontainers.image.title={{ .ProjectName }}'
+      - '--label=org.opencontainers.image.revision={{ .FullCommit }}'
+      - '--label=org.opencontainers.image.version={{ .Version }}'
+      - '--platform=linux/amd64'
+    skip_push: false
+    push_flags:
+      - '--tls-verify=false'
+
+brews:
+  -
+    repository:
+      owner: gowebly
+      name: homebrew-tap
+      branch: main
+      token: '{{ .Env.GITHUB_TOKEN }}'
+      pull_request:
+        enabled: true
+      git:
+        url: 'git@github.com:gowebly/homebrew-tap.git'
+        private_key: '{{ .Env.BREW_PRIVATE_KEY_PATH }}'
+        # don't forget to create ssh key WITH password protection:
+        # $ ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519_gowebly_homebrew-tap -C "koddr.me@gmail.com"
+    commit_author:
+      name: Vic Shóstak
+      email: koddr.me@gmail.com
+    commit_msg_template: 'Brew formula update for {{ .ProjectName }} version {{ .Tag }}'
+    folder: Formula
+    caveats: |
+      After install, create a new project:
+
+      $ gowebly create [BACKEND_NAME] [CSS_FRAMEWORK]
+      
+      💡 Note: See the repository's Wiki page (https://github.com/gowebly/gowebly/wiki) to get general recommendations.
+    homepage: 'https://github.com/gowebly/{{ .ProjectName }}'
+    description: |
+      A next-generation CLI tool for building amazing web applications in Go using htmx & hyperscript.
+    license: Apache 2.0
+    skip_upload: false
+
+nfpms:
+  -
+    maintainer: Vic Shóstak <koddr.me@gmail.com>
+    description: |
+      A next-generation CLI tool for building amazing web applications in Go using htmx & hyperscript.
+    homepage: 'https://github.com/gowebly/{{ .ProjectName }}'
+    license: Apache 2.0
+    formats: [ deb, rpm, apk, archlinux ]
+
+archives:
+  -
+    format_overrides:
+      - goos: windows
+        format: zip
+    files: [ LICENSE, README.md ]
+
+checksum:
+  name_template: 'checksums.txt'
+
+changelog:
+  sort: asc
+  abbrev: -1
+  filters:
+    exclude: [ '^*.md', '^*.ya?ml' ]
+  groups:
+    - title: Features
+      regexp: ^.*?((A|a)dd)|((F|f)eature).*?$
+      order: 0
+    - title: Bug fixes
+      regexp: ^.*?((B|b)ug)|((F|f)ix).*?$
+      order: 1
+    - title: Improvements
+      regexp: ^.*?(I|i)mprove.*?$
+      order: 2
+    - title: Updates
+      regexp: ^.*?(U|u)pdate.*?$
+      order: 3
+    - title: Security issues
+      regexp: ^.*?(S|s)ecurity.*?$
+      order: 4
+    - title: Delete unused or stale
+      regexp: ^.*?((D|d)elete)|((U|u)nused)|((S|s)tale).*?$
+      order: 5
+    - title: Others
+      order: 999

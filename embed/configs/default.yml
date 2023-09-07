@@ -1,0 +1,33 @@
+#
+htmx:
+
+  #
+  version: latest
+
+#
+hyperscript:
+
+  #
+  version: latest
+
+#
+storage:
+
+  #
+  postgres:
+
+    #
+    container:
+      name: gowebly-postgres
+      version: latest
+      port: 5432
+
+    #
+    credentials:
+      user: '{{ GOWEBLY_STORAGE_POSTGRES_CREDENTIALS_USER }}'
+      password: '{{ GOWEBLY_STORAGE_POSTGRES_CREDENTIALS_PASSWORD }}'
+      database: postgres
+
+    #
+    options:
+      ssl_mode: disable

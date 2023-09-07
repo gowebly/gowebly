@@ -1,0 +1,11 @@
+# Comment to be posted to on first time issues
+newIssueWelcomeComment: >
+  Hey! 👋 Thanks for opening your first issue here! Be sure to follow the issue template.
+
+# Comment to be posted to on PRs from first time contributors in your repository
+newPRWelcomeComment: >
+  Yep! ✌️ Thanks for creating this pull request! Please check out our contributing guidelines.
+
+# Comment to be posted to on pull requests merged by a first time user
+firstPRMergeComment: >
+  Wow! 🎉 Congratulations on merging your first pull request! We are proud of you.
