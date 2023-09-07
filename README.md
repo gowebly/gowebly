@@ -93,17 +93,23 @@ _Optionally_, you can choose CSS framework:
 
 ### `run`
 
-Command to run your project for development only.
+Command to run your project in development mode only.
 
 ```console
 gowebly run
 ```
 
-| Project option  | Used mode                                                                                                  |
-|-----------------|------------------------------------------------------------------------------------------------------------|
-| htmx            | from CDN ([unpkg][unpkg_url]) by a simple `<script>` tag                                                   |
-| hyperscript     | from CDN ([unpkg][unpkg_url]) by a simple `<script>` tag                                                   |
-| CSS framework   | from CDN ([cdn.tailwindcss.com][tailwindcss_cdn_url] or [jsDelivr][jsdelivr_url]) by a simple `<link>` tag |
+In this mode, the following library versions will be supplied in Go HTML 
+templates:
+
+- **htmx**: from CDN by a simple `<script>` tag;
+- **hyperscript**: from CDN by a simple `<script>` tag;
+- (_optionally_) **CSS framework**: from CDN by a simple `<link>` tag;
+
+> 💡 Note: In development mode, officially supported CDNs from developers 
+> will be used ([unpkg][unpkg_url] for htmx and hyperscript, 
+> [cdn.tailwindcss.com][tailwindcss_cdn_url] for Tailwind CSS, 
+> [jsDelivr][jsdelivr_url] for UnoCSS).
 
 ### `build`
 
@@ -113,11 +119,11 @@ Command to build your project for production.
 gowebly build
 ```
 
-| Project option  | Used mode                                                                                 |
-|-----------------|-------------------------------------------------------------------------------------------|
-| htmx            | minified and embed to the `gowebly-body-scripts` block                                    |
-| hyperscript     | minified and embed to the `gowebly-body-scripts` block                                    |
-| CSS framework   | tree-shaking & minified by [Vite][vite_url], and embed to the `gowebly-head-styles` block |
+The following library versions will be supplied in Go HTML templates:
+
+- **htmx**: minified and embed to the `gowebly-body-scripts` block;
+- **hyperscript**: minified and embed to the `gowebly-body-scripts` block after htmx part;
+- (_optionally_) **CSS framework**: tree-shaking & minified, and embed to the `gowebly-head-styles` block;
 
 ## ❓ How it works
 
@@ -134,9 +140,9 @@ Every time you build your project by `gowebly build` command:
 3. Embed them into your Go HTML templates (inline-style) to the block called 
    `gowebly-body-scripts` (usually, placed on the bottom of the `<body>` tag);
 4. (_optionally_) Prepare the tree-shaking and minified version of the chosen 
-   **CSS framework** and embed them into your Go HTML templates 
-   (inline-style) to the block called `gowebly-head-styles` (usually, placed 
-   on the bottom of the `<head>` tag);
+   **CSS framework** (via [Vite][vite_url]), and embed them into your Go HTML 
+   templates (inline-style) to the block called `gowebly-head-styles` 
+   (usually, placed on the bottom of the `<head>` tag);
 5. CLI create a complex `docker-compose.yml` file in the root of the project 
    folder with instructions for deploy all of your project in isolated 
    containers via [Portainer][portainer_url] (strongly recommended) or 
