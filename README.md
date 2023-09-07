@@ -107,7 +107,7 @@ The following library versions will be supplied in Go HTML templates:
 - **hyperscript**: from CDN by a simple `<script>` tag;
 - (_optionally_) **CSS framework**: from CDN by a simple `<link>` tag;
 
-> 💡 Note: By default, `gowebly` CLI always search for YAML config file
+> 💡 Note: By default, `gowebly` CLI search for YAML config file
 > (`.gowebly.yml`) in the current folder.
 
 In development mode, only official supported CDNs from developers 
@@ -127,13 +127,13 @@ gowebly build
 
 The following library versions will be supplied in Go HTML templates:
 
-- **htmx**: minified and embed (inline) to the `gowebly-body-scripts` block;
-- **hyperscript**: minified and embed (inline) to the `gowebly-body-scripts` 
-  block after **htmx** part;
-- (_optionally_) **CSS framework**: tree-shaking & minified, and embed (inline)
-  to the `gowebly-head-styles` block;
+- **htmx**: minified and embed to the `gowebly-body-scripts` block;
+- **hyperscript**: minified and embed to the `gowebly-body-scripts` block 
+  after **htmx** part;
+- (_optionally_) **CSS framework**: tree-shaking & minified, and embed to 
+  the `gowebly-head-styles` block;
 
-> 💡 Note: By default, `gowebly` CLI always search for YAML config file
+> 💡 Note: By default, `gowebly` CLI search for YAML config file
 > (`.gowebly.yml`) in the current folder.
 
 Every time you build your project by `gowebly build` command:
@@ -142,7 +142,7 @@ Every time you build your project by `gowebly build` command:
    `.gowebly.yml` in the current folder), apply settings and options to the 
    current project;
 2. Automatically download minified versions of **htmx** and **hyperscript** 
-   from the official (and trusted) CDN resources;
+   from the official (and trusted) resources;
 3. Embed them into your Go HTML templates (inline-style) to the block called 
    `gowebly-body-scripts` (usually, placed on the bottom of the `<body>` tag);
 4. (_optionally_) Prepare the tree-shaking and minified version of the chosen 
