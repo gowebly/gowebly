@@ -68,16 +68,15 @@ See the repository's [Wiki][repo_wiki_url] page to get general recommendations.
 
 ### `create`
 
-Command to create a new project with the given Go backend, [htmx][htmx_url] &
-[hyperscript][hyperscript_url], and (_optionally_) with the most popular 
-atomic/utility-first CSS framework (like [Tailwind CSS][tailwindcss_url], 
-[UnoCSS][unocss_url] or else).
+Command to create a new project with the given Go backend, **htmx** & 
+**hyperscript**, and (_optionally_) with the most popular 
+atomic/utility-first **CSS framework**.
 
 ```console
 gowebly create [BACKEND_NAME] [CSS_FRAMEWORK]
 ```
 
-You cant choose a Go backend for your project:
+You can choose the **Go backend** for your project:
 
 | Backend name | Description                                                 |
 |--------------|-------------------------------------------------------------|
@@ -86,7 +85,7 @@ You cant choose a Go backend for your project:
 | `echo`       | Go backend with the [Echo][echo_url] web framework          |
 | `chi`        | Go backend with the [chi][chi_url]  composable router       |
 
-_Optionally_, you can choose CSS framework:
+_Optionally_, you can choose the **CSS framework**:
 
 | CSS framework | Description                                         |
 |---------------|-----------------------------------------------------|
@@ -95,27 +94,31 @@ _Optionally_, you can choose CSS framework:
 
 ### `run`
 
-Command to run your project in development mode only.
+Command to run your project in **development** mode.
 
 ```console
 gowebly run
 ```
 
-In this mode, the following library versions will be supplied in Go HTML 
-templates:
+The following library versions will be supplied in Go HTML templates:
 
 - **htmx**: from CDN by a simple `<script>` tag;
 - **hyperscript**: from CDN by a simple `<script>` tag;
 - (_optionally_) **CSS framework**: from CDN by a simple `<link>` tag;
 
-> 💡 Note: In development mode, officially supported CDNs from developers 
-> will be used ([unpkg][unpkg_url] for htmx and hyperscript, 
-> [cdn.tailwindcss.com][tailwindcss_cdn_url] for Tailwind CSS, 
-> [jsDelivr][jsdelivr_url] for UnoCSS).
+> 💡 Note: By default, `gowebly` CLI always search for YAML config file
+> (`.gowebly.yml`) in the current folder.
+
+In development mode, only official supported CDNs from developers 
+will be used: 
+
+- [unpkg][unpkg_url] for **htmx** and **hyperscript**;
+- [cdn.tailwindcss.com][tailwindcss_cdn_url] for **Tailwind CSS**;
+- [jsDelivr][jsdelivr_url] for **UnoCSS**.
 
 ### `build`
 
-Command to build your project for production.
+Command to build your project for **production**.
 
 ```console
 gowebly build
