@@ -46,10 +46,10 @@ Next, run `gowebly` to create a new project:
 gowebly create built-in unocss
 ```
 
-Done! 🎉 Your amazing Go web app with [htmx][htmx_url] & 
+That's it! Your amazing Go web app with [htmx][htmx_url] & 
 [hyperscript][hyperscript_url], and (_optionally_) **CSS framework** 
-features are available in your Go HTML templates. Let's make useful project 
-and deploy it to the Internet 🚀
+features are available in your Go HTML templates. Let's make useful web project 
+and deploy them to the Internet 🚀
 
 ### 🐳 Docker-way to quick start
 
@@ -101,14 +101,14 @@ Command to run your project in **development** mode.
 gowebly run
 ```
 
+> 💡 Note: By default, `gowebly` CLI always search for YAML config file
+> (`.gowebly.yml`) in the current folder.
+
 The following library versions will be supplied in Go HTML templates:
 
 - **htmx**: from CDN by a simple `<script>` tag;
 - **hyperscript**: from CDN by a simple `<script>` tag;
 - (_optionally_) **CSS framework**: from CDN by a simple `<link>` tag;
-
-> 💡 Note: By default, `gowebly` CLI always search for YAML config file
-> (`.gowebly.yml`) in the current folder.
 
 In development mode, only official supported CDNs from developers 
 will be used: 
@@ -125,14 +125,16 @@ Command to build your project for **production**.
 gowebly build
 ```
 
+> 💡 Note: By default, `gowebly` CLI always search for YAML config file
+> (`.gowebly.yml`) in the current folder.
+
 The following library versions will be supplied in Go HTML templates:
 
-- **htmx**: minified and embed to the `gowebly-body-scripts` block;
-- **hyperscript**: minified and embed to the `gowebly-body-scripts` block after htmx part;
-- (_optionally_) **CSS framework**: tree-shaking & minified, and embed to the `gowebly-head-styles` block;
-
-> 💡 Note: By default, `gowebly` CLI always search for YAML config file 
-> (`.gowebly.yml`) in the current folder.
+- **htmx**: minified and embed (inline) to the `gowebly-body-scripts` block;
+- **hyperscript**: minified and embed (inline) to the `gowebly-body-scripts` 
+  block after **htmx** part;
+- (_optionally_) **CSS framework**: tree-shaking & minified, and embed (inline)
+  to the `gowebly-head-styles` block;
 
 Every time you build your project by `gowebly build` command:
 
