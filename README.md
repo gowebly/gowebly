@@ -103,12 +103,10 @@ gowebly run
 
 The following library versions will be supplied in Go HTML templates:
 
-- **htmx**: from CDN by a simple `<script>` tag;
-- **hyperscript**: from CDN by a simple `<script>` tag;
-- (_optionally_) **CSS framework**: from CDN by a simple `<link>` tag;
-
-> 💡 Note: By default, `gowebly` CLI search for YAML config file
-> (`.gowebly.yml`) in the current folder.
+- **htmx**: latest version from CDN in a regular `<script>` tag;
+- **hyperscript**: latest version from CDN in a regular `<script>` tag;
+- (_optionally_) **CSS framework**: latest version from CDN in a regular 
+  `<link>` tag;
 
 In development mode, only official supported CDNs from developers 
 will be used: 
