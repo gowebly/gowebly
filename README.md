@@ -101,14 +101,14 @@ Command to run your project in **development** mode.
 gowebly run
 ```
 
-> 💡 Note: By default, `gowebly` CLI always search for YAML config file
-> (`.gowebly.yml`) in the current folder.
-
 The following library versions will be supplied in Go HTML templates:
 
 - **htmx**: from CDN by a simple `<script>` tag;
 - **hyperscript**: from CDN by a simple `<script>` tag;
 - (_optionally_) **CSS framework**: from CDN by a simple `<link>` tag;
+
+> 💡 Note: By default, `gowebly` CLI always search for YAML config file
+> (`.gowebly.yml`) in the current folder.
 
 In development mode, only official supported CDNs from developers 
 will be used: 
@@ -125,9 +125,6 @@ Command to build your project for **production**.
 gowebly build
 ```
 
-> 💡 Note: By default, `gowebly` CLI always search for YAML config file
-> (`.gowebly.yml`) in the current folder.
-
 The following library versions will be supplied in Go HTML templates:
 
 - **htmx**: minified and embed (inline) to the `gowebly-body-scripts` block;
@@ -135,6 +132,9 @@ The following library versions will be supplied in Go HTML templates:
   block after **htmx** part;
 - (_optionally_) **CSS framework**: tree-shaking & minified, and embed (inline)
   to the `gowebly-head-styles` block;
+
+> 💡 Note: By default, `gowebly` CLI always search for YAML config file
+> (`.gowebly.yml`) in the current folder.
 
 Every time you build your project by `gowebly build` command:
 
@@ -150,9 +150,9 @@ Every time you build your project by `gowebly build` command:
    templates (inline-style) to the block called `gowebly-head-styles` 
    (usually, placed on the bottom of the `<head>` tag);
 5. CLI create a complex `docker-compose.yml` file in the root of the project 
-   folder with instructions for deploy all of your project in isolated 
-   containers via [Portainer][portainer_url] (strongly recommended) or 
-   manually to your remote server.
+   folder with instructions for deploy your project in isolated containers 
+   via [Portainer][portainer_url] (strongly recommended) or manually to your 
+   remote server.
 
 ## ✨ Solving case
 
