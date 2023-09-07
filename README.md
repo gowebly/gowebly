@@ -74,17 +74,17 @@ Command to create a new project with the given Go backend, **htmx** &
 atomic/utility-first **CSS framework**.
 
 ```console
-gowebly create [BACKEND_NAME] [CSS_FRAMEWORK]
+gowebly create [BACKEND] [CSS_FRAMEWORK]
 ```
 
 You can choose the **Go backend** for your project:
 
-| Backend name | Description                                                 |
-|--------------|-------------------------------------------------------------|
-| `built-in`   | Go backend with a built-in [net/http][net_http_url] package |
-| `fiber`      | Go backend with the [Fiber][fiber_url] web framework        |
-| `echo`       | Go backend with the [Echo][echo_url] web framework          |
-| `chi`        | Go backend with the [chi][chi_url]  composable router       |
+| Backend    | Description                                                 |
+|------------|-------------------------------------------------------------|
+| `built-in` | Go backend with a built-in [net/http][net_http_url] package |
+| `fiber`    | Go backend with the [Fiber][fiber_url] web framework        |
+| `echo`     | Go backend with the [Echo][echo_url] web framework          |
+| `chi`      | Go backend with the [chi][chi_url]  composable router       |
 
 _Optionally_, you can choose the **CSS framework**:
 
