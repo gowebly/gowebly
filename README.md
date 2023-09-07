@@ -42,11 +42,13 @@ brew install gowebly/tap/gowebly
 Next, run `gowebly` to create a new project:
 
 ```console
-gowebly create built-in
+gowebly create built-in unocss
 ```
 
 Done! 🎉 Your amazing Go web app with [htmx][htmx_url] & 
-[hyperscript][hyperscript_url] has been created.
+[hyperscript][hyperscript_url], and (_optionally_) **CSS framework** 
+features are available in your Go HTML templates. Let's make useful project 
+and deploy it to the Internet 🚀
 
 ### 🐳 Docker-way to quick start
 
@@ -125,10 +127,8 @@ The following library versions will be supplied in Go HTML templates:
 - **hyperscript**: minified and embed to the `gowebly-body-scripts` block after htmx part;
 - (_optionally_) **CSS framework**: tree-shaking & minified, and embed to the `gowebly-head-styles` block;
 
-## ❓ How it works
-
-By default, `gowebly` CLI always search for YAML config file (`.gowebly.yml`)
-in the current folder.
+> 💡 Note: By default, `gowebly` CLI always search for YAML config file 
+> (`.gowebly.yml`) in the current folder.
 
 Every time you build your project by `gowebly build` command:
 
@@ -147,10 +147,6 @@ Every time you build your project by `gowebly build` command:
    folder with instructions for deploy all of your project in isolated 
    containers via [Portainer][portainer_url] (strongly recommended) or 
    manually to your remote server.
-
-That's it! Now, awesome **htmx** & **hyperscript**, and (_optionally_) **CSS 
-framework** features are available in your Go HTML templates. Let's make 
-awesome project and deploy it to the Internet 🚀
 
 ## ✨ Solving case
 
