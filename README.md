@@ -8,13 +8,19 @@
 
 English | [Русский][repo_readme_ru_url] | [Español][repo_readme_es_url]
 
-**gowebly** description ...
+This CLI tool can easily build amazing web applications with **Go** 
+on the backend using **htmx** & **hyperscript** and the most popular 
+atomic/utility-first **CSS frameworks** on frontend. 
+
+Well-documented, user-friendly and easy to understand. Will be good for any 
+level of developer.
 
 Features:
 
 - 100% **free** and **open source**.
-- ...
-- ...
+- Helps you get into the **Go** + **htmx** + **hyperscript** technology 
+  stack faster.
+- 
 
 ## ⚡️ Quick start
 
