@@ -10,17 +10,17 @@ English | [Русский][repo_readme_ru_url] | [Español][repo_readme_es_url]
 
 This CLI tool can easily build amazing web applications with **Go** 
 on the backend using **htmx** & **hyperscript** and the most popular 
-atomic/utility-first **CSS frameworks** on frontend. 
-
-Well-documented, user-friendly and easy to understand. Will be good for any 
-level of developer.
+atomic/utility-first **CSS frameworks** on frontend.
 
 Features:
 
-- 100% **free** and **open source**.
-- Helps you get into the **Go** + **htmx** + **hyperscript** technology 
+- 100% **free** and **open source** under [Apache 2.0][repo_license_url] 
+  license.
+- For **any** level of developer's knowledge and technical expertise.
+- Helps to get into the **Go** + **htmx** + **hyperscript** technology 
   stack faster.
-- 
+- CLI that **does most** of the routine setup and preparation for production.
+- **Well-documented**, with a lot of tips and assists from the authors.
 
 ## ⚡️ Quick start
 
