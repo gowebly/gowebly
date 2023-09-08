@@ -98,7 +98,7 @@ We hope you find answers to all of your questions! 👌 But, if you do not find
 needed information, feel free to create an [issue][repo_issues_url] or send a 
 [PR][repo_pull_request_url] to this repository.
 
-Don't forget to go to the page for your language (current is
+Don't forget to switch this page for your language (current is
 **English**): [Русский][repo_readme_ru_url], [中文][repo_readme_cn_url],
 [Español][repo_readme_es_url].
 
