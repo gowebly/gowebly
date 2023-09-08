@@ -80,10 +80,10 @@ docker run \
     gowebly/gowebly:latest [COMMAND] [OPTIONS]
 ```
 
-### Other way to quick start
+### 📦 Other way to quick start
 
-Download a ready-made Microsoft Windows `exe` files, `deb`, `rpm`, `apk` or 
-Arch Linux packages on the [Releases][repo_releases_url] page.
+Download a ready-made Windows `exe` files, `deb`, `rpm`, `apk`, or Arch Linux 
+packages on the [Releases][repo_releases_url] page.
 
 ## 📖 Complete user guide
 
