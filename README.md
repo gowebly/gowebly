@@ -196,7 +196,7 @@ Every time you make `build` command for your project:
      called `gowebly-head-styles` (usually, placed on the bottom of the 
      `<head>` tag);
 4. CLI generate a clear and well-documented `docker-compose.yml` file in the 
-   root of the project folder for deploy it in isolated Docker containers 
+   root of the project folder to deploy it in isolated Docker containers 
    via [Portainer][portainer_url] (_recommended_) or manually to your remote 
    server.
 
