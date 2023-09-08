@@ -146,8 +146,8 @@ Every time you run `build` command for your project:
 
 1. CLI scan and validate the YAML config file (`.gowebly.yml`), apply all 
    settings to the current project;
-2. Automatically download minified versions of **htmx** and **hyperscript** 
-   from the official (and trusted) resources;
+2. CLI download minified versions of **htmx** and **hyperscript** from the 
+   official (and trusted) resources;
    - Embed them into your Go HTML templates (inline-style) to the block 
      called `gowebly-body-scripts` (usually, placed on the bottom of the 
      `<body>` tag);
