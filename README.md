@@ -32,7 +32,7 @@ Now, you can use `gowebly` without installation. Just [`go run`][go_run_url] it
 with options to create a new project:
 
 ```console
-go run github.com/gowebly/gowebly@latest built-in unocss
+go run github.com/gowebly/gowebly@latest create built-in unocss
 ```
 
 That's it! Your wonderful web application (in this example using the 
