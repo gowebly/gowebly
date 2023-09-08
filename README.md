@@ -61,11 +61,11 @@ isolated container:
 docker run --rm -it -v ${PWD}:${PWD} -w ${PWD} gowebly/gowebly:latest [COMMANDS]
 ```
 
-## ✨ Usage
+## ✨ Complete user guide
 
-See the repository's [Wiki][repo_wiki_url] page to get general recommendations.
-
-## 🧩 Commands & Options
+To get a complete guide to use and understand the basic principles of the 
+`gowebly` CLI, we have prepared a comprehensive explanation of each command at 
+once in this README file. 
 
 ### `create`
 
@@ -132,8 +132,8 @@ The following library versions will be supplied in Go HTML templates:
 - (_optionally_) **CSS framework**: tree-shaking & minified, and embed to 
   the `gowebly-head-styles` block;
 
-> 💡 Note: By default, `gowebly` CLI search for YAML config file
-> (`.gowebly.yml`) in the current folder.
+> 💡 Note: the `gowebly` CLI search for YAML config file (`.gowebly.yml`) for 
+> the project in the current folder.
 
 Every time you run `build` command for your project:
 
