@@ -44,7 +44,7 @@ Let's make useful web project and deploy them to the Internet 🚀
 
 ### 🔹 A full Go-way to quick start
 
-If you still want to install `gowebly` to your system by Golang, use the 
+If you still want to install `gowebly` CLI to your system by Golang, use the 
 [`go install`][go_install_url] command:
 
 ```console
@@ -70,9 +70,8 @@ brew install gowebly/tap/gowebly
 
 ### 🐳 Docker-way to quick start
 
-If you don't want to physically install `gowebly` to your system, you feel
-free to using our [official Docker image][docker_image_url] and run it from
-isolated container:
+Feel free to using `gowebly` CLI from our [official Docker image]
+[docker_image_url] and run it in the isolated container:
 
 ```console
 docker run \
