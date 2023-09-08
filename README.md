@@ -5,7 +5,8 @@
 [![Code coverage][go_code_coverage_img]][repo_url]
 [![License][repo_license_img]][repo_license_url]
 
-**English** | [Русский][repo_readme_ru_url] | [Español][repo_readme_es_url]
+**English** | [Русский][repo_readme_ru_url] | [Español][repo_readme_es_url] 
+| [中文][repo_readme_cn_url]
 
 This CLI tool can easily build amazing web applications with **Go** 
 on the backend using **htmx** & **hyperscript** and the most popular 
@@ -221,6 +222,7 @@ for people and robots by [Vic Shóstak][author_url].
 
 [repo_readme_ru_url]: https://github.com/gowebly/gowebly/blob/main/README_RU.md
 [repo_readme_es_url]: https://github.com/gowebly/gowebly/blob/main/README_ES.md
+[repo_readme_cn_url]: https://github.com/gowebly/gowebly/blob/main/README_CN.md
 [docker_image_url]: https://hub.docker.com/repository/docker/gowebly/gowebly
 [portainer_url]: https://docs.portainer.io
 [brew_url]: https://brew.sh
