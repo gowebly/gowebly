@@ -255,6 +255,6 @@ for people and robots by [Vic Shóstak][author_url].
 [unpkg_url]: https://unpkg.com
 [jsdelivr_url]: https://www.jsdelivr.com
 [net_http_url]: https://pkg.go.dev/net/http
-[fiber_url]: https://gofiber.io
-[echo_url]: https://echo.labstack.com
-[chi_url]: https://go-chi.io
+[fiber_url]: https://github.com/gofiber/fiber
+[echo_url]: https://github.com/labstack/echo
+[chi_url]: https://github.com/go-chi/chi
