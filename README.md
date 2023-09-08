@@ -171,7 +171,7 @@ deploy.
 gowebly build
 ```
 
-> 💡 Note: the `gowebly` CLI search for YAML config file (`.gowebly.yml`) for
+> 💡 Note: `gowebly` CLI search for YAML config file (`.gowebly.yml`) for
 > the project in the current folder.
 
 The following library versions will be supplied in Go HTML templates:
