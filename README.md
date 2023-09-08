@@ -87,8 +87,8 @@ docker run \
 ## 📖 Complete user guide
 
 > ⚡️ From the authors: We always treasure your time and want you to start 
-> building really great products on this great technology stack as soon as 
-> possible!
+> building really great web products on this awesome technology stack as 
+> soon as possible!
 
 To get a complete guide to use and understand the basic principles of the 
 `gowebly` CLI, we have prepared a comprehensive explanation of each command at 
