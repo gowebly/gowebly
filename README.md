@@ -158,8 +158,8 @@ Every time you make `run` command for your project:
 2. (_optionally_) CLI embed a CDN version of the chosen **CSS framework** 
    from the official (and trusted) resource to a regular `<link>` tag into 
    the block called `gowebly-head-styles`;
-3. CLI start a project's backend on the default `http://localhost:5000` 
-   address via simple `go run` command.
+3. CLI start a project's backend on the port `5000` via simple `go run` 
+   command.
 
 ### `build`
 
