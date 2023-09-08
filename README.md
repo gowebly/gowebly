@@ -138,10 +138,9 @@ gowebly run
 
 The following library versions will be supplied in Go HTML templates:
 
-- **htmx**: latest version from CDN in a regular `<script>` tag;
-- **hyperscript**: latest version from CDN in a regular `<script>` tag;
-- (_optionally_) **CSS framework**: latest developer version from CDN in a 
-  regular `<link>` tag;
+- **htmx**: latest non-production version from CDN;
+- **hyperscript**: latest non-production version from CDN;
+- (_optionally_) **CSS framework**: latest non-production version from CDN;
 
 In development mode, only official supported CDNs from developers 
 will be used: 
@@ -149,6 +148,17 @@ will be used:
 - [unpkg.com][unpkg_url] for **htmx** and **hyperscript**;
 - [tailwindcss.com][tailwindcss_cdn_url] for **Tailwind CSS**;
 - [jsDelivr][jsdelivr_url] for **UnoCSS**.
+
+Every time you make `run` command for your project:
+
+1. CLI embed CDN versions of **htmx** and **hyperscript** from the
+   official (and trusted) resources to a regular `<script>` tag into the block
+   called `gowebly-body-scripts` (usually, placed on the bottom of the 
+   `<body>` tag);
+2. (_optionally_) CLI embed a CDN version of the chosen **CSS framework** 
+   from the official (and trusted) resource to a regular `<link>` tag into 
+   the block called `gowebly-head-styles`;
+3. CLI start a project's backend via `go run ./...` command.
 
 ### `build`
 
@@ -168,7 +178,7 @@ The following library versions will be supplied in Go HTML templates:
 > 💡 Note: the `gowebly` CLI search for YAML config file (`.gowebly.yml`) for 
 > the project in the current folder.
 
-Every time you run `build` command for your project:
+Every time you make `build` command for your project:
 
 1. CLI scan and validate the YAML config file (`.gowebly.yml`), apply all 
    settings to the current project;
