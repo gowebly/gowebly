@@ -68,9 +68,9 @@ Install `gowebly` CLI:
 brew install gowebly/tap/gowebly
 ```
 
-> 💡 Note: See the repository's [Release page][repo_releases_url], if you want
-> to download ready-made MS Windows `exe` files, `deb`, `rpm`, `apk` or
-> `Arch Linux` packages.
+> 💡 Note: If you want to download ready-made MS Windows `exe` files, `deb`, 
+> `rpm`, `apk` or `Arch Linux` packages, see the 
+> [Release page][repo_releases_url].
 
 ### 🐳 Docker-way to quick start
 
