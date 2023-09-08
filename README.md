@@ -140,8 +140,8 @@ The following library versions will be supplied in Go HTML templates:
 
 - **htmx**: latest version from CDN in a regular `<script>` tag;
 - **hyperscript**: latest version from CDN in a regular `<script>` tag;
-- (_optionally_) **CSS framework**: latest version from CDN in a regular 
-  `<link>` tag;
+- (_optionally_) **CSS framework**: latest developer version from CDN in a 
+  regular `<link>` tag;
 
 In development mode, only official supported CDNs from developers 
 will be used: 
@@ -161,11 +161,9 @@ gowebly build
 
 The following library versions will be supplied in Go HTML templates:
 
-- **htmx**: minified and embed to the `gowebly-body-scripts` block;
-- **hyperscript**: minified and embed to the `gowebly-body-scripts` block 
-  after **htmx** part;
-- (_optionally_) **CSS framework**: tree-shaking & minified, and embed to 
-  the `gowebly-head-styles` block;
+- **htmx**: minified version, selected in the config file;
+- **hyperscript**: minified version, selected in the config file;
+- (_optionally_) **CSS framework**: tree-shaking & minified;
 
 > 💡 Note: the `gowebly` CLI search for YAML config file (`.gowebly.yml`) for 
 > the project in the current folder.
@@ -185,15 +183,15 @@ Every time you run `build` command for your project:
      called `gowebly-head-styles` (usually, placed on the bottom of the 
      `<head>` tag);
 4. CLI generate a clear and well-documented `docker-compose.yml` file in the 
-   root of the project folder for deploy it in isolated Docker containers via 
-   (_strongly recommended_) [Portainer][portainer_url] or manually to your 
-   remote server.
+   root of the project folder for deploy it in isolated Docker containers 
+   via [Portainer][portainer_url] (_recommended_) or manually to your remote 
+   server.
 
 ## ✨ Solving case
 
 ...
 
-## 💡 Motivation
+## 🎯 Motivation
 
 ...
 
