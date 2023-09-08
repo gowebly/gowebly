@@ -171,9 +171,10 @@ gowebly build
 
 The following library versions will be supplied in Go HTML templates:
 
-- **htmx**: minified version, selected in the config file;
-- **hyperscript**: minified version, selected in the config file;
-- (_optionally_) **CSS framework**: tree-shaking & minified;
+- **htmx**: minified production version, selected in the config file;
+- **hyperscript**: minified production version, selected in the config file;
+- (_optionally_) **CSS framework**: latest production tree-shaking & 
+  minified version;
 
 > 💡 Note: the `gowebly` CLI search for YAML config file (`.gowebly.yml`) for 
 > the project in the current folder.
