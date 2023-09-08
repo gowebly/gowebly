@@ -5,7 +5,7 @@
 [![Code coverage][go_code_coverage_img]][repo_url]
 [![License][repo_license_img]][repo_license_url]
 
-English | [Русский][repo_readme_ru_url] | [Español][repo_readme_es_url]
+**English** | [Русский][repo_readme_ru_url] | [Español][repo_readme_es_url]
 
 This CLI tool can easily build amazing web applications with **Go** 
 on the backend using **htmx** & **hyperscript** and the most popular 
@@ -19,6 +19,7 @@ Features:
 - Helps to get into the **Go** + **htmx** + **hyperscript** technology 
   stack faster.
 - CLI that **does most** of the routine setup and preparation for production.
+- Contains a comprehensive **example** of how to use it out of the box.
 - **Well-documented**, with a lot of tips and assists from the authors.
 
 ## ⚡️ Quick start
