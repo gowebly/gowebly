@@ -10,7 +10,7 @@
 
 This CLI tool can easily build amazing web applications with **Go** 
 on the backend using [**htmx**][htmx_url] & [**hyperscript**][hyperscript_url] 
-and the most popular atomic/utility-first **CSS frameworks** on frontend.
+and the most popular atomic/utility-first **CSS frameworks** on the frontend.
 
 Features:
 
