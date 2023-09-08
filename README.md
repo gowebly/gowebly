@@ -150,8 +150,8 @@ Every time you run `build` command for your project:
    from the official (and trusted) resources;
 3. Embed them into your Go HTML templates (inline-style) to the block called 
    `gowebly-body-scripts` (usually, placed on the bottom of the `<body>` tag);
-4. (_optionally_) Prepare a minified (and tree-shaking) version of the chosen 
-   **CSS framework** via [Vite][vite_url] frontend tool;
+4. (_optionally_) CLI prepare a minified (and tree-shaking) version of the 
+   chosen **CSS framework** via [Vite][vite_url] frontend tool;
 5. (_optionally_) Embed them into your Go HTML templates (inline-style) to 
    the block called `gowebly-head-styles` (usually, placed on the bottom of 
    the `<head>` tag);
