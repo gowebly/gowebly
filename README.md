@@ -148,14 +148,15 @@ Every time you run `build` command for your project:
    settings to the current project;
 2. Automatically download minified versions of **htmx** and **hyperscript** 
    from the official (and trusted) resources;
-3. Embed them into your Go HTML templates (inline-style) to the block called 
-   `gowebly-body-scripts` (usually, placed on the bottom of the `<body>` tag);
-4. (_optionally_) CLI prepare a minified (and tree-shaking) version of the 
+   - Embed them into your Go HTML templates (inline-style) to the block 
+     called `gowebly-body-scripts` (usually, placed on the bottom of the 
+     `<body>` tag);
+3. (_optionally_) CLI prepare a minified (and tree-shaking) version of the 
    chosen **CSS framework** via [Vite][vite_url] tool;
-5. (_optionally_) Embed them into your Go HTML templates (inline-style) to 
-   the block called `gowebly-head-styles` (usually, placed on the bottom of 
-   the `<head>` tag);
-6. CLI generate a clear and well-documented `docker-compose.yml` file in the 
+   - Embed them into your Go HTML templates (inline-style) to the block 
+     called `gowebly-head-styles` (usually, placed on the bottom of the 
+     `<head>` tag);
+4. CLI generate a clear and well-documented `docker-compose.yml` file in the 
    root of the project folder for deploy it in isolated Docker containers via 
    (_strongly recommended_) [Portainer][portainer_url] or manually to your 
    remote server.
