@@ -36,29 +36,23 @@ go run github.com/gowebly/gowebly@latest built-in unocss
 ```
 
 That's it! Your amazing Go web app with [htmx][htmx_url] &
-[hyperscript][hyperscript_url], and (_optionally_) **CSS framework**
-features are available in your Go HTML templates.
+[hyperscript][hyperscript_url], and **CSS framework** features are available 
+in your Go HTML templates.
 
 Let's make useful web project and deploy them to the Internet 🚀
 
 ### 🔹 A full Go-way to quick start
 
-If you still want to install `gowebly` to your system, use the 
+If you still want to install `gowebly` to your system by Golang, use the 
 [`go install`][go_install_url] command:
 
 ```console
 go install github.com/gowebly/gowebly@latest
 ```
 
-And next, run it with options to create a new project:
-
-```console
-gowebly create built-in unocss
-```
-
 ### 🍺 Homebrew-way to quick start
 
-Yes, GNU/Linux and Apple macOS users available way to install via 
+Yes, GNU/Linux and Apple macOS users available way to install `gowebly` via 
 [Homebrew][brew_url].
 
 Tap a new formula:
@@ -67,7 +61,7 @@ Tap a new formula:
 brew tap gowebly/tap
 ```
 
-Install `gowebly`:
+Install `gowebly` CLI:
 
 ```console
 brew install gowebly/tap/gowebly
@@ -86,7 +80,7 @@ isolated container:
 ```console
 docker run \
     --rm -it -v ${PWD}:${PWD} -w ${PWD} \
-    gowebly/gowebly:latest [BACKEND] [CSS_FRAMEWORK]
+    gowebly/gowebly:latest [COMMAND] [OPTIONS]
 ```
 
 ## 📖 Complete user guide
