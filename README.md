@@ -243,6 +243,9 @@ for people and robots by [Vic Shóstak][author_url].
 [repo_releases_url]: https://github.com/gowebly/gowebly/releases
 [repo_license_url]: https://github.com/gowebly/gowebly/blob/main/LICENSE
 [repo_license_img]: https://img.shields.io/badge/license-Apache_2.0-red?style=for-the-badge&logo=none
+[repo_readme_ru_url]: https://github.com/gowebly/gowebly/blob/main/README_RU.md
+[repo_readme_cn_url]: https://github.com/gowebly/gowebly/blob/main/README_CN.md
+[repo_readme_es_url]: https://github.com/gowebly/gowebly/blob/main/README_ES.md
 
 <!-- Author links -->
 
@@ -250,10 +253,6 @@ for people and robots by [Vic Shóstak][author_url].
 
 <!-- Readme links -->
 
-[repo_readme_en_url]: https://github.com/gowebly/gowebly/blob/main/README.md
-[repo_readme_ru_url]: https://github.com/gowebly/gowebly/blob/main/README_RU.md
-[repo_readme_cn_url]: https://github.com/gowebly/gowebly/blob/main/README_CN.md
-[repo_readme_es_url]: https://github.com/gowebly/gowebly/blob/main/README_ES.md
 [docker_image_url]: https://hub.docker.com/repository/docker/gowebly/gowebly
 [portainer_url]: https://docs.portainer.io
 [brew_url]: https://brew.sh
