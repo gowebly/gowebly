@@ -150,13 +150,14 @@ Every time you run `build` command for your project:
    from the official (and trusted) resources;
 3. Embed them into your Go HTML templates (inline-style) to the block called 
    `gowebly-body-scripts` (usually, placed on the bottom of the `<body>` tag);
-4. (_optionally_) Prepare the tree-shaking and minified version of the chosen 
-   **CSS framework** (via [Vite][vite_url]), and embed them into your Go HTML 
-   templates (inline-style) to the block called `gowebly-head-styles` 
-   (usually, placed on the bottom of the `<head>` tag);
-5. CLI create a complex `docker-compose.yml` file in the root of the project 
-   folder with instructions for deploy your project in isolated containers 
-   via (_strongly recommended_) [Portainer][portainer_url] or manually to your 
+4. (_optionally_) Prepare a minified (and tree-shaking) version of the chosen 
+   **CSS framework** via [Vite][vite_url] frontend tool;
+5. (_optionally_) Embed them into your Go HTML templates (inline-style) to 
+   the block called `gowebly-head-styles` (usually, placed on the bottom of 
+   the `<head>` tag);
+6. CLI generate a clear and well-documented `docker-compose.yml` file in the 
+   root of the project folder for deploy it in isolated Docker containers via 
+   (_strongly recommended_) [Portainer][portainer_url] or manually to your 
    remote server.
 
 ## ✨ Solving case
