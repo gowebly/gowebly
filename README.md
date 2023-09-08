@@ -130,7 +130,7 @@ _Optionally_, you can choose the **CSS framework**:
 
 ### `run`
 
-Command to run your project in **development** mode.
+Command to run your project in a **development** (non-production) mode.
 
 ```console
 gowebly run
