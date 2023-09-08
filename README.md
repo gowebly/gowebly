@@ -171,15 +171,15 @@ deploy.
 gowebly build
 ```
 
+> 💡 Note: the `gowebly` CLI search for YAML config file (`.gowebly.yml`) for
+> the project in the current folder.
+
 The following library versions will be supplied in Go HTML templates:
 
 - **htmx**: minified production version, selected in the config file;
 - **hyperscript**: minified production version, selected in the config file;
 - (_optionally_) **CSS framework**: latest production tree-shaking & 
   minified version;
-
-> 💡 Note: the `gowebly` CLI search for YAML config file (`.gowebly.yml`) for 
-> the project in the current folder.
 
 Every time you make `build` command for your project:
 
