@@ -1,10 +1,12 @@
-# gowebly – A next-generation CLI tool for building amazing web applications in Go using htmx & hyperscript.
+# gowebly – A next-generation CLI tool for building amazing web apps in Go using htmx & hyperscript
 
 [![Go version][go_version_img]][go_dev_url]
 [![Go report][go_report_img]][go_report_url]
 [![Code coverage][go_code_coverage_img]][repo_url]
 [![Wiki][repo_wiki_img]][repo_wiki_url]
 [![License][repo_license_img]][repo_license_url]
+
+English | [Русский][repo_readme_ru_url] | [Español][repo_readme_es_url]
 
 **gowebly** description ...
 
@@ -212,6 +214,8 @@ for people and robots by [Vic Shóstak][author_url].
 
 <!-- Readme links -->
 
+[repo_readme_ru_url]: https://github.com/gowebly/gowebly/blob/main/README_RU.md
+[repo_readme_es_url]: https://github.com/gowebly/gowebly/blob/main/README_ES.md
 [docker_image_url]: https://hub.docker.com/repository/docker/gowebly/gowebly
 [portainer_url]: https://docs.portainer.io
 [brew_url]: https://brew.sh
