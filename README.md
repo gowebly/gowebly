@@ -28,8 +28,8 @@ Features:
 First, [download][go_download_url] and install **Go**. Version `1.21` (or 
 higher) is required.
 
-Now, you can use `gowebly` without installation. Just `go run` it with 
-options to create a new project:
+Now, you can use `gowebly` without installation. Just [`go run`][go_run_url] it 
+with options to create a new project:
 
 ```console
 go run github.com/gowebly/gowebly@latest built-in unocss
@@ -212,6 +212,7 @@ for people and robots by [Vic Shóstak][author_url].
 <!-- Go links -->
 
 [go_download_url]: https://golang.org/dl/
+[go_run_url]: https://pkg.go.dev/cmd/go#hdr-Compile_and_run_Go_program
 [go_install_url]: https://golang.org/cmd/go/#hdr-Compile_and_install_packages_and_dependencies
 [go_report_url]: https://goreportcard.com/report/github.com/gowebly/gowebly
 [go_dev_url]: https://pkg.go.dev/github.com/gowebly/gowebly
