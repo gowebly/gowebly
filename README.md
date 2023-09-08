@@ -70,8 +70,8 @@ brew install gowebly/tap/gowebly
 
 ### 🐳 Docker-way to quick start
 
-Feel free to using `gowebly` CLI from our [official Docker image]
-[docker_image_url] and run it in the isolated container:
+Feel free to using `gowebly` CLI from our 
+[official Docker image][docker_image_url] and run it in the isolated container:
 
 ```console
 docker run \
