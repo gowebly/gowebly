@@ -123,10 +123,10 @@ You can choose the **Go backend** for your project:
 
 _Optionally_, you can choose the **CSS framework**:
 
-| CSS framework | Description                                         |
-|---------------|-----------------------------------------------------|
-| `tailwindcss` | Add [Tailwind CSS][tailwindcss_url] to your project |
-| `unocss`      | Add [UnoCSS][unocss_url]  to your project           |
+| CSS framework | Description                                                         |
+|---------------|---------------------------------------------------------------------|
+| `tailwindcss` | Add [Tailwind CSS][tailwindcss_url] to the frontend of your project |
+| `unocss`      | Add [UnoCSS][unocss_url] to the frontend of your project            |
 
 ### `run`
 
