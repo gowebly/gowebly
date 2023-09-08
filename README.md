@@ -86,16 +86,20 @@ docker run \
 
 ## 📖 Complete user guide
 
+To get a complete guide to use and understand the basic principles of the
+`gowebly` CLI, we have prepared a comprehensive explanation of each command at
+once in this README file.
+
+Don't forget to go to the translation page for your language (current is 
+**English**): [Русский][repo_readme_ru_url], [中文][repo_readme_cn_url],
+[Español][repo_readme_es_url].
+
 > ⚡️ From the authors: We always treasure your time and want you to start 
 > building really great web products on this awesome technology stack as 
 > soon as possible!
 
-To get a complete guide to use and understand the basic principles of the 
-`gowebly` CLI, we have prepared a comprehensive explanation of each command at 
-once in this README file. 
-
-We hope you find answers to all your questions! But, if you do not find needed 
-information, feel free to create an [issue][repo_issues_url] or send a 
+We hope you find answers to all your questions! 👌 But, if you do not find 
+needed information, feel free to create an [issue][repo_issues_url] or send a 
 [PR][repo_pull_request_url] to this repository.
 
 ### `create`
