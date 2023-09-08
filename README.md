@@ -35,9 +35,10 @@ options to create a new project:
 go run github.com/gowebly/gowebly@latest built-in unocss
 ```
 
-That's it! Your amazing Go web app with [htmx][htmx_url] &
-[hyperscript][hyperscript_url], and **CSS framework** features are available 
-in your Go HTML templates.
+That's it! Your wonderful web application (in this example using the 
+built-in `net/http` package) with [**htmx**][htmx_url] &
+[**hyperscript**][hyperscript_url] and **CSS framework** features (in this 
+example UnoCSS) is available in Go HTML templates.
 
 Let's make useful web project and deploy them to the Internet 🚀
 
