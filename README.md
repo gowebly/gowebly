@@ -3,7 +3,6 @@
 [![Go version][go_version_img]][go_dev_url]
 [![Go report][go_report_img]][go_report_url]
 [![Code coverage][go_code_coverage_img]][repo_url]
-[![Wiki][repo_wiki_img]][repo_wiki_url]
 [![License][repo_license_img]][repo_license_url]
 
 English | [Русский][repo_readme_ru_url] | [Español][repo_readme_es_url]
@@ -14,7 +13,7 @@ atomic/utility-first **CSS frameworks** on frontend.
 
 Features:
 
-- 100% **free** and **open source** under [Apache 2.0][repo_license_url] 
+- 100% **free** and **open source** under the [Apache 2.0][repo_license_url] 
   license.
 - For **any** level of developer's knowledge and technical expertise.
 - Helps to get into the **Go** + **htmx** + **hyperscript** technology 
@@ -209,7 +208,6 @@ for people and robots by [Vic Shóstak][author_url].
 [repo_issues_url]: https://github.com/gowebly/gowebly/issues
 [repo_pull_request_url]: https://github.com/gowebly/gowebly/pulls
 [repo_releases_url]: https://github.com/gowebly/gowebly/releases
-[repo_wiki_url]: https://github.com/gowebly/gowebly/wiki
 [repo_license_url]: https://github.com/gowebly/gowebly/blob/main/LICENSE
 [repo_wiki_img]: https://img.shields.io/badge/docs-wiki_page-blue?style=for-the-badge&logo=none
 [repo_license_img]: https://img.shields.io/badge/license-Apache_2.0-red?style=for-the-badge&logo=none
