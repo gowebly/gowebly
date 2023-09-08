@@ -63,16 +63,16 @@ docker run --rm -it -v ${PWD}:${PWD} -w ${PWD} gowebly/gowebly:latest [COMMANDS]
 
 ## 📖 Complete user guide
 
-To get a complete guide to use and understand the basic principles of the 
-`gowebly` CLI, we have prepared a comprehensive explanation of each command at 
-once in this README file. We hope you find answers to all your questions 😊
-
-> ⚡️ From authors: We always treasure your time and want you to start building 
+> ⚡️ From authors: We always treasure your time and want you to start building
 > really great products on this great technology stack as soon as possible!
 
-If you do not find needed information, feel free to create an
-[issue][repo_issues_url] or send a [PR][repo_pull_request_url] to this
-repository.
+To get a complete guide to use and understand the basic principles of the 
+`gowebly` CLI, we have prepared a comprehensive explanation of each command at 
+once in this README file. 
+
+We hope you find answers to all your questions! But, if you do not find needed 
+information, feel free to create an [issue][repo_issues_url] or send a 
+[PR][repo_pull_request_url] to this repository.
 
 ### `create`
 
