@@ -19,7 +19,8 @@ Features:
 - For **any** level of developer's knowledge and technical expertise.
 - Helps to get into the **Go** + **htmx** + **hyperscript** technology 
   stack faster.
-- CLI that **does most** of the routine setup and preparation for production.
+- Smart CLI that **does most** of the routine setup and preparation for 
+  production.
 - Contains a comprehensive **example** of how to use it out of the box.
 - **Well-documented**, with a lot of tips and assists from the authors.
 
