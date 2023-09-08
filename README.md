@@ -111,13 +111,14 @@ The following library versions will be supplied in Go HTML templates:
 In development mode, only official supported CDNs from developers 
 will be used: 
 
-- [unpkg][unpkg_url] for **htmx** and **hyperscript**;
-- [cdn.tailwindcss.com][tailwindcss_cdn_url] for **Tailwind CSS**;
+- [unpkg.com][unpkg_url] for **htmx** and **hyperscript**;
+- [tailwindcss.com][tailwindcss_cdn_url] for **Tailwind CSS**;
 - [jsDelivr][jsdelivr_url] for **UnoCSS**.
 
 ### `build`
 
-Command to build your project for **production**.
+Command to build your project for **production** and prepare containers for 
+deploy.
 
 ```console
 gowebly build
@@ -134,11 +135,10 @@ The following library versions will be supplied in Go HTML templates:
 > 💡 Note: By default, `gowebly` CLI search for YAML config file
 > (`.gowebly.yml`) in the current folder.
 
-Every time you build your project by `gowebly build` command:
+Every time you run `build` command for your project:
 
-1. CLI scan and validate the given YAML config file (by default, search for 
-   `.gowebly.yml` in the current folder), apply settings and options to the 
-   current project;
+1. CLI scan and validate the YAML config file (`.gowebly.yml`), apply all 
+   settings to the current project;
 2. Automatically download minified versions of **htmx** and **hyperscript** 
    from the official (and trusted) resources;
 3. Embed them into your Go HTML templates (inline-style) to the block called 
@@ -149,7 +149,7 @@ Every time you build your project by `gowebly build` command:
    (usually, placed on the bottom of the `<head>` tag);
 5. CLI create a complex `docker-compose.yml` file in the root of the project 
    folder with instructions for deploy your project in isolated containers 
-   via [Portainer][portainer_url] (strongly recommended) or manually to your 
+   via (_strongly recommended_) [Portainer][portainer_url] or manually to your 
    remote server.
 
 ## ✨ Solving case
