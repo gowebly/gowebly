@@ -157,7 +157,8 @@ Every time you make `run` command for your project:
    `<body>` tag);
 2. (_optionally_) CLI embed a CDN version of the chosen **CSS framework** 
    from the official (and trusted) resource to a regular `<link>` tag into 
-   the block called `gowebly-head-styles`;
+   the block called `gowebly-head-styles` (usually, placed on the bottom of the
+   `<head>` tag);
 3. CLI start a project's backend on the port `5000` via simple `go run` 
    command.
 
