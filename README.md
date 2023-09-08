@@ -53,7 +53,7 @@ go install github.com/gowebly/gowebly@latest
 
 ### 🍺 Homebrew-way to quick start
 
-Yes, GNU/Linux and Apple macOS users available way to install `gowebly` via 
+GNU/Linux and Apple macOS users available way to install `gowebly` via 
 [Homebrew][brew_url].
 
 Tap a new formula:
@@ -68,10 +68,6 @@ Install `gowebly` CLI:
 brew install gowebly/tap/gowebly
 ```
 
-> 💡 Note: If you want to download ready-made MS Windows `exe` files, `deb`, 
-> `rpm`, `apk` or `Arch Linux` packages, see the 
-> [Release page][repo_releases_url].
-
 ### 🐳 Docker-way to quick start
 
 If you don't want to physically install `gowebly` to your system, you feel
@@ -83,6 +79,11 @@ docker run \
     --rm -it -v ${PWD}:${PWD} -w ${PWD} \
     gowebly/gowebly:latest [COMMAND] [OPTIONS]
 ```
+
+### Other way to quick start
+
+Download a ready-made Microsoft Windows `exe` files, `deb`, `rpm`, `apk` or 
+Arch Linux packages on the [Releases][repo_releases_url] page.
 
 ## 📖 Complete user guide
 
