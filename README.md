@@ -239,6 +239,7 @@ for people and robots by [Vic Shóstak][author_url].
 
 <!-- Readme links -->
 
+[repo_readme_en_url]: https://github.com/gowebly/gowebly/blob/main/README.md
 [repo_readme_ru_url]: https://github.com/gowebly/gowebly/blob/main/README_RU.md
 [repo_readme_cn_url]: https://github.com/gowebly/gowebly/blob/main/README_CN.md
 [repo_readme_es_url]: https://github.com/gowebly/gowebly/blob/main/README_ES.md
