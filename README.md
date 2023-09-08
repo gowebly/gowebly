@@ -5,8 +5,8 @@
 [![Code coverage][go_code_coverage_img]][repo_url]
 [![License][repo_license_img]][repo_license_url]
 
-**English** | [Русский][repo_readme_ru_url] | [Español][repo_readme_es_url] 
-| [中文][repo_readme_cn_url]
+**English** | [Русский][repo_readme_ru_url] | [中文][repo_readme_cn_url] | 
+[Español][repo_readme_es_url]
 
 This CLI tool can easily build amazing web applications with **Go** 
 on the backend using **htmx** & **hyperscript** and the most popular 
@@ -28,37 +28,54 @@ Features:
 First, [download][go_download_url] and install **Go**. Version `1.21` (or 
 higher) is required.
 
-Installation is done by using the [`go install`][go_install_url] command:
+Now, you can use `gowebly` without installation. Just `go run` it with 
+options to create a new project:
+
+```console
+go run github.com/gowebly/gowebly@latest built-in unocss
+```
+
+That's it! Your amazing Go web app with [htmx][htmx_url] &
+[hyperscript][hyperscript_url], and (_optionally_) **CSS framework**
+features are available in your Go HTML templates.
+
+Let's make useful web project and deploy them to the Internet 🚀
+
+### 🔹 A full Go-way to quick start
+
+If you still want to install `gowebly` to your system, use the 
+[`go install`][go_install_url] command:
 
 ```console
 go install github.com/gowebly/gowebly@latest
 ```
 
-> 💡 Note: See the repository's [Release page][repo_releases_url], if you want
-> to download ready-made MS Windows `exe` files, `deb`, `rpm`, `apk` or 
-> `Arch Linux` packages.
-
-Also, GNU/Linux and macOS users available way to install via 
-[Homebrew][brew_url]:
-
-```console
-# Tap a new formula:
-brew tap gowebly/tap
-
-# Installation:
-brew install gowebly/tap/gowebly
-```
-
-Next, run `gowebly` to create a new project:
+And next, run it with options to create a new project:
 
 ```console
 gowebly create built-in unocss
 ```
 
-That's it! Your amazing Go web app with [htmx][htmx_url] & 
-[hyperscript][hyperscript_url], and (_optionally_) **CSS framework** 
-features are available in your Go HTML templates. Let's make useful web project 
-and deploy them to the Internet 🚀
+### 🍺 Homebrew-way to quick start
+
+Yes, GNU/Linux and Apple macOS users available way to install via 
+[Homebrew][brew_url].
+
+Tap a new formula:
+
+```console
+brew tap gowebly/tap
+```
+
+Install `gowebly`:
+
+```console
+brew install gowebly/tap/gowebly
+```
+
+> 💡 Note: See the repository's [Release page][repo_releases_url], if you want
+> to download ready-made MS Windows `exe` files, `deb`, `rpm`, `apk` or
+> `Arch Linux` packages.
 
 ### 🐳 Docker-way to quick start
 
@@ -67,7 +84,9 @@ free to using our [official Docker image][docker_image_url] and run it from
 isolated container:
 
 ```console
-docker run --rm -it -v ${PWD}:${PWD} -w ${PWD} gowebly/gowebly:latest [COMMANDS]
+docker run \
+    --rm -it -v ${PWD}:${PWD} -w ${PWD} \
+    gowebly/gowebly:latest [BACKEND] [CSS_FRAMEWORK]
 ```
 
 ## 📖 Complete user guide
@@ -211,7 +230,6 @@ for people and robots by [Vic Shóstak][author_url].
 [repo_pull_request_url]: https://github.com/gowebly/gowebly/pulls
 [repo_releases_url]: https://github.com/gowebly/gowebly/releases
 [repo_license_url]: https://github.com/gowebly/gowebly/blob/main/LICENSE
-[repo_wiki_img]: https://img.shields.io/badge/docs-wiki_page-blue?style=for-the-badge&logo=none
 [repo_license_img]: https://img.shields.io/badge/license-Apache_2.0-red?style=for-the-badge&logo=none
 
 <!-- Author links -->
@@ -221,18 +239,18 @@ for people and robots by [Vic Shóstak][author_url].
 <!-- Readme links -->
 
 [repo_readme_ru_url]: https://github.com/gowebly/gowebly/blob/main/README_RU.md
-[repo_readme_es_url]: https://github.com/gowebly/gowebly/blob/main/README_ES.md
 [repo_readme_cn_url]: https://github.com/gowebly/gowebly/blob/main/README_CN.md
+[repo_readme_es_url]: https://github.com/gowebly/gowebly/blob/main/README_ES.md
 [docker_image_url]: https://hub.docker.com/repository/docker/gowebly/gowebly
 [portainer_url]: https://docs.portainer.io
 [brew_url]: https://brew.sh
-[unpkg_url]: https://unpkg.com
 [vite_url]: https://vitejs.dev
 [htmx_url]: https://htmx.org
 [hyperscript_url]: https://hyperscript.org
 [tailwindcss_url]: https://tailwindcss.com
 [tailwindcss_cdn_url]: https://tailwindcss.com/docs/installation/play-cdn
 [unocss_url]: https://unocss.dev
+[unpkg_url]: https://unpkg.com
 [jsdelivr_url]: https://www.jsdelivr.com
 [net_http_url]: https://pkg.go.dev/net/http
 [fiber_url]: https://gofiber.io

@@ -70,7 +70,7 @@ release:
     brew upgrade gowebly/tap/gowebly
     ```
     
-    > 💡 Note: See the [`Wiki page`][wiki_url] to get general recommendations.
+    > 💡 Note: See the [Complete user guide][repo_readme_url] to get a general information.
     
     ## Your help to improve project
     
@@ -83,7 +83,7 @@ release:
     Your PRs & issues are welcome! Thanks 😉
     
     [brew_url]: https://brew.sh
-    [wiki_url]: https://github.com/gowebly/gowebly/wiki
+    [repo_readme_url]: https://github.com/gowebly/gowebly/tree/main#-complete-user-guide
   disable: false
   skip_upload: false
 
@@ -129,12 +129,12 @@ brews:
     caveats: |
       After install, create a new project:
 
-      $ gowebly create [BACKEND_NAME] [CSS_FRAMEWORK]
+      $ gowebly create [BACKEND] [CSS_FRAMEWORK]
       
-      💡 Note: See the repository's Wiki page (https://github.com/gowebly/gowebly/wiki) to get general recommendations.
+      💡 Note: See the Complete user guide (https://github.com/gowebly/gowebly/tree/main#-complete-user-guide) to get a general information.
     homepage: 'https://github.com/gowebly/{{ .ProjectName }}'
     description: |
-      A next-generation CLI tool for building amazing web applications in Go using htmx & hyperscript.
+      A next-generation CLI tool for building amazing web applications in Go using htmx & hyperscript and the most popular atomic/utility-first CSS frameworks.
     license: Apache 2.0
     skip_upload: false
 
@@ -142,7 +142,7 @@ nfpms:
   -
     maintainer: Vic Shóstak <koddr.me@gmail.com>
     description: |
-      A next-generation CLI tool for building amazing web applications in Go using htmx & hyperscript.
+      A next-generation CLI tool for building amazing web applications in Go using htmx & hyperscript and the most popular atomic/utility-first CSS frameworks.
     homepage: 'https://github.com/gowebly/{{ .ProjectName }}'
     license: Apache 2.0
     formats: [ deb, rpm, apk, archlinux ]
