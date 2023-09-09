@@ -91,7 +91,7 @@ Arch Linux 软件包。
 gowebly create [BACKEND]
 ```
 
-如果没有定义 Go 后端，`gowebly`CLI 默认会使用内置的 [net/http][net_http_url] 包创建一个新项目。
+> 💡 注意：如果没有定义 Go 后端，`gowebly`CLI 默认会使用内置的 [net/http][net_http_url] 包创建一个新项目。
 
 您可以为项目选择 Go 后台：
 

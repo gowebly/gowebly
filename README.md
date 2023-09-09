@@ -111,8 +111,8 @@ Command to create a new project with the given **Go** backend, **htmx** &
 gowebly create [BACKEND]
 ```
 
-If you don't define a Go backend, by default the `gowebly` CLI creates a new 
-project with the built-in [net/http][net_http_url] package.
+> 💡 Note: If you don't define a Go backend, by default the `gowebly` CLI 
+> creates a new project with the built-in [net/http][net_http_url] package.
 
 You can choose the another **Go backend** for your project:
 
