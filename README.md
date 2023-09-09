@@ -35,10 +35,10 @@ Now, you can use `gowebly` without installation. Just [`go run`][go_run_url] it
 with options to create a new project:
 
 ```console
-go run github.com/gowebly/gowebly@latest create built-in
+go run github.com/gowebly/gowebly@latest create
 ```
 
-That's it! 🔥 Your wonderful web application (in this example, using the 
+That's it! 🔥 Your wonderful web application (by default, using the 
 built-in `net/http` package) with **htmx** & **hyperscript** is available 
 in Go HTML templates.
 
@@ -111,14 +111,16 @@ Command to create a new project with the given **Go** backend, **htmx** &
 gowebly create [BACKEND]
 ```
 
-You can choose the **Go backend** for your project:
+If you don't define a Go backend, by default the `gowebly` CLI creates a new 
+project with the built-in [net/http][net_http_url] package.
 
-| Backend    | Description                                                                           |
-|------------|---------------------------------------------------------------------------------------|
-| `built-in` | Create a new project with Go backend with a built-in [net/http][net_http_url] package |
-| `fiber`    | Create a new project with Go backend with the [Fiber][fiber_url] web framework        |
-| `echo`     | Create a new project with Go backend with the [Echo][echo_url] web framework          |
-| `chi`      | Create a new project with Go backend with the [chi][chi_url] composable router        |
+You can choose the another **Go backend** for your project:
+
+| Backend   | Description                                                                           |
+|-----------|---------------------------------------------------------------------------------------|
+| `fiber`   | Create a new project with Go backend with the [Fiber][fiber_url] web framework        |
+| `echo`    | Create a new project with Go backend with the [Echo][echo_url] web framework          |
+| `chi`     | Create a new project with Go backend with the [chi][chi_url] composable router        |
 
 ### `add`
 

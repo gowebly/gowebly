@@ -37,7 +37,7 @@ Ahora, puedes usar `gowebly` sin instalación. Basta con [`go run`][go_run_url]
 con opciones para crear un nuevo proyecto:
 
 ```console
-go run github.com/gowebly/gowebly@latest create built-in
+go run github.com/gowebly/gowebly@latest create
 ```
 
 ¡Ya está! 🔥 Tu maravillosa aplicación web (en este ejemplo, usando el 
@@ -110,11 +110,13 @@ Comando para crear un nuevo proyecto con el backend Go dado, **htmx** &
 gowebly create [BACKEND]
 ```
 
+Si no defines un backend Go, por defecto el CLI `gowebly` crea un nuevo 
+proyecto con el paquete incorporado [net/http][net_http_url].
+
 Puedes elegir el backend **Go** para tu proyecto:
 
 | Backend    | Descripción                                                                                |
 |------------|--------------------------------------------------------------------------------------------|
-| `built-in` | Crear un nuevo proyecto con Go backend con un paquete incorporado [net/http][net_http_url] |
 | `fiber`    | Crear un nuevo proyecto con Go backend con el framework web [Fiber][fiber_url]             |
 | `echo`     | Crear un nuevo proyecto con Go backend con el framework web [Echo][echo_url]               |
 | `chi`      | Crear un nuevo proyecto con Go backend con el [chi][chi_url] composable router             |
