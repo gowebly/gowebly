@@ -185,8 +185,8 @@ Go HTML 模板中将提供以下库版本：
 
 ## ⚠️ 许可证
 
-[`gowebly`][repo_url]是根据[Apache 2.0 License][repo_license_url] 授权的自由和开源软件。由
-[Vic Shóstak][author_url]创建和支持。[Vic Shóstak][author_url]创建和支持，其中🩵代表人和机器人。
+[`gowebly`][repo_url]是根据[Apache 2.0 License][repo_license_url]授权的免费开源软件, 由
+[Vic Shóstak][author_url]创建和支持, 其中🩵代表人和机器人。
 
 <!-- Go links -->
 
