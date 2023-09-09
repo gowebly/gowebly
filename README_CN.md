@@ -79,8 +79,8 @@ Arch Linux 软件包。
 
 > ⚡️ 作者的话 我们一直非常珍惜您的时间，并希望您能尽快开始在这个超棒的技术栈上构建真正出色的网络产品！
 
-我们希望您能找到所有问题的答案！👌 但是，如果您没有找到所需的信息，请随时创建一个 [issue][repo_issues_url] 或发送一个 [PR]
-[repo_pull_request_url] 到此版本库。
+我们希望您能找到所有问题的答案！👌 但是，如果您没有找到所需的信息，请随时创建一个 [issue][repo_issues_url] 或发送一个 
+[PR][repo_pull_request_url] 到此版本库。
 
 ### `create`
 
