@@ -93,12 +93,12 @@ gowebly create [BACKEND]
 
 您可以为项目选择 Go 后台：
 
-| 后台         | 说明                                       |
-|------------|------------------------------------------|
-| `built-in` | 使用内置 [net/http][net_http_url] 软件包的 Go 后台 |
-| `fiber`    | 使用 [Fiber][fiber_url] 网络框架转到后台           |
-| `echo`     | 使用 [Echo][echo_url] 网络框架转到后台             |
-| `chi`      | 使用 [chi][chi_url] 可组合路由器转到后台             |
+| 后台         | 说明                                           |
+|------------|----------------------------------------------|
+| `built-in` | 创建一个新项目，Go 后台内置 [net/http][net_http_url] 软件包 |
+| `fiber`    | 使用[Fiber][fiber_url] 网络框架创建一个带有 Go 后端的新项目    |
+| `echo`     | 使用[Echo][echo_url] 网络框架创建一个带有 Go 后端的新项目      |
+| `chi`      | 使用 Go 后端和 [chi][chi_url] 可组合路由器创建一个新项目       |
 
 ### `add`
 
@@ -112,10 +112,10 @@ gowebly add [CSS_FRAMEWORK]
 
 您可以选择 CSS 框架：
 
-| CSS 框架        | 说明                                      |
-|---------------|-----------------------------------------|
-| `tailwindcss` | 将[Tailwind CSS][tailwindcss_url]添加到项目前端 |
-| `unocss`      | 在项目前端添加 [UnoCSS][unocss_url]。           |
+| CSS 框架        | 说明                                       |
+|---------------|------------------------------------------|
+| `tailwindcss` | 在项目前端添加 [Tailwind CSS][tailwindcss_url]。 |
+| `unocss`      | 在项目前端添加 [UnoCSS][unocss_url]。            |
 
 ### `run`
 

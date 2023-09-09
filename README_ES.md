@@ -112,12 +112,12 @@ gowebly create [BACKEND]
 
 Puedes elegir el backend **Go** para tu proyecto:
 
-| Backend    | Descripción                                                  |
-|------------|--------------------------------------------------------------|
-| `built-in` | Go backend con un paquete [net/http][net_http_url] integrado |
-| `fiber`    | Go backend con el framework web [Fiber][fiber_url]           |
-| `echo`     | Go backend con el framework web [Echo][echo_url]             |
-| `chi`      | Go backend con el enrutador componible [chi][chi_url]        |
+| Backend    | Descripción                                                                                |
+|------------|--------------------------------------------------------------------------------------------|
+| `built-in` | Crear un nuevo proyecto con Go backend con un paquete incorporado [net/http][net_http_url] |
+| `fiber`    | Crear un nuevo proyecto con Go backend con el framework web [Fiber][fiber_url]             |
+| `echo`     | Crear un nuevo proyecto con Go backend con el framework web [Echo][echo_url]               |
+| `chi`      | Crear un nuevo proyecto con Go backend con el [chi][chi_url] composable router             |
 
 ### `add`
 
