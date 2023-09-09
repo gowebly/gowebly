@@ -40,8 +40,6 @@ That's it! 🔥 Your wonderful web application (in this example using the
 built-in `net/http` package) with **htmx** & **hyperscript** and **CSS 
 framework** features (in this example UnoCSS) is available in Go HTML templates.
 
-Let's make useful web project and deploy them to the Internet 🚀
-
 ### 🔹 A full Go-way to quick start
 
 If you still want to install `gowebly` CLI to your system by Golang, use the 
@@ -53,7 +51,7 @@ go install github.com/gowebly/gowebly@latest
 
 ### 🍺 Homebrew-way to quick start
 
-GNU/Linux and Apple macOS users available way to install `gowebly` via 
+GNU/Linux and Apple macOS users available way to install `gowebly` CLI via 
 [Homebrew][brew_url].
 
 Tap a new formula:
@@ -62,7 +60,7 @@ Tap a new formula:
 brew tap gowebly/tap
 ```
 
-Install `gowebly` CLI:
+Install `gowebly`:
 
 ```console
 brew install gowebly/tap/gowebly
@@ -119,7 +117,7 @@ You can choose the **Go backend** for your project:
 | `built-in` | Go backend with a built-in [net/http][net_http_url] package |
 | `fiber`    | Go backend with the [Fiber][fiber_url] web framework        |
 | `echo`     | Go backend with the [Echo][echo_url] web framework          |
-| `chi`      | Go backend with the [chi][chi_url]  composable router       |
+| `chi`      | Go backend with the [chi][chi_url] composable router        |
 
 _Optionally_, you can choose the **CSS framework**:
 

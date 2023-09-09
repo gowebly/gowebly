@@ -43,8 +43,6 @@ go run github.com/gowebly/gowebly@latest create built-in unocss
 **framework CSS** (en este ejemplo UnoCSS) está disponible en plantillas Go 
 HTML.
 
-Hagamos proyectos web útiles y despleguémoslos en Internet 🚀
-
 ### 🔹 Un completo Go-way de inicio rápido
 
 Si todavía quieres instalar `gowebly` CLI en tu sistema por Golang, usa el 
@@ -56,7 +54,7 @@ go install github.com/gowebly/gowebly@latest
 
 ### 🍺 Un Homebrew-way de inicio rápido
 
-GNU/Linux y Apple macOS usuarios disponibles manera de instalar `gowebly` a 
+GNU/Linux y Apple macOS usuarios disponibles manera de instalar `gowebly` CLI a 
 través de [Homebrew][brew_url].
 
 Toque una nueva fórmula:
@@ -65,7 +63,7 @@ Toque una nueva fórmula:
 brew tap gowebly/tap
 ```
 
-Instalar `gowebly` CLI:
+Instalar `gowebly`:
 
 ```console
 brew install gowebly/tap/gowebly
@@ -114,7 +112,7 @@ gowebly create [BACKEND] [CSS_FRAMEWORK]
 
 Puedes elegir el **backend Go** para tu proyecto:
 
-| Backend    | Description                                                  |
+| Backend    | Descripción                                                  |
 |------------|--------------------------------------------------------------|
 | `built-in` | Go backend con un paquete [net/http][net_http_url] integrado |
 | `fiber`    | Go backend con el framework web [Fiber][fiber_url]           |
@@ -123,7 +121,7 @@ Puedes elegir el **backend Go** para tu proyecto:
 
 _Opcionalmente_, puede elegir el **framework CSS**:
 
-| CSS framework | Description                                                      |
+| CSS framework | Descripción                                                      |
 |---------------|------------------------------------------------------------------|
 | `tailwindcss` | Añade [Tailwind CSS][tailwindcss_url] al frontend de tu proyecto |
 | `unocss`      | Añade [UnoCSS][unocss_url] al frontend de tu proyecto            |
