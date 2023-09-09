@@ -26,7 +26,10 @@ func ParseYAMLToStruct[T any](path string, model *T) (*T, error) {
 
 	// Unmarshal structured data to the given struct.
 	if err = k.Unmarshal("", &model); err != nil {
-		return nil, fmt.Errorf("an error unmarshalling data from the YAML config file to struct, %w", err)
+		return nil, fmt.Errorf(
+			"an error with unmarshalling data process from the YAML config file to struct, %w",
+			err,
+		)
 	}
 
 	return model, nil
