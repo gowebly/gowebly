@@ -210,7 +210,7 @@ Why not just give all that awful manual work to machines? Let them do all
 the hard work for us, and we will just create awesome web products and not
 have to think about build and deploy.
 
-That's why we created the `gowebly` CLI, which helps you build amazing web 
+That's why we created the `gowebly` CLI, which helps you start amazing web 
 applications in **Go** using **htmx**, **hyperscript** and popular 
 atomic/utility-first **CSS frameworks**.
 

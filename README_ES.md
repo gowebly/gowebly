@@ -218,9 +218,9 @@ desarrollador de la tecnología.
 hagan todo el trabajo duro por nosotros, y nos limitaremos a crear 
 increíbles productos web sin tener que pensar en compilar y desplegar.
 
-Es por eso que hemos creado la CLI `gowebly`, que le ayuda a construir
-aplicaciones web increíbles aplicaciones en **Go** usando **htmx**,
-**hyperscript** y populares atomic/utility-first **frameworks CSS**.
+Por eso hemos creado la CLI `gowebly`, que te ayuda a crear increíbles 
+aplicaciones web en **Go** usando **htmx**, **hyperscript** y populares 
+frameworks atómicos/utility-first **CSS**.
 
 ¡Estamos aquí para salvarte (_y a mí mismo_) de este dolor rutinario! ✨
 
