@@ -36,7 +36,7 @@ go run github.com/gowebly/gowebly@latest create built-in unocss
 
 ### 🔹 快速启动的完整 Go-way
 
-如果您仍想通过 Golang 在系统中安装 `gowebly` CLI，请使用 [go install`][go_install_url]命令：
+如果您仍想通过 Golang 在系统中安装 `gowebly` CLI，请使用 [`go install`][go_install_url]命令：
 
 ```console
 go install github.com/gowebly/gowebly@latest
