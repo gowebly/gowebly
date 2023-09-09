@@ -218,8 +218,8 @@ desarrollador de la tecnología.
 hagan todo el trabajo duro por nosotros, y nos limitaremos a crear 
 increíbles productos web sin tener que pensar en compilar y desplegar.
 
-Por eso hemos creado la CLI `gowebly`. ¡Estamos aquí para salvarte (_y a 
-nosotros mismos, entre otros_) de este dolor rutinario! ✨
+Por eso hemos creado la CLI `gowebly`. ¡Estamos aquí para salvarte (_y a mí 
+mismo_) de este dolor rutinario! ✨
 
 ## 🏆 Una cooperación beneficiosa para todos
 
