@@ -196,13 +196,22 @@ Every time you make `build` command for your project:
    via [Portainer][portainer_url] (_recommended_) or manually to your remote 
    server.
 
-## ✨ Solving case
+## 🎯 Motivation to create
 
-...
+Tell us, how often have you had to start a new project from scratch and had
+to make painful manual configurations? 🤔 Especially when you are just getting
+acquainted with a new technology or stack, where everything is new to you.
 
-## 🎯 Motivation
+For many developers, _including us_, this process is as tedious and even
+depressing as possible, and doesn't carry any useful workload. It is a **very**
+frustrating process that can push any developer away from technology a lot.
 
-...
+Why not just give all that awful manual work to machines? Let them do all
+the hard work for us, and we will just create awesome web products and not
+have to think about build and deploy.
+
+That's why we created the `gowebly` CLI. We are here to save you (_and
+ourselves, among others_) from this routine pain! ✨
 
 ## 🏆 A win-win cooperation
 
