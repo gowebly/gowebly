@@ -145,13 +145,13 @@ The following library versions will be supplied in Go HTML templates:
 In development mode, only official supported CDNs from developers 
 will be used: 
 
-- [unpkg.com][unpkg_url] for **htmx** and **hyperscript**;
+- [unpkg.com][unpkg_url] for **htmx** & **hyperscript**;
 - [tailwindcss.com][tailwindcss_cdn_url] for **Tailwind CSS**;
 - [jsDelivr][jsdelivr_url] for **UnoCSS**.
 
 Every time you make `run` command for your project:
 
-1. CLI embed CDN versions of **htmx** and **hyperscript** to your Go HTML 
+1. CLI embed CDN versions of **htmx** & **hyperscript** to your Go HTML 
    templates in a regular `<script>` tag into the block called 
    `gowebly-body-scripts` (usually, placed on the bottom of the `<body>` tag);
 2. (_optionally_) CLI embed a CDN version of the chosen **CSS framework** to 
@@ -183,7 +183,7 @@ Every time you make `build` command for your project:
 
 1. CLI scan and validate the YAML config file (`.gowebly.yml`), apply all 
    settings to the current project;
-2. CLI download minified versions of **htmx** and **hyperscript** from the 
+2. CLI download minified versions of **htmx** & **hyperscript** from the 
    official (and trusted) resources;
    - Embed them into your Go HTML templates (inline-style) to the block 
      called `gowebly-body-scripts` (usually, placed on the bottom of the 
