@@ -211,7 +211,7 @@ the hard work for us, and we will just create awesome web products and not
 have to think about build and deploy.
 
 That's why we created the `gowebly` CLI. We are here to save you (_and
-ourselves, among others_) from this routine pain! ✨
+ourselves_) from this routine pain! ✨
 
 ## 🏆 A win-win cooperation
 
