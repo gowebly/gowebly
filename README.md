@@ -9,7 +9,7 @@
 [Español][repo_readme_es_url]
 
 This CLI tool can easily build amazing web applications with **Go** 
-on the backend using [**htmx**][htmx_url] & [**hyperscript**][hyperscript_url] 
+on the backend, using [**htmx**][htmx_url] & [**hyperscript**][hyperscript_url] 
 and the most popular atomic/utility-first **CSS frameworks** on the frontend.
 
 Features:
@@ -36,7 +36,7 @@ with options to create a new project:
 go run github.com/gowebly/gowebly@latest create built-in unocss
 ```
 
-That's it! 🔥 Your wonderful web application (in this example using the 
+That's it! 🔥 Your wonderful web application (in this example, using the 
 built-in `net/http` package) with **htmx** & **hyperscript** and **CSS 
 framework** features (in this example UnoCSS) is available in Go HTML templates.
 
@@ -210,7 +210,7 @@ Why not just give all that awful manual work to machines? Let them do all
 the hard work for us, and we will just create awesome web products and not
 have to think about build and deploy.
 
-That's why we created the `gowebly` CLI, which helps you start amazing web 
+That's why we created the `gowebly` CLI, which helps you start an amazing web 
 applications in **Go** using **htmx**, **hyperscript** and popular 
 atomic/utility-first **CSS frameworks**.
 
