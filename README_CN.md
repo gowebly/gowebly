@@ -18,6 +18,7 @@ frameworks**，轻松构建令人惊叹的网络应用程序。
 - 适用于任何知识水平和技术专长的开发人员。
 - 有助于更快地进入 Go + htmx + hyperscript 技术栈。
 - 智能 CLI 可完成大部分常规设置和生产准备工作。
+- 为项目添加原子/实用工具优先 CSS 框架的可能性；
 - 包含开箱即用的综合示例。
 - 文档详实，作者提供了大量提示和帮助。
 
@@ -28,11 +29,11 @@ frameworks**，轻松构建令人惊叹的网络应用程序。
 现在，你可以在不安装的情况下使用 `gowebly`。只需 [`go run`][go_run_url] 它，并在选项中创建一个新项目：
 
 ```console
-go run github.com/gowebly/gowebly@latest create built-in unocss
+go run github.com/gowebly/gowebly@latest create built-in
 ```
 
-就是这样！🔥 您的精彩网络应用程序（本例中使用内置的 `net/http` 软件包）带有 htmx 和 hyperscript 以及 CSS 
-框架功能（本例中为 UnoCSS），可在 Go HTML 模板中使用。
+就是这样！🔥 您的精彩网络应用程序（本例中使用内置的 `net/http` 软件包）与 **htmx** 和 **hyperscript** 可在 Go 
+HTML 模板中使用。
 
 ### 🔹 快速启动的完整 Go-way
 
@@ -87,7 +88,7 @@ Arch Linux 软件包。
 命令使用给定的 Go 后端、htmx 和 hyperscript 以及（可选）最流行的原子/实用工具优先 CSS 框架创建新项目。
 
 ```console
-gowebly create [BACKEND] [CSS_FRAMEWORK]
+gowebly create [BACKEND]
 ```
 
 您可以为项目选择 Go 后台：
@@ -99,7 +100,17 @@ gowebly create [BACKEND] [CSS_FRAMEWORK]
 | `echo`     | 使用 [Echo][echo_url] 网络框架转到后台             |
 | `chi`      | 使用 [chi][chi_url] 可组合路由器转到后台             |
 
-您还可以选择 CSS 框架：
+### `add`
+
+命令将最流行的原子/实用工具优先 CSS 框架之一添加到你的项目中。这是可选项，不是必需项。
+
+```console
+gowebly add [CSS_FRAMEWORK]
+```
+
+> 💡 注意： `gowebly` CLI 会搜索当前文件夹中项目的 YAML 配置文件（`.gowebly.yml`）。
+
+您可以选择 CSS 框架：
 
 | CSS 框架        | 说明                                      |
 |---------------|-----------------------------------------|

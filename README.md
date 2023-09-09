@@ -21,6 +21,8 @@ Features:
   stack faster.
 - Smart CLI that **does most** of the routine setup and preparation for 
   production.
+- Possibility to simply add atomic/utility-first **CSS framework** to a 
+  project;
 - Contains a comprehensive **example** of how to use it out of the box.
 - **Well-documented**, with a lot of tips and assists from the authors.
 
@@ -33,12 +35,12 @@ Now, you can use `gowebly` without installation. Just [`go run`][go_run_url] it
 with options to create a new project:
 
 ```console
-go run github.com/gowebly/gowebly@latest create built-in unocss
+go run github.com/gowebly/gowebly@latest create built-in
 ```
 
 That's it! 🔥 Your wonderful web application (in this example, using the 
-built-in `net/http` package) with **htmx** & **hyperscript** and **CSS 
-framework** features (in this example UnoCSS) is available in Go HTML templates.
+built-in `net/http` package) with **htmx** & **hyperscript** is available 
+in Go HTML templates.
 
 ### 🔹 A full Go-way to quick start
 
@@ -102,12 +104,11 @@ Don't forget to switch this page for your language (current is
 
 ### `create`
 
-Command to create a new project with the given Go backend, **htmx** & 
-**hyperscript**, and (_optionally_) with the most popular 
-atomic/utility-first **CSS framework**.
+Command to create a new project with the given **Go** backend, **htmx** & 
+**hyperscript**.
 
 ```console
-gowebly create [BACKEND] [CSS_FRAMEWORK]
+gowebly create [BACKEND]
 ```
 
 You can choose the **Go backend** for your project:
@@ -119,7 +120,19 @@ You can choose the **Go backend** for your project:
 | `echo`     | Go backend with the [Echo][echo_url] web framework          |
 | `chi`      | Go backend with the [chi][chi_url] composable router        |
 
-_Optionally_, you can choose the **CSS framework**:
+### `add`
+
+Command to add one of the most popular atomic/utility-first **CSS 
+framework** to your project. _This is optional, not required._
+
+```console
+gowebly add [CSS_FRAMEWORK]
+```
+
+> 💡 Note: `gowebly` CLI search for YAML config file (`.gowebly.yml`) for
+> the project in the current folder.
+
+You can choose the **CSS framework**:
 
 | CSS framework | Description                                                         |
 |---------------|---------------------------------------------------------------------|

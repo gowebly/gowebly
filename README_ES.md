@@ -23,6 +23,8 @@ Funciones:
   **htmx** + **hyperscript**.
 - CLI inteligente que **hace la mayor parte** de la rutina de configuración 
   y preparación para la producción.
+- Posibilidad de añadir simplemente un **framework CSS** 
+  atomic/utility-first a un proyecto;
 - Contiene un **ejemplo** completo de cómo usarlo fuera de la caja.
 - **Bien documentado**, con muchos consejos y ayudas de los autores.
 
@@ -35,13 +37,12 @@ Ahora, puedes usar `gowebly` sin instalación. Basta con [`go run`][go_run_url]
 con opciones para crear un nuevo proyecto:
 
 ```console
-go run github.com/gowebly/gowebly@latest create built-in unocss
+go run github.com/gowebly/gowebly@latest create built-in
 ```
 
-¡Ya está! 🔥 Tu maravillosa aplicación web (en este ejemplo usando el paquete 
-`net/http` incorporado) con **htmx** & **hyperscript** y características de 
-**framework CSS** (en este ejemplo UnoCSS) está disponible en plantillas Go 
-HTML.
+¡Ya está! 🔥 Tu maravillosa aplicación web (en este ejemplo, usando el 
+paquete `net/http` incorporado) con **htmx** & **hyperscript** está 
+disponible en plantillas Go HTML.
 
 ### 🔹 Un completo Go-way de inicio rápido
 
@@ -103,14 +104,13 @@ repositorio.
 ### `create`
 
 Comando para crear un nuevo proyecto con el backend Go dado, **htmx** & 
-**hyperscript**, y (_opcionalmente_) con el **framework CSS** 
-atomic/utility-first más popular.
+**hyperscript**.
 
 ```console
-gowebly create [BACKEND] [CSS_FRAMEWORK]
+gowebly create [BACKEND]
 ```
 
-Puedes elegir el **backend Go** para tu proyecto:
+Puedes elegir el backend **Go** para tu proyecto:
 
 | Backend    | Descripción                                                  |
 |------------|--------------------------------------------------------------|
@@ -119,7 +119,16 @@ Puedes elegir el **backend Go** para tu proyecto:
 | `echo`     | Go backend con el framework web [Echo][echo_url]             |
 | `chi`      | Go backend con el enrutador componible [chi][chi_url]        |
 
-_Opcionalmente_, puede elegir el **framework CSS**:
+### `add`
+
+Comando para añadir uno de los más populares atomic/utility-first 
+**framework CSS** a tu proyecto. _Esto es opcional, no obligatorio._
+
+```console
+gowebly add [CSS_FRAMEWORK]
+```
+
+You can choose the **CSS framework**:
 
 | CSS framework | Descripción                                                      |
 |---------------|------------------------------------------------------------------|
