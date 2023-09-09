@@ -35,7 +35,7 @@ func Run(flags []string, di *injector.Injector) error {
 		// Building project to production.
 		return commands.Build(di)
 	default:
-		// Returning error.
+		// Returning error message.
 		return errors.New(constants.ErrorRunUnknownCommand)
 	}
 }

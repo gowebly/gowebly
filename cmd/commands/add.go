@@ -11,14 +11,14 @@ import (
 func Add(cssFramework string, di *injector.Injector) error {
 	// Switch between CSS frameworks or return error.
 	switch cssFramework {
-	case "unocss":
-		//
-		return nil
 	case "tailwindcss":
-		//
+		// TODO: implement process of the adding Tailwind CSS framework to your project.
+		return nil
+	case "unocss":
+		// TODO: implement process of the adding UnoCSS framework to your project.
 		return nil
 	default:
-		//
+		// Returning error message.
 		return errors.New(constants.ErrorRunAddCommandWithUnknownCSSFrameworkName)
 	}
 }
