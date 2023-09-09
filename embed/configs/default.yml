@@ -1,14 +1,18 @@
 #
-htmx:
+frontend:
 
   #
-  version: latest
-
-#
-hyperscript:
+  htmx: latest
 
   #
-  version: latest
+  hyperscript: latest
+
+  #
+  css:
+
+    #
+    framework: unocss
+    version: latest
 
 #
 storage:
@@ -17,17 +21,18 @@ storage:
   postgres:
 
     #
-    container:
-      name: gowebly-postgres
+    self_hosted:
+      container_name: gowebly-postgres
       version: latest
+      user: '$POSTGRES_USER'
+      password: '$POSTGRES_PASSWORD'
+      database: '$POSTGRES_DATABASE'
       port: 5432
 
     #
-    credentials:
-      user: '{{ GOWEBLY_STORAGE_POSTGRES_CREDENTIALS_USER }}'
-      password: '{{ GOWEBLY_STORAGE_POSTGRES_CREDENTIALS_PASSWORD }}'
-      database: postgres
-
-    #
-    options:
-      ssl_mode: disable
+    cloud:
+      host: '$POSTGRES_HOST'
+      user: '$POSTGRES_USER'
+      password: '$POSTGRES_PASSWORD'
+      database: '$POSTGRES_DATABASE'
+      port: 5432
