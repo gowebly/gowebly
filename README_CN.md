@@ -114,6 +114,8 @@ gowebly create [BACKEND] [CSS_FRAMEWORK]
 gowebly run
 ```
 
+> 💡 注意： `gowebly` CLI 会搜索当前文件夹中项目的 YAML 配置文件（`.gowebly.yml`）。
+
 Go HTML 模板中将提供以下库版本：
 
 - htmx：来自 CDN 的最新非生产版本；

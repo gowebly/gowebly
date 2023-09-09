@@ -134,6 +134,9 @@ Command to run your project in a **development** (non-production) mode.
 gowebly run
 ```
 
+> 💡 Note: `gowebly` CLI search for YAML config file (`.gowebly.yml`) for
+> the project in the current folder.
+
 The following library versions will be supplied in Go HTML templates:
 
 - **htmx**: latest non-production version from CDN;

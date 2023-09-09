@@ -134,6 +134,9 @@ Comando para ejecutar su proyecto en modo de **desarrollo** (no producción).
 gowebly run
 ```
 
+> 💡 Nota: `gowebly` CLI busca el archivo de configuración YAML
+> (`.gowebly.yml`) para el proyecto en la carpeta actual.
+
 Las siguientes versiones de la biblioteca se suministrarán en las plantillas 
 Go HTML:
 
