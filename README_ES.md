@@ -223,9 +223,9 @@ Sus relaciones públicas y problemas son bienvenidos. Gracias a todos 😘
 
 ## ⚠️ Licencia
 
-[`gowebly`][repo_url] es software libre y de código abierto con licencia
-bajo la [Licencia Apache 2.0][repo_license_url], creado y soportado con 🩵 
-para personas y robots por [Vic Shóstak][author_url].
+[`gowebly`][repo_url] es software libre y de código abierto licenciado
+bajo la [Licencia Apache 2.0][repo_license_url], creado y soportado por
+[Vic Shóstak][author_url] con 🩵 para personas y robots.
 
 <!-- Go links -->
 

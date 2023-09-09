@@ -217,8 +217,8 @@ Your PRs & issues are welcome! Thank you 😘
 ## ⚠️ License
 
 [`gowebly`][repo_url] is free and open-source software licensed 
-under the [Apache 2.0 License][repo_license_url], created and supported with 🩵 
-for people and robots by [Vic Shóstak][author_url].
+under the [Apache 2.0 License][repo_license_url], created and supported by 
+[Vic Shóstak][author_url] with 🩵 for people and robots.
 
 <!-- Go links -->
 
