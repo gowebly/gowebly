@@ -136,7 +136,7 @@ Go HTML 模板中将提供以下库版本：
 在开发模式下，只有开发人员提供的官方支持 CDN
 将被使用：
 
-- 用于 htmx 和 hyperscript 的 [unpkg.com][unpkg_url]；
+- [unpkg.com][unpkg_url] 用于 htmx 和 hyperscript；
 - [tailwindcss.com][tailwindcss_cdn_url] 用于 Tailwind CSS；
 - [jsDelivr][jsdelivr_url] 用于 UnoCSS。
 
