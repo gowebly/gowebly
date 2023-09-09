@@ -8,12 +8,11 @@
 [English][repo_url] | [Русский][repo_readme_ru_url] | **中文** | 
 [Español][repo_readme_es_url]
 
-这款 CLI 工具可在后台使用 [**htmx**][htmx_url] 和 [**hyperscript**][hyperscript_url] 
-轻松创建令人惊叹的网络应用程序。在后台使用[**htmx**][htmx_url]和
-[**hyperscript**][hyperscript_url]，并在前台使用最流行的原子/实用工具优先**CSS 框架**，
-轻松构建令人惊叹的网络应用程序。
+这款 CLI 工具可在后端使用 **Go**，在前端使用 [**htmx**][htmx_url] 和 
+[**hyperscript**][hyperscript_url] 以及最流行的原子/实用工具优先 **CSS 
+frameworks**，轻松构建令人惊叹的网络应用程序。
 
-特点:
+功能：
 
 - 根据[Apache 2.0][repo_license_url]许可，100%免费开源。
 - 适用于任何知识水平和技术专长的开发人员。
