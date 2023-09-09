@@ -143,23 +143,23 @@ Go HTML:
 - **hyperscript**: última versión no de producción desde CDN;
 - (_optionally_) **framework CSS**: última versión no de producción desde CDN;
 
-En el modo de desarrollo, sólo se utilizarán las CDN oficiales compatibles 
+En el modo de desarrollo, solo se utilizarán las CDN oficiales compatibles 
 de los desarrolladores se utilizarán: 
 
-- [unpkg.com][unpkg_url] para **htmx** e **hyperscript**;
+- [unpkg.com][unpkg_url] para **htmx** & **hyperscript**;
 - [tailwindcss.com][tailwindcss_cdn_url] para **Tailwind CSS**;
 - [jsDelivr][jsdelivr_url] para **UnoCSS**.
 
 Cada vez que haga `run` comando para su proyecto:
 
-1. CLI incrustar versiones CDN de **htmx** y **hyperscript** de los recursos 
-   oficiales (y de confianza) a tus plantillas Go HTML en una etiqueta 
-   normal `<script>` en el bloque llamado `gowebly-body-scripts` 
-   (normalmente, situado en la parte inferior de la etiqueta `<body>`);
+1. CLI incrusta versiones CDN de **htmx** & **hyperscript** a tus plantillas 
+   Go HTML en una etiqueta normal `<script>` dentro del bloque llamado 
+   `gowebly-body-scripts` (normalmente, situado en la parte inferior de la 
+   etiqueta `<body>`);
 2. (_opcionalmente_) CLI incrustar una versión CDN del **framework CSS** 
-   elegido del recurso oficial (y de confianza) a sus plantillas Go HTML en 
-   un etiqueta `<link>` en el bloque llamado `gowebly-head-styles` 
-   (normalmente, situado en la parte inferior de la etiqueta `<head>`);
+   elegido a sus plantillas Go HTML en una etiqueta normal `<link>` en el 
+   bloque llamado `gowebly-head-styles` (normalmente, situado en la parte 
+   inferior de la etiqueta `<head>`);
 3. CLI inicia el backend de un proyecto (en el puerto `5000`) mediante el 
    simple comando `go run` comando.
 
@@ -188,17 +188,17 @@ Go HTML:
 Cada vez que haga `build` comando para su proyecto:
 
 1. CLI escanear y validar el archivo de configuración YAML (`.gowebly.yml`), 
-   aplicar todos los configuraciones al proyecto actual;
-2. CLI descarga versiones minificadas de **htmx** y **hyperscript** de los 
+   aplicar toda la configuración al proyecto actual;
+2. CLI descarga versiones minificadas de **htmx** & **hyperscript** de los 
    recursos oficiales (y de confianza);
    - Incrústelos en sus plantillas Go HTML (estilo inline) en el bloque 
      llamado `gowebly-body-scripts` (normalmente, situado en la parte 
-     inferior de la etiqueta etiqueta `<body>`);
+     inferior de la etiqueta `<body>`);
 3. (_opcionalmente_) CLI preparar una versión minificada (y arborescente) 
    del **framework CSS** elegido a través de la herramienta [Vite][vite_url];
    - Incrústalos en tus plantillas Go HTML (estilo inline) en el bloque 
      llamado `gowebly-head-styles` (normalmente, situado en la parte 
-     inferior de la etiqueta etiqueta `<head>`);
+     inferior de la etiqueta `<head>`);
 4. CLI generar un archivo claro y bien documentado `docker-compose.yml` en 
    la raíz de la carpeta del proyecto para desplegarlo en contenedores 
    Docker aislados a través de [Portainer][portainer_url] (_recomendado_) o 

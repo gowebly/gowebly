@@ -151,14 +151,12 @@ will be used:
 
 Every time you make `run` command for your project:
 
-1. CLI embed CDN versions of **htmx** and **hyperscript** from the
-   official (and trusted) resources to your Go HTML templates in a regular 
-   `<script>` tag into the block called `gowebly-body-scripts` (usually, 
-   placed on the bottom of the `<body>` tag);
-2. (_optionally_) CLI embed a CDN version of the chosen **CSS framework** 
-   from the official (and trusted) resource to your Go HTML templates in a 
-   regular `<link>` tag into the block called `gowebly-head-styles` (usually, 
-   placed on the bottom of the `<head>` tag);
+1. CLI embed CDN versions of **htmx** and **hyperscript** to your Go HTML 
+   templates in a regular `<script>` tag into the block called 
+   `gowebly-body-scripts` (usually, placed on the bottom of the `<body>` tag);
+2. (_optionally_) CLI embed a CDN version of the chosen **CSS framework** to 
+   your Go HTML templates in a regular `<link>` tag into the block called 
+   `gowebly-head-styles` (usually, placed on the bottom of the `<head>` tag);
 3. CLI start a project's backend (on the port `5000`) via simple `go run` 
    command.
 
