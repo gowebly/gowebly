@@ -113,7 +113,7 @@ gowebly create [BACKEND]
 > 💡 Nota: Si no defines un backend Go, por defecto el CLI `gowebly` crea un 
 > nuevo proyecto con el paquete incorporado [net/http][net_http_url].
 
-Puedes elegir el backend **Go** para tu proyecto:
+Puedes elegir otro backend **Go** para tu proyecto:
 
 | Backend    | Descripción                                                                                |
 |------------|--------------------------------------------------------------------------------------------|
