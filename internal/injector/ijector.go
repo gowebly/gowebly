@@ -12,9 +12,9 @@ type Injector struct {
 }
 
 // New creates a new injector instance with config.Config and embed.Files.
-func New(config *config.Config, embedFiles *embed.Files) (*Injector, error) {
+func New(cfg *config.Config, embedFiles *embed.Files) (*Injector, error) {
 	return &Injector{
-		Config:     config,
+		Config:     cfg,
 		EmbedFiles: embedFiles,
 	}, nil
 }

@@ -2,7 +2,6 @@ package helpers
 
 import (
 	"fmt"
-	"strings"
 
 	"github.com/charmbracelet/lipgloss"
 )
@@ -33,7 +32,7 @@ func PrintStyled(s, state, style string) {
 	}
 
 	// Concat state with the given string.
-	concatStrings := strings.Join([]string{state, s}, "")
+	concatStrings := state + s
 
 	// Switch between styles.
 	switch style {
