@@ -7,14 +7,14 @@ import (
 
 // Injector represents a struct for the dependency injection.
 type Injector struct {
-	Config     *config.Config
-	EmbedFiles *attachments.Files
+	Config      *config.Config
+	Attachments *attachments.Files
 }
 
-// New creates a new injector instance with config.Config and embed.Files.
-func New(cfg *config.Config, embedFiles *attachments.Files) (*Injector, error) {
+// New creates a new injector instance with config.Config and attachments.Files.
+func New(cfg *config.Config, efs *attachments.Files) (*Injector, error) {
 	return &Injector{
-		Config:     cfg,
-		EmbedFiles: embedFiles,
+		Config:      cfg,
+		Attachments: efs,
 	}, nil
 }
