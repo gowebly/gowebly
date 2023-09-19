@@ -75,7 +75,7 @@ Feel free to using `gowebly` CLI from our
 
 ```console
 docker run \
-    --rm -it -v ${PWD}:${PWD} -w ${PWD} \
+    --rm -v ${PWD}:${PWD} -w ${PWD} \
     gowebly/gowebly:latest [COMMAND] [OPTIONS]
 ```
 

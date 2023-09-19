@@ -1,4 +1,4 @@
-package embed
+package attachments
 
 import (
 	"embed"

@@ -53,7 +53,7 @@ release:
     For Docker-way users (any platforms):
     
     ```console
-    docker run --rm -it -v ${PWD}:${PWD} -w ${PWD} gowebly/gowebly:latest [COMMANDS]
+    docker run --rm -v ${PWD}:${PWD} -w ${PWD} gowebly/gowebly:latest [COMMANDS]
     ```
 
     For [Homebrew][brew_url] users (GNU/Linux, macOS):
