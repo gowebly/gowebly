@@ -31,5 +31,8 @@ bin/
 # GoReleaser directories
 dist/
 
+# Temp directories
+tmp/
+
 # Go generate files
 *_gen.go

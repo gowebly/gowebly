@@ -5,6 +5,7 @@ import (
 
 	"github.com/gowebly/gowebly/cmd/commands"
 	"github.com/gowebly/gowebly/internal/constants"
+	"github.com/gowebly/gowebly/internal/helpers"
 	"github.com/gowebly/gowebly/internal/injector"
 )
 
@@ -15,10 +16,23 @@ func Run(flags []string, di *injector.Injector) error {
 		return errors.New(constants.ErrorRunWithoutFlags)
 	}
 
+	helpers.PrintStyled("                          _     _       ", "", "")
+	helpers.PrintStyled("   __ _  _____      _____| |__ | |_   _ ", "", "")
+	helpers.PrintStyled("  / _` |/ _ \\ \\ /\\ / / _ \\ '_ \\| | | | |", "", "")
+	helpers.PrintStyled(" | (_| | (_) \\ V  V /  __/ |_) | | |_| |", "", "")
+	helpers.PrintStyled("  \\__, |\\___/ \\_/\\_/ \\___|_.__/|_|\\__, |", "", "")
+	helpers.PrintStyled("  |___/                           |___/ ", "", "")
+
 	// Switch between flags or return error.
 	switch flags[0] {
 	case "create":
-		// Creating a new project.
+		// Check, if flag set include name of a Go backend.
+		if len(flags) == 1 {
+			// Creating a new project with a built-in net/http package (by default).
+			return commands.Create("", di)
+		}
+
+		// Creating a new project with the given Go backend.
 		return commands.Create(flags[1], di)
 	case "add":
 		// Check, if flag set include name of a CSS framework.

@@ -3,11 +3,13 @@ package helpers
 import (
 	"errors"
 	"fmt"
-	"os"
 
 	"github.com/knadh/koanf/parsers/yaml"
 	"github.com/knadh/koanf/providers/file"
+	"github.com/knadh/koanf/providers/rawbytes"
 	"github.com/knadh/koanf/v2"
+
+	"github.com/gowebly/gowebly/internal/attachments"
 )
 
 // ParseYAMLToStruct parses the given YAML file from a path to struct *T using
@@ -37,28 +39,29 @@ func ParseYAMLToStruct[T any](path string, model *T) (*T, error) {
 
 // newKoanfByPath helps to parse the given path for ParseYAMLToStruct function.
 func newKoanfByPath(path string) (*koanf.Koanf, error) {
+	// Create a new koanf provider variable.
+	var provider koanf.Provider
+
 	// Create a new koanf instance.
 	k := koanf.New(".")
 
-	// Get the structured file from system path.
-	fileInfo, err := os.Stat(path)
-
-	// Check, if file exists.
-	if err == nil || !os.IsNotExist(err) {
-		// Check, if file is not dir.
-		if fileInfo.IsDir() {
-			return nil, fmt.Errorf("the given path of the YAML config file (%s) is dir", path)
-		}
-
-		// Load structured file from path (with parser of the file format).
-		if err = k.Load(file.Provider(path), yaml.Parser()); err != nil {
-			return nil, fmt.Errorf(
-				"not valid structure of the YAML config file from the given path (%s)",
-				path,
-			)
-		}
+	// Check, if config file ('.cgapp.yml') is existing.
+	if IsFileExist(path) {
+		// If exists, set provider to the file.Provider with the given path.
+		provider = file.Provider(path)
 	} else {
-		return nil, fmt.Errorf("YAML config file is not found in the given path (%s)", path)
+		// Else, read the default config file from the embed.FS.
+		defaultConfig, err := attachments.ConfigsFiles.ReadFile("configs/default.yml")
+		if err != nil {
+			return nil, errors.New("a default YAML config file is not found")
+		}
+		// Set provider to the rawbytes.Provider with a default config file.
+		provider = rawbytes.Provider(defaultConfig)
+	}
+
+	// Load structured file from the given provider with the koanf's yaml.Parser.
+	if err := k.Load(provider, yaml.Parser()); err != nil {
+		return nil, errors.New("not valid structure of the YAML config file from the given path")
 	}
 
 	return k, nil
