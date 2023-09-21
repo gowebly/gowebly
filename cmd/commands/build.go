@@ -4,7 +4,7 @@ import (
 	"github.com/gowebly/gowebly/internal/injector"
 )
 
-// Build runs the 'gowebly build' cmd command.
+// Build runs the 'build' cmd command.
 func Build(di *injector.Injector) error {
 	return nil
 }

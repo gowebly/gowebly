@@ -4,7 +4,7 @@ import (
 	"github.com/gowebly/gowebly/internal/injector"
 )
 
-// Create runs the 'gowebly create [BACKEND]' cmd command.
+// Create runs the 'create' cmd command.
 func Create(backend string, di *injector.Injector) error {
 	// Switch between backends or create a new backend with a default.
 	switch backend {
