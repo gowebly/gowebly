@@ -12,15 +12,18 @@ import (
 func IsExistInCurrentFolder(name string, isFolder bool) bool {
 	// Check, if file or folder is existing.
 	info, err := os.Stat(filepath.Clean(name))
+	if err == nil || !os.IsNotExist(err) {
+		return info.IsDir() == isFolder
+	}
 
-	return info.IsDir() == isFolder && err == nil && os.IsNotExist(err)
+	return false
 }
 
 // MakeFile makes a single file with name and data.
 func MakeFile(name string, data []byte) error {
 	// Check, if file is existing.
 	if IsExistInCurrentFolder(name, false) {
-		return fmt.Errorf("can't create a file with name '%s' in the current folder", name)
+		return fmt.Errorf("a file with name '%s' is found in the current folder, cannot be overwritten", name)
 	}
 
 	return os.WriteFile(name, data, 0o644)
@@ -30,7 +33,7 @@ func MakeFile(name string, data []byte) error {
 func MakeFolder(name string) error {
 	// Check, if folder is existing.
 	if IsExistInCurrentFolder(name, true) {
-		return fmt.Errorf("can't create a folder with name '%s' in the current folder", name)
+		return fmt.Errorf("a folder with name '%s' is found in the current folder, cannot be overwritten", name)
 	}
 
 	return os.Mkdir(name, 0o644)

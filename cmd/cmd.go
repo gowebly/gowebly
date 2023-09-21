@@ -30,6 +30,9 @@ func Run(flags []string) error {
 
 	// Switch between flags or return error.
 	switch flags[0] {
+	case "init":
+		// Init a default YAML config file (.gowebly.yml) in the current folder.
+		return commands.Init(di)
 	case "create":
 		// Check, if flag set include name of a Go backend.
 		if len(flags) == 1 {
@@ -39,14 +42,6 @@ func Run(flags []string) error {
 
 		// Creating a new project with the given Go backend.
 		return commands.Create(flags[1], di)
-	case "add":
-		// Check, if flag set include name of a CSS framework.
-		if len(flags) == 1 {
-			return errors.New(constants.ErrorRunAddCommandWithoutCSSFrameworkName)
-		}
-
-		// Adding the given CSS framework to the frontend part of the project.
-		return commands.Add(flags[1], di)
 	case "run":
 		// Running project in a development mode (non-production).
 		return commands.Run(di)
