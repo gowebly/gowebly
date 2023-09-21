@@ -1,6 +1,7 @@
 package config
 
 import (
+	"github.com/gowebly/gowebly/internal/constants"
 	"github.com/gowebly/gowebly/internal/helpers"
 )
 
@@ -53,8 +54,8 @@ type Cloud struct {
 	Database string `koanf:"database"`
 }
 
-// New creates a new config from the given path.
-func New(path string) (*Config, error) {
-	// Parse the given YAML config file from the given path to a struct.
-	return helpers.ParseYAMLToStruct(path, &Config{})
+// New creates a new config.
+func New() (*Config, error) {
+	// Parse a default YAML config file from the given path to a struct.
+	return helpers.ParseYAMLToStruct(constants.YAMLConfigFileName, &Config{})
 }

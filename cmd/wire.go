@@ -1,6 +1,6 @@
 //go:build wireinject
 
-package main
+package cmd
 
 import (
 	"github.com/google/wire"
@@ -11,7 +11,7 @@ import (
 )
 
 // inject provides dependency injection process by the "google/wire" package.
-func inject(path string) (*injector.Injector, error) {
+func inject() (*injector.Injector, error) {
 	wire.Build(attachments.New, config.New, injector.New)
 	return &injector.Injector{}, nil
 }

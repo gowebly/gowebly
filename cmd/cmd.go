@@ -6,22 +6,27 @@ import (
 	"github.com/gowebly/gowebly/cmd/commands"
 	"github.com/gowebly/gowebly/internal/constants"
 	"github.com/gowebly/gowebly/internal/helpers"
-	"github.com/gowebly/gowebly/internal/injector"
 )
 
 // Run runs cmd commands by the given flags and all dependencies.
-func Run(flags []string, di *injector.Injector) error {
-	// Check, if flag set is not empty.
-	if len(flags) == 0 {
-		return errors.New(constants.ErrorRunWithoutFlags)
-	}
-
+func Run(flags []string) error {
 	helpers.PrintStyled("                          _     _       ", "", "")
 	helpers.PrintStyled("   __ _  _____      _____| |__ | |_   _ ", "", "")
 	helpers.PrintStyled("  / _` |/ _ \\ \\ /\\ / / _ \\ '_ \\| | | | |", "", "")
 	helpers.PrintStyled(" | (_| | (_) \\ V  V /  __/ |_) | | |_| |", "", "")
 	helpers.PrintStyled("  \\__, |\\___/ \\_/\\_/ \\___|_.__/|_|\\__, |", "", "")
-	helpers.PrintStyled("  |___/                           |___/ ", "", "")
+	helpers.PrintStyled("  |___/ build amazing Go web apps |___/ ", "", "")
+
+	// Check, if flag set is not empty.
+	if len(flags) == 0 {
+		return errors.New(constants.ErrorRunWithoutFlags)
+	}
+
+	// Inject all dependencies (config, embed files).
+	di, err := inject()
+	if err != nil {
+		return errors.New(constants.ErrorDependencyInjectionNotComplete)
+	}
 
 	// Switch between flags or return error.
 	switch flags[0] {
