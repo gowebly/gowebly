@@ -9,21 +9,33 @@ const (
 	// ErrorDependencyInjectionNotComplete represents error message, when dependency injection
 	// not complete.
 	ErrorDependencyInjectionNotComplete string = "gowebly: a dependency injection process is not complete"
-	// ErrorRunWithoutFlags represents error message, when user run cmd without
-	// flags.
-	ErrorRunWithoutFlags string = "gowebly: run without any commands and options"
+	// ErrorRunWithoutCommand represents error message, when user run cmd without
+	// any command.
+	ErrorRunWithoutCommand string = "gowebly: run without any commands or/and options"
 	// ErrorRunUnknownCommand represents error message, when user run cmd with
 	// unknown command.
 	ErrorRunUnknownCommand string = "gowebly: run with unknown command"
 
 	/*
-		List of the error messages for 'add' command.
+		List of the error messages for validators.
 	*/
 
-	// ErrorRunAddCommandWithoutCSSFrameworkName represents error message, when user run
-	// add command without CSS framework name.
-	ErrorRunAddCommandWithoutCSSFrameworkName string = "'add' command: run without CSS framework name option"
-	// ErrorRunAddCommandWithUnknownCSSFrameworkName represents error message, when user run
-	// add command with an unknown CSS framework name.
-	ErrorRunAddCommandWithUnknownCSSFrameworkName string = "'add' command: run with unknown CSS framework name"
+	// ErrorValidateConfigBackendBlockNotFound represents error message, when
+	// 'backend' block in the config file is not found.
+	ErrorValidateConfigBackendBlockNotFound string = "config: 'backend' block is required"
+	// ErrorValidateConfigBackendNameNotFound represents error message, when
+	// 'name' option in the 'backend' block in the config file is not found.
+	ErrorValidateConfigBackendNameNotFound string = "config: 'name' option in the 'backend' block is required"
+	// ErrorValidateConfigBackendPortNotFound represents error message, when
+	// 'port' option in the 'backend' block in the config file is not found.
+	ErrorValidateConfigBackendPortNotFound string = "config: 'port' option in the 'backend' block is required"
+	// ErrorValidateConfigFrontendBlockNotFound represents error message, when
+	// 'frontend' block in the config file is not found.
+	ErrorValidateConfigFrontendBlockNotFound string = "config: 'frontend' block is required"
+	// ErrorValidateConfigFrontendHTMXNotFound represents error message, when
+	// 'htmx' option in the 'frontend' block in the config file is not found.
+	ErrorValidateConfigFrontendHTMXNotFound string = "config: 'htmx' option in the 'frontend' block is required"
+	// ErrorValidateConfigFrontendHyperscriptNotFound represents error message, when
+	// 'hyperscript' option in the 'frontend' block in the config file is not found.
+	ErrorValidateConfigFrontendHyperscriptNotFound string = "config: 'hyperscript' option in the 'frontend' block is required"
 )

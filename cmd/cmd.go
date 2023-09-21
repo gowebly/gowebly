@@ -6,6 +6,7 @@ import (
 	"github.com/gowebly/gowebly/cmd/commands"
 	"github.com/gowebly/gowebly/internal/constants"
 	"github.com/gowebly/gowebly/internal/helpers"
+	"github.com/gowebly/gowebly/internal/validators"
 )
 
 // Run runs cmd commands by the given flags and all dependencies.
@@ -19,7 +20,7 @@ func Run(flags []string) error {
 
 	// Check, if flag set is not empty.
 	if len(flags) == 0 {
-		return errors.New(constants.ErrorRunWithoutFlags)
+		return errors.New(constants.ErrorRunWithoutCommand)
 	}
 
 	// Inject all dependencies (config, embed files).
@@ -34,12 +35,27 @@ func Run(flags []string) error {
 		// Init a default YAML config file (.gowebly.yml) in the current folder.
 		return commands.Init(di)
 	case "create":
+		// Validating a config.
+		if err = validators.Validate(di.Config); err != nil {
+			return err
+		}
+
 		// Creating a new project with the given Go backend.
 		return commands.Create(di)
 	case "run":
+		// Validating a config.
+		if err = validators.Validate(di.Config); err != nil {
+			return err
+		}
+
 		// Running project in a development mode (non-production).
 		return commands.Run(di)
 	case "build":
+		// Validating a config.
+		if err = validators.Validate(di.Config); err != nil {
+			return err
+		}
+
 		// Building project to production.
 		return commands.Build(di)
 	default:
