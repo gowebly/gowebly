@@ -7,7 +7,14 @@ import (
 
 // Config represents struct for an app configuration.
 type Config struct {
+	Backend  *Backend  `koanf:"backend"`
 	Frontend *Frontend `koanf:"frontend"`
+}
+
+// Backend represents struct for a backend part of the config file.
+type Backend struct {
+	Port int    `koanf:"port"`
+	Name string `koanf:"name"`
 }
 
 // Frontend represents struct for a frontend part of the config file.
