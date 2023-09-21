@@ -1,7 +1,6 @@
 package helpers
 
 import (
-	"errors"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -41,18 +40,12 @@ func MakeFolder(name string) error {
 
 // RemoveFolders removes folders by names with all files.
 func RemoveFolders(names []string) error {
-	// Create a new slice for join errors.
-	errs := make([]error, 0)
-
 	// Remove folders in the loop.
 	for _, name := range names {
 		if err := os.RemoveAll(name); err != nil {
-			errs = append(
-				errs,
-				fmt.Errorf("can't remove a folder with name '%s' from the current folder", name),
-			)
+			return fmt.Errorf("can't remove a folder with name '%s' from the current folder", name)
 		}
 	}
 
-	return errors.Join(errs...)
+	return nil
 }
