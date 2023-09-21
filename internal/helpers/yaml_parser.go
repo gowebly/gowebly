@@ -30,7 +30,7 @@ func ParseYAMLToStruct[T any](path string, model *T) (*T, error) {
 	// Unmarshal structured data to the given struct.
 	if err = k.Unmarshal("", &model); err != nil {
 		return nil, fmt.Errorf(
-			"an error with unmarshalling data process from the YAML config file to struct, %w",
+			"an error with unmarshalling data from the YAML config file to struct, %w",
 			err,
 		)
 	}
@@ -38,7 +38,7 @@ func ParseYAMLToStruct[T any](path string, model *T) (*T, error) {
 	return model, nil
 }
 
-// newKoanfByPath helps to parse the given path for ParseYAMLToStruct function.
+// newKoanfByPath helps to parse the given path to ParseYAMLToStruct function.
 func newKoanfByPath(path string) (*koanf.Koanf, error) {
 	// Create a new koanf provider variable.
 	var provider koanf.Provider
@@ -56,6 +56,7 @@ func newKoanfByPath(path string) (*koanf.Koanf, error) {
 		if err != nil {
 			return nil, errors.New("a default YAML config file is not found")
 		}
+
 		// Set provider to the rawbytes.Provider with a default config file.
 		provider = rawbytes.Provider(defaultConfig)
 	}
