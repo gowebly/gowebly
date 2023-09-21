@@ -40,9 +40,9 @@ release:
   prerelease: auto
   mode: replace
   header: |
-    ## ⚙️ The `{{ .Tag }}` release
+    ## ⚙️ The {{ .ProjectName }} `{{ .Tag }}` release
   footer: |
-    ## Install or update
+    ## How to update?
     
     For native Go installation (any platforms):
     
@@ -50,38 +50,34 @@ release:
     go install github.com/gowebly/gowebly@latest
     ```
     
-    For Docker-way users (any platforms):
+    For [Homebrew][brew_url] users (GNU/Linux, Apple macOS):
     
     ```console
-    docker run --rm -v ${PWD}:${PWD} -w ${PWD} gowebly/gowebly:latest [COMMANDS]
-    ```
-
-    For [Homebrew][brew_url] users (GNU/Linux, macOS):
-    
-    ```console
-    # Tap a new formula:
-    brew tap gowebly/tap
-    
-    # Installation:
-    brew install gowebly/tap/gowebly
-    
-    # Upgrade to the latest:
     brew upgrade gowebly/tap/gowebly
     ```
+    
+    For [Docker][docker_url] users (any platforms):
+    
+    ```console
+    docker pull gowebly/gowebly:latest
+    ```
+    
+    For other ways (any platforms): manually download and re-install a ready-made package from the Assets section.
     
     > 💡 Note: See the [Complete user guide][repo_readme_url] to get a general information.
     
     ## Your help to improve project
     
-    I'd be truly grateful for help with:
+    We would be truly grateful for any help with:
     
-    - Creating tests (and/or benchmarks) for code
-    - Improving existing functions, structs, or tests
-    - Feature requests with interesting functions that would be good to add
+    - Creating tests and benchmarks for code;
+    - Improving existing functions, structs, or tests;
+    - Feature requests with interesting functions that would be good to add.
     
     Your PRs & issues are welcome! Thanks 😉
     
     [brew_url]: https://brew.sh
+    [docker_url]: https://www.docker.com
     [repo_readme_url]: https://github.com/gowebly/gowebly/tree/main#-complete-user-guide
   disable: false
   skip_upload: false
@@ -118,17 +114,15 @@ brews:
       git:
         url: 'git@github.com:gowebly/homebrew-tap.git'
         private_key: '{{ .Env.BREW_PRIVATE_KEY_PATH }}'
-        # don't forget to create ssh key WITH password protection:
-        # $ ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519_gowebly_homebrew-tap -C "koddr.me@gmail.com"
     commit_author:
       name: Vic Shóstak
       email: koddr.me@gmail.com
     commit_msg_template: 'Brew formula update for {{ .ProjectName }} version {{ .Tag }}'
     folder: Formula
     caveats: |
-      After install, create a new project:
+      After install, create a new project (with a default configuration):
 
-      $ gowebly create [BACKEND] [CSS_FRAMEWORK]
+      $ gowebly create
       
       💡 Note: See the Complete user guide (https://github.com/gowebly/gowebly/tree/main#-complete-user-guide) to get a general information.
     homepage: 'https://github.com/gowebly/{{ .ProjectName }}'
@@ -162,7 +156,7 @@ changelog:
   filters:
     exclude: [ '^*.md', '^*.ya?ml' ]
   groups:
-    - title: Features
+    - title: New features
       regexp: ^.*?((A|a)dd)|((F|f)eature).*?$
       order: 0
     - title: Bug fixes
