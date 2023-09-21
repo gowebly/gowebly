@@ -26,7 +26,7 @@ func MakeFile(name string, data []byte) error {
 		return fmt.Errorf("a file with name '%s' is found in the current folder, cannot be overwritten", name)
 	}
 
-	return os.WriteFile(name, data, 0o644)
+	return os.WriteFile(name, data, 0o600)
 }
 
 // MakeFolder makes a single folder with name.
@@ -36,7 +36,7 @@ func MakeFolder(name string) error {
 		return fmt.Errorf("a folder with name '%s' is found in the current folder, cannot be overwritten", name)
 	}
 
-	return os.Mkdir(name, 0o644)
+	return os.Mkdir(name, 0o600)
 }
 
 // RemoveFolders removes folders by names with all files.
