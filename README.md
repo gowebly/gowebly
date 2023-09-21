@@ -134,12 +134,12 @@ frontend:
 But, you can choose any **Go** backend with a port for your project (_this is 
 required_):
 
-| Backend name | Description                                                                             |
-|--------------|-----------------------------------------------------------------------------------------|
-| `default`    | Create a new project with Go backend with the built-in [net/http][net_http_url] package |
-| `fiber`      | Create a new project with Go backend with the [Fiber][fiber_url] web framework          |
-| `echo`       | Create a new project with Go backend with the [Echo][echo_url] web framework            |
-| `chi`        | Create a new project with Go backend with the [chi][chi_url] composable router          |
+| Backend name | Description                                                         |
+|--------------|---------------------------------------------------------------------|
+| `default`    | Use a Go backend with the built-in [net/http][net_http_url] package |
+| `fiber`      | Use a Go backend with the [Fiber][fiber_url] web framework          |
+| `echo`       | Use a Go backend with the [Echo][echo_url] web framework            |
+| `chi`        | Use a Go backend with the [chi][chi_url] composable router          |
 
 In additional, you can choose versions of the **htmx**, **hyperscript**, and 
 one of the most popular atomic/utility-first **CSS framework** to your 
