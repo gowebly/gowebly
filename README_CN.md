@@ -14,7 +14,7 @@ frameworks**，轻松构建令人惊叹的网络应用程序。
 
 功能：
 
-- 根据[Apache 2.0][repo_license_url]许可，100%免费开源。
+- 根据 [Apache 2.0][repo_license_url] 许可，100%免费开源。
 - 适用于任何知识水平和技术专长的开发人员。
 - 有助于更快地进入 Go + htmx + hyperscript 技术栈。
 - 智能 CLI 可完成大部分常规设置和生产准备工作。
@@ -26,18 +26,19 @@ frameworks**，轻松构建令人惊叹的网络应用程序。
 
 首先，[下载][go_download_url] 并安装 Go。需要安装 `1.21`（或更高版本）。
 
-现在，你可以在不安装的情况下使用 `gowebly`。只需 [`go run`][go_run_url] 它，并在选项中创建一个新项目：
+现在，无需安装即可使用 `gowebly`。只需 [`go run`][go_run_url]，它就会创建一个带有默认 
+[config][repo_default_config] 文件的新项目：
 
 ```console
 go run github.com/gowebly/gowebly@latest create
 ```
 
-就是这样！🔥 您的精彩网络应用程序（本例中使用内置的 `net/http` 软件包）与 **htmx** 和 **hyperscript** 可在 Go 
-HTML 模板中使用。
+就是这样！🔥 使用内置的 net/http 包（作为 Go 后端）、htmx、hyperscript 和 UnoCSS（作为 
+CSS 框架），您就可以在 Go HTML 模板中创建一个精彩的网络应用程序了。
 
 ### 🔹 快速启动的完整 Go-way
 
-如果您仍想通过 Golang 在系统中安装 `gowebly` CLI，请使用 [`go install`][go_install_url]命令：
+如果您仍想通过 Golang 在系统中安装 `gowebly` CLI，请使用 [`go install`][go_install_url] 命令：
 
 ```console
 go install github.com/gowebly/gowebly@latest
@@ -45,7 +46,7 @@ go install github.com/gowebly/gowebly@latest
 
 ### 🍺 Homebrew 快速启动方式
 
-GNU/Linux 和苹果 macOS 用户可通过 [Homebrew][brew_url]安装 `gowebly` CLI。
+GNU/Linux 和苹果 macOS 用户可通过 [Homebrew][brew_url] 安装 `gowebly` CLI。
 
 点击新公式：
 
@@ -64,9 +65,7 @@ brew install gowebly/tap/gowebly
 请随意使用我们[官方 Docker 镜像][docker_image_url]中的 `gowebly` CLI，并在隔离的容器中运行它：
 
 ```console
-docker run \
-    --rm -v ${PWD}:${PWD} -w ${PWD} \
-    gowebly/gowebly:latest [COMMAND] [OPTIONS]
+docker run --rm -it -v ${PWD}:${PWD} -w ${PWD} gowebly/gowebly:latest create
 ```
 
 ### 📦 其他快速启动方法§
@@ -83,40 +82,61 @@ Arch Linux 软件包。
 我们希望您能找到所有问题的答案！👌 但是，如果您没有找到所需的信息，请随时创建一个 [issue][repo_issues_url] 或发送一个 
 [PR][repo_pull_request_url] 到此版本库。
 
+### `init`
+
+命令在当前文件夹下创建默认配置文件（[`.gowebly.yml`][repo_default_config]）。
+
+```console
+gowebly init
+```
+
+> 💡 注：当然，如果您对新项目的以下默认配置感到满意，也可以跳过这一步：
+>
+> - 后端使用 net/http 软件包；
+> - 最新版本的 htmx 和 hyperscript；
+> - 最新版本的 UnoCSS（作为 CSS 框架）。
+
+通常，创建的配置文件包含以下选项：
+
+```yaml
+backend:
+  name: default
+  port: 5000
+  
+frontend:
+  htmx: latest
+  hyperscript: latest
+  css:
+    framework: unocss
+    version: latest
+```
+
+但是，您可以为您的项目选择任何带有端口的 **Go** 后端（这是必须的）：
+
+| Backend name | 说明                                         |
+|--------------|--------------------------------------------|
+| `default`    | 使用内置的 [net/http][net_http_url] 软件包创建新项目    |
+| `fiber`      | 使用 [Fiber][fiber_url] 网络框架创建一个带有 Go 后端的新项目 |
+| `echo`       | 使用 [Echo][echo_url] 网络框架创建一个带有 Go 后台的新项目   |
+| `chi`        | 使用 Go 后端和 [chi][chi_url] 可组合路由器创建一个新项目     |
+
+此外，您还可以为您的项目选择 htmx、hyperscript 和最流行的原子/实用工具优先 CSS 框架的版本（这是可选的，不是必需的）：
+
+| CSS framework | 说明                                           |
+|---------------|----------------------------------------------|
+| `tailwindcss` | 使用 [Tailwind CSS][tailwindcss_url] 作为 CSS 框架 |
+| `unocss`      | 使用 [UnoCSS][unocss_url] 作为 CSS 框架            |
+
 ### `create`
 
-命令使用给定的 Go 后端、htmx 和 hyperscript 以及（可选）最流行的原子/实用工具优先 CSS 框架创建新项目。
+命令创建一个包含 Go 后端、htmx 和 hyperscript 以及（_可选_）原子/实用工具优先 CSS 框架的新项目。
 
 ```console
-gowebly create [BACKEND]
+gowebly create
 ```
 
-> 💡 注意：如果没有定义 Go 后端，`gowebly`CLI 默认会使用内置的 [net/http][net_http_url] 包创建一个新项目。
-
-您可以为您的项目选择另一种 Go 后端：
-
-| 后台         | 说明                                           |
-|------------|----------------------------------------------|
-| `fiber`    | 使用[Fiber][fiber_url] 网络框架创建一个带有 Go 后端的新项目    |
-| `echo`     | 使用[Echo][echo_url] 网络框架创建一个带有 Go 后端的新项目      |
-| `chi`      | 使用 Go 后端和 [chi][chi_url] 可组合路由器创建一个新项目       |
-
-### `add`
-
-命令将最流行的原子/实用工具优先 CSS 框架之一添加到你的项目中。这是可选项，不是必需项。
-
-```console
-gowebly add [CSS_FRAMEWORK]
-```
-
-> 💡 注意： `gowebly` CLI 会搜索当前文件夹中项目的 YAML 配置文件（`.gowebly.yml`）。
-
-您可以选择 CSS 框架：
-
-| CSS 框架        | 说明                                       |
-|---------------|------------------------------------------|
-| `tailwindcss` | 在项目前端添加 [Tailwind CSS][tailwindcss_url]。 |
-| `unocss`      | 在项目前端添加 [UnoCSS][unocss_url]。            |
+> 💡 注意：如果不运行 `init` 命令来创建配置文件 (`.gowebly.yml`)，默认情况下 `gowebly` CLI 会创建一个带有 
+> [default][repo_default_config] 配置的新项目。 
 
 ### `run`
 
@@ -126,7 +146,8 @@ gowebly add [CSS_FRAMEWORK]
 gowebly run
 ```
 
-> 💡 注意： `gowebly` CLI 会搜索当前文件夹中项目的 YAML 配置文件（`.gowebly.yml`）。
+> 💡 注意：如果不运行 `init` 命令来创建配置文件（`.gowebly.yml`），默认情况下 `gowebly` CLI 会以 
+> [default][repo_default_config] 配置运行项目。
 
 Go HTML 模板中将提供以下库版本：
 
@@ -141,12 +162,14 @@ Go HTML 模板中将提供以下库版本：
 - [tailwindcss.com][tailwindcss_cdn_url] 用于 Tailwind CSS；
 - [jsDelivr][jsdelivr_url] 用于 UnoCSS。
 
-每次为您的项目执行 `run` 命令时：
+每次为项目执行 `run` 命令时：
 
-1. 通过 CLI 将 htmx 和 hyperscript 的 CDN 版本嵌入到 Go HTML 模板中的常规 `<script>` 
-标记中，并将其放入名为 `gowebly-body-scripts` 的块中（通常放在 `<body>` 标记的底部）；
-2. (可选）通过 CLI 将所选 CSS 框架的 CDN 版本嵌入到 Go HTML 模板中，在名为 `gowebly-head-styles` 的块中使用常规的 `<link>` 标记（通常位于 `<head>` 标记的底部）；
-3. CLI 通过简单的 `go run` 命令启动项目的后端（端口为 `5000`）。
+1. CLI 会验证配置并将所有设置应用到当前项目；
+2. CLI 在名为 "gowebly-body-scripts"（通常位于"<body>"标签的底部）的常规"<script>"标签中，将 htmx
+   和 hyperscript 的 CDN 版本嵌入到 Go HTML 模板中；
+3. (_optionally_) 通过 CLI 将所选 CSS 框架的 CDN 版本嵌入到 Go HTML 模板中，以常规的 `<link>`
+   标签嵌入到名为 `gowebly-head-styles` 的块中（通常位于 `<head>` 标签的底部）；
+4. CLI 通过简单的 `go run` 命令在所选端口上启动项目的后端。
 
 ### `build`
 
@@ -156,17 +179,18 @@ Go HTML 模板中将提供以下库版本：
 gowebly build
 ```
 
-> 💡 注意： `gowebly` CLI 会搜索当前文件夹中项目的 YAML 配置文件（`.gowebly.yml`）。
+> 💡 注意：如果不运行 `init` 命令来创建配置文件（`.gowebly.yml`），默认情况下，`gowebly` CLI 会使用 
+> [default][repo_default_config] 配置来构建项目。
 
 Go HTML 模板中将提供以下库版本：
 
 - htmx：在配置文件中选择的最小化生产版本；
 - hyperscript: 已精简的生产版本，在配置文件中选择；
-- (可选）CSS 框架：最新生产的树状结构和 最小化版本；
+- (可选）CSS 框架：经过树形抖动后的最新最小化生产版本；
 
 每次为项目执行 `build` 命令时：
 
-1. CLI 扫描并验证 YAML 配置文件 (`.gowebly.yml`)，将所有设置应用于当前项目；
+1. CLI 会验证配置并将所有设置应用到当前项目；
 2. CLI 从官方（可信的）资源下载经过精简的 htmx 和 hyperscript 版本；
    - 将它们嵌入 Go HTML 模板（内联样式）中名为 "gowebly-body-scripts "的块（通常位于"<body>"标记的底部）；
 3. (可选）通过[Vite][vite_url]工具，用 CLI 编写所选 CSS 框架的精简（和树化）版本；
@@ -224,6 +248,7 @@ Go HTML 模板中将提供以下库版本：
 [repo_readme_ru_url]: https://github.com/gowebly/gowebly/blob/main/README_RU.md
 [repo_readme_cn_url]: https://github.com/gowebly/gowebly/blob/main/README_CN.md
 [repo_readme_es_url]: https://github.com/gowebly/gowebly/blob/main/README_ES.md
+[repo_default_config]: https://github.com/gowebly/gowebly/blob/main/internal/attachments/configs/default.yml
 
 <!-- Author links -->
 
