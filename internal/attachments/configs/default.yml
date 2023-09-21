@@ -1,22 +1,23 @@
-#
+# The 'backend' block sets a Go backend options.
+# Required to set up.
 backend:
-
-  #
+  # 'name' (string) option can be one of the values: 'fiber', 'echo', 'chi', or 'default'
   name: default
+  # 'port' (number) option can be any port that is not taken up on your system
   port: 5000
 
-#
+# The 'frontend' block sets a frontend options.
+# Optional, not required for set up.
 frontend:
-
-  #
+  # 'htmx' (string) option can be any existing version
   htmx: latest
-
-  #
+  # 'hyperscript' (string) option can be any existing version
   hyperscript: latest
 
-  #
+  # The 'css' block sets a CSS framework options.
+  # Optional, not required for set up.
   css:
-
-    #
+    # 'framework' (string) option can be one of the values: 'tailwindcss' or 'unocss'
     framework: unocss
+    # 'version' (string) option can be any existing version
     version: latest
