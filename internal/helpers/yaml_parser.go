@@ -3,6 +3,7 @@ package helpers
 import (
 	"errors"
 	"fmt"
+	"path/filepath"
 
 	"github.com/knadh/koanf/parsers/yaml"
 	"github.com/knadh/koanf/providers/file"
@@ -21,7 +22,7 @@ func ParseYAMLToStruct[T any](path string, model *T) (*T, error) {
 	}
 
 	// Create a new koanf instance and parse the given path.
-	k, err := newKoanfByPath(path)
+	k, err := newKoanfByPath(filepath.Clean(path))
 	if err != nil {
 		return nil, err
 	}
