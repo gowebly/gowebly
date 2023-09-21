@@ -29,33 +29,23 @@ func Run(flags []string) error {
 		return errors.New(constants.ErrorDependencyInjectionNotComplete)
 	}
 
+	// Validate a config.
+	if err = validators.Validate(di.Config); err != nil {
+		return err
+	}
+
 	// Switch between flags or return error.
 	switch flags[0] {
 	case "init":
 		// Init a default YAML config file (.gowebly.yml) in the current folder.
 		return commands.Init(di)
 	case "create":
-		// Validating a config.
-		if err = validators.Validate(di.Config); err != nil {
-			return err
-		}
-
 		// Creating a new project with the given Go backend.
 		return commands.Create(di)
 	case "run":
-		// Validating a config.
-		if err = validators.Validate(di.Config); err != nil {
-			return err
-		}
-
 		// Running project in a development mode (non-production).
 		return commands.Run(di)
 	case "build":
-		// Validating a config.
-		if err = validators.Validate(di.Config); err != nil {
-			return err
-		}
-
 		// Building project to production.
 		return commands.Build(di)
 	default:
