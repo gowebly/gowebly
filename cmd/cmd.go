@@ -34,14 +34,8 @@ func Run(flags []string) error {
 		// Init a default YAML config file (.gowebly.yml) in the current folder.
 		return commands.Init(di)
 	case "create":
-		// Check, if flag set include name of a Go backend.
-		if len(flags) == 1 {
-			// Creating a new project with a built-in net/http package (by default).
-			return commands.Create("", di)
-		}
-
 		// Creating a new project with the given Go backend.
-		return commands.Create(flags[1], di)
+		return commands.Create(di)
 	case "run":
 		// Running project in a development mode (non-production).
 		return commands.Run(di)

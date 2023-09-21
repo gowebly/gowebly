@@ -7,7 +7,7 @@ backend:
   port: 5000
 
 # The 'frontend' block sets a frontend options.
-# Optional, not required for set up.
+# Required to set up.
 frontend:
   # 'htmx' (string) option can be any existing version
   htmx: latest

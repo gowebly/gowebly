@@ -1,24 +1,39 @@
 package commands
 
 import (
+	"fmt"
+
+	"github.com/gowebly/gowebly/internal/constants"
+	"github.com/gowebly/gowebly/internal/helpers"
 	"github.com/gowebly/gowebly/internal/injector"
 )
 
 // Create runs the 'create' cmd command.
-func Create(backend string, di *injector.Injector) error {
-	// Switch between backends or create a new backend with a default.
-	switch backend {
-	case "fiber":
-		// TODO: implement process of the creating a Go backend with Fiber to your project.
-		return nil
-	case "echo":
-		// TODO: implement process of the creating a Go backend with Echo to your project.
-		return nil
-	case "chi":
-		// TODO: implement process of the creating a Go backend with Chi to your project.
-		return nil
-	default:
-		// TODO: implement process of the creating a Go backend with net/http to your project.
-		return nil
-	}
+func Create(di *injector.Injector) error {
+	helpers.PrintStyled(
+		"Successfully created a new project in the current folder!",
+		"success",
+		"margin-top",
+	)
+	helpers.PrintStyled("Project configuration:", "", "margin-top-bottom")
+	helpers.PrintStyled(fmt.Sprintf(
+		"Go backend: %s, on port %d", di.Config.Backend.Name, di.Config.Backend.Port),
+		"info", "margin-left",
+	)
+	helpers.PrintStyled("Next steps:", "", "margin-top-bottom")
+	helpers.PrintStyled("Add your business logic to the project files", "info", "margin-left")
+	helpers.PrintStyled(
+		"Run 'gowebly run' command to run your project in a developer mode",
+		"info", "margin-left",
+	)
+	helpers.PrintStyled(
+		"Run 'gowebly build' command to build your project for the production",
+		"info", "margin-left",
+	)
+	helpers.PrintStyled(fmt.Sprintf(
+		"For more information, see %s", constants.LinkToCompleteUserGuide),
+		"warning", "margin-top-bottom",
+	)
+
+	return nil
 }
