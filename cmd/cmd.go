@@ -30,7 +30,7 @@ func Run(flags []string) error {
 	}
 
 	// Validate a config.
-	if err = validators.Validate(di.Config); err != nil {
+	if err := validators.Validate(di.Config); err != nil {
 		return err
 	}
 
