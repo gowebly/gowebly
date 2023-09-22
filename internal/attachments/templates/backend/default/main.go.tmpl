@@ -1,0 +1,18 @@
+package main
+
+import (
+	"log/slog"
+	"net/http"
+	"os"
+)
+
+func main() {
+	// Handle views.
+	http.HandleFunc("/", indexViewHandler)
+	
+	// Start a new web server.
+	if err := http.ListenAndServe(":{{ .Port }}", nil); err != nil {
+		slog.Error("msg", err.Error())
+		os.Exit(1)
+	}
+}

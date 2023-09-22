@@ -15,6 +15,9 @@ const (
 	// ErrorRunUnknownCommand represents error message, when user run cmd with
 	// unknown command.
 	ErrorRunUnknownCommand string = "gowebly: run with unknown command"
+	// ErrorProjectFolderIsNotEmpty represents error message, when user want to
+	// create a new project, but the current folder is not empty.
+	ErrorProjectFolderIsNotEmpty string = "project: folder is not empty, cannot be overwritten"
 
 	/*
 		List of the error messages for validators.

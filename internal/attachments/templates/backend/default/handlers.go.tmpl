@@ -1,0 +1,20 @@
+package main
+
+import (
+	"log/slog"
+	"net/http"
+	
+	gowebly "github.com/gowebly/gowebly/pkg/templates"
+)
+
+// indexViewHandler handles a view for the index page.
+func indexViewHandler(w http.ResponseWriter, r *http.Request) {
+	// Add index page template to the view.
+	tmpl := gowebly.AddTemplates("templates/pages/index.html")
+	
+	// Render index page view.
+	if err := tmpl.Execute(w, nil); err != nil {
+		slog.Error("msg", err.Error())
+		return
+	}
+}
