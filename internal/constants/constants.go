@@ -18,7 +18,7 @@ const (
 	// TemplateHTMLMainFileName represents a name of the 'main.html' template.
 	TemplateHTMLMainFileName string = "main.html"
 	// TemplateHTMLStylesFileName represents a name of the 'block_head_styles.html' template.
-	TemplateHTMLStylesFileName string = "block_head_styles.html"
+	TemplateHTMLStylesFileName string = "gowebly_head_styles.html"
 	// TemplateHTMLScriptsFileName represents a name of the 'block_body_scripts.html' template.
-	TemplateHTMLScriptsFileName string = "block_body_scripts.html"
+	TemplateHTMLScriptsFileName string = "gowebly_body_scripts.html"
 )

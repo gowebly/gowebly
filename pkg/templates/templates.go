@@ -1,6 +1,7 @@
 package templates
 
 import (
+	"fmt"
 	"html/template"
 
 	"github.com/gowebly/gowebly/internal/constants"
@@ -30,9 +31,9 @@ import (
 func AddTemplates(names ...string) *template.Template {
 	// Set global templates.
 	global := []string{
-		constants.TemplateHTMLMainFileName,
-		constants.TemplateHTMLStylesFileName,
-		constants.TemplateHTMLScriptsFileName,
+		fmt.Sprintf("templates/%s", constants.TemplateHTMLMainFileName),
+		fmt.Sprintf("templates/components/gowebly/%s", constants.TemplateHTMLStylesFileName),
+		fmt.Sprintf("templates/components/gowebly/%s", constants.TemplateHTMLScriptsFileName),
 	}
 
 	// Add all user templates after global.
