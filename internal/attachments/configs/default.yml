@@ -16,8 +16,8 @@ frontend:
 
   # The 'css' block sets a CSS framework options.
   # Optional, not required for set up.
-#  css:
-#    # 'framework' (string) option can be one of the values: 'tailwindcss' or 'unocss'
-#    framework: unocss
-#    # 'version' (string) option can be any existing version
-#    version: latest
+  css:
+    # 'framework' (string) option can be one of the values: 'tailwindcss' or 'unocss'
+    framework: unocss
+    # 'version' (string) option can be any existing version
+    version: latest
