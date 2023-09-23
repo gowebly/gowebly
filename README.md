@@ -113,6 +113,7 @@ gowebly init
 > following default configuration for your new project:
 > 
 > - Go backend with **net/http** package;
+> - Server port is `5000`, timeout (in seconds): `5` for read, `10` for write;
 > - Latest versions of the **htmx** & **hyperscript**;
 > - Latest version of the **UnoCSS** (as a CSS framework).
 

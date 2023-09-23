@@ -113,6 +113,8 @@ gowebly init
 > la siguiente configuración por defecto para tu nuevo proyecto:
 >
 > - Ir al backend con el paquete **net/http**;
+> - El puerto del servidor es `5000`, tiempo de espera (en segundos): `5` para 
+> lectura, `10` para escritura;
 > - Últimas versiones de **htmx** & **hyperscript**;
 > - Última versión del **UnoCSS** (como framework CSS).
 
