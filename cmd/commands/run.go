@@ -13,11 +13,6 @@ func Run(di *injector.Injector) error {
 	// Remove previously generated .env and JS files.
 	_ = helpers.RemoveFiles(".env", "static/htmx.min.js", "static/hyperscript.min.js")
 
-	// Create a new folder(s).
-	if err := helpers.MakeFolders("static"); err != nil {
-		return err
-	}
-
 	// Download minified version of the htmx and hyperscript JS files from CND.
 	if err := helpers.DownloadFiles(
 		[]helpers.Download{
