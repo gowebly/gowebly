@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 	"os"
 	"strconv"
@@ -18,14 +19,14 @@ func runServer() error {
 	if err != nil {
 		return err
 	}
-	
+
 	// Create a new server instance with options from environment variables.
 	// For more information, see https://blog.cloudflare.com/the-complete-guide-to-golang-net-http-timeouts/
 	server := &http.Server{
-		Addr:         os.Getenv("BACKEND_PORT"),
+		Addr:         fmt.Sprintf(":%s", os.Getenv("BACKEND_PORT")),
 		ReadTimeout:  time.Duration(readTimeout) * time.Second,
 		WriteTimeout: time.Duration(writeTimeout) * time.Second,
 	}
-	
+
 	return server.ListenAndServe()
 }
