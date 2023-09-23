@@ -85,17 +85,17 @@ func GenerateFromEmbedFS(efs embed.FS, templates []EmbedTemplate) error {
 		}
 
 		// Rename temp file.
-		if err = os.Rename(file.Name(), filepath.Join(t.OutputFolder, t.OutputFile)); err != nil {
+		if err := os.Rename(file.Name(), filepath.Join(t.OutputFolder, t.OutputFile)); err != nil {
 			return err
 		}
 
 		// Set variables to the given.
-		if err = tmpl.Execute(file, t.Data); err != nil {
+		if err := tmpl.Execute(file, t.Data); err != nil {
 			return err
 		}
 
 		// Close file.
-		if err = file.Close(); err != nil {
+		if err := file.Close(); err != nil {
 			return err
 		}
 	}
