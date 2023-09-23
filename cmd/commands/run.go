@@ -27,8 +27,17 @@ func Run(di *injector.Injector) error {
 		return err
 	}
 
-	// Start executing command.
-	if err := helpers.Execute("go", "run", "./..."); err != nil {
+	// Start executing commands.
+	if err := helpers.Execute(
+		[]helpers.Command{
+			{
+				Name: "go", Options: []string{"mod", "tidy"}, SkipOutput: true,
+			},
+			{
+				Name: "go", Options: []string{"run", "./..."}, SkipOutput: false,
+			},
+		},
+	); err != nil {
 		return err
 	}
 
