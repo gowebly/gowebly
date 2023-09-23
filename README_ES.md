@@ -123,6 +123,9 @@ opciones:
 backend:
   name: default
   port: 5000
+  timeout:
+    read: 5
+    write: 10
   
 frontend:
   htmx: latest
@@ -132,15 +135,15 @@ frontend:
     version: latest
 ```
 
-Pero, usted puede elegir cualquier **Go** backend con un puerto para su 
-proyecto (_esto es requerido_):
+Pero, puede elegir cualquier **Go** backend con opciones de servidor para su 
+proyecto (_esto es obligatorio_):
 
-| Nombre del backend  | Descripción                                                                       |
-|---------------------|-----------------------------------------------------------------------------------|
-| `default`           | Crear un nuevo proyecto con el paquete integrado [net/http][net_http_url]         |
-| `fiber`             | Crear un nuevo proyecto con Go backend con el framework web [Fiber][fiber_url]    |
-| `echo`              | Crear un nuevo proyecto con Go backend con el framework web [Echo][echo_url]      |
-| `chi`               | Crear un nuevo proyecto con Go backend con el enrutador componible [chi][chi_url] |
+| Nombre del backend  | Descripción                                                              |
+|---------------------|--------------------------------------------------------------------------|
+| `default`           | Utilizar un backend Go con el paquete [net/http][net_http_url] integrado |
+| `fiber`             | Utilizar un backend Go con el framework web [Fiber][fiber_url]           |
+| `echo`              | Utilizar un backend Go con el framework web [Echo][echo_url]             |
+| `chi`               | Utilizar un backend Go con el enrutador componible [chi][chi_url]        |
 
 Adicionalmente, puedes elegir versiones de **htmx**, **hyperscript**, y uno 
 de los más populares atomic/utility-first **framework CSS** para tu proyecto 

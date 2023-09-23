@@ -102,6 +102,9 @@ gowebly init
 backend:
   name: default
   port: 5000
+  timeout:
+    read: 5
+    write: 10
   
 frontend:
   htmx: latest
@@ -111,14 +114,14 @@ frontend:
     version: latest
 ```
 
-但是，您可以为您的项目选择任何带有端口的 **Go** 后端（这是必须的）：
+但是，您可以为您的项目选择任何带有服务器选项的 Go 后端（这是必需的）：
 
 | Backend name | 说明                                         |
 |--------------|--------------------------------------------|
-| `default`    | 使用内置的 [net/http][net_http_url] 软件包创建新项目    |
-| `fiber`      | 使用 [Fiber][fiber_url] 网络框架创建一个带有 Go 后端的新项目 |
-| `echo`       | 使用 [Echo][echo_url] 网络框架创建一个带有 Go 后台的新项目   |
-| `chi`        | 使用 Go 后端和 [chi][chi_url] 可组合路由器创建一个新项目     |
+| `default`    | 利用内置的 [net/http][net_http_url] 软件包使用 Go 后台 |
+| `fiber`      | 将 Go 后端与 [Fiber][fiber_url] 网络框架结合使用       |
+| `echo`       | 将 Go 后端与 [Echo][echo_url] 网络框架结合使用         |
+| `chi`        | 将 Go 后端与 [chi][chi_url] 可组合路由器一起使用         |
 
 此外，您还可以为您的项目选择 htmx、hyperscript 和最流行的原子/实用工具优先 CSS 框架的版本（这是可选的，不是必需的）：
 

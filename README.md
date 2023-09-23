@@ -122,6 +122,9 @@ Typically, created config file contains the following options:
 backend:
   name: default
   port: 5000
+  timeout:
+    read: 5
+    write: 10
   
 frontend:
   htmx: latest
@@ -131,8 +134,8 @@ frontend:
     version: latest
 ```
 
-But, you can choose any **Go** backend with a port for your project (_this is 
-required_):
+But, you can choose any **Go** backend with a server options for your project 
+(_this is required_):
 
 | Backend name | Description                                                         |
 |--------------|---------------------------------------------------------------------|
