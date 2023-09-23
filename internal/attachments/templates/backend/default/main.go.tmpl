@@ -4,17 +4,17 @@ import (
 	"log/slog"
 	"net/http"
 	"os"
-	
+
 	_ "github.com/joho/godotenv/autoload" // autoload environment variables
 )
 
 func main() {
-	// Handle static files.
-	http.Handle("/", http.FileServer(http.Dir("./static")))
-	
 	// Handle views.
 	http.HandleFunc("/", indexViewHandler)
-	
+
+	// Handle static files.
+	http.Handle("/static", http.FileServer(http.Dir("./static")))
+
 	// Run your server.
 	if err := runServer(); err != nil {
 		slog.Error("msg", err.Error())
