@@ -1,0 +1,31 @@
+package main
+
+import (
+	"net/http"
+	"os"
+	"strconv"
+	"time"
+)
+
+// runServer runs a new HTTP server with the loaded environment variables.
+func runServer() error {
+	// Validate environment variables.
+	readTimeout, err := strconv.Atoi(os.Getenv("BACKEND_READ_TIMEOUT"))
+	if err != nil {
+		return err
+	}
+	writeTimeout, err := strconv.Atoi(os.Getenv("BACKEND_WRITE_TIMEOUT"))
+	if err != nil {
+		return err
+	}
+	
+	// Create a new server instance with options from environment variables.
+	// For more information, see https://blog.cloudflare.com/the-complete-guide-to-golang-net-http-timeouts/
+	server := &http.Server{
+		Addr:         os.Getenv("BACKEND_PORT"),
+		ReadTimeout:  time.Duration(readTimeout) * time.Second,
+		WriteTimeout: time.Duration(writeTimeout) * time.Second,
+	}
+	
+	return server.ListenAndServe()
+}

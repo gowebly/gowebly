@@ -32,6 +32,9 @@ const (
 	// ErrorValidateConfigBackendPortNotFound represents error message, when
 	// 'port' option in the 'backend' block in the config file is not found.
 	ErrorValidateConfigBackendPortNotFound string = "config: 'port' option in the 'backend' block is required"
+	// ErrorValidateConfigBackendTimeoutNotFound represents error message, when
+	// 'timeout' option in the 'backend' block in the config file is not found.
+	ErrorValidateConfigBackendTimeoutNotFound string = "config: 'timeout' option in the 'backend' block is required"
 	// ErrorValidateConfigFrontendBlockNotFound represents error message, when
 	// 'frontend' block in the config file is not found.
 	ErrorValidateConfigFrontendBlockNotFound string = "config: 'frontend' block is required"

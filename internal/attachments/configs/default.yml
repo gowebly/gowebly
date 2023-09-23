@@ -3,8 +3,16 @@
 backend:
   # 'name' (string) option can be one of the values: 'fiber', 'echo', 'chi', or 'default'
   name: default
-  # 'port' (number) option can be any port that is not taken up on your system
+  # 'port' (int) option can be any port that is not taken up on your system
   port: 5000
+
+  # The 'timeout' block sets a server options.
+  # Required to set up.
+  timeout:
+    # 'read' (int) option can be any number of seconds, 5 is recommended
+    read: 5
+    # 'write' (int) option can be any number of seconds, 10 is recommended
+    write: 10
 
 # The 'frontend' block sets a frontend options.
 # Required to set up.

@@ -25,6 +25,11 @@ func Validate(cfg *config.Config) error {
 		if cfg.Backend.Port == 0 {
 			return errors.New(constants.ErrorValidateConfigBackendPortNotFound)
 		}
+
+		// Check, if 'timeout' option in the 'backend' block is not set.
+		if cfg.Backend.Timeout == nil {
+			return errors.New(constants.ErrorValidateConfigBackendTimeoutNotFound)
+		}
 	}
 
 	// Check, if the 'frontend' block is not set.

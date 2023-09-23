@@ -13,8 +13,15 @@ type Config struct {
 
 // Backend represents struct for a backend part of the config file.
 type Backend struct {
-	Port int    `koanf:"port"`
-	Name string `koanf:"name"`
+	Port    int      `koanf:"port"`
+	Name    string   `koanf:"name"`
+	Timeout *Timeout `koanf:"timeout"`
+}
+
+// Timeout represents struct for a 'timeout' block in the backend part of the config file.
+type Timeout struct {
+	Read  int `koanf:"read"`
+	Write int `koanf:"write"`
 }
 
 // Frontend represents struct for a frontend part of the config file.
@@ -24,7 +31,7 @@ type Frontend struct {
 	CSS         *CSS   `koanf:"css"`
 }
 
-// CSS represents struct for a css frontend part of the config file.
+// CSS represents struct for a 'css' block frontend part of the config file.
 type CSS struct {
 	Framework string `koanf:"framework"`
 	Version   string `koanf:"version"`

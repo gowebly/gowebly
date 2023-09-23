@@ -23,8 +23,20 @@ func Create(di *injector.Injector) error {
 				"handlers.go", "", nil,
 			},
 			{
+				fmt.Sprintf("templates/backend/%s/server.go.tmpl", di.Config.Backend.Name),
+				"server.go", "", nil,
+			},
+			{
 				fmt.Sprintf("templates/backend/%s/main.go.tmpl", di.Config.Backend.Name),
 				"main.go", "", di.Config.Backend,
+			},
+			{
+				"templates/misc/gitignore.tmpl",
+				".gitignore", "", nil,
+			},
+			{
+				"templates/misc/env.tmpl",
+				".env", "", di.Config.Backend,
 			},
 		},
 	); err != nil {
@@ -32,7 +44,7 @@ func Create(di *injector.Injector) error {
 	}
 
 	// Create a new folder(s).
-	if err := helpers.MakeFolders("templates/pages", "templates/components/gowebly"); err != nil {
+	if err := helpers.MakeFolders("static", "templates/pages", "templates/components/gowebly"); err != nil {
 		return err
 	}
 
@@ -49,8 +61,8 @@ func Create(di *injector.Injector) error {
 				"templates/components/gowebly",
 			},
 			{
-				"templates/misc",
-				"templates",
+				"templates/static",
+				"static",
 			},
 		},
 	); err != nil {

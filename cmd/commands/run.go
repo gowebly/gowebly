@@ -9,6 +9,11 @@ import (
 
 // Run runs the 'run' cmd command.
 func Run(di *injector.Injector) error {
+	// Start executing command.
+	if err := helpers.Execute("go", "run", "./..."); err != nil {
+		return err
+	}
+
 	helpers.PrintStyled("Successfully run your project in a developer mode!", "success", "margin-top")
 	helpers.PrintStyled("Project configuration:", "", "margin-top-bottom")
 	helpers.PrintStyled(fmt.Sprintf(
@@ -30,5 +35,5 @@ func Run(di *injector.Injector) error {
 	)
 	helpers.PrintStyled("Go backend logs:", "", "margin-top-bottom")
 
-	return helpers.Execute("go", "run", "./...")
+	return nil
 }
