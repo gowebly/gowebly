@@ -10,6 +10,51 @@ import (
 
 // Build runs the 'build' cmd command.
 func Build(di *injector.Injector) error {
+	// Remove previously generated .env and JS files.
+	_ = helpers.RemoveFiles(".env", "static/htmx.min.js", "static/hyperscript.min.js")
+
+	// Create a new folder(s).
+	if err := helpers.MakeFolders("static"); err != nil {
+		return err
+	}
+
+	// Download minified version of the htmx and hyperscript JS files from CND.
+	if err := helpers.DownloadFiles(
+		[]helpers.Download{
+			{
+				fmt.Sprintf(
+					"%s/%s@%s",
+					constants.LinkToUnpkgCDN, constants.HTMXNameOfCDNRepository, di.Config.Frontend.HTMX,
+				),
+				"htmx.min.js",
+				"static",
+			},
+			{
+				fmt.Sprintf(
+					"%s/%s@%s",
+					constants.LinkToUnpkgCDN, constants.HyperscriptNameOfCDNRepository, di.Config.Frontend.Hyperscript,
+				),
+				"hyperscript.min.js",
+				"static",
+			},
+		},
+	); err != nil {
+		return err
+	}
+
+	// Re-create .env file from the template.
+	if err := helpers.GenerateFromEmbedFS(
+		di.Attachments.Templates,
+		[]helpers.EmbedTemplate{
+			{
+				"templates/misc/env.tmpl",
+				".env", "", di.Config.Backend,
+			},
+		},
+	); err != nil {
+		return err
+	}
+
 	// Header message.
 	helpers.PrintStyled("Successfully build your project for the production!", "success", "margin-top")
 

@@ -3,14 +3,42 @@ package commands
 import (
 	"fmt"
 
+	"github.com/gowebly/gowebly/internal/constants"
 	"github.com/gowebly/gowebly/internal/helpers"
 	"github.com/gowebly/gowebly/internal/injector"
 )
 
 // Run runs the 'run' cmd command.
 func Run(di *injector.Injector) error {
-	// Remove previously generated .env file.
-	if err := helpers.RemoveFiles(".env"); err != nil {
+	// Remove previously generated .env and JS files.
+	_ = helpers.RemoveFiles(".env", "static/htmx.min.js", "static/hyperscript.min.js")
+
+	// Create a new folder(s).
+	if err := helpers.MakeFolders("static"); err != nil {
+		return err
+	}
+
+	// Download minified version of the htmx and hyperscript JS files from CND.
+	if err := helpers.DownloadFiles(
+		[]helpers.Download{
+			{
+				fmt.Sprintf(
+					"%s/%s@%s",
+					constants.LinkToUnpkgCDN, constants.HTMXNameOfCDNRepository, di.Config.Frontend.HTMX,
+				),
+				"htmx.min.js",
+				"static",
+			},
+			{
+				fmt.Sprintf(
+					"%s/%s@%s",
+					constants.LinkToUnpkgCDN, constants.HyperscriptNameOfCDNRepository, di.Config.Frontend.Hyperscript,
+				),
+				"hyperscript.min.js",
+				"static",
+			},
+		},
+	); err != nil {
 		return err
 	}
 

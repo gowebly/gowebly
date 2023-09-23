@@ -98,6 +98,30 @@ func Create(di *injector.Injector) error {
 		}
 	}
 
+	// Download minified version of the htmx and hyperscript JS files from CND.
+	if err := helpers.DownloadFiles(
+		[]helpers.Download{
+			{
+				fmt.Sprintf(
+					"%s/%s@%s",
+					constants.LinkToUnpkgCDN, constants.HTMXNameOfCDNRepository, di.Config.Frontend.HTMX,
+				),
+				"htmx.min.js",
+				"static",
+			},
+			{
+				fmt.Sprintf(
+					"%s/%s@%s",
+					constants.LinkToUnpkgCDN, constants.HyperscriptNameOfCDNRepository, di.Config.Frontend.Hyperscript,
+				),
+				"hyperscript.min.js",
+				"static",
+			},
+		},
+	); err != nil {
+		return err
+	}
+
 	// Header message.
 	helpers.PrintStyled(
 		"Successfully created a new project in the current folder!",
