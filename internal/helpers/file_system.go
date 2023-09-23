@@ -22,7 +22,7 @@ func IsExistInCurrentFolder(name string, isFolder bool) bool {
 func MakeFile(name string, data []byte) error {
 	// Check, if file is existing.
 	if IsExistInCurrentFolder(name, false) {
-		return fmt.Errorf("a file with name '%s' is found in the current folder, cannot be overwritten", name)
+		return fmt.Errorf("os: file with name '%s' is found in the current folder, cannot be overwritten", name)
 	}
 
 	return os.WriteFile(name, data, 0o600)
@@ -33,7 +33,10 @@ func MakeFolders(names ...string) error {
 	for _, name := range names {
 		// Check, if folder is existing.
 		if IsExistInCurrentFolder(name, true) {
-			return fmt.Errorf("a folder with name '%s' is found in the current folder, cannot be overwritten", name)
+			return fmt.Errorf(
+				"os: folder with name '%s' is found in the current folder, cannot be overwritten",
+				name,
+			)
 		}
 
 		// Create a new folder.
@@ -45,12 +48,12 @@ func MakeFolders(names ...string) error {
 	return nil
 }
 
-// RemoveFolders removes folders by names with all files.
-func RemoveFolders(names []string) error {
-	// Remove folders in the loop.
+// RemoveFiles removes files by names.
+func RemoveFiles(names ...string) error {
 	for _, name := range names {
-		if err := os.RemoveAll(name); err != nil {
-			return fmt.Errorf("can't remove a folder with name '%s' from the current folder", name)
+		// Remove file by name.
+		if err := os.Remove(name); err != nil {
+			return fmt.Errorf("os: can't remove a file with name '%s'", name)
 		}
 	}
 

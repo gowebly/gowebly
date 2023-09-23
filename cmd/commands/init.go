@@ -21,14 +21,19 @@ func Init(di *injector.Injector) error {
 		return err
 	}
 
+	// Header message.
 	helpers.PrintStyled(
 		"Successfully created a default config file in the current folder!",
 		"success",
 		"margin-top",
 	)
+
+	// Next steps message.
 	helpers.PrintStyled("Next steps:", "", "margin-top-bottom")
 	helpers.PrintStyled("Edit config file with your options and parameters", "info", "margin-left")
 	helpers.PrintStyled("Run 'gowebly create' command to create a new project", "info", "margin-left")
+
+	// Footer message.
 	helpers.PrintStyled(
 		fmt.Sprintf("For more information, see %s", constants.LinkToCompleteUserGuide),
 		"warning", "margin-top-bottom",
