@@ -10,6 +10,11 @@ import (
 
 // Create runs the 'create' cmd command.
 func Create(di *injector.Injector) error {
+	// Create a new folder(s).
+	if err := helpers.MakeFolders("static", "templates/pages", "templates/components/gowebly"); err != nil {
+		return err
+	}
+
 	// Create backend and misc files from templates.
 	if err := helpers.GenerateFromEmbedFS(
 		di.Attachments.Templates,
@@ -40,11 +45,6 @@ func Create(di *injector.Injector) error {
 			},
 		},
 	); err != nil {
-		return err
-	}
-
-	// Create a new folder(s).
-	if err := helpers.MakeFolders("static", "templates/pages", "templates/components/gowebly"); err != nil {
 		return err
 	}
 
