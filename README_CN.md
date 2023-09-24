@@ -156,6 +156,8 @@ gowebly create
 │   ├── pages
 │   │   └── index.html
 │   └── main.html
+├── .env
+├── .gitignore
 ├── go.mod
 ├── go.sum
 ├── handlers.go

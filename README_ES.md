@@ -184,6 +184,8 @@ Normalmente, el proyecto creado contiene los siguientes archivos y carpetas:
 │   ├── pages
 │   │   └── index.html
 │   └── main.html
+├── .env
+├── .gitignore
 ├── go.mod
 ├── go.sum
 ├── handlers.go

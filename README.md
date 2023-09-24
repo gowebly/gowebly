@@ -180,6 +180,8 @@ Typically, a created project contains the following files and folders:
 │   ├── pages
 │   │   └── index.html
 │   └── main.html
+├── .env
+├── .gitignore
 ├── go.mod
 ├── go.sum
 ├── handlers.go
