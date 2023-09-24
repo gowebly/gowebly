@@ -10,6 +10,12 @@ import (
 
 // Build runs the 'build' cmd command.
 func Build(di *injector.Injector) error {
+	// Header message.
+	helpers.PrintStyled(
+		"Downloading and preparing a minified versions of the frontend part... Please wait!",
+		"info", "margin-top",
+	)
+
 	// Remove previously generated .env and JS files.
 	_ = helpers.RemoveFiles(".env", "static/htmx.min.js", "static/hyperscript.min.js")
 
@@ -50,7 +56,7 @@ func Build(di *injector.Injector) error {
 		return err
 	}
 
-	// Header message.
+	// Success message.
 	helpers.PrintStyled("Successfully build your project for the production!", "success", "margin-top")
 
 	// Project config message.

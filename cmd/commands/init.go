@@ -21,7 +21,7 @@ func Init(di *injector.Injector) error {
 		return err
 	}
 
-	// Header message.
+	// Success message.
 	helpers.PrintStyled(
 		"Successfully created a default config file in the current folder!",
 		"success",

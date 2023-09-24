@@ -10,6 +10,12 @@ import (
 
 // Create runs the 'create' cmd command.
 func Create(di *injector.Injector) error {
+	// Header message.
+	helpers.PrintStyled(
+		"Downloading and preparing a minified versions of the frontend part... Please wait!",
+		"info", "margin-top",
+	)
+
 	// Create a new folder(s).
 	if err := helpers.MakeFolders("static", "templates/pages", "templates/components/gowebly"); err != nil {
 		return err
@@ -122,7 +128,7 @@ func Create(di *injector.Injector) error {
 		return err
 	}
 
-	// Header message.
+	// Success message.
 	helpers.PrintStyled(
 		"Successfully created a new project in the current folder!",
 		"success",

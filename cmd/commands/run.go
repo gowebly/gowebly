@@ -10,6 +10,12 @@ import (
 
 // Run runs the 'run' cmd command.
 func Run(di *injector.Injector) error {
+	// Header message.
+	helpers.PrintStyled(
+		"Downloading and preparing a minified versions of the frontend part... Please wait!",
+		"info", "margin-top",
+	)
+
 	// Remove previously generated .env and JS files.
 	_ = helpers.RemoveFiles(".env", "static/htmx.min.js", "static/hyperscript.min.js")
 
@@ -50,21 +56,7 @@ func Run(di *injector.Injector) error {
 		return err
 	}
 
-	// Start executing commands.
-	if err := helpers.Execute(
-		[]helpers.Command{
-			{
-				Name: "go", Options: []string{"mod", "tidy"}, SkipOutput: true,
-			},
-			{
-				Name: "go", Options: []string{"run", "./..."}, SkipOutput: false,
-			},
-		},
-	); err != nil {
-		return err
-	}
-
-	// Header message.
+	// Success message.
 	helpers.PrintStyled("Successfully run your project in a developer mode!", "success", "margin-top")
 
 	// Project config message.
@@ -91,7 +83,7 @@ func Run(di *injector.Injector) error {
 	}
 
 	helpers.PrintStyled(
-		"htmx ('dev', non-production), hyperscript ('dev', non-production)",
+		fmt.Sprintf("htmx ('%s'), hyperscript ('%s')", di.Config.Frontend.HTMX, di.Config.Frontend.Hyperscript),
 		"info", "margin-left-2",
 	)
 
@@ -105,5 +97,14 @@ func Run(di *injector.Injector) error {
 	// Backend logs message.
 	helpers.PrintStyled("Backend logs:", "", "margin-top-bottom")
 
-	return nil
+	return helpers.Execute(
+		[]helpers.Command{
+			{
+				Name: "go", Options: []string{"mod", "tidy"}, SkipOutput: true,
+			},
+			{
+				Name: "go", Options: []string{"run", "./..."}, SkipOutput: false,
+			},
+		},
+	)
 }
