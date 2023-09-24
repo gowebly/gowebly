@@ -6,18 +6,19 @@ import (
 	"net/http"
 	"os"
 
-	_ "github.com/joho/godotenv/autoload" // autoload environment variables
+	_ "github.com/joho/godotenv/autoload"           // autoload environment variables
+	gowebly "github.com/gowebly/gowebly/pkg/static" // helper for serve embed static folder
 )
 
 //go:embed static/*
 var static embed.FS
 
 func main() {
+	// Handle static files (with a custom handler).
+	http.Handle("/static/", gowebly.StaticFileServerHandler(http.FS(static)))
+
 	// Handle views.
 	http.HandleFunc("/", indexViewHandler)
-
-	// Handle static files.
-	http.Handle("/static/", http.FileServer(http.FS(static)))
 
 	// Run your server.
 	if err := runServer(); err != nil {

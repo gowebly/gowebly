@@ -2,6 +2,7 @@ package commands
 
 import (
 	"fmt"
+	"path/filepath"
 
 	"github.com/gowebly/gowebly/internal/constants"
 	"github.com/gowebly/gowebly/internal/helpers"
@@ -17,7 +18,7 @@ func Create(di *injector.Injector) error {
 	)
 
 	// Create a new folder(s).
-	if err := helpers.MakeFolders("static", "templates/pages", "templates/components/gowebly"); err != nil {
+	if err := helpers.MakeFolders("static", "templates/pages"); err != nil {
 		return err
 	}
 
@@ -26,27 +27,27 @@ func Create(di *injector.Injector) error {
 		di.Attachments.Templates,
 		[]helpers.EmbedTemplate{
 			{
-				fmt.Sprintf("templates/backend/%s/go.mod.tmpl", di.Config.Backend.Name),
+				filepath.Join("templates", "backend", di.Config.Backend.Name, "go.mod.tmpl"),
 				"go.mod", "", nil,
 			},
 			{
-				fmt.Sprintf("templates/backend/%s/handlers.go.tmpl", di.Config.Backend.Name),
+				filepath.Join("templates", "backend", di.Config.Backend.Name, "handlers.go.tmpl"),
 				"handlers.go", "", nil,
 			},
 			{
-				fmt.Sprintf("templates/backend/%s/server.go.tmpl", di.Config.Backend.Name),
+				filepath.Join("templates", "backend", di.Config.Backend.Name, "server.go.tmpl"),
 				"server.go", "", nil,
 			},
 			{
-				fmt.Sprintf("templates/backend/%s/main.go.tmpl", di.Config.Backend.Name),
+				filepath.Join("templates", "backend", di.Config.Backend.Name, "main.go.tmpl"),
 				"main.go", "", di.Config.Backend,
 			},
 			{
-				"templates/misc/gitignore.tmpl",
+				filepath.Join("templates", "misc", "gitignore.tmpl"),
 				".gitignore", "", nil,
 			},
 			{
-				"templates/misc/env.tmpl",
+				filepath.Join("templates", "misc", "env.tmpl"),
 				".env", "", di.Config.Backend,
 			},
 		},
@@ -59,15 +60,11 @@ func Create(di *injector.Injector) error {
 		di.Attachments.Templates,
 		[]helpers.EmbedFile{
 			{
-				"templates/frontend/gowebly/layout",
+				filepath.Join("templates", "frontend", "gowebly"),
 				"templates",
 			},
 			{
-				"templates/frontend/gowebly/components",
-				"templates/components/gowebly",
-			},
-			{
-				"templates/static",
+				filepath.Join("templates", "static"),
 				"static",
 			},
 		},
@@ -82,8 +79,8 @@ func Create(di *injector.Injector) error {
 			di.Attachments.Templates,
 			[]helpers.EmbedFile{
 				{
-					fmt.Sprintf("templates/frontend/%s", di.Config.Frontend.CSS.Framework),
-					"templates/pages",
+					filepath.Join("templates", "frontend", di.Config.Frontend.CSS.Framework),
+					filepath.Join("templates", "pages"),
 				},
 			},
 		); err != nil {
@@ -95,8 +92,8 @@ func Create(di *injector.Injector) error {
 			di.Attachments.Templates,
 			[]helpers.EmbedFile{
 				{
-					"templates/frontend/default",
-					"templates/pages",
+					filepath.Join("templates", "frontend", "default"),
+					filepath.Join("templates", "pages"),
 				},
 			},
 		); err != nil {
@@ -153,14 +150,14 @@ func Create(di *injector.Injector) error {
 		helpers.PrintStyled("Frontend: default", "info", "margin-left")
 	} else {
 		helpers.PrintStyled(
-			fmt.Sprintf("Frontend: %s ('%s')", di.Config.Frontend.CSS.Framework, di.Config.Frontend.CSS.Version),
+			fmt.Sprintf("Frontend: %s '%s'", di.Config.Frontend.CSS.Framework, di.Config.Frontend.CSS.Version),
 			"info", "margin-left",
 		)
 	}
 
 	helpers.PrintStyled(
 		fmt.Sprintf(
-			"htmx ('%s'), hyperscript ('%s')",
+			"htmx '%s', hyperscript '%s'",
 			di.Config.Frontend.HTMX, di.Config.Frontend.Hyperscript,
 		),
 		"info", "margin-left-2",

@@ -36,7 +36,7 @@ func CopyFromEmbedFS(efs embed.FS, files []EmbedFile) error {
 			}
 
 			// Check, if file is existing.
-			if IsExistInCurrentFolder(filepath.Join(f.OutputFolder, entry.Name()), false) {
+			if IsExistInFolder(filepath.Join(f.OutputFolder, entry.Name()), false) {
 				return errors.New(constants.ErrorProjectFolderIsNotEmpty)
 			}
 
@@ -68,7 +68,7 @@ func CopyFromEmbedFS(efs embed.FS, files []EmbedFile) error {
 func GenerateFromEmbedFS(efs embed.FS, templates []EmbedTemplate) error {
 	for _, t := range templates {
 		// Check, if file is existing.
-		if IsExistInCurrentFolder(filepath.Join(t.OutputFolder, t.OutputFile), false) {
+		if IsExistInFolder(filepath.Join(t.OutputFolder, t.OutputFile), false) {
 			return errors.New(constants.ErrorProjectFolderIsNotEmpty)
 		}
 

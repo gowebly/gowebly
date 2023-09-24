@@ -43,7 +43,7 @@ func newKoanfByPath(path string) (*koanf.Koanf, error) {
 	k := koanf.New(".")
 
 	// Check, if config file ('.cgapp.yml') is existing.
-	if IsExistInCurrentFolder(path, false) {
+	if IsExistInFolder(path, false) {
 		// If exists, set provider to the file.Provider with the given path.
 		provider = file.Provider(path)
 	} else {

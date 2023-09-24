@@ -6,9 +6,9 @@ import (
 	"path/filepath"
 )
 
-// IsExistInCurrentFolder searches for a file or folder by the given name in the
+// IsExistInFolder searches for a file or folder by the given name in the
 // current folder.
-func IsExistInCurrentFolder(name string, isFolder bool) bool {
+func IsExistInFolder(name string, isFolder bool) bool {
 	// Check, if file or folder is existing.
 	info, err := os.Stat(filepath.Clean(name))
 	if err == nil || !os.IsNotExist(err) {
@@ -21,7 +21,7 @@ func IsExistInCurrentFolder(name string, isFolder bool) bool {
 // MakeFile makes a single file with name and data.
 func MakeFile(name string, data []byte) error {
 	// Check, if file is existing.
-	if IsExistInCurrentFolder(name, false) {
+	if IsExistInFolder(name, false) {
 		return fmt.Errorf("os: file with name '%s' is found in the current folder, cannot be overwritten", name)
 	}
 
@@ -32,7 +32,7 @@ func MakeFile(name string, data []byte) error {
 func MakeFolders(names ...string) error {
 	for _, name := range names {
 		// Check, if folder is existing.
-		if IsExistInCurrentFolder(name, true) {
+		if IsExistInFolder(name, true) {
 			return fmt.Errorf(
 				"os: folder with name '%s' is found in the current folder, cannot be overwritten",
 				name,

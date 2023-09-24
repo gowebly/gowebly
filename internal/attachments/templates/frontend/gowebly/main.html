@@ -7,10 +7,13 @@
         <title>{{ block "title" . }}{{ end }}</title>
         {{ block "meta" . }}{{ end }}
         <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
-        {{ template "gowebly-head-styles" . }}
+        <link href="/static/styles.min.css" rel="stylesheet">
+        {{ block "styles" .}}{{ end }}
     </head>
     <body>
         {{ block "content" . }}{{ end }}
-        {{ template "gowebly-body-scripts" . }}
+        <script src="/static/htmx.min.js"></script>
+        <script src="/static/hyperscript.min.js"></script>
+        {{ block "scripts" .}}{{ end }}
     </body>
 </html>

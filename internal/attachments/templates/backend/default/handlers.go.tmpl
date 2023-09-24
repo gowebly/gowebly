@@ -3,16 +3,29 @@ package main
 import (
 	"log/slog"
 	"net/http"
-	
-	gowebly "github.com/gowebly/gowebly/pkg/templates"
+	"path/filepath"
 )
 
 // indexViewHandler handles a view for the index page.
 func indexViewHandler(w http.ResponseWriter, r *http.Request) {
-	// Add index page template to the view.
-	tmpl := gowebly.AddTemplates("templates/pages/index.html")
-	
-	// Render index page view.
+	// Check, if current URL is '/'.
+	if r.URL.Path != "/" {
+		// If not, return HTTP 404 error.
+		http.NotFound(w, r)
+		return
+	}
+
+	// Define paths to the user templates.
+	indexPage := filepath.Join("templates", "pages", "index.html")
+
+	// Parse user templates or return error.
+	tmpl, err := gowebly.ParseTemplates(indexPage)
+	if err != nil {
+		slog.Error("msg", err.Error())
+		return
+	}
+
+	// Execute (render) all templates or return error.
 	if err := tmpl.Execute(w, nil); err != nil {
 		slog.Error("msg", err.Error())
 		return

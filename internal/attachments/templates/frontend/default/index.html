@@ -1,10 +1,26 @@
 {{/* Set title text to this page. */}}
 {{ define "title" }}Welcome to example!{{ end }}
 
-{{/* Set META tags to this page. */}}
+{{/* (Optional) Set META tags to this page. */}}
 {{ define "meta" }}
 <meta name="keywords" content="gowebly, htmx example page, go with htmx">
 <meta name="description" content="Welcome to example! You're here because it worked out.">
+{{ end }}
+
+{{/* (Optional) Set a custom styles to this page. */}}
+{{ define "styles" }}
+<style>
+    body { font-family: Arial, serif; }
+    h1 { color: aquamarine; }
+    p { color: dimgray; }
+</style>
+{{ end }}
+
+{{/* (Optional) Set a custom scripts to this page. */}}
+{{ define "scripts" }}
+<script>
+    console.log("Welcome to example! You're here because it worked out.");
+</script>
 {{ end }}
 
 {{/* Set HTML content to this page. */}}

@@ -2,6 +2,7 @@ package commands
 
 import (
 	"fmt"
+	"path/filepath"
 
 	"github.com/gowebly/gowebly/internal/constants"
 	"github.com/gowebly/gowebly/internal/helpers"
@@ -48,7 +49,7 @@ func Build(di *injector.Injector) error {
 		di.Attachments.Templates,
 		[]helpers.EmbedTemplate{
 			{
-				"templates/misc/env.tmpl",
+				filepath.Join("templates", "misc", "env.tmpl"),
 				".env", "", di.Config.Backend,
 			},
 		},
@@ -77,16 +78,13 @@ func Build(di *injector.Injector) error {
 		helpers.PrintStyled("Frontend: default", "info", "margin-left")
 	} else {
 		helpers.PrintStyled(
-			fmt.Sprintf(
-				"Frontend: %s ('%s')",
-				di.Config.Frontend.CSS.Framework, di.Config.Frontend.CSS.Version,
-			),
+			fmt.Sprintf("Frontend: %s '%s'", di.Config.Frontend.CSS.Framework, di.Config.Frontend.CSS.Version),
 			"info", "margin-left",
 		)
 	}
 
 	helpers.PrintStyled(
-		fmt.Sprintf("htmx ('%s'), hyperscript ('%s')", di.Config.Frontend.HTMX, di.Config.Frontend.Hyperscript),
+		fmt.Sprintf("htmx '%s', hyperscript '%s'", di.Config.Frontend.HTMX, di.Config.Frontend.Hyperscript),
 		"info", "margin-left-2",
 	)
 
