@@ -57,6 +57,17 @@ func Build(di *injector.Injector) error {
 		return err
 	}
 
+	// Execute system commands.
+	if err := helpers.Execute(
+		[]helpers.Command{
+			{
+				true, "npm", []string{"run", "build:prod"},
+			},
+		},
+	); err != nil {
+		return err
+	}
+
 	// Success message.
 	helpers.PrintStyled("Successfully build your project for the production!", "success", "margin-top")
 

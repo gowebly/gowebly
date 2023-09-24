@@ -13,7 +13,7 @@ import (
 func Run(di *injector.Injector) error {
 	// Header message.
 	helpers.PrintStyled(
-		"Downloading and preparing a minified versions of the frontend part... Please wait!",
+		"Downloading and preparing the frontend part... Please wait!",
 		"info", "margin-top",
 	)
 
@@ -51,6 +51,17 @@ func Run(di *injector.Injector) error {
 			{
 				filepath.Join("templates", "misc", "env.tmpl"),
 				".env", "", di.Config.Backend,
+			},
+		},
+	); err != nil {
+		return err
+	}
+
+	// Execute system commands.
+	if err := helpers.Execute(
+		[]helpers.Command{
+			{
+				true, "npm", []string{"run", "build:dev"},
 			},
 		},
 	); err != nil {
@@ -95,7 +106,7 @@ func Run(di *injector.Injector) error {
 	return helpers.Execute(
 		[]helpers.Command{
 			{
-				Name: "go", Options: []string{"run", "./..."}, SkipOutput: false,
+				false, "go", []string{"run", "./..."},
 			},
 		},
 	)

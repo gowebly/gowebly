@@ -11,9 +11,9 @@ import (
 
 // Create runs the 'create' cmd command.
 func Create(di *injector.Injector) error {
-	// Header message.
+	// Backend part message.
 	helpers.PrintStyled(
-		"Downloading and preparing a minified versions of the frontend part... Please wait!",
+		"Preparing the backend part... Please wait!",
 		"info", "margin-top",
 	)
 
@@ -85,6 +85,12 @@ func Create(di *injector.Injector) error {
 		return err
 	}
 
+	// Frontend part message.
+	helpers.PrintStyled(
+		"Downloading and preparing the frontend part... Please wait!",
+		"info", "margin-top",
+	)
+
 	// Download minified version of the htmx and hyperscript JS files from CND.
 	if err := helpers.DownloadFiles(
 		[]helpers.Download{
@@ -103,6 +109,20 @@ func Create(di *injector.Injector) error {
 				),
 				"hyperscript.min.js",
 				"static",
+			},
+		},
+	); err != nil {
+		return err
+	}
+
+	// Execute system commands.
+	if err := helpers.Execute(
+		[]helpers.Command{
+			{
+				true, "npm", []string{"install"},
+			},
+			{
+				true, "go", []string{"mod", "tidy"},
 			},
 		},
 	); err != nil {
@@ -159,11 +179,5 @@ func Create(di *injector.Injector) error {
 		"warning", "margin-top-bottom",
 	)
 
-	return helpers.Execute(
-		[]helpers.Command{
-			{
-				Name: "go", Options: []string{"mod", "tidy"}, SkipOutput: true,
-			},
-		},
-	)
+	return nil
 }
