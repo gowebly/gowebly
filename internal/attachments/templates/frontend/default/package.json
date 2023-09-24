@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build:dev": "npx parcel build --dist-dir ./static ./assets/styles.css --no-source-maps --no-optimize",
-    "build:prod": "npx parcel build --dist-dir ./static ./assets/styles.css --no-source-maps"
+    "build:dev": "npx parcel build --no-source-maps --no-optimize --dist-dir ./static ./assets/styles.css",
+    "build:prod": "npx parcel build --no-source-maps --dist-dir ./static ./assets/styles.css"
   },
   "license": "MIT",
   "browserslist": "> 0.5%, last 2 versions, not dead",
