@@ -7,6 +7,7 @@
     "build:prod": "npx parcel build --dist-dir ./static ./assets/styles.css --no-source-maps"
   },
   "license": "MIT",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
   "devDependencies": {
     "parcel": "latest"
   }

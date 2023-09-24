@@ -82,10 +82,6 @@ func Create(di *injector.Injector) error {
 				"package.json",
 			},
 			{
-				filepath.Join("templates", "frontend", di.Config.Frontend.CSSFramework, "postcss.config.js"),
-				"postcss.config.js",
-			},
-			{
 				filepath.Join("templates", "static", "favicon.ico"),
 				filepath.Join("static", "favicon.ico"),
 			},
@@ -101,6 +97,10 @@ func Create(di *injector.Injector) error {
 		if err := helpers.CopyFilesFromEmbedFS(
 			di.Attachments.Templates,
 			[]helpers.EmbedFile{
+				{
+					filepath.Join("templates", "frontend", "tailwindcss", "postcss.config.js"),
+					"postcss.config.js",
+				},
 				{
 					filepath.Join("templates", "frontend", "tailwindcss", "tailwind.config.js"),
 					"tailwind.config.js",
