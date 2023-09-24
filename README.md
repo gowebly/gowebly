@@ -39,8 +39,8 @@ go run github.com/gowebly/gowebly@latest create
 ```
 
 That's it! 🔥 A wonderful web application, using the built-in **net/http** 
-package (as a Go backend), **htmx**, **hyperscript** and **UnoCSS** (as a CSS 
-framework) is available in your Go HTML templates.
+package (as a Go backend), **htmx** & **hyperscript** is available in your Go 
+HTML templates.
 
 ### 🔹 A full Go-way to quick start
 
@@ -115,9 +115,9 @@ gowebly init
 > - Go backend with **net/http** package;
 > - Server port is `5000`, timeout (in seconds): `5` for read, `10` for write;
 > - Latest versions of the **htmx** & **hyperscript**;
-> - Latest version of the **UnoCSS** (as a CSS framework).
+> - Without any CSS framework (only default styles for example code).
 
-Typically, created config file contains the following options:
+Typically, a created config file contains the following options:
 
 ```yaml
 backend:
@@ -130,9 +130,7 @@ backend:
 frontend:
   htmx: latest
   hyperscript: latest
-  css:
-    framework: unocss
-    version: latest
+  css_framework: default
 ```
 
 But, you can choose any **Go** backend with a server options for your project 
@@ -149,10 +147,11 @@ In additional, you can choose versions of the **htmx**, **hyperscript**, and
 one of the most popular atomic/utility-first **CSS framework** to your 
 project (_this is optional, not required_):
 
-| CSS framework | Description                                                |
-|---------------|------------------------------------------------------------|
-| `tailwindcss` | Use the [Tailwind CSS][tailwindcss_url] as a CSS framework |
-| `unocss`      | Use the [UnoCSS][unocss_url] as a CSS framework            |
+| CSS framework | Description                                                        |
+|---------------|--------------------------------------------------------------------|
+| `default`     | Don't use any CSS framework (only default styles for example code) |
+| `tailwindcss` | Use the [Tailwind CSS][tailwindcss_url] as a CSS framework         |
+| `unocss`      | Use the [UnoCSS][unocss_url] as a CSS framework                    |
 
 ### `create`
 
@@ -167,6 +166,26 @@ gowebly create
 > 💡 Note: If you don't run `init` command to create a config file 
 > (`.gowebly.yml`), by default the `gowebly` CLI creates a new project with a 
 > [default][repo_default_config] configuration.
+
+Typically, a created project contains the following files and folders:
+
+```console
+.
+├── static
+│   ├── favicon.ico
+│   ├── htmx.min.js
+│   ├── hyperscript.min.js
+│   └── styles.min.css
+├── templates
+│   ├── pages
+│   │   └── index.html
+│   └── main.html
+├── go.mod
+├── go.sum
+├── handlers.go
+├── main.go
+└── server.go
+```
 
 ### `run`
 
@@ -195,14 +214,16 @@ will be used:
 
 Every time you make `run` command for your project:
 
-1. CLI validate the config and apply all settings to the current project;
-2. CLI embed CDN versions of **htmx** & **hyperscript** to your Go HTML 
-   templates in a regular `<script>` tag into the block called 
-   `gowebly-body-scripts` (usually, placed on the bottom of the `<body>` tag);
-3. (_optionally_) CLI embed a CDN version of the chosen **CSS framework** to 
-   your Go HTML templates in a regular `<link>` tag into the block called 
-   `gowebly-head-styles` (usually, placed on the bottom of the `<head>` tag);
-4. CLI start a project's backend on the chosen port via simple `go run` 
+1. CLI validates the config and applies all settings to the current project;
+2. CLI downloads minimized versions of **htmx** and **hyperscript** (from 
+   official and trusted CDNs) to the `./static` folder and places them as 
+   separated `<script>` tags (at the bottom of the `<body>` tag) in the Go 
+   HTML template [`templates/main.html`][repo_main_layout];
+3. (_optionally_) CLI downloads a non-production version of the selected 
+   **CSS framework** (from an official and trusted CDN) to the `./static` 
+   folder and places it as a `<link>` tag (at the bottom of the `<head>` tag)
+   in the Go HTML template [`templates/main.html`][repo_main_layout];
+4. CLI starts a project's backend on the selected port via simple `go run` 
    command.
 
 ### `build`
@@ -228,16 +249,14 @@ The following library versions will be supplied in Go HTML templates:
 Every time you make `build` command for your project:
 
 1. CLI validate the config and apply all settings to the current project;
-2. CLI download minified versions of **htmx** & **hyperscript** from the 
-   official (and trusted) resources;
-   - Embed them into your Go HTML templates (inline-style) to the block 
-     called `gowebly-body-scripts` (usually, placed on the bottom of the 
-     `<body>` tag);
-3. (_optionally_) CLI prepare a minified version of the chosen **CSS 
-   framework** via [Vite][vite_url] tool;
-   - Embed them into your Go HTML templates (inline-style) to the block 
-     called `gowebly-head-styles` (usually, placed on the bottom of the 
-     `<head>` tag);
+2. CLI downloads minimized versions of **htmx** and **hyperscript** (from
+   official and trusted CDNs) to the `./static` folder and places them as
+   separated `<script>` tags (at the bottom of the `<body>` tag) in the Go
+   HTML template [`templates/main.html`][repo_main_layout];
+3. (_optional_) CLI prepares a production version of the selected **CSS 
+   framework** (using the [Vite][vite_url] tool) and places it as a `<link>` 
+   tag (at the bottom of the `<head>` tag) in the Go HTML template 
+   [`templates/main.html`][repo_main_layout];
 4. CLI generate a clear and well-documented `docker-compose.yml` file in the 
    root of the project folder to deploy it in isolated Docker containers 
    via [Portainer][portainer_url] (_recommended_), or manually, to your remote 
@@ -302,6 +321,7 @@ under the [Apache 2.0 License][repo_license_url], created and supported by
 [repo_readme_cn_url]: https://github.com/gowebly/gowebly/blob/main/README_CN.md
 [repo_readme_es_url]: https://github.com/gowebly/gowebly/blob/main/README_ES.md
 [repo_default_config]: https://github.com/gowebly/gowebly/blob/main/internal/attachments/configs/default.yml
+[repo_main_layout]: https://github.com/gowebly/gowebly/blob/main/internal/attachments/frontend/gowebly/main.html
 
 <!-- Author links -->
 

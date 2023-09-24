@@ -41,9 +41,9 @@ Ahora, puedes usar `gowebly` sin instalación. Simplemente,
 go run github.com/gowebly/gowebly@latest create
 ```
 
-¡Ya está! 🔥 Una maravillosa aplicación web, usando el paquete integrado 
-**net/http** (como backend de Go), **htmx**, **hyperscript** y **UnoCSS** 
-(como framework CSS) está disponible en tus plantillas HTML de Go.
+¡Ya está! 🔥 Una maravillosa aplicación web, utilizando el paquete 
+incorporado **net/http** (como backend de Go), **htmx** & **hyperscript** 
+está disponible en sus plantillas Go HTML.
 
 ### 🔹 Un completo Go-way de inicio rápido
 
@@ -116,7 +116,8 @@ gowebly init
 > - El puerto del servidor es `5000`, tiempo de espera (en segundos): `5` para 
 > lectura, `10` para escritura;
 > - Últimas versiones de **htmx** & **hyperscript**;
-> - Última versión del **UnoCSS** (como framework CSS).
+> - Sin ningún framework CSS (solo estilos por defecto para el código de 
+> ejemplo).
 
 Normalmente, el archivo de configuración creado contiene las siguientes 
 opciones:
@@ -132,9 +133,7 @@ backend:
 frontend:
   htmx: latest
   hyperscript: latest
-  css:
-    framework: unocss
-    version: latest
+  css_framework: default
 ```
 
 Pero, puede elegir cualquier **Go** backend con opciones de servidor para su 
@@ -151,10 +150,11 @@ Adicionalmente, puedes elegir versiones de **htmx**, **hyperscript**, y uno
 de los más populares atomic/utility-first **framework CSS** para tu proyecto 
 (_esto es opcional, no obligatorio_):
 
-| Framework CSS | Descripción                                                 |
-|---------------|-------------------------------------------------------------|
-| `tailwindcss` | Utilizar [Tailwind CSS][tailwindcss_url] como framework CSS |
-| `unocss`      | Utilizar [UnoCSS][unocss_url] como framework CSS            |
+| Framework CSS | Descripción                                                                           |
+|---------------|---------------------------------------------------------------------------------------|
+| `default`     | No utilices ningún framework CSS (solo estilos por defecto para el código de ejemplo) |
+| `tailwindcss` | Utilizar [Tailwind CSS][tailwindcss_url] como framework CSS                           |
+| `unocss`      | Utilizar [UnoCSS][unocss_url] como framework CSS                                      |
 
 ### `create`
 
@@ -168,6 +168,26 @@ gowebly create
 > 💡 Nota: Si no ejecutas el comando `init` para crear un archivo de 
 > configuración (`.gowebly.yml`), por defecto el CLI de `gowebly` crea un 
 > nuevo proyecto con una configuración [por defecto][repo_default_config].
+
+Normalmente, el proyecto creado contiene los siguientes archivos y carpetas:
+
+```console
+.
+├── static
+│   ├── favicon.ico
+│   ├── htmx.min.js
+│   ├── hyperscript.min.js
+│   └── styles.min.css
+├── templates
+│   ├── pages
+│   │   └── index.html
+│   └── main.html
+├── go.mod
+├── go.sum
+├── handlers.go
+├── main.go
+└── server.go
+```
 
 ### `run`
 
@@ -186,7 +206,8 @@ Go HTML:
 
 - **htmx**: última versión no de producción desde CDN;
 - **hyperscript**: última versión no de producción desde CDN;
-- (_optionally_) **framework CSS**: última versión no de producción desde CDN;
+- (_opcionalmente_) **framework CSS**: última versión no de producción desde 
+  CDN;
 
 En el modo de desarrollo, solo se utilizarán las CDN oficiales compatibles 
 de los desarrolladores se utilizarán: 
@@ -198,16 +219,16 @@ de los desarrolladores se utilizarán:
 Cada vez que haga `run` comando para su proyecto:
 
 1. CLI válida la configuración y aplica todos los ajustes al proyecto actual;
-2. CLI incrustar versiones CDN de **htmx** & **hyperscript** a tus 
-   plantillas Go HTML en una etiqueta normal `<script>` en el bloque llamado 
-   `gowebly-body-scripts` (normalmente, colocado en la parte inferior de la 
-   etiqueta `<body>`);
-3. (_opcionalmente_) CLI incrusta una versión CDN del **framework CSS** 
-   elegido a tus plantillas Go HTML en una etiqueta regular `<link>` dentro 
-   del bloque llamado `gowebly-head-styles` (normalmente, colocado en la 
-   parte inferior de la etiqueta `<head>`);
-4. CLI inicia el backend de un proyecto en el puerto elegido a través de un 
-   simple comando `go run`.
+2. CLI descarga versiones minimizadas de **htmx** y **hyperscript** (de CDN 
+   oficiales y de confianza) a la carpeta `./static` y las coloca como 
+   etiquetas separadas `<script>` (al final de la etiqueta `<body>`) en la 
+   plantilla Go HTML [`templates/main.html`][repo_main_layout];
+3. (_opcionalmente_) CLI descarga una versión no de producción del **framework 
+   CSS** seleccionado (desde un CDN oficial y de confianza) a la carpeta
+   `./static` y lo coloca como una etiqueta `<link>` (al final de la etiqueta 
+   `<head>`) en la plantilla Go HTML [`templates/main.html`][repo_main_layout];
+4. CLI inicia el backend de un proyecto en el puerto seleccionado mediante 
+   el simple comando `go run`.
 
 ### `build`
 
@@ -235,16 +256,14 @@ Go HTML:
 Cada vez que haga `build` comando para su proyecto:
 
 1. CLI válida la configuración y aplica todos los ajustes al proyecto actual;
-2. CLI descarga versiones minificadas de **htmx** & **hyperscript** de los 
-   recursos oficiales (y de confianza);
-   - Incrústelos en sus plantillas Go HTML (estilo inline) en el bloque 
-     llamado `gowebly-body-scripts` (normalmente, situado en la parte 
-     inferior de la etiqueta `<body>`);
-3. (_opcionalmente_) CLI preparar una versión minificada (y arborescente) 
-   del **framework CSS** elegido a través de la herramienta [Vite][vite_url];
-   - Incrústalos en tus plantillas Go HTML (estilo inline) en el bloque 
-     llamado `gowebly-head-styles` (normalmente, situado en la parte 
-     inferior de la etiqueta `<head>`);
+2. CLI descarga versiones minimizadas de **htmx** y **hyperscript** (de CDN
+   oficiales y de confianza) a la carpeta `./static` y las coloca como
+   etiquetas separadas `<script>` (al final de la etiqueta `<body>`) en la
+   plantilla Go HTML [`templates/main.html`][repo_main_layout];
+3. (_opcional_) CLI prepara una versión de producción del **CSS framework** 
+   seleccionado (usando la herramienta [Vite][vite_url]) y lo coloca como 
+   una etiqueta `<link>` (al final de la etiqueta `<head>`) en la plantilla 
+   Go HTML [`templates/main.html`][repo_main_layout];
 4. CLI generar un archivo claro y bien documentado `docker-compose.yml` en 
    la raíz de la carpeta del proyecto para desplegarlo en contenedores 
    Docker aislados a través de [Portainer][portainer_url] (_recomendado_) o 
@@ -312,6 +331,7 @@ bajo la [Licencia Apache 2.0][repo_license_url], creado y soportado por
 [repo_readme_cn_url]: https://github.com/gowebly/gowebly/blob/main/README_CN.md
 [repo_readme_es_url]: https://github.com/gowebly/gowebly/blob/main/README_ES.md
 [repo_default_config]: https://github.com/gowebly/gowebly/blob/main/internal/attachments/configs/default.yml
+[repo_main_layout]: https://github.com/gowebly/gowebly/blob/main/internal/attachments/frontend/gowebly/main.html
 
 <!-- Author links -->
 
