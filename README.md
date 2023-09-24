@@ -147,11 +147,11 @@ In additional, you can choose versions of the **htmx**, **hyperscript**, and
 one of the most popular atomic/utility-first **CSS framework** to your 
 project (_this is optional, not required_):
 
-| CSS framework | Description                                                        |
-|---------------|--------------------------------------------------------------------|
-| `default`     | Don't use any CSS framework (only default styles for example code) |
-| `tailwindcss` | Use the [Tailwind CSS][tailwindcss_url] as a CSS framework         |
-| `unocss`      | Use the [UnoCSS][unocss_url] as a CSS framework                    |
+| CSS framework | Description                                                            |
+|---------------|------------------------------------------------------------------------|
+| `default`     | Don't use any CSS framework (only default styles for the code example) |
+| `tailwindcss` | Use the [Tailwind CSS][tailwindcss_url] as a CSS framework             |
+| `unocss`      | Use the [UnoCSS][unocss_url] as a CSS framework                        |
 
 ### `create`
 
