@@ -145,11 +145,13 @@ gowebly create
 
 ```console
 .
+├── assets
+│   └── styles.css
 ├── static
 │   ├── favicon.ico
 │   ├── htmx.min.js
 │   ├── hyperscript.min.js
-│   └── styles.min.css
+│   └── styles.css
 ├── templates
 │   ├── pages
 │   │   └── index.html
@@ -158,6 +160,8 @@ gowebly create
 ├── go.sum
 ├── handlers.go
 ├── main.go
+├── package-lock.json
+├── package.json
 └── server.go
 ```
 

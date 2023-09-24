@@ -173,11 +173,13 @@ Normalmente, el proyecto creado contiene los siguientes archivos y carpetas:
 
 ```console
 .
+├── assets
+│   └── styles.css
 ├── static
 │   ├── favicon.ico
 │   ├── htmx.min.js
 │   ├── hyperscript.min.js
-│   └── styles.min.css
+│   └── styles.css
 ├── templates
 │   ├── pages
 │   │   └── index.html
@@ -186,6 +188,8 @@ Normalmente, el proyecto creado contiene los siguientes archivos y carpetas:
 ├── go.sum
 ├── handlers.go
 ├── main.go
+├── package-lock.json
+├── package.json
 └── server.go
 ```
 
