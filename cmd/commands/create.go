@@ -97,7 +97,7 @@ func Create(di *injector.Injector) error {
 	// Copy CSS framework specific files from the embed file system.
 	switch di.Config.Frontend.CSSFramework {
 	case "tailwindcss":
-		// Tailwind CSS.
+		// Tailwind CSS files.
 		if err := helpers.CopyFilesFromEmbedFS(
 			di.Attachments.Templates,
 			[]helpers.EmbedFile{
@@ -109,6 +109,8 @@ func Create(di *injector.Injector) error {
 		); err != nil {
 			return err
 		}
+	case "unocss":
+		// UnoCSS files.
 	}
 
 	// Frontend part message.
