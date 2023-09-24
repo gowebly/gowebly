@@ -1,5 +1,13 @@
-* { box-sizing: border-box; }
-body { font-family: Arial, serif; }
-main { background-color: cornsilk; }
-h1 { color: aquamarine; }
-p { color: dimgray; }
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: floralwhite;
+    color: dimgray;
+}
+
+h1 {
+    color: cornflowerblue;
+}
