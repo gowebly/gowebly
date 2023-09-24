@@ -18,37 +18,43 @@ func Create(di *injector.Injector) error {
 	)
 
 	// Create a new folder(s).
-	if err := helpers.MakeFolders("static", "templates/pages"); err != nil {
+	if err := helpers.MakeFolders("assets", "static", "templates/pages"); err != nil {
 		return err
 	}
 
 	// Create backend and misc files from templates.
-	if err := helpers.GenerateFromEmbedFS(
+	if err := helpers.GenerateFilesByTemplateFromEmbedFS(
 		di.Attachments.Templates,
 		[]helpers.EmbedTemplate{
 			{
 				filepath.Join("templates", "backend", di.Config.Backend.Name, "go.mod.tmpl"),
-				"go.mod", "", nil,
+				"go.mod",
+				nil,
 			},
 			{
 				filepath.Join("templates", "backend", di.Config.Backend.Name, "handlers.go.tmpl"),
-				"handlers.go", "", nil,
+				"handlers.go",
+				nil,
 			},
 			{
 				filepath.Join("templates", "backend", di.Config.Backend.Name, "server.go.tmpl"),
-				"server.go", "", nil,
+				"server.go",
+				nil,
 			},
 			{
 				filepath.Join("templates", "backend", di.Config.Backend.Name, "main.go.tmpl"),
-				"main.go", "", di.Config.Backend,
+				"main.go",
+				di.Config.Backend,
 			},
 			{
 				filepath.Join("templates", "misc", "gitignore.tmpl"),
-				".gitignore", "", nil,
+				".gitignore",
+				nil,
 			},
 			{
 				filepath.Join("templates", "misc", "env.tmpl"),
-				".env", "", di.Config.Backend,
+				".env",
+				di.Config.Backend,
 			},
 		},
 	); err != nil {
@@ -56,33 +62,53 @@ func Create(di *injector.Injector) error {
 	}
 
 	// Copy frontend files from the embed file system.
-	if err := helpers.CopyFromEmbedFS(
+	if err := helpers.CopyFilesFromEmbedFS(
 		di.Attachments.Templates,
 		[]helpers.EmbedFile{
 			{
-				filepath.Join("templates", "frontend", "gowebly"),
-				"templates",
+				filepath.Join("templates", "frontend", "main.html"),
+				filepath.Join("templates", "main.html"),
 			},
 			{
-				filepath.Join("templates", "static"),
-				"static",
+				filepath.Join("templates", "frontend", di.Config.Frontend.CSSFramework, "index.html"),
+				filepath.Join("templates", "pages", "index.html"),
+			},
+			{
+				filepath.Join("templates", "frontend", di.Config.Frontend.CSSFramework, "assets", "styles.css"),
+				filepath.Join("assets", "styles.css"),
+			},
+			{
+				filepath.Join("templates", "frontend", di.Config.Frontend.CSSFramework, "package.json"),
+				"package.json",
+			},
+			{
+				filepath.Join("templates", "frontend", di.Config.Frontend.CSSFramework, "postcss.config.js"),
+				"postcss.config.js",
+			},
+			{
+				filepath.Join("templates", "static", "favicon.ico"),
+				filepath.Join("static", "favicon.ico"),
 			},
 		},
 	); err != nil {
 		return err
 	}
 
-	// Copy CSS framework files from the embed file system.
-	if err := helpers.CopyFromEmbedFS(
-		di.Attachments.Templates,
-		[]helpers.EmbedFile{
-			{
-				filepath.Join("templates", "frontend", di.Config.Frontend.CSSFramework),
-				filepath.Join("templates", "pages"),
+	// Copy CSS framework specific files from the embed file system.
+	switch di.Config.Frontend.CSSFramework {
+	case "tailwindcss":
+		// Tailwind CSS.
+		if err := helpers.CopyFilesFromEmbedFS(
+			di.Attachments.Templates,
+			[]helpers.EmbedFile{
+				{
+					filepath.Join("templates", "frontend", "tailwindcss", "tailwind.config.js"),
+					"tailwind.config.js",
+				},
 			},
-		},
-	); err != nil {
-		return err
+		); err != nil {
+			return err
+		}
 	}
 
 	// Frontend part message.

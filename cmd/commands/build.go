@@ -45,12 +45,13 @@ func Build(di *injector.Injector) error {
 	}
 
 	// Re-create .env file from the template.
-	if err := helpers.GenerateFromEmbedFS(
+	if err := helpers.GenerateFilesByTemplateFromEmbedFS(
 		di.Attachments.Templates,
 		[]helpers.EmbedTemplate{
 			{
 				filepath.Join("templates", "misc", "env.tmpl"),
-				".env", "", di.Config.Backend,
+				".env",
+				di.Config.Backend,
 			},
 		},
 	); err != nil {

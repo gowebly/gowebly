@@ -4,57 +4,38 @@ import (
 	"embed"
 	"errors"
 	"html/template"
-	"io/fs"
 	"os"
-	"path/filepath"
 
 	"github.com/gowebly/gowebly/internal/constants"
 )
 
 // EmbedFile represent struct for embed file system.
 type EmbedFile struct {
-	EmbedFolder  string
-	OutputFolder string
+	EmbedFile  string
+	OutputFile string
 }
 
 // EmbedTemplate represents struct for a one template.
 type EmbedTemplate struct {
-	EmbedFile    string
-	OutputFile   string
-	OutputFolder string
-	Data         any
+	EmbedFile  string
+	OutputFile string
+	Data       any
 }
 
-// CopyFromEmbedFS function for copy files from the embed file system.
-func CopyFromEmbedFS(efs embed.FS, files []EmbedFile) error {
+// CopyFilesFromEmbedFS function for copy all files from the embed file system.
+func CopyFilesFromEmbedFS(efs embed.FS, files []EmbedFile) error {
 	for _, f := range files {
-		// Return copied folders and files.
-		if err := fs.WalkDir(efs, f.EmbedFolder, func(path string, entry fs.DirEntry, err error) error {
-			// Checking embed path.
-			if err != nil {
-				return errors.New("os: can't copy files from embed file system")
-			}
+		// Read the attachments (embedded) config file.
+		data, err := efs.ReadFile(f.EmbedFile)
+		if err != nil {
+			return err
+		}
 
-			// Check, if file is existing.
-			if IsExistInFolder(filepath.Join(f.OutputFolder, entry.Name()), false) {
-				return errors.New(constants.ErrorProjectFolderIsNotEmpty)
-			}
-
-			// Checking, if embedded file is not a folder.
-			if !entry.IsDir() {
-				// Set file data.
-				fileData, errReadFile := fs.ReadFile(efs, path)
-				if errReadFile != nil {
-					return errReadFile
-				}
-
-				// Create file from embedded.
-				if errMakeFile := MakeFile(filepath.Join(f.OutputFolder, entry.Name()), fileData); errMakeFile != nil {
-					return errMakeFile
-				}
-			}
-
-			return nil
+		// Create a config file.
+		if err := MakeFiles([]File{
+			{
+				f.OutputFile, data,
+			},
 		}); err != nil {
 			return err
 		}
@@ -63,12 +44,12 @@ func CopyFromEmbedFS(efs embed.FS, files []EmbedFile) error {
 	return nil
 }
 
-// GenerateFromEmbedFS generates new files from the given template with
+// GenerateFilesByTemplateFromEmbedFS generates new files from the given template with
 // variables from embed FS.
-func GenerateFromEmbedFS(efs embed.FS, templates []EmbedTemplate) error {
+func GenerateFilesByTemplateFromEmbedFS(efs embed.FS, templates []EmbedTemplate) error {
 	for _, t := range templates {
 		// Check, if file is existing.
-		if IsExistInFolder(filepath.Join(t.OutputFolder, t.OutputFile), false) {
+		if IsExistInFolder(t.OutputFile, false) {
 			return errors.New(constants.ErrorProjectFolderIsNotEmpty)
 		}
 
@@ -85,7 +66,7 @@ func GenerateFromEmbedFS(efs embed.FS, templates []EmbedTemplate) error {
 		}
 
 		// Rename temp file.
-		if err := os.Rename(file.Name(), filepath.Join(t.OutputFolder, t.OutputFile)); err != nil {
+		if err := os.Rename(file.Name(), t.OutputFile); err != nil {
 			return err
 		}
 

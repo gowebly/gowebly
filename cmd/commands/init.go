@@ -17,7 +17,11 @@ func Init(di *injector.Injector) error {
 	}
 
 	// Create a config file.
-	if err := helpers.MakeFile(constants.YAMLConfigFileName, cfgFile); err != nil {
+	if err := helpers.MakeFiles([]helpers.File{
+		{
+			constants.YAMLConfigFileName, cfgFile,
+		},
+	}); err != nil {
 		return err
 	}
 

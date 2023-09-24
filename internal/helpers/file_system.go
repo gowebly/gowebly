@@ -6,6 +6,12 @@ import (
 	"path/filepath"
 )
 
+// File represent a struct to a file.
+type File struct {
+	Name string
+	Data []byte
+}
+
 // IsExistInFolder searches for a file or folder by the given name in the
 // current folder.
 func IsExistInFolder(name string, isFolder bool) bool {
@@ -18,14 +24,21 @@ func IsExistInFolder(name string, isFolder bool) bool {
 	return false
 }
 
-// MakeFile makes a single file with name and data.
-func MakeFile(name string, data []byte) error {
-	// Check, if file is existing.
-	if IsExistInFolder(name, false) {
-		return fmt.Errorf("os: file with name '%s' is found in the current folder, cannot be overwritten", name)
+// MakeFiles makes a multiply files with names and data.
+func MakeFiles(files []File) error {
+	for _, f := range files {
+		// Check, if file is existing.
+		if IsExistInFolder(f.Name, false) {
+			return fmt.Errorf("os: file with name '%s' is found in the current folder, cannot be overwritten", f.Name)
+		}
+
+		// Create a new file.
+		if err := os.WriteFile(f.Name, f.Data, 0o600); err != nil {
+			return err
+		}
 	}
 
-	return os.WriteFile(name, data, 0o600)
+	return nil
 }
 
 // MakeFolders makes a multiply folders with names.
