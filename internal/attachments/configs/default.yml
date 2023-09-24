@@ -21,11 +21,5 @@ frontend:
   htmx: latest
   # 'hyperscript' (string) option can be any existing version
   hyperscript: latest
-
-  # The 'css' block sets a CSS framework options.
-  # Optional, not required for set up.
-  css:
-    # 'framework' (string) option can be one of the values: 'tailwindcss' or 'unocss'
-    framework: unocss
-    # 'version' (string) option can be any existing version
-    version: latest
+  # 'css_framework' (string) option can be one of the values: 'tailwindcss', 'unocss', or 'default'
+  css_framework: default

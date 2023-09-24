@@ -73,16 +73,10 @@ func Build(di *injector.Injector) error {
 		),
 		"info", "margin-left-2",
 	)
-
-	if di.Config.Frontend.CSS == nil {
-		helpers.PrintStyled("Frontend: default", "info", "margin-left")
-	} else {
-		helpers.PrintStyled(
-			fmt.Sprintf("Frontend: %s '%s'", di.Config.Frontend.CSS.Framework, di.Config.Frontend.CSS.Version),
-			"info", "margin-left",
-		)
-	}
-
+	helpers.PrintStyled(
+		fmt.Sprintf("Frontend: %s", di.Config.Frontend.CSSFramework),
+		"info", "margin-left",
+	)
 	helpers.PrintStyled(
 		fmt.Sprintf("htmx '%s', hyperscript '%s'", di.Config.Frontend.HTMX, di.Config.Frontend.Hyperscript),
 		"info", "margin-left-2",

@@ -72,33 +72,17 @@ func Create(di *injector.Injector) error {
 		return err
 	}
 
-	// Check, if the config file contain a 'css' option in the 'frontend' block.
-	if di.Config.Frontend.CSS != nil {
-		// If contains, copy CSS framework files from the embed file system.
-		if err := helpers.CopyFromEmbedFS(
-			di.Attachments.Templates,
-			[]helpers.EmbedFile{
-				{
-					filepath.Join("templates", "frontend", di.Config.Frontend.CSS.Framework),
-					filepath.Join("templates", "pages"),
-				},
+	// Copy CSS framework files from the embed file system.
+	if err := helpers.CopyFromEmbedFS(
+		di.Attachments.Templates,
+		[]helpers.EmbedFile{
+			{
+				filepath.Join("templates", "frontend", di.Config.Frontend.CSSFramework),
+				filepath.Join("templates", "pages"),
 			},
-		); err != nil {
-			return err
-		}
-	} else {
-		// Else, copy a default frontend files from the embed file system.
-		if err := helpers.CopyFromEmbedFS(
-			di.Attachments.Templates,
-			[]helpers.EmbedFile{
-				{
-					filepath.Join("templates", "frontend", "default"),
-					filepath.Join("templates", "pages"),
-				},
-			},
-		); err != nil {
-			return err
-		}
+		},
+	); err != nil {
+		return err
 	}
 
 	// Download minified version of the htmx and hyperscript JS files from CND.
@@ -145,16 +129,10 @@ func Create(di *injector.Injector) error {
 		),
 		"info", "margin-left-2",
 	)
-
-	if di.Config.Frontend.CSS == nil {
-		helpers.PrintStyled("Frontend: default", "info", "margin-left")
-	} else {
-		helpers.PrintStyled(
-			fmt.Sprintf("Frontend: %s '%s'", di.Config.Frontend.CSS.Framework, di.Config.Frontend.CSS.Version),
-			"info", "margin-left",
-		)
-	}
-
+	helpers.PrintStyled(
+		fmt.Sprintf("Frontend: %s", di.Config.Frontend.CSSFramework),
+		"info", "margin-left",
+	)
 	helpers.PrintStyled(
 		fmt.Sprintf(
 			"htmx '%s', hyperscript '%s'",
