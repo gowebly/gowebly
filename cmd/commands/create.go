@@ -49,7 +49,7 @@ func Create(di *injector.Injector) error {
 			{
 				filepath.Join("templates", "misc", "gitignore.tmpl"),
 				".gitignore",
-				nil,
+				di.Config.Frontend,
 			},
 			{
 				filepath.Join("templates", "misc", "env.tmpl"),
