@@ -5,12 +5,11 @@ import (
 	"io"
 	"net/http"
 	"os"
-	"path/filepath"
 	"time"
 )
 
 type Download struct {
-	URL, OutputFileName, OutputFolder string
+	URL, OutputFile string
 }
 
 // DownloadFiles downloads and saves a file with name from the given URL.
@@ -42,7 +41,7 @@ func DownloadFiles(files []Download) error {
 			}
 
 			// Create a temp file for download data.
-			file, err := os.Create(filepath.Join(f.OutputFolder, f.OutputFileName))
+			file, err := os.Create(f.OutputFile)
 			defer file.Close()
 
 			// Rename downloaded file.

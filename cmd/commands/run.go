@@ -18,7 +18,7 @@ func Run(di *injector.Injector) error {
 	)
 
 	// Remove previously generated .env and JS files.
-	_ = helpers.RemoveFiles(".env", "static/htmx.min.js", "static/hyperscript.min.js")
+	_ = helpers.RemoveFiles(".env", "static/htmx.min.js", "static/hyperscript.min.js", "static/styles.min.css")
 
 	// Download minified version of the htmx and hyperscript JS files from CDN.
 	if err := helpers.DownloadFiles(
@@ -28,16 +28,14 @@ func Run(di *injector.Injector) error {
 					"%s/%s@%s",
 					constants.LinkToUnpkgCDN, constants.HTMXNameOfCDNRepository, di.Config.Frontend.HTMX,
 				),
-				"htmx.min.js",
-				"static",
+				filepath.Join("static", "htmx.min.js"),
 			},
 			{
 				fmt.Sprintf(
 					"%s/%s@%s",
 					constants.LinkToUnpkgCDN, constants.HyperscriptNameOfCDNRepository, di.Config.Frontend.Hyperscript,
 				),
-				"hyperscript.min.js",
-				"static",
+				filepath.Join("static", "hyperscript.min.js"),
 			},
 		},
 	); err != nil {
@@ -95,6 +93,9 @@ func Run(di *injector.Injector) error {
 
 	return helpers.Execute(
 		[]helpers.Command{
+			{
+				true, "npm", []string{"run", "build:dev"},
+			},
 			{
 				false, "go", []string{"run", "./..."},
 			},

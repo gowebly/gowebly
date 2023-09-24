@@ -127,16 +127,14 @@ func Create(di *injector.Injector) error {
 					"%s/%s@%s",
 					constants.LinkToUnpkgCDN, constants.HTMXNameOfCDNRepository, di.Config.Frontend.HTMX,
 				),
-				"htmx.min.js",
-				"static",
+				filepath.Join("static", "htmx.min.js"),
 			},
 			{
 				fmt.Sprintf(
 					"%s/%s@%s",
 					constants.LinkToUnpkgCDN, constants.HyperscriptNameOfCDNRepository, di.Config.Frontend.Hyperscript,
 				),
-				"hyperscript.min.js",
-				"static",
+				filepath.Join("static", "hyperscript.min.js"),
 			},
 		},
 	); err != nil {
@@ -148,6 +146,9 @@ func Create(di *injector.Injector) error {
 		[]helpers.Command{
 			{
 				true, "npm", []string{"install"},
+			},
+			{
+				true, "npm", []string{"run", "build:dev"},
 			},
 			{
 				true, "go", []string{"mod", "tidy"},
