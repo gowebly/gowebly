@@ -115,7 +115,7 @@ gowebly init
 > - Go backend with **net/http** package;
 > - Server port is `5000`, timeout (in seconds): `5` for read, `10` for write;
 > - Latest versions of the **htmx** & **hyperscript**;
-> - Without any CSS framework (only default styles for example code).
+> - Without any CSS framework (only default styles for the code example).
 
 Typically, a created config file contains the following options:
 
