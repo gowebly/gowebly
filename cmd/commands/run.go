@@ -95,9 +95,6 @@ func Run(di *injector.Injector) error {
 	return helpers.Execute(
 		[]helpers.Command{
 			{
-				Name: "go", Options: []string{"mod", "tidy"}, SkipOutput: true,
-			},
-			{
 				Name: "go", Options: []string{"run", "./..."}, SkipOutput: false,
 			},
 		},

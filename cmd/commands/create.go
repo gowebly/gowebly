@@ -159,5 +159,11 @@ func Create(di *injector.Injector) error {
 		"warning", "margin-top-bottom",
 	)
 
-	return nil
+	return helpers.Execute(
+		[]helpers.Command{
+			{
+				Name: "go", Options: []string{"mod", "tidy"}, SkipOutput: true,
+			},
+		},
+	)
 }
