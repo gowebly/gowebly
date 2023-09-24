@@ -116,7 +116,7 @@ func Create(di *injector.Injector) error {
 	// Frontend part message.
 	helpers.PrintStyled(
 		"Downloading and preparing the frontend part... Please wait!",
-		"info", "margin-top",
+		"info", "",
 	)
 
 	// Download minified version of the htmx and hyperscript JS files from CND.
