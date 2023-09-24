@@ -48,7 +48,7 @@ func ParseTemplates(names ...string) (*template.Template, error) {
 
 	for _, n := range names {
 		// Check, if the given template is existing.
-		if helpers.IsExistInFolder(n, false) {
+		if !helpers.IsExistInFolder(n, false) {
 			return nil, fmt.Errorf("os: template '%s' is not found", n)
 		}
 	}

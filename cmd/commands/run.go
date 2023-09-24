@@ -20,7 +20,7 @@ func Run(di *injector.Injector) error {
 	// Remove previously generated .env and JS files.
 	_ = helpers.RemoveFiles(".env", "static/htmx.min.js", "static/hyperscript.min.js")
 
-	// Download minified version of the htmx and hyperscript JS files from CND.
+	// Download minified version of the htmx and hyperscript JS files from CDN.
 	if err := helpers.DownloadFiles(
 		[]helpers.Download{
 			{
@@ -51,17 +51,6 @@ func Run(di *injector.Injector) error {
 			{
 				filepath.Join("templates", "misc", "env.tmpl"),
 				".env", "", di.Config.Backend,
-			},
-		},
-	); err != nil {
-		return err
-	}
-
-	// Execute system commands.
-	if err := helpers.Execute(
-		[]helpers.Command{
-			{
-				true, "npm", []string{"run", "build:dev"},
 			},
 		},
 	); err != nil {
