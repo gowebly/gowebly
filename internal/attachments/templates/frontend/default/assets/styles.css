@@ -1,4 +1,5 @@
 * { box-sizing: border-box; }
 body { font-family: Arial, serif; }
+main { background-color: cornsilk; }
 h1 { color: aquamarine; }
 p { color: dimgray; }
