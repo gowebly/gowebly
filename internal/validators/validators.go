@@ -2,6 +2,7 @@ package validators
 
 import (
 	"errors"
+	"slices"
 
 	"github.com/gowebly/gowebly/internal/config"
 	"github.com/gowebly/gowebly/internal/constants"
@@ -19,6 +20,11 @@ func Validate(cfg *config.Config) error {
 		// Check, if 'name' option in the 'backend' block is not set.
 		if cfg.Backend.Name == "" {
 			return errors.New(constants.ErrorValidateConfigBackendNameNotFound)
+		}
+
+		// Check, if 'name' option in the 'backend' block has a known value.
+		if !slices.Contains([]string{"default", "fiber", "echo", "chi"}, cfg.Backend.Name) {
+			return errors.New(constants.ErrorValidateConfigBackendUnknownName)
 		}
 
 		// Check, if 'port' option in the 'backend' block is not set.
@@ -47,6 +53,16 @@ func Validate(cfg *config.Config) error {
 		// Check, if 'hyperscript' option in the 'frontend' block is not set.
 		if cfg.Frontend.Hyperscript == "" {
 			return errors.New(constants.ErrorValidateConfigFrontendHyperscriptNotFound)
+		}
+
+		// Check, if 'css_framework' option in the 'frontend' block is not set.
+		if cfg.Frontend.CSSFramework == "" {
+			return errors.New(constants.ErrorValidateConfigFrontendCSSFrameworkNotFound)
+		}
+
+		// Check, if 'css_framework' option in the 'frontend' block has a known value.
+		if !slices.Contains([]string{"default", "tailwindcss", "unocss"}, cfg.Frontend.CSSFramework) {
+			return errors.New(constants.ErrorValidateConfigFrontendUnknownCSSFrameworkName)
 		}
 	}
 

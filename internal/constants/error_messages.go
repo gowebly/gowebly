@@ -35,6 +35,9 @@ const (
 	// ErrorValidateConfigBackendTimeoutNotFound represents error message, when
 	// 'timeout' option in the 'backend' block in the config file is not found.
 	ErrorValidateConfigBackendTimeoutNotFound string = "config: 'timeout' option in the 'backend' block is required"
+	// ErrorValidateConfigBackendUnknownName represents error message, when
+	// 'name' option in the 'backend' block in the config file has unknown value.
+	ErrorValidateConfigBackendUnknownName string = "config: 'name' option in the 'backend' block has unknown value"
 	// ErrorValidateConfigFrontendBlockNotFound represents error message, when
 	// 'frontend' block in the config file is not found.
 	ErrorValidateConfigFrontendBlockNotFound string = "config: 'frontend' block is required"
@@ -44,4 +47,10 @@ const (
 	// ErrorValidateConfigFrontendHyperscriptNotFound represents error message, when
 	// 'hyperscript' option in the 'frontend' block in the config file is not found.
 	ErrorValidateConfigFrontendHyperscriptNotFound string = "config: 'hyperscript' option in the 'frontend' block is required"
+	// ErrorValidateConfigFrontendCSSFrameworkNotFound represents error message, when
+	// 'css_framework' option in the 'frontend' block in the config file is not found.
+	ErrorValidateConfigFrontendCSSFrameworkNotFound string = "config: 'css_framework' option in the 'frontend' block is required"
+	// ErrorValidateConfigFrontendUnknownCSSFrameworkName represents error message, when
+	// 'css_framework' option in the 'frontend' block in the config file has unknown value.
+	ErrorValidateConfigFrontendUnknownCSSFrameworkName string = "config: 'css_framework' option in the 'frontend' block has unknown value"
 )
