@@ -18,7 +18,7 @@ func Build(di *injector.Injector) error {
 	)
 
 	// Remove previously generated .env and JS files.
-	_ = helpers.RemoveFiles(".env", "static/htmx.min.js", "static/hyperscript.min.js", "static/styles.min.css")
+	_ = helpers.RemoveFiles(".env", "static/htmx.min.js", "static/hyperscript.min.js", "static/styles.css")
 
 	// Download minified version of the htmx and hyperscript JS files from CND.
 	if err := helpers.DownloadFiles(
