@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build:dev": "npx tailwindcss -i ./assets/styles.css -o ./static/styles.css",
-    "build:prod": "npx tailwindcss -i ./assets/styles.css -o ./static/styles.css -m"
+    "build:dev": "npx --yes tailwindcss -i ./assets/styles.css -o ./static/styles.css",
+    "build:prod": "npx --yes tailwindcss -i ./assets/styles.css -o ./static/styles.css -m"
   },
   "license": "MIT",
   "devDependencies": {
