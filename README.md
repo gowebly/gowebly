@@ -133,8 +133,7 @@ frontend:
   css_framework: default
 ```
 
-But, you can choose any **Go** backend with a server options for your project 
-(_this is required_):
+But, you can choose any **Go** backend with a server options for your project:
 
 | Backend name | Description                                                         |
 |--------------|---------------------------------------------------------------------|
@@ -145,7 +144,7 @@ But, you can choose any **Go** backend with a server options for your project
 
 In additional, you can choose versions of the **htmx**, **hyperscript**, and 
 one of the most popular atomic/utility-first **CSS framework** to your 
-project (_this is optional, not required_):
+project:
 
 | CSS framework | Description                                                            |
 |---------------|------------------------------------------------------------------------|
@@ -156,8 +155,7 @@ project (_this is optional, not required_):
 ### `create`
 
 Command to create a new project with the **Go** backend, **htmx** & 
-**hyperscript**, and (_optionally_) atomic/utility-first **CSS
-framework**.
+**hyperscript**, and atomic/utility-first **CSS framework**.
 
 ```console
 gowebly create
@@ -209,7 +207,6 @@ In development mode, only official supported CDNs from developers
 will be used: 
 
 - [unpkg.com][unpkg_url] for **htmx** & **hyperscript**;
-- [tailwindcss.com][tailwindcss_cdn_url] for **Tailwind CSS**;
 - [jsDelivr][jsdelivr_url] for **UnoCSS**.
 
 Every time you make `run` command for your project:
@@ -219,10 +216,10 @@ Every time you make `run` command for your project:
    official and trusted CDNs) to the `./static` folder and places them as 
    separated `<script>` tags (at the bottom of the `<body>` tag) in the Go 
    HTML template [`templates/main.html`][repo_main_layout];
-3. (_optionally_) CLI downloads a non-production version of the selected 
-   **CSS framework** (from an official and trusted CDN) to the `./static` 
-   folder and places it as a `<link>` tag (at the bottom of the `<head>` tag)
-   in the Go HTML template [`templates/main.html`][repo_main_layout];
+3. CLI prepares a non-production version of the selected **CSS framework** 
+   to the `./static` folder and places it as a `<link>` tag (at the bottom 
+   of the `<head>` tag) in the Go HTML template
+   [`templates/main.html`][repo_main_layout];
 4. CLI starts a project's backend on the selected port via simple `go run` 
    command.
 
@@ -253,10 +250,9 @@ Every time you make `build` command for your project:
    official and trusted CDNs) to the `./static` folder and places them as
    separated `<script>` tags (at the bottom of the `<body>` tag) in the Go
    HTML template [`templates/main.html`][repo_main_layout];
-3. (_optional_) CLI prepares a production version of the selected **CSS 
-   framework** (using the [Vite][vite_url] tool) and places it as a `<link>` 
-   tag (at the bottom of the `<head>` tag) in the Go HTML template 
-   [`templates/main.html`][repo_main_layout];
+3. CLI prepares a production version of the selected **CSS framework** and 
+   places it as a `<link>` tag (at the bottom of the `<head>` tag) in the Go 
+   HTML template [`templates/main.html`][repo_main_layout];
 4. CLI generate a clear and well-documented `docker-compose.yml` file in the 
    root of the project folder to deploy it in isolated Docker containers 
    via [Portainer][portainer_url] (_recommended_), or manually, to your remote 
