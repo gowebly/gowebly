@@ -80,19 +80,17 @@ func Run(di *injector.Injector) error {
 	return helpers.Execute(
 		[]helpers.Command{
 			{
-				true, "npm", []string{"run", "build:dev"},
+				true, "npm", []string{"run", "build:dev"}, nil,
 			},
 			{
-				true,
-				"export",
+				false,
+				"go",
+				[]string{"run", "./..."},
 				[]string{
 					fmt.Sprintf("BACKEND_PORT=%d", di.Config.Backend.Port),
 					fmt.Sprintf("BACKEND_READ_TIMEOUT=%d", di.Config.Backend.Timeout.Read),
 					fmt.Sprintf("BACKEND_WRITE_TIMEOUT=%d", di.Config.Backend.Timeout.Write),
 				},
-			},
-			{
-				false, "go", []string{"run", "./..."},
 			},
 		},
 	)

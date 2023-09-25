@@ -165,13 +165,13 @@ func Create(di *injector.Injector) error {
 	if err := helpers.Execute(
 		[]helpers.Command{
 			{
-				true, "npm", []string{"install"},
+				true, "npm", []string{"install"}, nil,
 			},
 			{
-				true, "npm", []string{"run", "build:dev"},
+				true, "npm", []string{"run", "build:dev"}, nil,
 			},
 			{
-				true, "go", []string{"mod", "tidy"},
+				true, "go", []string{"mod", "tidy"}, nil,
 			},
 		},
 	); err != nil {

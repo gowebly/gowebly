@@ -60,7 +60,7 @@ func Build(di *injector.Injector) error {
 	if err := helpers.Execute(
 		[]helpers.Command{
 			{
-				true, "npm", []string{"run", "build:prod"},
+				true, "npm", []string{"run", "build:prod"}, nil,
 			},
 		},
 	); err != nil {
