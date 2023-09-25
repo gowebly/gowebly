@@ -1,9 +1,9 @@
-@unocss;
+@unocss all;
 
 /* User styles */
 
-body {
-    @apply bg-stone-50 text-slate-800;
+main {
+    @apply grid place-items-center h-screen bg-stone-50 text-slate-800 font-serif;
 }
 
 h1 {

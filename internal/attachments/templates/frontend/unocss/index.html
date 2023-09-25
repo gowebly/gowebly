@@ -15,13 +15,15 @@
 
 {{/* Set HTML content to this page. */}}
 {{ define "content" }}
-<main class="grid place-items-center h-screen">
+<main class="grid place-items-center h-screen bg-stone-50 text-slate-800 font-serif">
     <div>
-        <h1>Welcome to example!</h1>
+        <h1 class="text-2xl text-blue-600">Welcome to example!</h1>
         <p>You're here because it worked out.</p>
         <p>
-            <a href="https://github.com/gowebly/gowebly#-complete-user-guide" target="_blank">Documentation</a>,
-            <a href="https://github.com/gowebly/gowebly" target="_blank">GitHub</a>
+            <a class="text-blue-400 underline hover:text-blue-200 hover:no-underline"
+               href="https://github.com/gowebly/gowebly#-complete-user-guide" target="_blank">Documentation</a>,
+            <a class="text-blue-400 underline hover:text-blue-200 hover:no-underline"
+               href="https://github.com/gowebly/gowebly" target="_blank">GitHub</a>
         </p>
     </div>
 </main>
