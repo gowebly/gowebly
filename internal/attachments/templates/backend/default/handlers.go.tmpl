@@ -14,6 +14,7 @@ func indexViewHandler(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" {
 		// If not, return HTTP 404 error.
 		http.NotFound(w, r)
+		slog.Error("render page", "method", r.Method, "status", http.StatusNotFound, "path", r.URL.Path)
 		return
 	}
 
@@ -23,13 +24,18 @@ func indexViewHandler(w http.ResponseWriter, r *http.Request) {
 	// Parse user templates or return error.
 	tmpl, err := gowebly.ParseTemplates(indexPage)
 	if err != nil {
-		slog.Error("msg", err.Error())
+		w.WriteHeader(http.StatusInternalServerError)
+		slog.Error(err.Error(), "method", r.Method, "status", http.StatusInternalServerError, "path", r.URL.Path)
 		return
 	}
 
 	// Execute (render) all templates or return error.
 	if err := tmpl.Execute(w, nil); err != nil {
-		slog.Error("msg", err.Error())
+		w.WriteHeader(http.StatusInternalServerError)
+		slog.Error(err.Error(), "method", r.Method, "status", http.StatusInternalServerError, "path", r.URL.Path)
 		return
 	}
+
+	// Send log message.
+	slog.Info("render page", "method", r.Method, "status", http.StatusOK, "path", r.URL.Path)
 }
