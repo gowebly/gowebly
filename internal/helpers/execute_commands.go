@@ -1,8 +1,8 @@
 package helpers
 
 import (
+	"bytes"
 	"fmt"
-	"os"
 	"os/exec"
 )
 
@@ -21,9 +21,12 @@ func Execute(commands []Command) error {
 
 		// Check, if command want to show its output (Stdout, Stderr).
 		if !c.SkipOutput {
+			// Define buffers for Stdout and Stderr.
+			var stdout, stderr bytes.Buffer
+
 			// Bind Stdout and Stderr to the standard output.
-			cmd.Stdout = os.Stdout
-			cmd.Stderr = os.Stderr
+			cmd.Stdout = &stdout
+			cmd.Stderr = &stderr
 		}
 
 		if err := cmd.Run(); err != nil {
