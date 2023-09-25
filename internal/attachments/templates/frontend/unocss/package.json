@@ -1,0 +1,16 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "Frontend part with UnoCSS of the gowebly project.",
+  "scripts": {
+    "build:dev": "npx --yes @unocss/cli ./assets/styles.css -o ./static/styles.css",
+    "build:prod": "npx --yes @unocss/cli ./assets/styles.css -o ./static/styles.css -m"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@unocss/cli": "latest",
+    "@unocss/postcss": "latest",
+    "postcss": "latest",
+    "unocss": "latest"
+  }
+}

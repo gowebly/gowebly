@@ -1,7 +1,7 @@
 {
   "name": "project",
   "version": "1.0.0",
-  "description": "",
+  "description": "Frontend part without any CSS frameworks of the gowebly project.",
   "scripts": {
     "build:dev": "npx --yes parcel build --no-cache --no-source-maps --no-optimize --dist-dir ./static ./assets/styles.css",
     "build:prod": "npx --yes parcel build --no-cache --no-source-maps --dist-dir ./static ./assets/styles.css"

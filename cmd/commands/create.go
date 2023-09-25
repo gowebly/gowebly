@@ -111,6 +111,21 @@ func Create(di *injector.Injector) error {
 		}
 	case "unocss":
 		// UnoCSS files.
+		if err := helpers.CopyFilesFromEmbedFS(
+			di.Attachments.Templates,
+			[]helpers.EmbedFile{
+				{
+					filepath.Join("templates", "frontend", "unocss", "postcss.config.js"),
+					"postcss.config.js",
+				},
+				{
+					filepath.Join("templates", "frontend", "unocss", "uno.config.ts"),
+					"uno.config.ts",
+				},
+			},
+		); err != nil {
+			return err
+		}
 	}
 
 	// Frontend part message.

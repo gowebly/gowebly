@@ -1,7 +1,7 @@
 {
   "name": "project",
   "version": "1.0.0",
-  "description": "",
+  "description": "Frontend part with Tailwind CSS of the gowebly project.",
   "scripts": {
     "build:dev": "npx --yes tailwindcss -i ./assets/styles.css -o ./static/styles.css",
     "build:prod": "npx --yes tailwindcss -i ./assets/styles.css -o ./static/styles.css -m"
