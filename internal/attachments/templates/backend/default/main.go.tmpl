@@ -22,7 +22,7 @@ func main() {
 
 	// Run your server.
 	if err := runServer(); err != nil {
-		slog.Error("msg", err.Error())
+		slog.Error("run server", "details", err.Error())
 		os.Exit(1)
 	}
 }
