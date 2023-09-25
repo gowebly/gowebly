@@ -51,11 +51,6 @@ func Create(di *injector.Injector) error {
 				".gitignore",
 				di.Config.Frontend,
 			},
-			{
-				filepath.Join("templates", "misc", "env.tmpl"),
-				".env",
-				di.Config.Backend,
-			},
 		},
 	); err != nil {
 		return err

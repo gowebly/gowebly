@@ -97,6 +97,15 @@ func Run(di *injector.Injector) error {
 				true, "npm", []string{"run", "build:dev"},
 			},
 			{
+				true,
+				"export",
+				[]string{
+					fmt.Sprintf("BACKEND_PORT=%d", di.Config.Backend.Port),
+					fmt.Sprintf("BACKEND_READ_TIMEOUT=%d", di.Config.Backend.Timeout.Read),
+					fmt.Sprintf("BACKEND_WRITE_TIMEOUT=%d", di.Config.Backend.Timeout.Write),
+				},
+			},
+			{
 				false, "go", []string{"run", "./..."},
 			},
 		},
