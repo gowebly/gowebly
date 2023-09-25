@@ -42,20 +42,6 @@ func Run(di *injector.Injector) error {
 		return err
 	}
 
-	// Re-create .env file from the template.
-	if err := helpers.GenerateFilesByTemplateFromEmbedFS(
-		di.Attachments.Templates,
-		[]helpers.EmbedTemplate{
-			{
-				filepath.Join("templates", "misc", "env.tmpl"),
-				".env",
-				di.Config.Backend,
-			},
-		},
-	); err != nil {
-		return err
-	}
-
 	// Success message.
 	helpers.PrintStyled("Successfully run your project in a developer mode!", "success", "margin-top")
 
