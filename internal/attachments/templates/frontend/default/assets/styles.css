@@ -4,10 +4,34 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: floralwhite;
-    color: dimgray;
+    background-color: #fafaf9;
+    color: #1e293b;
+}
+
+main {
+    display: grid;
+    place-items: center;
+    height: 100vh;
 }
 
 h1 {
-    color: cornflowerblue;
+    font-size: 1.5rem;
+    font-weight: inherit;
+    line-height: 2rem;
+    margin: 0;
+    color: #2563eb;
+}
+
+p {
+    margin: 0;
+}
+
+a {
+    text-decoration-line: underline;
+    color: #60a5fa;
+}
+
+a:hover {
+    text-decoration-line: none;
+    color: #bfdbfe;
 }

@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* User styles */
+
+@layer base {
+    body {
+        @apply bg-stone-50 text-slate-800;
+    }
+
+    h1 {
+        @apply text-2xl text-blue-600;
+    }
+
+    a {
+        @apply text-blue-400 underline hover:text-blue-200 hover:no-underline;
+    }
+}
