@@ -1,0 +1,19 @@
+# Ignore folders.
+.git/
+.github/
+.vscode/
+.idea/
+bin/
+tmp/
+{{ if eq .CSSFramework "default" }}
+.parcel-cache/
+{{ end }}
+
+# Ignore files.
+**/.DS_Store
+.dockerignore
+.gitignore
+Dockerfile
+**/*_test.go
+*.md
+*.out

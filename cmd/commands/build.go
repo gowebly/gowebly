@@ -18,7 +18,21 @@ func Build(di *injector.Injector) error {
 	)
 
 	// Remove previously generated .env and JS files.
-	_ = helpers.RemoveFiles(".env", "static/htmx.min.js", "static/hyperscript.min.js", "static/styles.css")
+	_ = helpers.RemoveFiles("Dockerfile", "static/htmx.min.js", "static/hyperscript.min.js", "static/styles.css")
+
+	// Create backend and misc files from templates.
+	if err := helpers.GenerateFilesByTemplateFromEmbedFS(
+		di.Attachments.Templates,
+		[]helpers.EmbedTemplate{
+			{
+				filepath.Join("templates", "misc", "Dockerfile.tmpl"),
+				"Dockerfile",
+				di.Config.Backend,
+			},
+		},
+	); err != nil {
+		return err
+	}
 
 	// Download minified version of the htmx and hyperscript JS files from CND.
 	if err := helpers.DownloadFiles(

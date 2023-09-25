@@ -47,6 +47,16 @@ func Create(di *injector.Injector) error {
 				di.Config.Backend,
 			},
 			{
+				filepath.Join("templates", "misc", "Dockerfile.tmpl"),
+				"Dockerfile",
+				di.Config.Backend,
+			},
+			{
+				filepath.Join("templates", "misc", "dockerignore.tmpl"),
+				".dockerignore",
+				di.Config.Frontend,
+			},
+			{
 				filepath.Join("templates", "misc", "gitignore.tmpl"),
 				".gitignore",
 				di.Config.Frontend,
