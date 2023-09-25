@@ -21,5 +21,8 @@ FROM scratch
 # Copy project's binary from /build to the scratch container.
 COPY --from=builder ["/build/project", "/"]
 
+# Exposing container port.
+EXPOSE {{ .Port }}
+
 # Set entry point.
 ENTRYPOINT ["/project"]

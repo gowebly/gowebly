@@ -18,7 +18,11 @@ func Build(di *injector.Injector) error {
 	)
 
 	// Remove previously generated .env and JS files.
-	_ = helpers.RemoveFiles("Dockerfile", "static/htmx.min.js", "static/hyperscript.min.js", "static/styles.css")
+	_ = helpers.RemoveFiles(
+		"Dockerfile", "docker-compose.yml",
+		"static/htmx.min.js", "static/hyperscript.min.js",
+		"static/styles.css",
+	)
 
 	// Create backend and misc files from templates.
 	if err := helpers.GenerateFilesByTemplateFromEmbedFS(
@@ -27,6 +31,11 @@ func Build(di *injector.Injector) error {
 			{
 				filepath.Join("templates", "misc", "Dockerfile.tmpl"),
 				"Dockerfile",
+				di.Config.Backend,
+			},
+			{
+				filepath.Join("templates", "misc", "docker-compose.yml.tmpl"),
+				"docker-compose.yml",
 				di.Config.Backend,
 			},
 		},

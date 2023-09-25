@@ -1,0 +1,24 @@
+# Auto generated docker-compose.yml file. DO NOT EDIT OR DO NOT RUN 'gowebly build'!
+
+version: '3'
+
+# Define services.
+services:
+  # Backend service.
+  backend:
+    # Configuration for building the Docker image for the service.
+    build:
+      # Use an image built from the specified dockerfile in the current directory.
+      context: .
+      dockerfile: Dockerfile
+    # Forward the exposed port {{ .Port }} on the container to port {{ .Port }} on the host machine.
+    ports:
+      - '{{ .Port }}:{{ .Port }}'
+    restart: unless-stopped
+    # Networks to join.
+    # Services on the same network can communicate with each other using their name.
+    networks:
+      - gowebly-network
+
+networks:
+  gowebly-network:
