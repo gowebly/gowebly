@@ -4,24 +4,24 @@ version: '3.8'
 
 # Define services.
 services:
-  # Backend service.
-  gowebly-{{ .Name }}:
+  # Service for the Go backend with {{ .Name }}.
+  gowebly_{{ .Name }}:
     # Configuration for building the Docker image for the service.
     build:
-      # Use an image built from the specified dockerfile in the current directory.
+      # Use an image built from the specified Dockerfile in the current directory.
       context: .
       dockerfile: Dockerfile
+    # Set restart rules for the container.
+    restart: unless-stopped
     # Forward the exposed port {{ .Port }} on the container to port {{ .Port }} on the host machine.
     ports:
       - '{{ .Port }}:{{ .Port }}'
-    # Set restart rules for the container.
-    restart: unless-stopped
     # Networks to join.
     # Services on the same network can communicate with each other using their name.
     networks:
-      - gowebly-network
+      - gowebly_network
 
 # Define Docker networks.
 networks:
   # Create gowebly network.
-  gowebly-network:
+  gowebly_network:
