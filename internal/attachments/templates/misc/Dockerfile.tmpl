@@ -13,16 +13,20 @@ RUN go mod download
 COPY . .
 
 # Set necessary environment variables and build your project.
-ENV CGO_ENABLED=0 GOOS=linux GOARCH=amd64 BACKEND_PORT={{ .Port }} BACKEND_READ_TIMEOUT={{ .Timeout.Read }} BACKEND_WRITE_TIMEOUT={{ .Timeout.Write }}
+ENV CGO_ENABLED=0 GOOS=linux GOARCH=amd64
 RUN go build -ldflags="-s -w" -o project ./...
 
 FROM scratch
 
-# Copy project's binary from /build to the scratch container.
-COPY --from=builder ["/build/project", "/"]
+# Copy project's binary and templates from /build to the scratch container.
+COPY --from=builder /build/templates /templates
+COPY --from=builder /build/project /
 
 # Exposing container port.
 EXPOSE {{ .Port }}
+
+# Set necessary environment variables to run your project.
+ENV BACKEND_PORT={{ .Port }} BACKEND_READ_TIMEOUT={{ .Timeout.Read }} BACKEND_WRITE_TIMEOUT={{ .Timeout.Write }}
 
 # Set entry point.
 ENTRYPOINT ["/project"]
