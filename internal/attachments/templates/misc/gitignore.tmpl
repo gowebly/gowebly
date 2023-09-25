@@ -35,7 +35,4 @@ bin/
 # Temp directories.
 dist/
 tmp/
-{{ if eq .CSSFramework "default" }}
-# Parcel bundler cache.
-.parcel-cache/
-{{ end }}
+{{ if eq .CSSFramework "default" }}.parcel-cache/{{ end }}

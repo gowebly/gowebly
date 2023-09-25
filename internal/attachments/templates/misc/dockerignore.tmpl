@@ -5,9 +5,7 @@
 .idea/
 bin/
 tmp/
-{{ if eq .CSSFramework "default" }}
-.parcel-cache/
-{{ end }}
+{{ if eq .CSSFramework "default" }}.parcel-cache/{{ end }}
 
 # Ignore files.
 **/.DS_Store
