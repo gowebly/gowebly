@@ -9,7 +9,7 @@ const (
 	YAMLConfigFileName string = ".gowebly.yml"
 	// LinkToCompleteUserGuide represents URL to the official Complete user guide on
 	// the GitHub.
-	LinkToCompleteUserGuide string = "https://github.com/gowebly/gowebly/tree/main#-complete-user-guide"
+	LinkToCompleteUserGuide string = "https://gowebly.org"
 	// LinkToUnpkgCDN represents URL to unpkg.com CDN with hyperscript.
 	LinkToUnpkgCDN string = "https://unpkg.com"
 	// HTMXNameOfCDNRepository represents name to the htmx CDN repository.
