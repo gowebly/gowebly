@@ -3,6 +3,7 @@
 .github/
 .vscode/
 .idea/
+node_modules/
 bin/
 tmp/
 {{ if eq .CSSFramework "default" }}.parcel-cache/{{ end }}
@@ -13,5 +14,8 @@ tmp/
 .gitignore
 Dockerfile
 **/*_test.go
+package.json
+*-lock.json
+*.config.*
 *.md
 *.out
