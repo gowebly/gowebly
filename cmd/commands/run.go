@@ -65,6 +65,13 @@ func Run(di *injector.Injector) error {
 				"Next steps:", "", "margin-top-bottom",
 			},
 			{
+				fmt.Sprintf(
+					"Open http://localhost:%d on a browser to see your project",
+					di.Config.Backend.Port,
+				),
+				"info", "margin-left",
+			},
+			{
 				"Backend logs:", "", "margin-top-bottom",
 			},
 		},
