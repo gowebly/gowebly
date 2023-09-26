@@ -42,7 +42,7 @@ func Init(di *injector.Injector) error {
 				"Next steps:", "", "margin-top-bottom",
 			},
 			{
-				"Edit config file with your options and parameters",
+				"Edit the '.gowebly.yml' file by adding your own options and parameters to it",
 				"info", "margin-left",
 			},
 			{
