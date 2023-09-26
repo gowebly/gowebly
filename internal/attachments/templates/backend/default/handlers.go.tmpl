@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"path/filepath"
 
-	gowebly "github.com/gowebly/gowebly/pkg/templates" // helper for parse user templates
+	"github.com/gowebly/helpers"
 )
 
 // indexViewHandler handles a view for the index page.
@@ -22,7 +22,7 @@ func indexViewHandler(w http.ResponseWriter, r *http.Request) {
 	indexPage := filepath.Join("templates", "pages", "index.html")
 
 	// Parse user templates or return error.
-	tmpl, err := gowebly.ParseTemplates(indexPage)
+	tmpl, err := gowebly.ParseTemplates(indexPage) // gowebly helper for parse user templates
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		slog.Error(err.Error(), "method", r.Method, "status", http.StatusInternalServerError, "path", r.URL.Path)

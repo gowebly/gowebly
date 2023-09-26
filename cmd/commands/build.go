@@ -10,38 +10,65 @@ import (
 )
 
 // Build runs the 'build' cmd command.
-func Build(di *injector.Injector) error {
+func Build(di *injector.Injector, flags []string) error {
+	// Remove previously generated files.
+	_ = helpers.RemoveFiles("static/htmx.min.js", "static/hyperscript.min.js", "static/styles.css")
+
+	// Define the Docker part marker.
+	var skipDockerPart bool
+
+	// Check, if flag set more than 1.
+	if len(flags) > 1 {
+		// Check, if the second flag is '--skip-docker'.
+		if flags[1] == "--skip-docker" {
+			// Set the Docker part marker to 'true'.
+			skipDockerPart = true
+
+			// Header message.
+			helpers.PrintStyled(
+				"Re-generation process of the 'Dockerfile' and 'docker-compose.yml' was skipped (by the '--skip-docker' flag)!",
+				"info", "margin-top",
+			)
+		}
+	}
+
+	// Check, if user want to skip re-generation process of the 'Dockerfile' and
+	// 'docker-compose.yml'.
+	if !skipDockerPart {
+		// Header message.
+		helpers.PrintStyled(
+			"Preparing Docker files ('Dockerfile' and 'docker-compose.yml') for the deploy part... Please wait!",
+			"info", "margin-top",
+		)
+
+		// Remove previously generated files.
+		_ = helpers.RemoveFiles("Dockerfile", "docker-compose.yml")
+
+		// Create Docker part files from templates.
+		if err := helpers.GenerateFilesByTemplateFromEmbedFS(
+			di.Attachments.Templates,
+			[]helpers.EmbedTemplate{
+				{
+					filepath.Join("templates", "misc", "Dockerfile.tmpl"),
+					"Dockerfile",
+					di.Config.Backend,
+				},
+				{
+					filepath.Join("templates", "misc", "docker-compose.yml.tmpl"),
+					"docker-compose.yml",
+					di.Config.Backend,
+				},
+			},
+		); err != nil {
+			return err
+		}
+	}
+
 	// Header message.
 	helpers.PrintStyled(
 		"Downloading and preparing a minified versions of the frontend part... Please wait!",
 		"info", "margin-top",
 	)
-
-	// Remove previously generated .env and JS files.
-	_ = helpers.RemoveFiles(
-		"Dockerfile", "docker-compose.yml",
-		"static/htmx.min.js", "static/hyperscript.min.js",
-		"static/styles.css",
-	)
-
-	// Create backend and misc files from templates.
-	if err := helpers.GenerateFilesByTemplateFromEmbedFS(
-		di.Attachments.Templates,
-		[]helpers.EmbedTemplate{
-			{
-				filepath.Join("templates", "misc", "Dockerfile.tmpl"),
-				"Dockerfile",
-				di.Config.Backend,
-			},
-			{
-				filepath.Join("templates", "misc", "docker-compose.yml.tmpl"),
-				"docker-compose.yml",
-				di.Config.Backend,
-			},
-		},
-	); err != nil {
-		return err
-	}
 
 	// Download minified version of the htmx and hyperscript JS files from CND.
 	if err := helpers.DownloadFiles(

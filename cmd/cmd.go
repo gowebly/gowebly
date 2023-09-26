@@ -47,7 +47,7 @@ func Run(flags []string) error {
 		return commands.Run(di)
 	case "build":
 		// Building project to production.
-		return commands.Build(di)
+		return commands.Build(di, flags)
 	default:
 		// Returning error message.
 		return errors.New(constants.ErrorRunUnknownCommand)
