@@ -2,9 +2,7 @@ package commands
 
 import (
 	"fmt"
-	"path/filepath"
 
-	"github.com/gowebly/gowebly/internal/constants"
 	"github.com/gowebly/gowebly/internal/helpers"
 	"github.com/gowebly/gowebly/internal/injector"
 )
@@ -13,29 +11,18 @@ import (
 func Run(di *injector.Injector) error {
 	// Header message.
 	helpers.PrintStyled(
-		"Downloading and preparing the frontend part... Please wait!",
+		"Re-generate styles of the frontend part... Please wait!",
 		"info", "margin-top",
 	)
 
 	// Remove previously generated .env and JS files.
-	_ = helpers.RemoveFiles(".env", "static/htmx.min.js", "static/hyperscript.min.js", "static/styles.css")
+	_ = helpers.RemoveFiles("static/styles.css")
 
-	// Download minified version of the htmx and hyperscript JS files from CDN.
-	if err := helpers.DownloadFiles(
-		[]helpers.Download{
+	// Re-generate styles of the frontend part.
+	if err := helpers.Execute(
+		[]helpers.Command{
 			{
-				fmt.Sprintf(
-					"%s/%s@%s",
-					constants.LinkToUnpkgCDN, constants.HTMXNameOfCDNRepository, di.Config.Frontend.HTMX,
-				),
-				filepath.Join("static", "htmx.min.js"),
-			},
-			{
-				fmt.Sprintf(
-					"%s/%s@%s",
-					constants.LinkToUnpkgCDN, constants.HyperscriptNameOfCDNRepository, di.Config.Frontend.Hyperscript,
-				),
-				filepath.Join("static", "hyperscript.min.js"),
+				true, "npm", []string{"run", "build:dev"}, nil,
 			},
 		},
 	); err != nil {
@@ -79,9 +66,6 @@ func Run(di *injector.Injector) error {
 
 	return helpers.Execute(
 		[]helpers.Command{
-			{
-				true, "npm", []string{"run", "build:dev"}, nil,
-			},
 			{
 				false,
 				"go",

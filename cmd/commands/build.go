@@ -26,7 +26,7 @@ func Build(di *injector.Injector, flags []string) error {
 
 			// Header message.
 			helpers.PrintStyled(
-				"Re-generation process of the 'Dockerfile' and 'docker-compose.yml' was skipped (by the '--skip-docker' flag)!",
+				"Re-generation process of the Docker files was skipped (by the '--skip-docker' flag)!",
 				"info", "margin-top",
 			)
 		}
@@ -37,7 +37,7 @@ func Build(di *injector.Injector, flags []string) error {
 	if !skipDockerPart {
 		// Header message.
 		helpers.PrintStyled(
-			"Preparing Docker files ('Dockerfile' and 'docker-compose.yml') for the deploy part... Please wait!",
+			"Preparing Docker files for the deploy part... Please wait!",
 			"info", "margin-top",
 		)
 
@@ -57,6 +57,11 @@ func Build(di *injector.Injector, flags []string) error {
 					filepath.Join("templates", "misc", "docker-compose.yml.tmpl"),
 					"docker-compose.yml",
 					di.Config.Backend,
+				},
+				{
+					filepath.Join("templates", "misc", "dockerignore.tmpl"),
+					".dockerignore",
+					di.Config.Frontend,
 				},
 			},
 		); err != nil {

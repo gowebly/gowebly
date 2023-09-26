@@ -47,16 +47,6 @@ func Create(di *injector.Injector) error {
 				di.Config.Backend,
 			},
 			{
-				filepath.Join("templates", "misc", "Dockerfile.tmpl"),
-				"Dockerfile",
-				di.Config.Backend,
-			},
-			{
-				filepath.Join("templates", "misc", "dockerignore.tmpl"),
-				".dockerignore",
-				di.Config.Frontend,
-			},
-			{
 				filepath.Join("templates", "misc", "gitignore.tmpl"),
 				".gitignore",
 				di.Config.Frontend,
@@ -65,6 +55,12 @@ func Create(di *injector.Injector) error {
 	); err != nil {
 		return err
 	}
+
+	// Frontend part message.
+	helpers.PrintStyled(
+		"Downloading and preparing the frontend part... Please wait!",
+		"info", "",
+	)
 
 	// Copy frontend files from the embed file system.
 	if err := helpers.CopyFilesFromEmbedFS(
@@ -133,12 +129,6 @@ func Create(di *injector.Injector) error {
 		}
 	}
 
-	// Frontend part message.
-	helpers.PrintStyled(
-		"Downloading and preparing the frontend part... Please wait!",
-		"info", "",
-	)
-
 	// Download minified version of the htmx and hyperscript JS files from CND.
 	if err := helpers.DownloadFiles(
 		[]helpers.Download{
@@ -160,6 +150,12 @@ func Create(di *injector.Injector) error {
 	); err != nil {
 		return err
 	}
+
+	// Frontend part message.
+	helpers.PrintStyled(
+		"Fetching dependencies of the backend and frontend parts... Please wait!",
+		"info", "",
+	)
 
 	// Execute system commands.
 	if err := helpers.Execute(
@@ -214,7 +210,19 @@ func Create(di *injector.Injector) error {
 	helpers.PrintStyled("Next steps:", "", "margin-top-bottom")
 	helpers.PrintStyled("Add your business logic to the project files", "info", "margin-left")
 	helpers.PrintStyled(
-		"Run 'gowebly run' command to run your project in a developer mode",
+		"Add your CSS styles to the './assets/styles.css' file",
+		"info", "margin-left",
+	)
+	helpers.PrintStyled(
+		"Add your HTML templates to the './templates' folder",
+		"info", "margin-left",
+	)
+	helpers.PrintStyled(
+		"Create new handlers for your HTML templates to the 'handlers.go' file",
+		"info", "margin-left",
+	)
+	helpers.PrintStyled(
+		"Run 'gowebly run' command to run your project in a development (non-production) mode",
 		"info", "margin-left",
 	)
 	helpers.PrintStyled(
