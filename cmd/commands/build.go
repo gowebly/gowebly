@@ -147,7 +147,7 @@ func Build(di *injector.Injector, flags []string) error {
 				"Next steps:", "", "margin-top-bottom",
 			},
 			{
-				"Run your project by 'docker-compose up -d' command on your remote server or local machine",
+				"Run your project by 'docker-compose up' command on your remote server or local machine",
 				"info", "margin-left",
 			},
 			{
