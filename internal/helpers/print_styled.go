@@ -21,6 +21,8 @@ func PrintStyled(s, state, style string) {
 	switch state {
 	case "info":
 		state = lg.Foreground(infoColor).SetString("– ").String()
+	case "wait":
+		state = lg.Foreground(warningColor).SetString("○ ").String()
 	case "success":
 		state = lg.Foreground(successColor).SetString("✓ ").String()
 	case "error":

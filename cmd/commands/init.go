@@ -10,6 +10,12 @@ import (
 
 // Init runs the 'init' cmd command.
 func Init(di *injector.Injector) error {
+	// Header message.
+	helpers.PrintStyled(
+		"Generating a default config file... Please wait!",
+		"wait", "margin-top",
+	)
+
 	// Read the attachments (embedded) config file.
 	cfgFile, err := di.Attachments.Configs.ReadFile("configs/default.yml")
 	if err != nil {
@@ -27,9 +33,8 @@ func Init(di *injector.Injector) error {
 
 	// Success message.
 	helpers.PrintStyled(
-		"Successfully created a default config file in the current folder!",
-		"success",
-		"margin-top",
+		"Successfully created a default config file ('.gowebly.yml') in the current folder!",
+		"success", "margin-top",
 	)
 
 	// Next steps message.

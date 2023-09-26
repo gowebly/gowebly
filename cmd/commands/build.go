@@ -24,7 +24,7 @@ func Build(di *injector.Injector, flags []string) error {
 			// Set the Docker part marker to 'true'.
 			skipDockerPart = true
 
-			// Header message.
+			// Skip Docker part message.
 			helpers.PrintStyled(
 				"Re-generation process of the Docker files was skipped (by the '--skip-docker' flag)!",
 				"info", "margin-top",
@@ -35,10 +35,10 @@ func Build(di *injector.Injector, flags []string) error {
 	// Check, if user want to skip re-generation process of the 'Dockerfile' and
 	// 'docker-compose.yml'.
 	if !skipDockerPart {
-		// Header message.
+		// Docker part message.
 		helpers.PrintStyled(
 			"Preparing Docker files for the deploy part... Please wait!",
-			"info", "margin-top",
+			"wait", "margin-top",
 		)
 
 		// Remove previously generated files.
@@ -72,7 +72,7 @@ func Build(di *injector.Injector, flags []string) error {
 	// Header message.
 	helpers.PrintStyled(
 		"Downloading and preparing a minified versions of the frontend part... Please wait!",
-		"info", "margin-top",
+		"wait", "margin-top",
 	)
 
 	// Download minified version of the htmx and hyperscript JS files from CND.

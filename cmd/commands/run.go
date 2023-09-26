@@ -12,7 +12,7 @@ func Run(di *injector.Injector) error {
 	// Header message.
 	helpers.PrintStyled(
 		"Re-generate styles of the frontend part... Please wait!",
-		"info", "margin-top",
+		"wait", "margin-top",
 	)
 
 	// Remove previously generated .env and JS files.

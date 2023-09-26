@@ -14,7 +14,7 @@ func Create(di *injector.Injector) error {
 	// Backend part message.
 	helpers.PrintStyled(
 		"Preparing the backend part... Please wait!",
-		"info", "margin-top",
+		"wait", "margin-top",
 	)
 
 	// Create a new folder(s).
@@ -59,7 +59,7 @@ func Create(di *injector.Injector) error {
 	// Frontend part message.
 	helpers.PrintStyled(
 		"Downloading and preparing the frontend part... Please wait!",
-		"info", "",
+		"wait", "",
 	)
 
 	// Copy frontend files from the embed file system.
@@ -154,7 +154,7 @@ func Create(di *injector.Injector) error {
 	// Frontend part message.
 	helpers.PrintStyled(
 		"Fetching dependencies of the backend and frontend parts... Please wait!",
-		"info", "",
+		"wait", "",
 	)
 
 	// Execute system commands.
