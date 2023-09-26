@@ -1,4 +1,5 @@
-# Auto generated Dockerfile file. DO NOT EDIT!
+# Auto-generated Dockerfile file.
+# DO NOT EDIT OR RUN 'gowebly build --skip-docker' COMMAND!
 
 FROM golang:1.21-alpine AS builder
 
@@ -21,12 +22,6 @@ FROM scratch
 # Copy project's binary and templates from /build to the scratch container.
 COPY --from=builder /build/templates /templates
 COPY --from=builder /build/project /
-
-# Exposing container port.
-EXPOSE {{ .Port }}
-
-# Set necessary environment variables to run your project.
-ENV BACKEND_PORT={{ .Port }} BACKEND_READ_TIMEOUT={{ .Timeout.Read }} BACKEND_WRITE_TIMEOUT={{ .Timeout.Write }}
 
 # Set entry point.
 ENTRYPOINT ["/project"]

@@ -1,4 +1,5 @@
-# Auto generated docker-compose.yml file. DO NOT EDIT OR DO NOT RUN 'gowebly build'!
+# Auto-generated docker-compose.yml file.
+# DO NOT EDIT OR RUN 'gowebly build --skip-docker' command!
 
 version: '3.8'
 
@@ -16,6 +17,11 @@ services:
     # Forward the exposed port {{ .Port }} on the container to port {{ .Port }} on the host machine.
     ports:
       - '{{ .Port }}:{{ .Port }}'
+    # Set needed environment variables for the Go backend.
+    environment:
+      - BACKEND_PORT={{ .Port }}
+      - BACKEND_READ_TIMEOUT={{ .Timeout.Read }}
+      - BACKEND_WRITE_TIMEOUT={{ .Timeout.Write }}
     # Networks to join.
     # Services on the same network can communicate with each other using their name.
     networks:
