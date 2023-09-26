@@ -29,6 +29,8 @@ func Build(di *injector.Injector, flags []string) error {
 				"Re-generation process of the Docker files was skipped (by the '--skip-docker' flag)!",
 				"wait", "margin-top",
 			)
+		} else {
+			return fmt.Errorf("cmd: unknown flag '%s' of the 'build' command", flags[1])
 		}
 	}
 
