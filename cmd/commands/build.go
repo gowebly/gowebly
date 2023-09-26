@@ -27,7 +27,7 @@ func Build(di *injector.Injector, flags []string) error {
 			// Skip Docker part message.
 			helpers.PrintStyled(
 				"Re-generation process of the Docker files was skipped (by the '--skip-docker' flag)!",
-				"info", "margin-top",
+				"wait", "margin-top",
 			)
 		}
 	}
