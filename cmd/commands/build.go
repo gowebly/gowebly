@@ -72,7 +72,7 @@ func Build(di *injector.Injector, flags []string) error {
 	// Header message.
 	helpers.PrintStyled(
 		"Downloading and preparing a minified versions of the frontend part... Please wait!",
-		"wait", "margin-top",
+		"wait", "",
 	)
 
 	// Download minified version of the htmx and hyperscript JS files from CND.
