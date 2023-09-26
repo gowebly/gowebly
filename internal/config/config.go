@@ -13,9 +13,10 @@ type Config struct {
 
 // Backend represents struct for a backend part of the config file.
 type Backend struct {
-	Port    int      `koanf:"port"`
-	Name    string   `koanf:"name"`
-	Timeout *Timeout `koanf:"timeout"`
+	Port     int      `koanf:"port"`
+	Name     string   `koanf:"name"`
+	GoModule string   `koanf:"go_module"`
+	Timeout  *Timeout `koanf:"timeout"`
 }
 
 // Timeout represents struct for a 'timeout' block in the backend part of the config file.
