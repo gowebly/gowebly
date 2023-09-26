@@ -103,6 +103,9 @@ func Build(di *injector.Injector, flags []string) error {
 			{
 				true, "npm", []string{"run", "build:prod"}, nil,
 			},
+			{
+				true, "go", []string{"mod", "tidy"}, nil,
+			},
 		},
 	); err != nil {
 		return err
