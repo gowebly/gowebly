@@ -11,6 +11,7 @@ import (
 
 // Run runs cmd commands by the given flags and all dependencies.
 func Run(flags []string) error {
+	// Logo message.
 	helpers.PrintStyled("                          _     _       ", "", "")
 	helpers.PrintStyled("   __ _  _____      _____| |__ | |_   _ ", "", "")
 	helpers.PrintStyled("  / _` |/ _ \\ \\ /\\ / / _ \\ '_ \\| | | | |", "", "")
