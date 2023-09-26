@@ -42,12 +42,17 @@ func Build(di *injector.Injector, flags []string) error {
 		)
 
 		// Remove previously generated files.
-		_ = helpers.RemoveFiles("Dockerfile", "docker-compose.yml")
+		_ = helpers.RemoveFiles(".dockerignore", "Dockerfile", "docker-compose.yml")
 
 		// Create Docker part files from templates.
 		if err := helpers.GenerateFilesByTemplateFromEmbedFS(
 			di.Attachments.Templates,
 			[]helpers.EmbedTemplate{
+				{
+					filepath.Join("templates", "misc", "dockerignore.tmpl"),
+					".dockerignore",
+					di.Config.Frontend,
+				},
 				{
 					filepath.Join("templates", "misc", "Dockerfile.tmpl"),
 					"Dockerfile",
@@ -57,11 +62,6 @@ func Build(di *injector.Injector, flags []string) error {
 					filepath.Join("templates", "misc", "docker-compose.yml.tmpl"),
 					"docker-compose.yml",
 					di.Config.Backend,
-				},
-				{
-					filepath.Join("templates", "misc", "dockerignore.tmpl"),
-					".dockerignore",
-					di.Config.Frontend,
 				},
 			},
 		); err != nil {
