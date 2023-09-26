@@ -3,10 +3,10 @@
 backend:
   # 'name' (string) option can be one of the values: 'fiber', 'echo', 'chi', or 'default'
   name: default
-  # 'port' (int) option can be any port that is not taken up on your system
-  port: 5000
   # 'go_module' (string) option can be any name of your Go module (for example, 'github.com/user/project')
   go_module: project
+  # 'port' (int) option can be any port that is not taken up on your system
+  port: 5000
 
   # The 'timeout' block sets a server options.
   # For more information, see https://blog.cloudflare.com/the-complete-guide-to-golang-net-http-timeouts/
