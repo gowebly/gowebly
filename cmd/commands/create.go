@@ -39,7 +39,7 @@ func Create(di *injector.Injector) error {
 			{
 				filepath.Join("templates", "backend", di.Config.Backend.Name, "server.go.tmpl"),
 				"server.go",
-				nil,
+				di.Config.Backend,
 			},
 			{
 				filepath.Join("templates", "backend", di.Config.Backend.Name, "main.go.tmpl"),
