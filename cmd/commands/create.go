@@ -208,17 +208,19 @@ func Create(di *injector.Injector) error {
 
 	// Next steps message.
 	helpers.PrintStyled("Next steps:", "", "margin-top-bottom")
-	helpers.PrintStyled("Add your business logic to the project files", "info", "margin-left")
+	helpers.PrintStyled(
+		"Design your business logic and future project architecture",
+		"info", "margin-left",
+	)
 	helpers.PrintStyled(
 		"Add your CSS styles to the './assets/styles.css' file",
 		"info", "margin-left",
 	)
 	helpers.PrintStyled(
-		"Add your HTML templates to the './templates' folder",
-		"info", "margin-left",
+		"Add your HTML templates to the './templates' folder", "info", "margin-left",
 	)
 	helpers.PrintStyled(
-		"Create new handlers for your HTML templates to the 'handlers.go' file",
+		"Create new handlers for your HTML templates in the 'handlers.go' file",
 		"info", "margin-left",
 	)
 	helpers.PrintStyled(
