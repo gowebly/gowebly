@@ -71,15 +71,21 @@ func Create(di *injector.Injector) error {
 				filepath.Join("templates", "main.html"),
 			},
 			{
-				filepath.Join("templates", "frontend", di.Config.Frontend.CSSFramework, "index.html"),
+				filepath.Join(
+					"templates", "frontend", di.Config.Frontend.CSSFramework, "index.html",
+				),
 				filepath.Join("templates", "pages", "index.html"),
 			},
 			{
-				filepath.Join("templates", "frontend", di.Config.Frontend.CSSFramework, "assets", "styles.css"),
+				filepath.Join(
+					"templates", "frontend", di.Config.Frontend.CSSFramework, "assets", "styles.css",
+				),
 				filepath.Join("assets", "styles.css"),
 			},
 			{
-				filepath.Join("templates", "frontend", di.Config.Frontend.CSSFramework, "package.json"),
+				filepath.Join(
+					"templates", "frontend", di.Config.Frontend.CSSFramework, "package.json",
+				),
 				"package.json",
 			},
 			{
