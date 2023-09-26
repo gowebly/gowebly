@@ -6,16 +6,18 @@ import (
 	"os"
 	"strconv"
 	"time"
+
+	"github.com/gowebly/helpers"
 )
 
 // runServer runs a new HTTP server with the loaded environment variables.
 func runServer() error {
 	// Validate environment variables.
-	readTimeout, err := strconv.Atoi(os.Getenv("BACKEND_READ_TIMEOUT"))
+	readTimeout, err := strconv.Atoi(gowebly.Getenv("BACKEND_READ_TIMEOUT", "{{ .Timeout.Read }}"))
 	if err != nil {
 		return err
 	}
-	writeTimeout, err := strconv.Atoi(os.Getenv("BACKEND_WRITE_TIMEOUT"))
+	writeTimeout, err := strconv.Atoi(gowebly.Getenv("BACKEND_WRITE_TIMEOUT", "{{ .Timeout.Write }}"))
 	if err != nil {
 		return err
 	}
@@ -23,7 +25,7 @@ func runServer() error {
 	// Create a new server instance with options from environment variables.
 	// For more information, see https://blog.cloudflare.com/the-complete-guide-to-golang-net-http-timeouts/
 	server := &http.Server{
-		Addr:         fmt.Sprintf(":%s", os.Getenv("BACKEND_PORT")),
+		Addr:         fmt.Sprintf(":%s", gowebly.Getenv("BACKEND_PORT", "{{ .Port }}")),
 		ReadTimeout:  time.Duration(readTimeout) * time.Second,
 		WriteTimeout: time.Duration(writeTimeout) * time.Second,
 	}
