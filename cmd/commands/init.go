@@ -31,21 +31,29 @@ func Init(di *injector.Injector) error {
 		return err
 	}
 
-	// Success message.
-	helpers.PrintStyled(
-		"Successfully created a default config file ('.gowebly.yml') in the current folder!",
-		"success", "margin-top",
-	)
-
-	// Next steps message.
-	helpers.PrintStyled("Next steps:", "", "margin-top-bottom")
-	helpers.PrintStyled("Edit config file with your options and parameters", "info", "margin-left")
-	helpers.PrintStyled("Run 'gowebly create' command to create a new project", "info", "margin-left")
-
-	// Footer message.
-	helpers.PrintStyled(
-		fmt.Sprintf("For more information, see %s", constants.LinkToCompleteUserGuide),
-		"warning", "margin-top-bottom",
+	// Print block of messages.
+	helpers.PrintStyledBlock(
+		[]helpers.StyledOutput{
+			{
+				"Successfully created a default config file ('.gowebly.yml') in the current folder!",
+				"success", "margin-top",
+			},
+			{
+				"Next steps:", "", "margin-top-bottom",
+			},
+			{
+				"Edit config file with your options and parameters",
+				"info", "margin-left",
+			},
+			{
+				"Run 'gowebly create' command to create a new project",
+				"info", "margin-left",
+			},
+			{
+				fmt.Sprintf("For more information, see %s", constants.LinkToCompleteUserGuide),
+				"warning", "margin-top-bottom",
+			},
+		},
 	)
 
 	return nil

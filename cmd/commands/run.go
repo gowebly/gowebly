@@ -29,40 +29,46 @@ func Run(di *injector.Injector) error {
 		return err
 	}
 
-	// Success message.
-	helpers.PrintStyled("Successfully run your project in a developer mode!", "success", "margin-top")
-
-	// Project config message.
-	helpers.PrintStyled("Project configuration:", "", "margin-top-bottom")
-	helpers.PrintStyled(
-		fmt.Sprintf("Backend: %s", di.Config.Backend.Name),
-		"info", "margin-left",
+	// Print block of messages.
+	helpers.PrintStyledBlock(
+		[]helpers.StyledOutput{
+			{
+				"Successfully run your project in a developer mode!",
+				"success", "margin-top",
+			},
+			{
+				"Project configuration:", "", "margin-top-bottom",
+			},
+			{
+				fmt.Sprintf("Backend: %s", di.Config.Backend.Name),
+				"info", "margin-left",
+			},
+			{
+				fmt.Sprintf(
+					"Server port is %d, timeout (in seconds): %d for read, %d for write",
+					di.Config.Backend.Port, di.Config.Backend.Timeout.Read, di.Config.Backend.Timeout.Write,
+				),
+				"info", "margin-left-2",
+			},
+			{
+				fmt.Sprintf("Frontend: %s 'dev' (non-production)", di.Config.Frontend.CSSFramework),
+				"info", "margin-left",
+			},
+			{
+				fmt.Sprintf(
+					"htmx '%s', hyperscript '%s'",
+					di.Config.Frontend.HTMX, di.Config.Frontend.Hyperscript,
+				),
+				"info", "margin-left-2",
+			},
+			{
+				"Next steps:", "", "margin-top-bottom",
+			},
+			{
+				"Backend logs:", "", "margin-top-bottom",
+			},
+		},
 	)
-	helpers.PrintStyled(
-		fmt.Sprintf(
-			"Server port is %d, timeout (in seconds): %d for read, %d for write",
-			di.Config.Backend.Port, di.Config.Backend.Timeout.Read, di.Config.Backend.Timeout.Write,
-		),
-		"info", "margin-left-2",
-	)
-	helpers.PrintStyled(
-		fmt.Sprintf("Frontend: %s 'dev' (non-production)", di.Config.Frontend.CSSFramework),
-		"info", "margin-left",
-	)
-	helpers.PrintStyled(
-		fmt.Sprintf("htmx '%s', hyperscript '%s'", di.Config.Frontend.HTMX, di.Config.Frontend.Hyperscript),
-		"info", "margin-left-2",
-	)
-
-	// Next steps message.
-	helpers.PrintStyled("Next steps:", "", "margin-top-bottom")
-	helpers.PrintStyled(
-		fmt.Sprintf("Open http://localhost:%d on a browser to see your project", di.Config.Backend.Port),
-		"info", "margin-left",
-	)
-
-	// Backend logs message.
-	helpers.PrintStyled("Backend logs:", "", "margin-top-bottom")
 
 	return helpers.Execute(
 		[]helpers.Command{

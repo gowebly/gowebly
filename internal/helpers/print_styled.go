@@ -6,7 +6,21 @@ import (
 	"github.com/charmbracelet/lipgloss"
 )
 
-// PrintStyled prints styled output for the given string by a lipgloss.Style template.
+// StyledOutput represents a struct for the styled output.
+type StyledOutput struct {
+	Text, State, Style string
+}
+
+// PrintStyledBlock prints block of the styled output of the given []string by
+// the PrintStyled function.
+func PrintStyledBlock(outputs []StyledOutput) {
+	for _, o := range outputs {
+		PrintStyled(o.Text, o.State, o.Style)
+	}
+}
+
+// PrintStyled prints styled output for the given string by a lipgloss.Style
+// template.
 func PrintStyled(s, state, style string) {
 	// Set lipgloss colors.
 	successColor := lipgloss.AdaptiveColor{Light: "#16a34a", Dark: "#4ade80"}
@@ -39,15 +53,15 @@ func PrintStyled(s, state, style string) {
 	// Switch between styles.
 	switch style {
 	case "margin-top-bottom":
-		s = render(concatStrings, lg.MarginTop(1).MarginBottom(1))
+		s = renderOutput(concatStrings, lg.MarginTop(1).MarginBottom(1))
 	case "margin-top":
-		s = render(concatStrings, lg.MarginTop(1))
+		s = renderOutput(concatStrings, lg.MarginTop(1))
 	case "margin-bottom":
-		s = render(concatStrings, lg.MarginBottom(1))
+		s = renderOutput(concatStrings, lg.MarginBottom(1))
 	case "margin-left":
-		s = render(concatStrings, lg.MarginLeft(1))
+		s = renderOutput(concatStrings, lg.MarginLeft(1))
 	case "margin-left-2":
-		s = render(concatStrings, lg.MarginLeft(2))
+		s = renderOutput(concatStrings, lg.MarginLeft(2))
 	default:
 		s = concatStrings
 	}
@@ -58,6 +72,6 @@ func PrintStyled(s, state, style string) {
 
 // render renders a styled string with a given lipgloss.Style template
 // using "charmbracelet/lipgloss" package.
-func render(str string, template lipgloss.Style) string {
+func renderOutput(str string, template lipgloss.Style) string {
 	return template.Render(str)
 }

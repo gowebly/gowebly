@@ -111,46 +111,52 @@ func Build(di *injector.Injector, flags []string) error {
 		return err
 	}
 
-	// Success message.
-	helpers.PrintStyled("Successfully build your project for the production!", "success", "margin-top")
-
-	// Project config message.
-	helpers.PrintStyled("Project configuration:", "", "margin-top-bottom")
-	helpers.PrintStyled(
-		fmt.Sprintf("Backend: %s", di.Config.Backend.Name),
-		"info", "margin-left",
-	)
-	helpers.PrintStyled(
-		fmt.Sprintf(
-			"Server port is %d, timeout (in seconds): %d for read, %d for write",
-			di.Config.Backend.Port, di.Config.Backend.Timeout.Read, di.Config.Backend.Timeout.Write,
-		),
-		"info", "margin-left-2",
-	)
-	helpers.PrintStyled(
-		fmt.Sprintf("Frontend: %s", di.Config.Frontend.CSSFramework),
-		"info", "margin-left",
-	)
-	helpers.PrintStyled(
-		fmt.Sprintf("htmx '%s', hyperscript '%s'", di.Config.Frontend.HTMX, di.Config.Frontend.Hyperscript),
-		"info", "margin-left-2",
-	)
-
-	// Next steps message.
-	helpers.PrintStyled("Next steps:", "", "margin-top-bottom")
-	helpers.PrintStyled(
-		"Run your project by 'docker-compose up -d' command on your remote server or local machine",
-		"info", "margin-left",
-	)
-	helpers.PrintStyled(
-		"You can use an auto-generated 'docker-compose.yml' file on the Portainer platform or manually",
-		"info", "margin-left",
-	)
-
-	// Footer message.
-	helpers.PrintStyled(
-		fmt.Sprintf("For more information, see %s", constants.LinkToCompleteUserGuide),
-		"warning", "margin-top-bottom",
+	// Print block of messages.
+	helpers.PrintStyledBlock(
+		[]helpers.StyledOutput{
+			{
+				"Successfully build your project for the production!", "success", "margin-top",
+			},
+			{
+				"Project configuration:", "", "margin-top-bottom",
+			},
+			{
+				fmt.Sprintf("Backend: %s", di.Config.Backend.Name),
+				"info", "margin-left",
+			},
+			{
+				fmt.Sprintf(
+					"Server port is %d, timeout (in seconds): %d for read, %d for write",
+					di.Config.Backend.Port, di.Config.Backend.Timeout.Read, di.Config.Backend.Timeout.Write,
+				),
+				"info", "margin-left-2",
+			},
+			{
+				fmt.Sprintf("Frontend: %s", di.Config.Frontend.CSSFramework),
+				"info", "margin-left",
+			},
+			{
+				fmt.Sprintf(
+					"htmx '%s', hyperscript '%s'", di.Config.Frontend.HTMX, di.Config.Frontend.Hyperscript,
+				),
+				"info", "margin-left-2",
+			},
+			{
+				"Next steps:", "", "margin-top-bottom",
+			},
+			{
+				"Run your project by 'docker-compose up -d' command on your remote server or local machine",
+				"info", "margin-left",
+			},
+			{
+				"You can use an auto-generated 'docker-compose.yml' file on the Portainer platform or manually",
+				"info", "margin-left",
+			},
+			{
+				fmt.Sprintf("For more information, see %s", constants.LinkToCompleteUserGuide),
+				"warning", "margin-top-bottom",
+			},
+		},
 	)
 
 	return nil
