@@ -110,18 +110,18 @@ Command to create a **default** config file
 gowebly init
 ```
 
-<img width="720" alt="gowebly init" src="https://github.com/gowebly/gowebly/assets/11155743/679dd0e1-ecd6-4cfb-b145-c9f551ab2d9c">
-
-> 💡 Note: Of course, you can skip this step if you're comfortable with the 
+> 💡 Note: Of course, you can skip this step if you're comfortable with the
 > following default configuration for your new project:
-> 
+>
 > - Go module (`go.mod`) and `package.json` names are set to **project**;
-> - Without any Go framework for the backend part (only built-in 
-> **net/http** package);
+> - Without any Go framework for the backend part (only built-in
+    > **net/http** package);
 > - Server port is `5000`, timeout (in seconds): `5` for read, `10` for write;
 > - Latest versions of the **htmx** & **hyperscript**;
-> - Without any CSS framework for the frontend part (only default styles for 
-> the code example).
+> - Without any CSS framework for the frontend part (only default styles for
+    > the code example).
+
+<img width="720" alt="gowebly init" src="https://github.com/gowebly/gowebly/assets/11155743/679dd0e1-ecd6-4cfb-b145-c9f551ab2d9c">
 
 Typically, a created config file contains the following options:
 
@@ -169,11 +169,11 @@ Command to create a new project with the **Go** backend, **htmx** &
 gowebly create
 ```
 
-<img width="720" alt="gowebly create" src="https://github.com/gowebly/gowebly/assets/11155743/35b15677-4991-406d-b666-dfbc40beb1ce">
-
 > 💡 Note: If you don't run `init` command to create a config file 
 > (`.gowebly.yml`), the `gowebly` CLI creates a new project with a 
 > [default][repo_default_config] configuration.
+
+<img width="720" alt="gowebly create" src="https://github.com/gowebly/gowebly/assets/11155743/35b15677-4991-406d-b666-dfbc40beb1ce">
 
 Every time you make `create` command for your project:
 
@@ -221,11 +221,11 @@ Command to run your project in a **development** (non-production) mode.
 gowebly run
 ```
 
-<img width="720" alt="gowebly run" src="https://github.com/gowebly/gowebly/assets/11155743/51c05652-4601-4f8b-8722-20401d0099d1">
-
 > 💡 Note: If you don't run `init` command to create a config file
 > (`.gowebly.yml`), the `gowebly` CLI runs your project with a
 > [default][repo_default_config] configuration.
+
+<img width="720" alt="gowebly run" src="https://github.com/gowebly/gowebly/assets/11155743/51c05652-4601-4f8b-8722-20401d0099d1">
 
 Every time you make `run` command for your project:
 
@@ -248,11 +248,11 @@ deploy.
 gowebly build [OPTION]
 ```
 
-<img width="720" alt="gowebly build" src="https://github.com/gowebly/gowebly/assets/11155743/ac35b01f-0596-4d33-832e-1618709497d3">
-
 > 💡 Note: If you don't run `init` command to create a config file
 > (`.gowebly.yml`), the `gowebly` CLI builds your project with a
 > [default][repo_default_config] configuration.
+
+<img width="720" alt="gowebly build" src="https://github.com/gowebly/gowebly/assets/11155743/ac35b01f-0596-4d33-832e-1618709497d3">
 
 You might add the following options:
 
