@@ -241,7 +241,7 @@ Every time you make `run` command for your project:
 
 ### `build`
 
-Command to build your project for **production** and prepare containers for 
+Command to build your project for **production** and prepare Docker files for 
 deploy.
 
 ```console
