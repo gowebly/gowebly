@@ -27,6 +27,7 @@ type Timeout struct {
 
 // Frontend represents struct for a frontend part of the config file.
 type Frontend struct {
+	PackageName  string `koanf:"package_name"`
 	HTMX         string `koanf:"htmx"`
 	Hyperscript  string `koanf:"hyperscript"`
 	CSSFramework string `koanf:"css_framework"`

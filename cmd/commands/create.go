@@ -83,14 +83,24 @@ func Create(di *injector.Injector) error {
 				filepath.Join("assets", "styles.css"),
 			},
 			{
-				filepath.Join(
-					"templates", "frontend", di.Config.Frontend.CSSFramework, "package.json",
-				),
-				"package.json",
-			},
-			{
 				filepath.Join("templates", "static", "favicon.ico"),
 				filepath.Join("static", "favicon.ico"),
+			},
+		},
+	); err != nil {
+		return err
+	}
+
+	// Create frontend files from templates.
+	if err := helpers.GenerateFilesByTemplateFromEmbedFS(
+		di.Attachments.Templates,
+		[]helpers.EmbedTemplate{
+			{
+				filepath.Join(
+					"templates", "frontend", di.Config.Frontend.CSSFramework, "package.json.tmpl",
+				),
+				"package.json",
+				di.Config.Frontend,
 			},
 		},
 	); err != nil {

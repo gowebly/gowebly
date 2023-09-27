@@ -20,6 +20,8 @@ backend:
 # The 'frontend' block sets a frontend options.
 # Required to set up.
 frontend:
+  # 'package_name' (string) option can be any name for your package.json (for example, 'project')
+  package_name: project
   # 'htmx' (string) option can be any existing version
   htmx: latest
   # 'hyperscript' (string) option can be any existing version
