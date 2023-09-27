@@ -117,9 +117,9 @@ gowebly init
 > - Without any Go framework for the backend part (only built-in
 > **net/http** package);
 > - Without any CSS framework for the frontend part (only default styles for
-> the code example).
+> the code example);
 > - Server port is `5000`, timeout (in seconds): `5` for read, `10` for write;
-> - Latest versions of the **htmx** & **hyperscript**;
+> - Latest versions of the **htmx** & **hyperscript**.
 
 <img width="720" alt="gowebly init" src="https://github.com/gowebly/gowebly/assets/11155743/679dd0e1-ecd6-4cfb-b145-c9f551ab2d9c">
 
