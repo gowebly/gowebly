@@ -143,12 +143,12 @@ frontend:
 
 But, you can choose any **Go framework** for your project's backend:
 
-| Go framework | Description                                                         |
-|--------------|---------------------------------------------------------------------|
-| `default`    | Use a Go backend with the built-in [net/http][net_http_url] package |
-| `fiber`      | Use a Go backend with the [Fiber][fiber_url] web framework          |
-| `echo`       | Use a Go backend with the [Echo][echo_url] web framework            |
-| `chi`        | Use a Go backend with the [chi][chi_url] composable router          |
+| Go framework | Description                                                                 |
+|--------------|-----------------------------------------------------------------------------|
+| `default`    | Don't use any Go framework (only built-in [net/http][net_http_url] package) |
+| `fiber`      | Use a Go backend with the [Fiber][fiber_url] web framework                  |
+| `echo`       | Use a Go backend with the [Echo][echo_url] web framework                    |
+| `chi`        | Use a Go backend with the [chi][chi_url] composable router                  |
 
 In additional, you can choose versions of the **htmx**, **hyperscript**, and 
 one of the most popular atomic/utility-first **CSS framework** to your 
