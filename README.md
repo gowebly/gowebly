@@ -15,15 +15,15 @@ and the most popular atomic/utility-first **CSS frameworks** on the frontend.
 Features:
 
 - 100% **free** and **open source** under the [Apache 2.0][repo_license_url] 
-  license.
-- For **any** level of developer's knowledge and technical expertise.
+  license;
+- For **any** level of developer's knowledge and technical expertise;
 - **Well-documented**, with a lot of tips and assists from the authors;
 - Smart CLI that **does most** of the routine setup and preparation for 
-  production.
+  production;
 - Helps to get into the **Go** + **htmx** + **hyperscript** technology 
-  stack faster.
+  stack faster;
 - The possibility of simply adding a ready-to-use and completely customized 
-  atomic/utility-first **CSS framework** to your project.
+  atomic/utility-first **CSS framework** to your project;
 - Has a library of **user-friendly** helpers for your Go code;
 - Contains a comprehensive **example** of how to use it out of the box.
 
@@ -80,8 +80,8 @@ docker run --rm -it -v ${PWD}:${PWD} -w ${PWD} gowebly/gowebly:latest create
 
 ### 📦 Other way to quick start
 
-Download a ready-made Windows `exe` files, `deb`, `rpm`, `apk`, or Arch Linux 
-packages on the [Releases][repo_releases_url] page.
+Download ready-made `exe` files for Windows, `deb`, `rpm`, `apk` or Arch 
+Linux packages from the [Releases][repo_releases_url] page.
 
 ## 📖 Complete user guide
 
@@ -262,7 +262,7 @@ You might add the following options:
 
 Every time you make `build` command for your project:
 
-1. CLI validates the config and apply all settings to the current project;
+1. CLI validates the config and applies all settings to the current project;
 2. CLI downloads minimized versions of **htmx** and **hyperscript** (from
    official and trusted [unpkg.com][unpkg_url] CDN) to the `./static` folder
    and places them as separated `<script>` tags (at the bottom of the
@@ -274,7 +274,7 @@ Every time you make `build` command for your project:
 4. If the `--skip-docker` option is not set, CLI generate a clear and 
    well-documented Docker files (`.dockerignore`, `Dockerfile`, 
    `docker-compose.yml`) in the root of the project folder to deploy it in 
-   isolated Docker containers via [Portainer][portainer_url] (_recommended_),
+   isolated containers via [Portainer][portainer_url] (_recommended_),
    or manually, to your remote server.
 
 ## 🙋 User-friendly helpers
