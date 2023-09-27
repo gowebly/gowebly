@@ -350,7 +350,7 @@ under the [Apache 2.0 License][repo_license_url], created and supported by
 [repo_readme_cn_url]: https://github.com/gowebly/gowebly/blob/main/README_CN.md
 [repo_readme_es_url]: https://github.com/gowebly/gowebly/blob/main/README_ES.md
 [repo_default_config]: https://github.com/gowebly/gowebly/blob/main/internal/attachments/configs/default.yml
-[repo_main_layout]: https://github.com/gowebly/gowebly/blob/main/internal/attachments/frontend/gowebly/main.html
+[repo_main_layout]: https://github.com/gowebly/gowebly/blob/main/internal/attachments/templates/frontend/main.html
 
 <!-- Author links -->
 
