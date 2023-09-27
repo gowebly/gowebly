@@ -17,14 +17,15 @@ Features:
 - 100% **free** and **open source** under the [Apache 2.0][repo_license_url] 
   license.
 - For **any** level of developer's knowledge and technical expertise.
-- Helps to get into the **Go** + **htmx** + **hyperscript** technology 
-  stack faster.
+- **Well-documented**, with a lot of tips and assists from the authors;
 - Smart CLI that **does most** of the routine setup and preparation for 
   production.
-- Possibility to simply add atomic/utility-first **CSS framework** to a 
-  project;
+- Helps to get into the **Go** + **htmx** + **hyperscript** technology 
+  stack faster.
+- The possibility of simply adding a ready-to-use and completely customized 
+  atomic/utility-first **CSS framework** to your project.
+- Has a library of **user-friendly** helpers for your Go code;
 - Contains a comprehensive **example** of how to use it out of the box.
-- **Well-documented**, with a lot of tips and assists from the authors.
 
 ## ⚡️ Quick start
 
@@ -109,33 +110,40 @@ Command to create a **default** config file
 gowebly init
 ```
 
+<img width="720" alt="gowebly init" src="https://github.com/gowebly/gowebly/assets/11155743/679dd0e1-ecd6-4cfb-b145-c9f551ab2d9c">
+
 > 💡 Note: Of course, you can skip this step if you're comfortable with the 
 > following default configuration for your new project:
 > 
-> - Go backend with **net/http** package;
+> - Go module (`go.mod`) and `package.json` names are set to **project**;
+> - Without any Go framework for the backend part (only built-in 
+> **net/http** package);
 > - Server port is `5000`, timeout (in seconds): `5` for read, `10` for write;
 > - Latest versions of the **htmx** & **hyperscript**;
-> - Without any CSS framework (only default styles for the code example).
+> - Without any CSS framework for the frontend part (only default styles for 
+> the code example).
 
 Typically, a created config file contains the following options:
 
 ```yaml
 backend:
-  name: default
-  port: 5000
-  timeout:
-    read: 5
-    write: 10
-  
+   module_name: project # (string) option can be any name of your Go module (for example, 'github.com/user/project')
+   go_framework: default # (string) option can be one of the values: 'fiber', 'echo', 'chi', or 'default'
+   port: 5000 # (int) option can be any port that is not taken up on your system
+   timeout:
+      read: 5 # (int) option can be any number of seconds, 5 is recommended
+      write: 10 # (int) option can be any number of seconds, 10 is recommended
+
 frontend:
-  htmx: latest
-  hyperscript: latest
-  css_framework: default
+   package_name: project # (string) option can be any name of your package.json (for example, 'project')
+   css_framework: default # (string) option can be one of the values: 'tailwindcss', 'unocss', or 'default'
+   htmx: latest # (string) option can be any existing version
+   hyperscript: latest # (string) option can be any existing version
 ```
 
-But, you can choose any **Go** backend with a server options for your project:
+But, you can choose any **Go framework** for your project's backend:
 
-| Backend name | Description                                                         |
+| Go framework | Description                                                         |
 |--------------|---------------------------------------------------------------------|
 | `default`    | Use a Go backend with the built-in [net/http][net_http_url] package |
 | `fiber`      | Use a Go backend with the [Fiber][fiber_url] web framework          |
@@ -155,15 +163,30 @@ project:
 ### `create`
 
 Command to create a new project with the **Go** backend, **htmx** & 
-**hyperscript**, and atomic/utility-first **CSS framework**.
+**hyperscript**, and (_optionally_) atomic/utility-first **CSS framework**.
 
 ```console
 gowebly create
 ```
 
+<img width="720" alt="gowebly create" src="https://github.com/gowebly/gowebly/assets/11155743/35b15677-4991-406d-b666-dfbc40beb1ce">
+
 > 💡 Note: If you don't run `init` command to create a config file 
-> (`.gowebly.yml`), by default the `gowebly` CLI creates a new project with a 
+> (`.gowebly.yml`), the `gowebly` CLI creates a new project with a 
 > [default][repo_default_config] configuration.
+
+Every time you make `create` command for your project:
+
+1. CLI validates the config and applies all settings to the current project;
+2. CLI prepares the backend part of your project (generates the project 
+   structure and needed utility files, runs `go mod tidy`);
+3. CLI prepares the frontend part of your project (generates the needed utility 
+   files, runs `npm install` and `npm run build:dev` for the first time);
+4. CLI downloads minimized versions of **htmx** and **hyperscript** (from
+   official and trusted [unpkg.com][unpkg_url] CDN) to the `./static` folder
+   and places them as separated `<script>` tags (at the bottom of the
+   `<body>` tag) in the Go HTML template 
+   [`templates/main.html`][repo_main_layout].
 
 Typically, a created project contains the following files and folders:
 
@@ -180,7 +203,6 @@ Typically, a created project contains the following files and folders:
 │   ├── pages
 │   │   └── index.html
 │   └── main.html
-├── .env
 ├── .gitignore
 ├── go.mod
 ├── go.sum
@@ -199,34 +221,22 @@ Command to run your project in a **development** (non-production) mode.
 gowebly run
 ```
 
+<img width="720" alt="gowebly run" src="https://github.com/gowebly/gowebly/assets/11155743/51c05652-4601-4f8b-8722-20401d0099d1">
+
 > 💡 Note: If you don't run `init` command to create a config file
-> (`.gowebly.yml`), by default the `gowebly` CLI runs your project with a
+> (`.gowebly.yml`), the `gowebly` CLI runs your project with a
 > [default][repo_default_config] configuration.
-
-The following library versions will be supplied in Go HTML templates:
-
-- **htmx**: latest non-production version from CDN;
-- **hyperscript**: latest non-production version from CDN;
-- (_optionally_) **CSS framework**: latest non-production version from CDN;
-
-In development mode, only official supported CDNs from developers 
-will be used: 
-
-- [unpkg.com][unpkg_url] for **htmx** & **hyperscript**;
-- [jsDelivr][jsdelivr_url] for **UnoCSS**.
 
 Every time you make `run` command for your project:
 
 1. CLI validates the config and applies all settings to the current project;
-2. CLI downloads minimized versions of **htmx** and **hyperscript** (from 
-   official and trusted CDNs) to the `./static` folder and places them as 
-   separated `<script>` tags (at the bottom of the `<body>` tag) in the Go 
-   HTML template [`templates/main.html`][repo_main_layout];
-3. CLI prepares a non-production version of the selected **CSS framework** 
-   to the `./static` folder and places it as a `<link>` tag (at the bottom 
-   of the `<head>` tag) in the Go HTML template
+2. CLI prepares the frontend part of your project (runs `npm run build:dev`);
+3. CLI prepares a development (non-production) version of the selected **CSS 
+   framework** to the `./static` folder and places it as a `<link>` tag (at 
+   the bottom of the `<head>` tag) in the Go HTML template
    [`templates/main.html`][repo_main_layout];
-4. CLI starts a project's backend on the selected port via simple `go run` 
+4. CLI starts a project's backend with settings from the default 
+   configuration (or from the `.gowebly.yml` config file) by a simple `go run` 
    command.
 
 ### `build`
@@ -235,34 +245,51 @@ Command to build your project for **production** and prepare containers for
 deploy.
 
 ```console
-gowebly build
+gowebly build [OPTION]
 ```
 
+<img width="720" alt="gowebly build" src="https://github.com/gowebly/gowebly/assets/11155743/ac35b01f-0596-4d33-832e-1618709497d3">
+
 > 💡 Note: If you don't run `init` command to create a config file
-> (`.gowebly.yml`), by default the `gowebly` CLI builds your project with a
+> (`.gowebly.yml`), the `gowebly` CLI builds your project with a
 > [default][repo_default_config] configuration.
 
-The following library versions will be supplied in Go HTML templates:
+You might add the following options:
 
-- **htmx**: minified production version, selected in the config file;
-- **hyperscript**: minified production version, selected in the config file;
-- (_optionally_) **CSS framework**: latest minified production version 
-  after tree-shaking;
+| Option name     | Description                                  | Required? |
+|-----------------|----------------------------------------------|-----------|
+| `--skip-docker` | Skip generation process for the Docker files | no        |
 
 Every time you make `build` command for your project:
 
-1. CLI validate the config and apply all settings to the current project;
+1. CLI validates the config and apply all settings to the current project;
 2. CLI downloads minimized versions of **htmx** and **hyperscript** (from
-   official and trusted CDNs) to the `./static` folder and places them as
-   separated `<script>` tags (at the bottom of the `<body>` tag) in the Go
-   HTML template [`templates/main.html`][repo_main_layout];
+   official and trusted [unpkg.com][unpkg_url] CDN) to the `./static` folder
+   and places them as separated `<script>` tags (at the bottom of the
+   `<body>` tag) in the Go HTML template
+   [`templates/main.html`][repo_main_layout];
 3. CLI prepares a production version of the selected **CSS framework** and 
    places it as a `<link>` tag (at the bottom of the `<head>` tag) in the Go 
    HTML template [`templates/main.html`][repo_main_layout];
-4. CLI generate a clear and well-documented `docker-compose.yml` file in the 
-   root of the project folder to deploy it in isolated Docker containers 
-   via [Portainer][portainer_url] (_recommended_), or manually, to your remote 
-   server.
+4. If the `--skip-docker` option is not set, CLI generate a clear and 
+   well-documented Docker files (`.dockerignore`, `Dockerfile`, 
+   `docker-compose.yml`) in the root of the project folder to deploy it in 
+   isolated Docker containers via [Portainer][portainer_url] (_recommended_),
+   or manually, to your remote server.
+
+## 🙋 User-friendly helpers
+
+The `gowebly` CLI has a library of user-friendly [helpers][gowebly_helpers_url] 
+for your code. This will help you start building beautiful web applications 
+in Go even faster.
+
+```console
+go get -u github.com/gowebly/helpers
+```
+
+> 💡 Note: The `gowebly helpers` library is **already** included in the Go 
+> backend that is created by the `create` command, but you can use these 
+> helpers in other projects as well.
 
 ## 🎯 Motivation to create
 
@@ -278,9 +305,9 @@ Why not just give all that awful manual work to machines? Let them do all
 the hard work for us, and we will just create awesome web products and not
 have to think about build and deploy.
 
-That's why we created the `gowebly` CLI, which helps you start an amazing web 
-applications in **Go** using **htmx**, **hyperscript** and popular 
-atomic/utility-first **CSS frameworks**.
+That's why we created the `gowebly` CLI and its helpers library, which helps 
+you start an amazing web applications in **Go** using **htmx**, 
+**hyperscript** and popular atomic/utility-first **CSS frameworks**.
 
 We are here to save you (_and ourselves_) from this routine pain! ✨
 
@@ -331,17 +358,15 @@ under the [Apache 2.0 License][repo_license_url], created and supported by
 
 <!-- Readme links -->
 
+[gowebly_helpers_url]: https://github.com/gowebly/helpers
 [docker_image_url]: https://hub.docker.com/repository/docker/gowebly/gowebly
 [portainer_url]: https://docs.portainer.io
 [brew_url]: https://brew.sh
-[vite_url]: https://vitejs.dev
 [htmx_url]: https://htmx.org
 [hyperscript_url]: https://hyperscript.org
 [tailwindcss_url]: https://tailwindcss.com
-[tailwindcss_cdn_url]: https://tailwindcss.com/docs/installation/play-cdn
 [unocss_url]: https://unocss.dev
 [unpkg_url]: https://unpkg.com
-[jsdelivr_url]: https://www.jsdelivr.com
 [net_http_url]: https://pkg.go.dev/net/http
 [fiber_url]: https://github.com/gofiber/fiber
 [echo_url]: https://github.com/labstack/echo

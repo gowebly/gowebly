@@ -18,12 +18,12 @@ func Validate(cfg *config.Config) error {
 	// Check, if 'backend' block is set.
 	if cfg.Backend != nil {
 		// Check, if 'name' option in the 'backend' block is not set.
-		if cfg.Backend.Name == "" {
+		if cfg.Backend.GoFramework == "" {
 			return errors.New(constants.ErrorValidateConfigBackendNameNotFound)
 		}
 
 		// Check, if 'name' option in the 'backend' block has a known value.
-		if !slices.Contains([]string{"default", "fiber", "echo", "chi"}, cfg.Backend.Name) {
+		if !slices.Contains([]string{"default", "fiber", "echo", "chi"}, cfg.Backend.GoFramework) {
 			return errors.New(constants.ErrorValidateConfigBackendUnknownName)
 		}
 

@@ -40,7 +40,7 @@ func Run(di *injector.Injector) error {
 				"Project configuration:", "", "margin-top-bottom",
 			},
 			{
-				fmt.Sprintf("Backend: %s", di.Config.Backend.Name),
+				fmt.Sprintf("Backend: %s", di.Config.Backend.GoFramework),
 				"info", "margin-left",
 			},
 			{

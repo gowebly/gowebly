@@ -13,10 +13,10 @@ type Config struct {
 
 // Backend represents struct for a backend part of the config file.
 type Backend struct {
-	Port     int      `koanf:"port"`
-	Name     string   `koanf:"name"`
-	GoModule string   `koanf:"go_module"`
-	Timeout  *Timeout `koanf:"timeout"`
+	ModuleName  string   `koanf:"module_name"`
+	GoFramework string   `koanf:"go_framework"`
+	Port        int      `koanf:"port"`
+	Timeout     *Timeout `koanf:"timeout"`
 }
 
 // Timeout represents struct for a 'timeout' block in the backend part of the config file.
@@ -28,9 +28,9 @@ type Timeout struct {
 // Frontend represents struct for a frontend part of the config file.
 type Frontend struct {
 	PackageName  string `koanf:"package_name"`
+	CSSFramework string `koanf:"css_framework"`
 	HTMX         string `koanf:"htmx"`
 	Hyperscript  string `koanf:"hyperscript"`
-	CSSFramework string `koanf:"css_framework"`
 }
 
 // New creates a new config.

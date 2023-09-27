@@ -27,22 +27,22 @@ func Create(di *injector.Injector) error {
 		di.Attachments.Templates,
 		[]helpers.EmbedTemplate{
 			{
-				filepath.Join("templates", "backend", di.Config.Backend.Name, "go.mod.tmpl"),
+				filepath.Join("templates", "backend", di.Config.Backend.GoFramework, "go.mod.tmpl"),
 				"go.mod",
 				di.Config.Backend,
 			},
 			{
-				filepath.Join("templates", "backend", di.Config.Backend.Name, "handlers.go.tmpl"),
+				filepath.Join("templates", "backend", di.Config.Backend.GoFramework, "handlers.go.tmpl"),
 				"handlers.go",
 				nil,
 			},
 			{
-				filepath.Join("templates", "backend", di.Config.Backend.Name, "server.go.tmpl"),
+				filepath.Join("templates", "backend", di.Config.Backend.GoFramework, "server.go.tmpl"),
 				"server.go",
 				di.Config.Backend,
 			},
 			{
-				filepath.Join("templates", "backend", di.Config.Backend.Name, "main.go.tmpl"),
+				filepath.Join("templates", "backend", di.Config.Backend.GoFramework, "main.go.tmpl"),
 				"main.go",
 				di.Config.Backend,
 			},
@@ -71,9 +71,7 @@ func Create(di *injector.Injector) error {
 				filepath.Join("templates", "main.html"),
 			},
 			{
-				filepath.Join(
-					"templates", "frontend", di.Config.Frontend.CSSFramework, "index.html",
-				),
+				filepath.Join("templates", "frontend", di.Config.Frontend.CSSFramework, "index.html"),
 				filepath.Join("templates", "pages", "index.html"),
 			},
 			{
@@ -201,7 +199,7 @@ func Create(di *injector.Injector) error {
 				"Project configuration:", "", "margin-top-bottom",
 			},
 			{
-				fmt.Sprintf("Backend: %s", di.Config.Backend.Name),
+				fmt.Sprintf("Backend: %s", di.Config.Backend.GoFramework),
 				"info", "margin-left",
 			},
 			{

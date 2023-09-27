@@ -1,10 +1,10 @@
 # The 'backend' block sets a Go backend options.
 # Required to set up.
 backend:
-  # 'name' (string) option can be one of the values: 'fiber', 'echo', 'chi', or 'default'
-  name: default
-  # 'go_module' (string) option can be any name of your Go module (for example, 'github.com/user/project')
-  go_module: project
+  # 'module_name' (string) option can be any name of your Go module (for example, 'github.com/user/project')
+  module_name: project
+  # 'go_framework' (string) option can be one of the values: 'fiber', 'echo', 'chi', or 'default'
+  go_framework: default
   # 'port' (int) option can be any port that is not taken up on your system
   port: 5000
 
@@ -20,11 +20,11 @@ backend:
 # The 'frontend' block sets a frontend options.
 # Required to set up.
 frontend:
-  # 'package_name' (string) option can be any name for your package.json (for example, 'project')
+  # 'package_name' (string) option can be any name of your package.json (for example, 'project')
   package_name: project
+  # 'css_framework' (string) option can be one of the values: 'tailwindcss', 'unocss', or 'default'
+  css_framework: default
   # 'htmx' (string) option can be any existing version
   htmx: latest
   # 'hyperscript' (string) option can be any existing version
   hyperscript: latest
-  # 'css_framework' (string) option can be one of the values: 'tailwindcss', 'unocss', or 'default'
-  css_framework: default
