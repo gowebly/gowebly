@@ -256,9 +256,9 @@ gowebly build [OPTION]
 
 You might add the following options:
 
-| Option name     | Description                                  | Required? |
-|-----------------|----------------------------------------------|-----------|
-| `--skip-docker` | Skip generation process for the Docker files | no        |
+| Option name     | Description                                                                    | Required? |
+|-----------------|--------------------------------------------------------------------------------|-----------|
+| `--skip-docker` | Skip generation process for the Docker files (it's helpful if you've your own) | no        |
 
 Every time you make `build` command for your project:
 
