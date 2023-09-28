@@ -118,7 +118,7 @@ gowebly init
 > **net/http** package);
 > - Without any CSS framework for the frontend part (only default styles for
 > the code example);
-> - The JavaScript runtime environment for the frontend part will use 
+> - The JavaScript runtime environment for the frontend part is set to 
 > **Node.js**;
 > - Server port is `5000`, timeout (in seconds): `5` for read, `10` for write;
 > - Latest versions of the **htmx** & **hyperscript**.
