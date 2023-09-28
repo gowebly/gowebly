@@ -68,10 +68,13 @@ func Run(flags []string) error {
 			if flags[1] != "--skip-docker" {
 				return fmt.Errorf("cmd: unknown flag '%s' of the 'build' command", flags[1])
 			}
+
+			// Building project to production with skipped Docker part.
+			return commands.Build(di, "--skip-docker")
 		}
 
 		// Building project to production.
-		return commands.Build(di, flags[1])
+		return commands.Build(di, "")
 	default:
 		// Returning error message.
 		return errors.New(constants.ErrorRunUnknownCommand)

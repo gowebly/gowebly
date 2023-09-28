@@ -14,24 +14,14 @@ func Build(di *injectors.Injector, flag string) error {
 	// Remove previously generated files.
 	_ = helpers.RemoveFiles("static/htmx.min.js", "static/hyperscript.min.js", "static/styles.css")
 
-	// Define the Docker part marker.
-	var skipDockerPart bool
-
 	// Check, if the second flag is set.
 	if flag != "" {
-		// Set the Docker part marker to 'true'.
-		skipDockerPart = true
-
 		// Skip Docker part message.
 		helpers.PrintStyled(
 			"Re-generation process of the Docker files was skipped (by the '--skip-docker' flag)!",
 			"wait", "margin-top",
 		)
-	}
-
-	// Check, if user want to skip re-generation process of the 'Dockerfile' and
-	// 'docker-compose.yml'.
-	if !skipDockerPart {
+	} else {
 		// Docker part message.
 		helpers.PrintStyled(
 			"Preparing Docker files for the deploy part... Please wait!",
