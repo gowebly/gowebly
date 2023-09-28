@@ -1,0 +1,41 @@
+package main
+
+import (
+	"log/slog"
+	"net/http"
+	"path/filepath"
+
+	gowebly "github.com/gowebly/helpers"
+)
+
+// indexViewHandler handles a view for the index page.
+func indexViewHandler(w http.ResponseWriter, r *http.Request) {
+	// Check, if current URL is '/'.
+	if r.URL.Path != "/" {
+		// If not, return HTTP 404 error.
+		http.NotFound(w, r)
+		slog.Error("render page", "method", r.Method, "status", http.StatusNotFound, "path", r.URL.Path)
+		return
+	}
+
+	// Define paths to the user templates.
+	indexPage := filepath.Join("templates", "pages", "index.html")
+
+	// Parse user templates or return error.
+	tmpl, err := gowebly.ParseTemplates(indexPage) // gowebly helper for parse user templates
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		slog.Error(err.Error(), "method", r.Method, "status", http.StatusInternalServerError, "path", r.URL.Path)
+		return
+	}
+
+	// Execute (render) all templates or return error.
+	if err := tmpl.Execute(w, nil); err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		slog.Error(err.Error(), "method", r.Method, "status", http.StatusInternalServerError, "path", r.URL.Path)
+		return
+	}
+
+	// Send log message.
+	slog.Info("render page", "method", r.Method, "status", http.StatusOK, "path", r.URL.Path)
+}
