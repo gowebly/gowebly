@@ -54,43 +54,55 @@ func TestValidate(t *testing.T) {
 
 	err = Validate(&config.Config{
 		Backend:  &config.Backend{ModuleName: "project", GoFramework: "default", Port: 5000, Timeout: &config.Timeout{}},
-		Frontend: &config.Frontend{PackageName: "", CSSFramework: "", HTMX: "", Hyperscript: ""},
+		Frontend: &config.Frontend{PackageName: "", CSSFramework: "", RuntimeEnvironment: "", HTMX: "", Hyperscript: ""},
 	})
 	require.EqualError(t, err, constants.ErrorValidateConfigFrontendPackageNameNotFound)
 
 	err = Validate(&config.Config{
 		Backend:  &config.Backend{ModuleName: "project", GoFramework: "default", Port: 5000, Timeout: &config.Timeout{}},
-		Frontend: &config.Frontend{PackageName: "project", CSSFramework: "", HTMX: "", Hyperscript: ""},
+		Frontend: &config.Frontend{PackageName: "project", CSSFramework: "", RuntimeEnvironment: "", HTMX: "", Hyperscript: ""},
 	})
 	require.EqualError(t, err, constants.ErrorValidateConfigFrontendCSSFrameworkNotFound)
 
 	err = Validate(&config.Config{
 		Backend:  &config.Backend{ModuleName: "project", GoFramework: "default", Port: 5000, Timeout: &config.Timeout{}},
-		Frontend: &config.Frontend{PackageName: "project", CSSFramework: "", HTMX: "", Hyperscript: ""},
+		Frontend: &config.Frontend{PackageName: "project", CSSFramework: "", RuntimeEnvironment: "", HTMX: "", Hyperscript: ""},
 	})
 	require.EqualError(t, err, constants.ErrorValidateConfigFrontendCSSFrameworkNotFound)
 
 	err = Validate(&config.Config{
 		Backend:  &config.Backend{ModuleName: "project", GoFramework: "default", Port: 5000, Timeout: &config.Timeout{}},
-		Frontend: &config.Frontend{PackageName: "project", CSSFramework: "unknown", HTMX: "", Hyperscript: ""},
+		Frontend: &config.Frontend{PackageName: "project", CSSFramework: "unknown", RuntimeEnvironment: "", HTMX: "", Hyperscript: ""},
 	})
 	require.EqualError(t, err, constants.ErrorValidateConfigFrontendCSSFrameworkUnknown)
 
 	err = Validate(&config.Config{
 		Backend:  &config.Backend{ModuleName: "project", GoFramework: "default", Port: 5000, Timeout: &config.Timeout{}},
-		Frontend: &config.Frontend{PackageName: "project", CSSFramework: "default", HTMX: "", Hyperscript: ""},
+		Frontend: &config.Frontend{PackageName: "project", CSSFramework: "default", RuntimeEnvironment: "", HTMX: "", Hyperscript: ""},
+	})
+	require.EqualError(t, err, constants.ErrorValidateConfigFrontendRuntimeEnvironmentNotFound)
+
+	err = Validate(&config.Config{
+		Backend:  &config.Backend{ModuleName: "project", GoFramework: "default", Port: 5000, Timeout: &config.Timeout{}},
+		Frontend: &config.Frontend{PackageName: "project", CSSFramework: "default", RuntimeEnvironment: "unknown", HTMX: "", Hyperscript: ""},
+	})
+	require.EqualError(t, err, constants.ErrorValidateConfigFrontendRuntimeEnvironmentUnknown)
+
+	err = Validate(&config.Config{
+		Backend:  &config.Backend{ModuleName: "project", GoFramework: "default", Port: 5000, Timeout: &config.Timeout{}},
+		Frontend: &config.Frontend{PackageName: "project", CSSFramework: "default", RuntimeEnvironment: "default", HTMX: "", Hyperscript: ""},
 	})
 	require.EqualError(t, err, constants.ErrorValidateConfigFrontendHTMXNotFound)
 
 	err = Validate(&config.Config{
 		Backend:  &config.Backend{ModuleName: "project", GoFramework: "default", Port: 5000, Timeout: &config.Timeout{}},
-		Frontend: &config.Frontend{PackageName: "project", CSSFramework: "default", HTMX: "latest", Hyperscript: ""},
+		Frontend: &config.Frontend{PackageName: "project", CSSFramework: "default", RuntimeEnvironment: "default", HTMX: "latest", Hyperscript: ""},
 	})
 	require.EqualError(t, err, constants.ErrorValidateConfigFrontendHyperscriptNotFound)
 
 	err = Validate(&config.Config{
 		Backend:  &config.Backend{ModuleName: "project", GoFramework: "default", Port: 5000, Timeout: &config.Timeout{}},
-		Frontend: &config.Frontend{PackageName: "project", CSSFramework: "default", HTMX: "latest", Hyperscript: "latest"},
+		Frontend: &config.Frontend{PackageName: "project", CSSFramework: "default", RuntimeEnvironment: "default", HTMX: "latest", Hyperscript: "latest"},
 	})
 	require.NoError(t, err)
 }
