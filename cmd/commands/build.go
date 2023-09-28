@@ -17,8 +17,8 @@ func Build(di *injectors.Injector, flag string) error {
 	// Define the Docker part marker.
 	var skipDockerPart bool
 
-	// Check, if the second flag is '--skip-docker'.
-	if flag == "--skip-docker" {
+	// Check, if the second flag is set.
+	if flag != "" {
 		// Set the Docker part marker to 'true'.
 		skipDockerPart = true
 
