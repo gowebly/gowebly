@@ -32,6 +32,7 @@ func runServer() error {
 	// For more information, see https://blog.cloudflare.com/the-complete-guide-to-golang-net-http-timeouts/
 	config := fiber.Config{
 		Views:        html.NewFileSystem(http.Dir("./templates"), ".html"),
+		ViewsLayout:  "main",
 		ReadTimeout:  time.Duration(readTimeout) * time.Second,
 		WriteTimeout: time.Duration(writeTimeout) * time.Second,
 	}
