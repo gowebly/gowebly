@@ -35,7 +35,7 @@ func runServer() error {
 	router.Use(middleware.Logger)
 
 	// Handle static files (with a custom handler).
-	router.Handle("/static/*", http.FileServer(http.Dir("./static")))
+	router.Handle("/static/*", http.StripPrefix("/static/", http.FileServer(http.Dir("./static"))))
 
 	// Handle index page view.
 	router.Get("/", indexViewHandler)
