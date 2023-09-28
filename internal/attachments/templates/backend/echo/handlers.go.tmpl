@@ -1,0 +1,12 @@
+package main
+
+import (
+	"net/http"
+
+	"github.com/labstack/echo/v4"
+)
+
+// indexViewHandler handles a view for the index page.
+func indexViewHandler(c echo.Context) error {
+	return c.Render(http.StatusOK, "templates/pages/index.html", nil)
+}

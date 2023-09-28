@@ -1,0 +1,72 @@
+package main
+
+import (
+	"fmt"
+	"html/template"
+	"io"
+	"net/http"
+	"path/filepath"
+	"strconv"
+	"time"
+
+	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
+
+	gowebly "github.com/gowebly/helpers"
+)
+
+// TemplateRegistry represents a custom 'html/template' renderer for Echo framework.
+type Template struct {
+	templates *template.Template
+}
+
+// Render renders all templates, using gowebly helper.
+func (t *Template) Render(w io.Writer, name string, data interface{}, c echo.Context) error {
+	tmpl, err := gowebly.ParseTemplates(filepath.Join("templates", "pages", t.templates.Name()))
+	if err != nil {
+		return err
+	}
+
+	return tmpl.Execute(w, nil)
+}
+
+// runServer runs a new HTTP server with the loaded environment variables.
+func runServer() error {
+	// Validate environment variables.
+	readTimeout, err := strconv.Atoi(gowebly.Getenv("BACKEND_READ_TIMEOUT", "5"))
+	if err != nil {
+		return err
+	}
+	writeTimeout, err := strconv.Atoi(gowebly.Getenv("BACKEND_WRITE_TIMEOUT", "10"))
+	if err != nil {
+		return err
+	}
+
+	// Create a new Echo server.
+	echo := echo.New()
+
+	// Create a new Echo renderer for templates.
+	echo.Renderer = &Template{
+		templates: template.Must(template.ParseGlob("templates/**/*.html")),
+	}
+
+	// Add Echo middlewares.
+	echo.Use(middleware.Logger())
+
+	// Handle static files.
+	echo.Static("/static", "static")
+
+	// Handle index page view.
+	echo.GET("/", indexViewHandler)
+
+	// Create a new server instance with options from environment variables.
+	// For more information, see https://blog.cloudflare.com/the-complete-guide-to-golang-net-http-timeouts/
+	server := http.Server{
+		Addr:         fmt.Sprintf(":%s", gowebly.Getenv("BACKEND_PORT", "5000")),
+		Handler:      echo,
+		ReadTimeout:  time.Duration(readTimeout) * time.Second,
+		WriteTimeout: time.Duration(writeTimeout) * time.Second,
+	}
+
+	return server.ListenAndServe()
+}
