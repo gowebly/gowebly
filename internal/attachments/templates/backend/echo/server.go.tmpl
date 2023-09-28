@@ -33,6 +33,10 @@ func (t *Template) Render(w io.Writer, name string, data interface{}, c echo.Con
 // runServer runs a new HTTP server with the loaded environment variables.
 func runServer() error {
 	// Validate environment variables.
+	port, err := strconv.Atoi(gowebly.Getenv("BACKEND_PORT", "{{ .Port }}"))
+	if err != nil {
+		return err
+	}
 	readTimeout, err := strconv.Atoi(gowebly.Getenv("BACKEND_READ_TIMEOUT", "{{ .Timeout.Read }}"))
 	if err != nil {
 		return err
@@ -54,7 +58,7 @@ func runServer() error {
 	echo.Use(middleware.Logger())
 
 	// Handle static files.
-	echo.Static("/static", "static")
+	echo.Static("/static", "./static")
 
 	// Handle index page view.
 	echo.GET("/", indexViewHandler)
@@ -62,7 +66,7 @@ func runServer() error {
 	// Create a new server instance with options from environment variables.
 	// For more information, see https://blog.cloudflare.com/the-complete-guide-to-golang-net-http-timeouts/
 	server := http.Server{
-		Addr:         fmt.Sprintf(":%s", gowebly.Getenv("BACKEND_PORT", "{{ .Port }}")),
+		Addr:         fmt.Sprintf(":%d", port),
 		Handler:      echo, // handle all Echo routes
 		ReadTimeout:  time.Duration(readTimeout) * time.Second,
 		WriteTimeout: time.Duration(writeTimeout) * time.Second,

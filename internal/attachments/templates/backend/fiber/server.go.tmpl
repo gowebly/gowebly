@@ -15,10 +15,11 @@ import (
 
 // runServer runs a new HTTP server with the loaded environment variables.
 func runServer() error {
-	// Define a server address.
-	addr := fmt.Sprintf(":%s", gowebly.Getenv("BACKEND_PORT", "{{ .Port }}"))
-
 	// Validate environment variables.
+	port, err := strconv.Atoi(gowebly.Getenv("BACKEND_PORT", "{{ .Port }}"))
+	if err != nil {
+		return err
+	}
 	readTimeout, err := strconv.Atoi(gowebly.Getenv("BACKEND_READ_TIMEOUT", "{{ .Timeout.Read }}"))
 	if err != nil {
 		return err
@@ -49,5 +50,5 @@ func runServer() error {
 	// Handle index page view.
 	server.Get("/", indexViewHandler)
 
-	return server.Listen(addr)
+	return server.Listen(fmt.Sprintf(":%d", port))
 }

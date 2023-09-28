@@ -1,7 +1,6 @@
 package main
 
 import (
-	"embed"
 	"fmt"
 	"net/http"
 	"strconv"
@@ -13,12 +12,13 @@ import (
 	gowebly "github.com/gowebly/helpers"
 )
 
-//go:embed static/*
-var static embed.FS
-
 // runServer runs a new HTTP server with the loaded environment variables.
 func runServer() error {
 	// Validate environment variables.
+	port, err := strconv.Atoi(gowebly.Getenv("BACKEND_PORT", "{{ .Port }}"))
+	if err != nil {
+		return err
+	}
 	readTimeout, err := strconv.Atoi(gowebly.Getenv("BACKEND_READ_TIMEOUT", "{{ .Timeout.Read }}"))
 	if err != nil {
 		return err
@@ -34,11 +34,8 @@ func runServer() error {
 	// Use chi middlewares.
 	router.Use(middleware.Logger)
 
-	// Create the gowebly helper for serve embed static folder.
-	staticFileServer := gowebly.StaticFileServerHandler(http.FS(static))
-
 	// Handle static files (with a custom handler).
-	router.Handle("/static/*", staticFileServer)
+	router.Handle("/static/*", http.FileServer(http.Dir("./static")))
 
 	// Handle index page view.
 	router.Get("/", indexViewHandler)
@@ -46,7 +43,7 @@ func runServer() error {
 	// Create a new server instance with options from environment variables.
 	// For more information, see https://blog.cloudflare.com/the-complete-guide-to-golang-net-http-timeouts/
 	server := &http.Server{
-		Addr:         fmt.Sprintf(":%s", gowebly.Getenv("BACKEND_PORT", "{{ .Port }}")),
+		Addr:         fmt.Sprintf(":%d", port),
 		Handler:      router, // handle all chi routes
 		ReadTimeout:  time.Duration(readTimeout) * time.Second,
 		WriteTimeout: time.Duration(writeTimeout) * time.Second,
