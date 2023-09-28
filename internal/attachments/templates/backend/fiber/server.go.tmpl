@@ -44,7 +44,7 @@ func runServer() error {
 	server.Use(logger.New())
 
 	// Handle static files.
-	server.Static("/static/", "./static")
+	server.Static("/static", "./static")
 
 	// Handle index page view.
 	server.Get("/", indexViewHandler)
