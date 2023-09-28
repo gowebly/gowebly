@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"errors"
+	"fmt"
 
 	"github.com/gowebly/gowebly/cmd/commands"
 	"github.com/gowebly/gowebly/internal/constants"
@@ -38,17 +39,39 @@ func Run(flags []string) error {
 	// Switch between flags or return error.
 	switch flags[0] {
 	case "init":
+		// Check, if flag set more than 1.
+		if len(flags) > 1 {
+			return fmt.Errorf("cmd: unknown flag '%s' of the 'init' command", flags[1])
+		}
+
 		// Init a default YAML config file (.gowebly.yml) in the current folder.
 		return commands.Init(di)
 	case "create":
+		// Check, if flag set more than 1.
+		if len(flags) > 1 {
+			return fmt.Errorf("cmd: unknown flag '%s' of the 'create' command", flags[1])
+		}
+
 		// Creating a new project with the given Go backend.
 		return commands.Create(di)
 	case "run":
+		// Check, if flag set more than 1.
+		if len(flags) > 1 {
+			return fmt.Errorf("cmd: unknown flag '%s' of the 'run' command", flags[1])
+		}
+
 		// Running project in a development mode (non-production).
 		return commands.Run(di)
 	case "build":
+		// Check, if flag set more than 1.
+		if len(flags) > 1 {
+			if flags[1] != "--skip-docker" {
+				return fmt.Errorf("cmd: unknown flag '%s' of the 'build' command", flags[1])
+			}
+		}
+
 		// Building project to production.
-		return commands.Build(di, flags)
+		return commands.Build(di, flags[1])
 	default:
 		// Returning error message.
 		return errors.New(constants.ErrorRunUnknownCommand)

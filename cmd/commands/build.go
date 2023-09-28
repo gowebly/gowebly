@@ -10,28 +10,23 @@ import (
 )
 
 // Build runs the 'build' cmd command.
-func Build(di *injectors.Injector, flags []string) error {
+func Build(di *injectors.Injector, flag string) error {
 	// Remove previously generated files.
 	_ = helpers.RemoveFiles("static/htmx.min.js", "static/hyperscript.min.js", "static/styles.css")
 
 	// Define the Docker part marker.
 	var skipDockerPart bool
 
-	// Check, if flag set more than 1.
-	if len(flags) > 1 {
-		// Check, if the second flag is '--skip-docker'.
-		if flags[1] == "--skip-docker" {
-			// Set the Docker part marker to 'true'.
-			skipDockerPart = true
+	// Check, if the second flag is '--skip-docker'.
+	if flag == "--skip-docker" {
+		// Set the Docker part marker to 'true'.
+		skipDockerPart = true
 
-			// Skip Docker part message.
-			helpers.PrintStyled(
-				"Re-generation process of the Docker files was skipped (by the '--skip-docker' flag)!",
-				"wait", "margin-top",
-			)
-		} else {
-			return fmt.Errorf("cmd: unknown flag '%s' of the 'build' command", flags[1])
-		}
+		// Skip Docker part message.
+		helpers.PrintStyled(
+			"Re-generation process of the Docker files was skipped (by the '--skip-docker' flag)!",
+			"wait", "margin-top",
+		)
 	}
 
 	// Check, if user want to skip re-generation process of the 'Dockerfile' and
