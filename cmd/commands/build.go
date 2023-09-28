@@ -6,11 +6,11 @@ import (
 
 	"github.com/gowebly/gowebly/internal/constants"
 	"github.com/gowebly/gowebly/internal/helpers"
-	"github.com/gowebly/gowebly/internal/injector"
+	"github.com/gowebly/gowebly/internal/injectors"
 )
 
 // Build runs the 'build' cmd command.
-func Build(di *injector.Injector, flags []string) error {
+func Build(di *injectors.Injector, flags []string) error {
 	// Remove previously generated files.
 	_ = helpers.RemoveFiles("static/htmx.min.js", "static/hyperscript.min.js", "static/styles.css")
 

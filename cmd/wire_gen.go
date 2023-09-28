@@ -9,21 +9,21 @@ package cmd
 import (
 	"github.com/gowebly/gowebly/internal/attachments"
 	"github.com/gowebly/gowebly/internal/config"
-	"github.com/gowebly/gowebly/internal/injector"
+	"github.com/gowebly/gowebly/internal/injectors"
 )
 
 // Injectors from wire.go:
 
 // inject provides dependency injection process by the "google/wire" package.
-func inject() (*injector.Injector, error) {
+func inject() (*injectors.Injector, error) {
 	configConfig, err := config.New()
 	if err != nil {
 		return nil, err
 	}
 	files := attachments.New()
-	injectorInjector, err := injector.New(configConfig, files)
+	injector, err := injectors.New(configConfig, files)
 	if err != nil {
 		return nil, err
 	}
-	return injectorInjector, nil
+	return injector, nil
 }

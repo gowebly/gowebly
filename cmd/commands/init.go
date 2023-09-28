@@ -5,11 +5,11 @@ import (
 
 	"github.com/gowebly/gowebly/internal/constants"
 	"github.com/gowebly/gowebly/internal/helpers"
-	"github.com/gowebly/gowebly/internal/injector"
+	"github.com/gowebly/gowebly/internal/injectors"
 )
 
 // Init runs the 'init' cmd command.
-func Init(di *injector.Injector) error {
+func Init(di *injectors.Injector) error {
 	// Header message.
 	helpers.PrintStyled(
 		"Generating a default config file... Please wait!",

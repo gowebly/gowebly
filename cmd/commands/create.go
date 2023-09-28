@@ -6,11 +6,11 @@ import (
 
 	"github.com/gowebly/gowebly/internal/constants"
 	"github.com/gowebly/gowebly/internal/helpers"
-	"github.com/gowebly/gowebly/internal/injector"
+	"github.com/gowebly/gowebly/internal/injectors"
 )
 
 // Create runs the 'create' cmd command.
-func Create(di *injector.Injector) error {
+func Create(di *injectors.Injector) error {
 	// Backend part message.
 	helpers.PrintStyled(
 		"Preparing the backend part... Please wait!",

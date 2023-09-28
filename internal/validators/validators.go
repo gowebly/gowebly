@@ -17,14 +17,19 @@ func Validate(cfg *config.Config) error {
 
 	// Check, if 'backend' block is set.
 	if cfg.Backend != nil {
-		// Check, if 'name' option in the 'backend' block is not set.
-		if cfg.Backend.GoFramework == "" {
-			return errors.New(constants.ErrorValidateConfigBackendNameNotFound)
+		// Check, if 'module_name' option in the 'backend' block is not set.
+		if cfg.Backend.ModuleName == "" {
+			return errors.New(constants.ErrorValidateConfigBackendModuleNameNotFound)
 		}
 
-		// Check, if 'name' option in the 'backend' block has a known value.
+		// Check, if 'go_framework' option in the 'backend' block is not set.
+		if cfg.Backend.GoFramework == "" {
+			return errors.New(constants.ErrorValidateConfigBackendGoFrameworkNotFound)
+		}
+
+		// Check, if 'go_framework' option in the 'backend' block has a known value.
 		if !slices.Contains([]string{"default", "fiber", "echo", "chi"}, cfg.Backend.GoFramework) {
-			return errors.New(constants.ErrorValidateConfigBackendUnknownName)
+			return errors.New(constants.ErrorValidateConfigBackendGoFrameworkUnknown)
 		}
 
 		// Check, if 'port' option in the 'backend' block is not set.
@@ -45,14 +50,9 @@ func Validate(cfg *config.Config) error {
 
 	// Check, if the 'frontend' block is set.
 	if cfg.Frontend != nil {
-		// Check, if 'htmx' option in the 'frontend' block is not set.
-		if cfg.Frontend.HTMX == "" {
-			return errors.New(constants.ErrorValidateConfigFrontendHTMXNotFound)
-		}
-
-		// Check, if 'hyperscript' option in the 'frontend' block is not set.
-		if cfg.Frontend.Hyperscript == "" {
-			return errors.New(constants.ErrorValidateConfigFrontendHyperscriptNotFound)
+		// Check, if 'package_name' option in the 'frontend' block is not set.
+		if cfg.Frontend.PackageName == "" {
+			return errors.New(constants.ErrorValidateConfigFrontendPackageNameNotFound)
 		}
 
 		// Check, if 'css_framework' option in the 'frontend' block is not set.
@@ -62,7 +62,17 @@ func Validate(cfg *config.Config) error {
 
 		// Check, if 'css_framework' option in the 'frontend' block has a known value.
 		if !slices.Contains([]string{"default", "tailwindcss", "unocss"}, cfg.Frontend.CSSFramework) {
-			return errors.New(constants.ErrorValidateConfigFrontendUnknownCSSFrameworkName)
+			return errors.New(constants.ErrorValidateConfigFrontendCSSFrameworkUnknown)
+		}
+
+		// Check, if 'htmx' option in the 'frontend' block is not set.
+		if cfg.Frontend.HTMX == "" {
+			return errors.New(constants.ErrorValidateConfigFrontendHTMXNotFound)
+		}
+
+		// Check, if 'hyperscript' option in the 'frontend' block is not set.
+		if cfg.Frontend.Hyperscript == "" {
+			return errors.New(constants.ErrorValidateConfigFrontendHyperscriptNotFound)
 		}
 	}
 

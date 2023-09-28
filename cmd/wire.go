@@ -7,11 +7,11 @@ import (
 
 	"github.com/gowebly/gowebly/internal/attachments"
 	"github.com/gowebly/gowebly/internal/config"
-	"github.com/gowebly/gowebly/internal/injector"
+	"github.com/gowebly/gowebly/internal/injectors"
 )
 
 // inject provides dependency injection process by the "google/wire" package.
-func inject() (*injector.Injector, error) {
-	wire.Build(attachments.New, config.New, injector.New)
-	return &injector.Injector{}, nil
+func inject() (*injectors.Injector, error) {
+	wire.Build(attachments.New, config.New, injectors.New)
+	return &injectors.Injector{}, nil
 }

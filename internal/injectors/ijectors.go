@@ -1,4 +1,4 @@
-package injector
+package injectors
 
 import (
 	"github.com/gowebly/gowebly/internal/attachments"

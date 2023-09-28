@@ -4,11 +4,11 @@ import (
 	"fmt"
 
 	"github.com/gowebly/gowebly/internal/helpers"
-	"github.com/gowebly/gowebly/internal/injector"
+	"github.com/gowebly/gowebly/internal/injectors"
 )
 
 // Run runs the 'run' cmd command.
-func Run(di *injector.Injector) error {
+func Run(di *injectors.Injector) error {
 	// Header message.
 	helpers.PrintStyled(
 		"Re-generate styles of the frontend part... Please wait!",
