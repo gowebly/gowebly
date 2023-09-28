@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"io"
 	"net/http"
-	"os"
 	"time"
 )
 
@@ -40,13 +39,20 @@ func DownloadFiles(files []Download) error {
 				return fmt.Errorf("http: can't download file from URL '%s' (code %d)", f.URL, resp.StatusCode)
 			}
 
-			// Create a temp file for download data.
-			file, err := os.Create(f.OutputFile)
-			defer file.Close()
-
-			// Rename downloaded file.
-			_, err = io.Copy(file, resp.Body)
+			// Read response body.
+			data, err := io.ReadAll(resp.Body)
 			if err != nil {
+				return err
+			}
+
+			// Create a temp file for download data.
+			if err = MakeFiles(
+				[]File{
+					{
+						f.OutputFile, data,
+					},
+				},
+			); err != nil {
 				return err
 			}
 

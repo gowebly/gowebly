@@ -34,6 +34,9 @@ jobs:
       - name: Run "go-critic/go-critic" for code linting
         run: go run github.com/go-critic/go-critic/cmd/gocritic@latest check -enableAll ./...
 
+      - name: Run "gordonklaus/ineffassign" for code checks
+        run: go run github.com/gordonklaus/ineffassign@latest ./...
+
       - name: Run Go test with coverage report
         run: go test -race -coverpkg=./... -coverprofile=cover.out ./...
 
