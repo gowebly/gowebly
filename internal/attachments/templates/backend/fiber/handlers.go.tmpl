@@ -1,0 +1,10 @@
+package main
+
+import (
+	"github.com/gofiber/fiber/v2"
+)
+
+// indexViewHandler handles a view for the index page.
+func indexViewHandler(c *fiber.Ctx) error {
+	return c.Render("pages/index", nil, "main")
+}
