@@ -25,9 +25,6 @@ func runServer() error {
 		return err
 	}
 
-	// Create the gowebly helper for serve embed static folder.
-	staticFileServer := gowebly.StaticFileServerHandler(http.FS(static))
-
 	// Handle static files (with a custom handler).
 	http.Handle("/static/", http.FileServer(http.Dir("./static")))
 
