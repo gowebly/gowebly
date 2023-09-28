@@ -244,7 +244,7 @@ gowebly run
 Cada vez que haga `run` comando para su proyecto:
 
 1. CLI valida la configuración y aplica todos los ajustes al proyecto actual;
-2. CLI prepara la parte frontend de tu proyecto (ejecuta  
+2. CLI prepara la parte frontend de tu proyecto (ejecuta
    `npm|bun run build:dev`);
 3. CLI prepara una versión de desarrollo (no de producción) del framework 
    **CSS** seleccionado en la carpeta `./static` y lo coloca como una 
