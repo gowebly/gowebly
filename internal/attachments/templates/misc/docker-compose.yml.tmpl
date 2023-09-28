@@ -5,8 +5,8 @@ version: '3.8'
 
 # Define services.
 services:
-  # Service for the '{{ .Name }}' Go backend.
-  gowebly_{{ .Name }}:
+  # Service for the '{{ .GoFramework }}' Go backend.
+  gowebly_{{ .GoFramework }}:
     # Configuration for building the Docker image for the service.
     build:
       # Use an image built from the specified Dockerfile in the current directory.
@@ -25,9 +25,9 @@ services:
     # Networks to join.
     # Services on the same network can communicate with each other using their name.
     networks:
-      - gowebly_network
+      - gowebly_{{ .GoFramework }}_network
 
 # Define Docker networks.
 networks:
   # Create gowebly network.
-  gowebly_network:
+  gowebly_{{ .GoFramework }}_network:
