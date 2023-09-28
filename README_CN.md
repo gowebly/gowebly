@@ -95,6 +95,7 @@ gowebly init
 > - Go 模块 (`go.mod`) 和 `package.json` 名称设置为项目；
 > - 后端部分不使用任何 Go 框架（仅使用内置的 net/http 包）；
 > - 前端部分不使用任何 CSS 框架（仅使用代码示例的默认样式）；
+> - 前端部分的 JavaScript 运行环境将使用 Node.js；
 > - 服务器端口为 `5000`，超时（秒）： 读取超时 5 秒，写入超时 10 秒；
 > - 最新版本的 htmx 和 hyperscript。
 
@@ -114,13 +115,14 @@ backend:
 frontend:
    package_name: project # (string) option can be any name of your package.json (for example, 'project')
    css_framework: default # (string) option can be one of the values: 'tailwindcss', 'unocss', or 'default'
+   runtime_environment: default # (string) option can be one of the values: 'bun', or 'default'
    htmx: latest # (string) option can be any existing version
    hyperscript: latest # (string) option can be any existing version
 ```
 
 但是，您可以为项目后台选择任何 Go 框架：
 
-| Go framework | Description                                      |
+| Go framework | 说明                                               |
 |--------------|--------------------------------------------------|
 | `default`    | 不使用任何 Go 框架（仅使用内置的 [net/http][net_http_url] 软件包） |
 | `fiber`      | 使用 Go 后端和 [Fiber][fiber_url] 网络框架                |
@@ -129,11 +131,18 @@ frontend:
 
 此外，您还可以为您的项目选择 htmx、hyperscript 和最流行的原子/实用工具优先 CSS 框架之一的版本：
 
-| CSS framework | Description                                  |
+| CSS framework | 说明                                           |
 |---------------|----------------------------------------------|
 | `default`     | 不使用任何 CSS 框架（代码示例仅使用默认样式）                    |
 | `tailwindcss` | 使用 [Tailwind CSS][tailwindcss_url] 作为 CSS 框架 |
 | `unocss`      | 使用 [UnoCSS][unocss_url] 作为 CSS 框架            |
+
+此外，您还可以为前端部分设置一个 JavaScript 运行环境：
+
+| JavaScript runtime | 说明                                         |
+|--------------------|--------------------------------------------|
+| `default`          | 将 [Node.js][nodejs_url] 用作 JavaScript 运行环境 |
+| `bun`              | 将 [Bun][bun_url] 用作 JavaScript 运行环境        |
 
 ### `create`
 
@@ -152,7 +161,7 @@ gowebly create
 
 1. CLI 会验证配置并将所有设置应用到当前项目；
 2. CLI 准备项目的后台部分（生成项目结构和所需的实用程序文件，运行 `go mod tidy`）；
-3. CLI 准备项目的前端部分（生成所需的实用程序文件，首次运行 `npm install` 和 `npm run build:dev`）；
+3. CLI 准备项目的前端部分（生成所需的实用程序文件，首次运行 `npm|bun install` 和 `npm|bun run build:dev`）；
 4. CLI 会下载最小化版本的 htmx 和 hyperscript（来自官方和可信的 [unpkg.com][unpkg_url] CDN）到
    `./static` 文件夹，并将它们作为分隔的 `<script>` 标记（位于 `<body>` 标记的底部）放入 Go HTML 模板 
    [`templates/main.html`][repo_main_layout]。
@@ -198,7 +207,7 @@ gowebly run
 每次为项目执行 `run` 命令时：
 
 1. CLI 会验证配置并将所有设置应用到当前项目；
-2. CLI 准备项目的前端部分（运行 `npm run build:dev`）；
+2. CLI 准备项目的前端部分（运行 `npm|bun run build:dev`）；
 3. CLI 将所选 CSS 框架的开发（非生产）版本放入 `./static` 文件夹，并将其作为 `<link>` 标记（位于 `<head>` 
    标记的底部）放入 Go HTML 模板 [`templates/main.html`][repo_main_layout]；
 4. 通过简单的 `go run` 命令，CLI 可使用默认配置（或 `.gowebly.yml` 配置文件）中的设置启动项目的后端。
@@ -218,9 +227,9 @@ gowebly build [OPTION]
 
 您可以添加以下选项：
 
-| Option name     | Description                                 | Required? |
-|-----------------|---------------------------------------------|-----------|
-| `--skip-docker` | 跳过生成 Docker 文件的过程（如果您有自己的 Docker 文件，这将很有帮助） | 没有        |
+| Option          | 说明                                          | 是否需要？ |
+|-----------------|---------------------------------------------|-------|
+| `--skip-docker` | 跳过生成 Docker 文件的过程（如果您有自己的 Docker 文件，这将很有帮助） | 没有    |
 
 每次为项目执行 `build` 命令时：
 
@@ -305,6 +314,8 @@ go get -u github.com/gowebly/helpers
 <!-- Readme links -->
 
 [gowebly_helpers_url]: https://github.com/gowebly/helpers
+[nodejs_url]: https://nodejs.org
+[bun_url]: https://bun.sh
 [docker_image_url]: https://hub.docker.com/repository/docker/gowebly/gowebly
 [portainer_url]: https://docs.portainer.io
 [brew_url]: https://brew.sh

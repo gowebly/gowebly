@@ -118,6 +118,8 @@ gowebly init
 > **net/http** package);
 > - Without any CSS framework for the frontend part (only default styles for
 > the code example);
+> - The JavaScript runtime environment for the frontend part will use 
+> **Node.js**;
 > - Server port is `5000`, timeout (in seconds): `5` for read, `10` for write;
 > - Latest versions of the **htmx** & **hyperscript**.
 
@@ -137,6 +139,7 @@ backend:
 frontend:
    package_name: project # (string) option can be any name of your package.json (for example, 'project')
    css_framework: default # (string) option can be one of the values: 'tailwindcss', 'unocss', or 'default'
+   runtime_environment: default # (string) option can be one of the values: 'bun', or 'default'
    htmx: latest # (string) option can be any existing version
    hyperscript: latest # (string) option can be any existing version
 ```
@@ -160,6 +163,14 @@ project:
 | `tailwindcss` | Use the [Tailwind CSS][tailwindcss_url] as a CSS framework             |
 | `unocss`      | Use the [UnoCSS][unocss_url] as a CSS framework                        |
 
+Also, you can set one of the JavaScript runtime environment for your 
+frontend part:
+
+| JavaScript runtime | Description                                                       |
+|--------------------|-------------------------------------------------------------------|
+| `default`          | Use the [Node.js][nodejs_url] as a JavaScript runtime environment |
+| `bun`              | Use the [Bun][bun_url] as a JavaScript runtime environment        |
+
 ### `create`
 
 Command to create a new project with the **Go** backend, **htmx** & 
@@ -181,7 +192,8 @@ Every time you make `create` command for your project:
 2. CLI prepares the backend part of your project (generates the project 
    structure and needed utility files, runs `go mod tidy`);
 3. CLI prepares the frontend part of your project (generates the needed utility 
-   files, runs `npm install` and `npm run build:dev` for the first time);
+   files, runs `npm|bun install` and `npm|bun run build:dev` for the first 
+   time);
 4. CLI downloads minimized versions of **htmx** and **hyperscript** (from
    official and trusted [unpkg.com][unpkg_url] CDN) to the `./static` folder
    and places them as separated `<script>` tags (at the bottom of the
@@ -230,7 +242,8 @@ gowebly run
 Every time you make `run` command for your project:
 
 1. CLI validates the config and applies all settings to the current project;
-2. CLI prepares the frontend part of your project (runs `npm run build:dev`);
+2. CLI prepares the frontend part of your project (runs
+   `npm|bun run build:dev`);
 3. CLI prepares a development (non-production) version of the selected **CSS 
    framework** to the `./static` folder and places it as a `<link>` tag (at 
    the bottom of the `<head>` tag) in the Go HTML template
@@ -256,7 +269,7 @@ gowebly build [OPTION]
 
 You might add the following options:
 
-| Option name     | Description                                                                    | Required? |
+| Option          | Description                                                                    | Required? |
 |-----------------|--------------------------------------------------------------------------------|-----------|
 | `--skip-docker` | Skip generation process for the Docker files (it's helpful if you've your own) | no        |
 
@@ -359,6 +372,8 @@ under the [Apache 2.0 License][repo_license_url], created and supported by
 <!-- Readme links -->
 
 [gowebly_helpers_url]: https://github.com/gowebly/helpers
+[nodejs_url]: https://nodejs.org
+[bun_url]: https://bun.sh
 [docker_image_url]: https://hub.docker.com/repository/docker/gowebly/gowebly
 [portainer_url]: https://docs.portainer.io
 [brew_url]: https://brew.sh

@@ -53,6 +53,12 @@ const (
 	// ErrorValidateConfigFrontendCSSFrameworkUnknown represents error message, when
 	// 'css_framework' option in the 'frontend' block in the config file has unknown value.
 	ErrorValidateConfigFrontendCSSFrameworkUnknown string = "config: 'css_framework' option in the 'frontend' block has unknown value"
+	// ErrorValidateConfigFrontendRuntimeEnvironmentNotFound represents error message, when
+	// 'runtime_environment' option in the 'frontend' block in the config file is not found.
+	ErrorValidateConfigFrontendRuntimeEnvironmentNotFound string = "config: 'runtime_environment' option in the 'frontend' block is required"
+	// ErrorValidateConfigFrontendRuntimeEnvironmentUnknown represents error message, when
+	// 'runtime_environment' option in the 'frontend' block in the config file has unknown value.
+	ErrorValidateConfigFrontendRuntimeEnvironmentUnknown string = "config: 'runtime_environment' option in the 'frontend' block has unknown value"
 	// ErrorValidateConfigFrontendHTMXNotFound represents error message, when
 	// 'htmx' option in the 'frontend' block in the config file is not found.
 	ErrorValidateConfigFrontendHTMXNotFound string = "config: 'htmx' option in the 'frontend' block is required"

@@ -115,6 +115,8 @@ gowebly init
 > - Без Go-фреймворка для backend-части (только встроенный пакет **net/http**);
 > - Без CSS-фреймворка для frontend-части (только стили по умолчанию для 
 > примера кода);
+> - Среда выполнения JavaScript для frontend-части будет использовать 
+> **Node.js**;
 > - Порт сервера – `5000`, таймаут (в секундах): `5` для чтения, `10` для 
 > записи;
 > - Последние версии **htmx** и **hyperscript**.
@@ -135,6 +137,7 @@ backend:
 frontend:
    package_name: project # (string) option can be any name of your package.json (for example, 'project')
    css_framework: default # (string) option can be one of the values: 'tailwindcss', 'unocss', or 'default'
+   runtime_environment: default # (string) option can be one of the values: 'bun', or 'default'
    htmx: latest # (string) option can be any existing version
    hyperscript: latest # (string) option can be any existing version
 ```
@@ -158,6 +161,14 @@ frontend:
 | `tailwindcss` | Использовать [Tailwind CSS][tailwindcss_url] в качестве CSS-фреймворка      |
 | `unocss`      | Использовать [UnoCSS][unocss_url] в качестве CSS-фреймворка                 |
 
+А также, вы можете выбрать другую среду выполнения JavaScript для 
+frontend-части:
+
+| Среда выполнения JavaScript | Описание                                                                  |
+|-----------------------------|---------------------------------------------------------------------------|
+| `default`                   | Использовать [Node.js][nodejs_url] в качестве среды выполнения JavaScript |
+| `bun`                       | Использовать [Bun][bun_url] в качестве среды выполнения JavaScript        |
+
 ### `create`
 
 Команда для создания нового проекта с бэкендом **Go**, **htmx** и 
@@ -180,7 +191,7 @@ gowebly create
 2. CLI подготавливает backend-часть проекта (генерирует структуру проекта и 
    необходимые файлы, запускает `go mod tidy`);
 3. CLI подготавливает frontend-часть проекта (генерирует необходимые файлы, 
-   запускает `npm install` и `npm run build:dev` в первый раз);
+   запускает `npm|bun install` и `npm|bun run build:dev` в первый раз);
 4. CLI скачивает минимизированные версии **htmx** и **hyperscript** (с 
    официального и надежного CDN [unpkg.com][unpkg_url]) в папку `./static` и 
    размещает их в виде разделенных тегов `<script>` (внизу тега `<body>`) в 
@@ -229,7 +240,7 @@ gowebly run
 
 1. CLI проверяет конфигурацию и применяет все настройки к текущему проекту;
 2. CLI подготавливает frontend-часть проекта (выполняется команда  
-   `npm run build:dev`);
+   `npm|bun run build:dev`);
 3. CLI подготавливает версию для разработки (непроизводственную) выбранного 
    **CSS-фреймворка** в папке `./static` и размещает ее в виде тега `<link>` 
    (внизу тега `<head>`) в HTML-шаблоне Go
@@ -359,6 +370,8 @@ go get -u github.com/gowebly/helpers
 <!-- Readme links -->
 
 [gowebly_helpers_url]: https://github.com/gowebly/helpers
+[nodejs_url]: https://nodejs.org
+[bun_url]: https://bun.sh
 [docker_image_url]: https://hub.docker.com/repository/docker/gowebly/gowebly
 [portainer_url]: https://docs.portainer.io
 [brew_url]: https://brew.sh

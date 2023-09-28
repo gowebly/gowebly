@@ -99,11 +99,19 @@ func Build(di *injectors.Injector, flags []string) error {
 		return err
 	}
 
+	// Set the default JavaScript runtime environment.
+	frontendRuntime := "npm"
+
+	// Check, if the runtime of the frontend part is switched.
+	if di.Config.Frontend.RuntimeEnvironment == "bun" {
+		frontendRuntime = "bun"
+	}
+
 	// Execute system commands.
 	if err := helpers.Execute(
 		[]helpers.Command{
 			{
-				true, "npm", []string{"run", "build:prod"}, nil,
+				true, frontendRuntime, []string{"run", "build:prod"}, nil,
 			},
 			{
 				true, "go", []string{"mod", "tidy"}, nil,

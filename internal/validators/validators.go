@@ -65,6 +65,16 @@ func Validate(cfg *config.Config) error {
 			return errors.New(constants.ErrorValidateConfigFrontendCSSFrameworkUnknown)
 		}
 
+		// Check, if 'runtime_environment' option in the 'frontend' block is not set.
+		if cfg.Frontend.RuntimeEnvironment == "" {
+			return errors.New(constants.ErrorValidateConfigFrontendRuntimeEnvironmentNotFound)
+		}
+
+		// Check, if 'runtime_environment' option in the 'frontend' block has a known value.
+		if !slices.Contains([]string{"default", "bun"}, cfg.Frontend.RuntimeEnvironment) {
+			return errors.New(constants.ErrorValidateConfigFrontendRuntimeEnvironmentUnknown)
+		}
+
 		// Check, if 'htmx' option in the 'frontend' block is not set.
 		if cfg.Frontend.HTMX == "" {
 			return errors.New(constants.ErrorValidateConfigFrontendHTMXNotFound)

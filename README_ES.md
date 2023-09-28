@@ -119,6 +119,8 @@ gowebly init
 > **net/http**);
 > - Sin ningún framework CSS para la parte frontend (sólo estilos por defecto 
 > para el código de ejemplo);
+> - El entorno de ejecución JavaScript para la parte frontend utilizará 
+> **Node.js**;
 > - El puerto del servidor es `5000`, tiempo de espera (en segundos): `5` 
 > para lectura, `10` para escritura;
 > - Últimas versiones de **htmx** & **hyperscript**.
@@ -140,6 +142,7 @@ backend:
 frontend:
    package_name: project # (string) option can be any name of your package.json (for example, 'project')
    css_framework: default # (string) option can be one of the values: 'tailwindcss', 'unocss', or 'default'
+   runtime_environment: default # (string) option can be one of the values: 'bun', or 'default'
    htmx: latest # (string) option can be any existing version
    hyperscript: latest # (string) option can be any existing version
 ```
@@ -162,6 +165,14 @@ más populares atomic/utility-first **CSS framework** para tu proyecto:
 | `tailwindcss` | Utilizar [Tailwind CSS][tailwindcss_url] como framework CSS                          |
 | `unocss`      | Utilizar [UnoCSS][unocss_url] como framework CSS                                     |
 
+Además, puede establecer uno de los entornos de ejecución de JavaScript para 
+su parte frontend:
+
+| JavaScript runtime | Descripción                                                             |
+|--------------------|-------------------------------------------------------------------------|
+| `default`          | Utilizar [Node.js][nodejs_url] como en torno de ejecución de JavaScript |
+| `bun`              | Utilizar [Bun][bun_url] como en torno de ejecución de JavaScript        |
+
 ### `create`
 
 Comando para crear un nuevo proyecto con el backend **Go**, **htmx** & 
@@ -183,8 +194,8 @@ Cada vez que haga `crear` comando para su proyecto:
 2. CLI prepara la parte backend de tu proyecto (genera la estructura del 
    proyecto y los archivos de utilidades necesarios, ejecuta `go mod tidy`);
 3. CLI prepara la parte frontend de tu proyecto (genera los archivos de 
-   utilidades necesarios, ejecuta `npm install` y `npm run build:dev` por 
-   primera vez);
+   utilidades necesarios, ejecuta `npm|bun install` y `npm|bun run build:dev` 
+   por primera vez);
 4. CLI descarga versiones minimizadas de **htmx** y **hyperscript** (desde 
    el CDN oficial y de confianza [unpkg.com][unpkg_url]) a la carpeta
    `./static` y las coloca como etiquetas separadas `<script>` (al final de la 
@@ -233,7 +244,8 @@ gowebly run
 Cada vez que haga `run` comando para su proyecto:
 
 1. CLI valida la configuración y aplica todos los ajustes al proyecto actual;
-2. CLI prepara la parte frontend de tu proyecto (ejecuta `npm run build:dev`);
+2. CLI prepara la parte frontend de tu proyecto (ejecuta  
+   `npm|bun run build:dev`);
 3. CLI prepara una versión de desarrollo (no de producción) del framework 
    **CSS** seleccionado en la carpeta `./static` y lo coloca como una 
    etiqueta `<link>` (al final de la etiqueta `<head>`) en la plantilla Go 
@@ -259,9 +271,9 @@ gowebly build [OPTION]
 
 Puedes añadir las siguientes opciones:
 
-| Nombre de la opción | Descripción                                                                               | Requerido? |
-|---------------------|-------------------------------------------------------------------------------------------|------------|
-| `--skip-docker`     | Omitir el proceso de generación de los archivos Docker (es útil si usted tiene su propio) | no         |
+| Opción          | Descripción                                                                               | Requerido? |
+|-----------------|-------------------------------------------------------------------------------------------|------------|
+| `--skip-docker` | Omitir el proceso de generación de los archivos Docker (es útil si usted tiene su propio) | no         |
 
 Cada vez que haga `build` comando para su proyecto:
 
@@ -366,6 +378,8 @@ bajo la [Licencia Apache 2.0][repo_license_url], creado y soportado por
 <!-- Readme links -->
 
 [gowebly_helpers_url]: https://github.com/gowebly/helpers
+[nodejs_url]: https://nodejs.org
+[bun_url]: https://bun.sh
 [docker_image_url]: https://hub.docker.com/repository/docker/gowebly/gowebly
 [portainer_url]: https://docs.portainer.io
 [brew_url]: https://brew.sh
