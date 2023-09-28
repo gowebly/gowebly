@@ -46,7 +46,7 @@ func DownloadFiles(files []Download) error {
 			}
 
 			// Create a temp file for download data.
-			if err = MakeFiles(
+			if err := MakeFiles(
 				[]File{
 					{
 						f.OutputFile, data,
