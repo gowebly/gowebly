@@ -23,7 +23,7 @@ func runServer() error {
 	if err != nil {
 		return err
 	}
-	writeTimeout, err := strconv.Atoi(gowebly.Getenv("BACKEND_WRITE_TIMEOUT", "{{ Timeout.Write }}"))
+	writeTimeout, err := strconv.Atoi(gowebly.Getenv("BACKEND_WRITE_TIMEOUT", "{{ .Timeout.Write }}"))
 	if err != nil {
 		return err
 	}
