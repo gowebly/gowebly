@@ -22,6 +22,8 @@
 - 为你的 Go 代码提供一个用户友好型助手库；
 - 包含如何使用该框架的综合示例。
 
+<img width="100%" alt="gowebly logo" src="https://github.com/gowebly/gowebly/assets/11155743/55c80da2-30c6-45e7-a813-1ddc42764480">
+
 ## ⚡️ 快速启动
 
 首先，[下载][go_download_url] 并安装 Go。需要安装 `1.21`（或更高版本）。

@@ -29,6 +29,8 @@ Características:
 - Dispone de una biblioteca de **ayudantes de fácil uso** para su código Go;
 - Contiene un completo **ejemplo** de cómo utilizarlo fuera de la caja.
 
+<img width="100%" alt="gowebly logo" src="https://github.com/gowebly/gowebly/assets/11155743/55c80da2-30c6-45e7-a813-1ddc42764480">
+
 ## ⚡️ Inicio rápido
 
 Primero, [descarga][go_download_url] e instala **Go**. Se requiere la 
