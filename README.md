@@ -27,6 +27,8 @@ Features:
 - Has a library of **user-friendly** helpers for your Go code;
 - Contains a comprehensive **example** of how to use it out of the box.
 
+![gowebly-logo](https://github.com/gowebly/gowebly/assets/11155743/55c80da2-30c6-45e7-a813-1ddc42764480)
+
 ## ⚡️ Quick start
 
 First, [download][go_download_url] and install **Go**. Version `1.21` (or 
