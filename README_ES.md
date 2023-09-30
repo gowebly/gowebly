@@ -29,7 +29,7 @@ Características:
 - Dispone de una biblioteca de **ayudantes de fácil uso** para su código Go;
 - Contiene un completo **ejemplo** de cómo utilizarlo fuera de la caja.
 
-> ⚡️ De los autores: Para que conozcas a fondo el proyecto, hemos grabado un 
+> 💬 De los autores: Para que conozcas a fondo el proyecto, hemos grabado un 
 > breve [📺 vídeo][gowebly_youtube_video_url] y preparado un 
 > [📝 artículo][gowebly_devto_article_url] de introducción en el que se 
 > muestran las principales características de la CLI `gowebly`.
@@ -99,7 +99,7 @@ Para obtener una guía completa de uso y comprender los principios básicos de
 la CLI `gowebly`, hemos preparado una explicación exhaustiva de cada comando 
 a la vez en este archivo README.
 
-> ⚡️ De los autores: Siempre valoramos tu tiempo y queremos que empieces a 
+> 💬 De los autores: Siempre valoramos tu tiempo y queremos que empieces a 
 > crear productos web realmente geniales en esta impresionante pila 
 > tecnológica lo antes posible.
 
@@ -336,7 +336,7 @@ que le ayuda a iniciar una increíble aplicación web en **Go** utilizando
 
 ¡Estamos aquí para salvarte (_y salvarnos_) de este dolor rutinario! ✨
 
-> ⚡️ De los autores: Anteriormente, ya hemos salvado el mundo una vez, fue 
+> 💬 De los autores: Anteriormente, ya hemos salvado el mundo una vez, fue 
 > [Create Go App][cgapp_url] (sí, ese también es nuestro proyecto). 
 > Las estadísticas de [GitHub stars][cgapp_stars_url] de este proyecto no 
 > pueden mentir: más de **2.2k** desarrolladores de cualquier nivel y 

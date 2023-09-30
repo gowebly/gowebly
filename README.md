@@ -27,7 +27,7 @@ Features:
 - Has a library of **user-friendly** helpers for your Go code;
 - Contains a comprehensive **example** of how to use it out of the box.
 
-> ⚡️ From the authors: To give you a full understanding of the project, we have 
+> 💬 From the authors: To give you a full understanding of the project, we have 
 > recorded a short [📺 video][gowebly_youtube_video_url] and prepared an 
 > introduction [📝 article][gowebly_devto_article_url] demonstrating the main 
 > features of the `gowebly` CLI.
@@ -96,7 +96,7 @@ To get a complete guide to use and understand the basic principles of the
 `gowebly` CLI, we have prepared a comprehensive explanation of each command at
 once in this README file.
 
-> ⚡️ From the authors: We always treasure your time and want you to start 
+> 💬 From the authors: We always treasure your time and want you to start 
 > building really great web products on this awesome technology stack as 
 > soon as possible!
 
@@ -331,7 +331,7 @@ you start an amazing web applications in **Go** using **htmx**,
 
 We are here to save you (_and ourselves_) from this routine pain! ✨
 
-> ⚡️ From the authors: Earlier, we have already saved the world once, it was 
+> 💬 From the authors: Earlier, we have already saved the world once, it was 
 > [Create Go App][cgapp_url] (yep, that's our project too). The 
 > [GitHub stars][cgapp_stars_url] statistics of this project can't lie: 
 > more than **2.2k** developers of any level and different countries start a 
