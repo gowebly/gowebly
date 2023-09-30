@@ -41,8 +41,10 @@ release:
   prerelease: auto
   mode: replace
   header: |
-    ## ⚙️ The {{ .ProjectName }} `{{ .Tag }}` release
-  footer: |
+    ## ✨ The {{ .ProjectName }} `{{ .Tag }}` release
+    
+    <img width="100%" alt="gowebly logo" src="https://github.com/gowebly/gowebly/assets/11155743/55c80da2-30c6-45e7-a813-1ddc42764480">
+  footer: |    
     ## How to update?
     
     For native Go installation (any platforms):
@@ -63,9 +65,9 @@ release:
     docker pull gowebly/gowebly:latest
     ```
     
-    For other ways (any platforms): manually download and re-install a ready-made package from the Assets section.
+    For other ways (any platforms): manually download and re-install a ready-made package from the `Assets` section.
     
-    > 💡 Note: See the [Complete user guide][repo_readme_url] to get a general information.
+    > 💡 Note: See the [Complete user guide][gowebly_url] to get a general information.
     
     ## Your help to improve project
     
@@ -77,9 +79,11 @@ release:
     
     Your PRs & issues are welcome! Thanks 😉
     
+    <!-- Links -->
+    
     [brew_url]: https://brew.sh
     [docker_url]: https://www.docker.com
-    [repo_readme_url]: https://github.com/gowebly/gowebly/tree/main#-complete-user-guide
+    [gowebly_url]: https://gowebly.org
   disable: false
   skip_upload: false
 
@@ -125,7 +129,7 @@ brews:
 
       $ gowebly create
       
-      💡 Note: See the Complete user guide (https://github.com/gowebly/gowebly/tree/main#-complete-user-guide) to get a general information.
+      💡 Note: See the Complete user guide (https://gowebly.org/) to get a general information.
     homepage: 'https://github.com/gowebly/{{ .ProjectName }}'
     description: |
       A next-generation CLI tool for building amazing web applications in Go using htmx & hyperscript and the most popular atomic/utility-first CSS frameworks.

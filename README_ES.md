@@ -37,8 +37,8 @@ Primero, [descarga][go_download_url] e instala **Go**. Se requiere la
 versión `1.21` (o superior).
 
 Ahora, puedes utilizar `gowebly` sin instalación. Simplemente, 
-[go run`][go_run_url] para crear un nuevo proyecto con un archivo 
-[config][repo_default_config] por defecto:
+[go run`][go_run_url] para crear un nuevo proyecto con una 
+[configuración][repo_default_config] por defecto:
 
 ```console
 go run github.com/gowebly/gowebly@latest create

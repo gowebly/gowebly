@@ -28,8 +28,8 @@
 
 首先，[下载][go_download_url] 并安装 Go。需要安装 `1.21`（或更高版本）。
 
-现在，无需安装即可使用 `gowebly`。只需 [`go run`][go_run_url] 即可创建一个带有默认 
-[config][repo_default_config] 文件的新项目：
+现在，无需安装即可使用 `gowebly`。只需 [`go run`][go_run_url] 即可创建一个新项目，并使用 
+[默认][repo_default_config] 配置：
 
 ```console
 go run github.com/gowebly/gowebly@latest create
