@@ -1,3 +1,3 @@
 FROM scratch
-COPY project /
+COPY gowebly /
 ENTRYPOINT ["/gowebly"]
