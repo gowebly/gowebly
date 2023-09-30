@@ -332,8 +332,7 @@ que le ayuda a iniciar una increíble aplicación web en **Go** utilizando
 ¡Estamos aquí para salvarte (_y salvarnos_) de este dolor rutinario! ✨
 
 > ⚡️ De los autores: Anteriormente, ya hemos salvado el mundo una vez, fue 
-> [Create Go App][cgapp_url] (sí, ese también es nuestro proyecto).
->
+> [Create Go App][cgapp_url] (sí, ese también es nuestro proyecto). 
 > Las estadísticas de [GitHub stars][cgapp_stars_url] de este proyecto no 
 > pueden mentir: más de **2.2k** desarrolladores de cualquier nivel y 
 > diferentes países comienzan un nuevo proyecto a través de esta herramienta 

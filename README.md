@@ -327,9 +327,8 @@ you start an amazing web applications in **Go** using **htmx**,
 We are here to save you (_and ourselves_) from this routine pain! ✨
 
 > ⚡️ From the authors: Earlier, we have already saved the world once, it was 
-> [Create Go App][cgapp_url] (yep, that's our project too). 
-> 
-> The [GitHub stars][cgapp_stars_url] statistics of this project can't lie: 
+> [Create Go App][cgapp_url] (yep, that's our project too). The 
+> [GitHub stars][cgapp_stars_url] statistics of this project can't lie: 
 > more than **2.2k** developers of any level and different countries start a 
 > new project through this CLI tool. 
 > 
