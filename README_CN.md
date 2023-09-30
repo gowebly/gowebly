@@ -273,8 +273,6 @@ go get -u github.com/gowebly/helpers
 > ⚡️ 作者的话： 此前，我们已经拯救过世界一次，那就是 [Create Go App][cgapp_url]（没错，那也是我们的项目）。
 > [GitHub stars][cgapp_stars_url] 对这个项目的统计不会说谎：超过 2.2 千名不同国家、不同水平的开发者通过这个 CLI 
 > 工具启动了一个新项目。
-> 
-> 我们希望 `gowebly` 项目能帮助全世界更多的开发者。
 
 ## 🏆 双赢合作
 

@@ -337,9 +337,6 @@ que le ayuda a iniciar una increíble aplicación web en **Go** utilizando
 > pueden mentir: más de **2.2k** desarrolladores de cualquier nivel y 
 > diferentes países comienzan un nuevo proyecto a través de esta herramienta 
 > CLI.
->
-> Esperamos que el proyecto `gowebly` ayude aún a más desarrolladores de todo 
-> el mundo.
 
 ## 🏆 Una cooperación beneficiosa para todos
 

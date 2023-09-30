@@ -330,10 +330,7 @@ We are here to save you (_and ourselves_) from this routine pain! ✨
 > [Create Go App][cgapp_url] (yep, that's our project too). The 
 > [GitHub stars][cgapp_stars_url] statistics of this project can't lie: 
 > more than **2.2k** developers of any level and different countries start a 
-> new project through this CLI tool. 
-> 
-> We hope that the `gowebly` project will help even more developers around 
-> the world.
+> new project through this CLI tool.
 
 ## 🏆 A win-win cooperation
 
