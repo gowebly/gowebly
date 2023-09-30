@@ -350,7 +350,7 @@ Your PRs & issues are welcome! Thank you 😘
 [`gowebly`][repo_url] is free and open-source software licensed 
 under the [Apache 2.0 License][repo_license_url], created and supported by 
 [Vic Shóstak][author_url] with 🩵 for people and robots. Official logo 
-distributed under [Creative Commons License][repo_cc_license_url] (CC BY-SA 
+distributed under the [Creative Commons License][repo_cc_license_url] (CC BY-SA 
 4.0 International).
 
 <!-- Go links -->
