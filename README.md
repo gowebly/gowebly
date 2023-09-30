@@ -27,9 +27,10 @@ Features:
 - Has a library of **user-friendly** helpers for your Go code;
 - Contains a comprehensive **example** of how to use it out of the box.
 
-We recorded a short [📺 video][gowebly_youtube_video_url] and prepared an 
-introduction [📝 article][gowebly_devto_article_url] demonstrating the main 
-features of the `gowebly` CLI.
+> ⚡️ From the authors: To give you a full understanding of the project, we have 
+> recorded a short [📺 video][gowebly_youtube_video_url] and prepared an 
+> introduction [📝 article][gowebly_devto_article_url] demonstrating the main 
+> features of the `gowebly` CLI.
 
 <img width="100%" alt="gowebly logo" src="https://github.com/gowebly/gowebly/assets/11155743/55c80da2-30c6-45e7-a813-1ddc42764480">
 
