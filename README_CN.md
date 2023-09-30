@@ -282,7 +282,9 @@ go get -u github.com/gowebly/helpers
 ## ⚠️ 许可证
 
 [`gowebly`][repo_url] 是根据 [Apache 2.0 License][repo_license_url] 授权的免费开源软件，由 
-[Vic Shóstak][author_url] 创建和支持，其中 🩵 代表人和机器人。
+[Vic Shóstak][author_url] 创建和支持，其中 🩵 代表人和机器人。 根据 
+[Creative Commons 许可][repo_cc_license_url] 发布的官方徽标 (CC BY-SA
+4.0 International).
 
 <!-- Go links -->
 
@@ -303,6 +305,7 @@ go get -u github.com/gowebly/helpers
 [repo_releases_url]: https://github.com/gowebly/gowebly/releases
 [repo_license_url]: https://github.com/gowebly/gowebly/blob/main/LICENSE
 [repo_license_img]: https://img.shields.io/badge/license-Apache_2.0-red?style=for-the-badge&logo=none
+[repo_cc_license_url]: https://creativecommons.org/licenses/by-sa/4.0/
 [repo_readme_ru_url]: https://github.com/gowebly/gowebly/blob/main/README_RU.md
 [repo_readme_cn_url]: https://github.com/gowebly/gowebly/blob/main/README_CN.md
 [repo_readme_es_url]: https://github.com/gowebly/gowebly/blob/main/README_ES.md

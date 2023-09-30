@@ -340,7 +340,9 @@ Your PRs & issues are welcome! Thank you 😘
 
 [`gowebly`][repo_url] is free and open-source software licensed 
 under the [Apache 2.0 License][repo_license_url], created and supported by 
-[Vic Shóstak][author_url] with 🩵 for people and robots.
+[Vic Shóstak][author_url] with 🩵 for people and robots. Official logo 
+distributed under [Creative Commons License][repo_cc_license_url] (CC BY-SA 
+4.0 International).
 
 <!-- Go links -->
 
@@ -361,6 +363,7 @@ under the [Apache 2.0 License][repo_license_url], created and supported by
 [repo_releases_url]: https://github.com/gowebly/gowebly/releases
 [repo_license_url]: https://github.com/gowebly/gowebly/blob/main/LICENSE
 [repo_license_img]: https://img.shields.io/badge/license-Apache_2.0-red?style=for-the-badge&logo=none
+[repo_cc_license_url]: https://creativecommons.org/licenses/by-sa/4.0/
 [repo_readme_ru_url]: https://github.com/gowebly/gowebly/blob/main/README_RU.md
 [repo_readme_cn_url]: https://github.com/gowebly/gowebly/blob/main/README_CN.md
 [repo_readme_es_url]: https://github.com/gowebly/gowebly/blob/main/README_ES.md

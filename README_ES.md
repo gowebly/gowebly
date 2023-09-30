@@ -346,7 +346,9 @@ día.
 
 [`gowebly`][repo_url] es un software libre y de código abierto licenciado 
 bajo la [Licencia Apache 2.0][repo_license_url], creado y soportado por 
-[Vic Shóstak][author_url] con 🩵 para personas y robots.
+[Vic Shóstak][author_url] con 🩵 para personas y robots. Logotipo oficial 
+distribuido bajo [Licencia Creative Commons][repo_cc_license_url] (CC BY-SA
+4.0 International).
 
 <!-- Go links -->
 
@@ -367,6 +369,7 @@ bajo la [Licencia Apache 2.0][repo_license_url], creado y soportado por
 [repo_releases_url]: https://github.com/gowebly/gowebly/releases
 [repo_license_url]: https://github.com/gowebly/gowebly/blob/main/LICENSE
 [repo_license_img]: https://img.shields.io/badge/license-Apache_2.0-red?style=for-the-badge&logo=none
+[repo_cc_license_url]: https://creativecommons.org/licenses/by-sa/4.0/
 [repo_readme_ru_url]: https://github.com/gowebly/gowebly/blob/main/README_RU.md
 [repo_readme_cn_url]: https://github.com/gowebly/gowebly/blob/main/README_CN.md
 [repo_readme_es_url]: https://github.com/gowebly/gowebly/blob/main/README_ES.md

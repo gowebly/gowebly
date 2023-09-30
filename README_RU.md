@@ -338,7 +338,9 @@ go get -u github.com/gowebly/helpers
 
 [`gowebly`][repo_url] – это свободное программное обеспечение с открытым 
 исходным кодом, лицензируемое по [Apache 2.0 лицензии][repo_license_url], 
-созданное и поддерживаемое [Vic Shóstak][author_url] с 🩵 к людям и роботам.
+созданное и поддерживаемое [Vic Shóstak][author_url] с 🩵 к людям и роботам. 
+Официальный логотип распространяется под 
+[лицензией Creative Commons][repo_cc_license_url] (CC BY-SA 4.0 International).
 
 <!-- Go links -->
 
@@ -359,6 +361,7 @@ go get -u github.com/gowebly/helpers
 [repo_releases_url]: https://github.com/gowebly/gowebly/releases
 [repo_license_url]: https://github.com/gowebly/gowebly/blob/main/LICENSE
 [repo_license_img]: https://img.shields.io/badge/license-Apache_2.0-red?style=for-the-badge&logo=none
+[repo_cc_license_url]: https://creativecommons.org/licenses/by-sa/4.0/
 [repo_readme_ru_url]: https://github.com/gowebly/gowebly/blob/main/README_RU.md
 [repo_readme_cn_url]: https://github.com/gowebly/gowebly/blob/main/README_CN.md
 [repo_readme_es_url]: https://github.com/gowebly/gowebly/blob/main/README_ES.md
