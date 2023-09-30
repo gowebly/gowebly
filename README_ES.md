@@ -29,6 +29,11 @@ Características:
 - Dispone de una biblioteca de **ayudantes de fácil uso** para su código Go;
 - Contiene un completo **ejemplo** de cómo utilizarlo fuera de la caja.
 
+> ⚡️ De los autores: Para que conozcas a fondo el proyecto, hemos grabado un 
+> breve [📺 vídeo][gowebly_youtube_video_url] y preparado un 
+> [📝 artículo][gowebly_devto_article_url] de introducción en el que se 
+> muestran las principales características de la CLI `gowebly`.
+
 <img width="100%" alt="gowebly logo" src="https://github.com/gowebly/gowebly/assets/11155743/55c80da2-30c6-45e7-a813-1ddc42764480">
 
 ## ⚡️ Inicio rápido
@@ -389,6 +394,8 @@ distribuido bajo [Licencia Creative Commons][repo_cc_license_url] (CC BY-SA
 
 <!-- Readme links -->
 
+[gowebly_youtube_video_url]: https://www.youtube.com/watch?v=qazYscnLku4
+[gowebly_devto_article_url]: https://dev.to/koddr/a-next-generation-cli-tool-for-building-amazing-web-apps-in-go-using-htmx-hyperscript-336d
 [gowebly_helpers_url]: https://github.com/gowebly/helpers
 [cgapp_url]: https://github.com/create-go-app/cli
 [cgapp_stars_url]: https://github.com/create-go-app/cli/stargazers

@@ -27,6 +27,11 @@
 - Имеет библиотеку **удобных** функций для вашего Go-кода;
 - Содержит исчерпывающий **пример** использования из коробки.
 
+> ⚡️ От авторов: Чтобы дать вам полное представление о проекте, мы записали 
+> короткое [📺 видео][gowebly_youtube_video_url] и подготовили вводную 
+> [📝 статью][gowebly_devto_article_url], демонстрирующую основные возможности 
+> `gowebly` CLI.
+
 <img width="100%" alt="gowebly logo" src="https://github.com/gowebly/gowebly/assets/11155743/55c80da2-30c6-45e7-a813-1ddc42764480">
 
 ## ⚡️ Быстрый старт
@@ -380,6 +385,8 @@ go get -u github.com/gowebly/helpers
 
 <!-- Readme links -->
 
+[gowebly_youtube_video_url]: https://www.youtube.com/watch?v=qazYscnLku4
+[gowebly_devto_article_url]: https://dev.to/koddr/a-next-generation-cli-tool-for-building-amazing-web-apps-in-go-using-htmx-hyperscript-336d
 [gowebly_helpers_url]: https://github.com/gowebly/helpers
 [cgapp_url]: https://github.com/create-go-app/cli
 [cgapp_stars_url]: https://github.com/create-go-app/cli/stargazers

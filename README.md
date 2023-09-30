@@ -389,7 +389,7 @@ distributed under the [Creative Commons License][repo_cc_license_url] (CC BY-SA
 
 [gowebly_helpers_url]: https://github.com/gowebly/helpers
 [gowebly_youtube_video_url]: https://www.youtube.com/watch?v=qazYscnLku4
-[gowebly_devto_article_url]: https://dev.to/koddr/
+[gowebly_devto_article_url]: https://dev.to/koddr/a-next-generation-cli-tool-for-building-amazing-web-apps-in-go-using-htmx-hyperscript-336d
 [cgapp_url]: https://github.com/create-go-app/cli
 [cgapp_stars_url]: https://github.com/create-go-app/cli/stargazers
 [nodejs_url]: https://nodejs.org

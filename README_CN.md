@@ -22,6 +22,9 @@
 - 为你的 Go 代码提供一个用户友好型助手库；
 - 包含如何使用该框架的综合示例。
 
+> ⚡️ 作者的话： 为了让您充分了解该项目，我们录制了一段简短的 [📺视频][gowebly_youtube_video_url]，并准备了一篇介绍 
+> [📝文章][gowebly_devto_article_url]，演示了 `gowebly` CLI 的主要功能。
+
 <img width="100%" alt="gowebly logo" src="https://github.com/gowebly/gowebly/assets/11155743/55c80da2-30c6-45e7-a813-1ddc42764480">
 
 ## ⚡️ 快速启动
@@ -322,6 +325,8 @@ go get -u github.com/gowebly/helpers
 
 <!-- Readme links -->
 
+[gowebly_youtube_video_url]: https://www.youtube.com/watch?v=qazYscnLku4
+[gowebly_devto_article_url]: https://dev.to/koddr/a-next-generation-cli-tool-for-building-amazing-web-apps-in-go-using-htmx-hyperscript-336d
 [gowebly_helpers_url]: https://github.com/gowebly/helpers
 [cgapp_url]: https://github.com/create-go-app/cli
 [cgapp_stars_url]: https://github.com/create-go-app/cli/stargazers
