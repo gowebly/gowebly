@@ -331,6 +331,17 @@ que le ayuda a iniciar una increíble aplicación web en **Go** utilizando
 
 ¡Estamos aquí para salvarte (_y salvarnos_) de este dolor rutinario! ✨
 
+> ⚡️ De los autores: Anteriormente, ya hemos salvado el mundo una vez, fue 
+> [Create Go App][cgapp_url] (sí, ese también es nuestro proyecto).
+>
+> Las estadísticas de [GitHub stars][cgapp_stars_url] de este proyecto no 
+> pueden mentir: más de **2.2k** desarrolladores de cualquier nivel y 
+> diferentes países comienzan un nuevo proyecto a través de esta herramienta 
+> CLI.
+>
+> Esperamos que el proyecto `gowebly` ayude aún a más desarrolladores de todo 
+> el mundo.
+
 ## 🏆 Una cooperación beneficiosa para todos
 
 Y ahora, ¡te invito a participar en este proyecto! Trabajemos **juntos** 
@@ -383,6 +394,8 @@ distribuido bajo [Licencia Creative Commons][repo_cc_license_url] (CC BY-SA
 <!-- Readme links -->
 
 [gowebly_helpers_url]: https://github.com/gowebly/helpers
+[cgapp_url]: https://github.com/create-go-app/cli
+[cgapp_stars_url]: https://github.com/create-go-app/cli/stargazers
 [nodejs_url]: https://nodejs.org
 [bun_url]: https://bun.sh
 [docker_image_url]: https://hub.docker.com/repository/docker/gowebly/gowebly
