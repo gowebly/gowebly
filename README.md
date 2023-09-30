@@ -27,6 +27,10 @@ Features:
 - Has a library of **user-friendly** helpers for your Go code;
 - Contains a comprehensive **example** of how to use it out of the box.
 
+We recorded a short [📺 video][gowebly_youtube_video_url] and prepared an 
+introduction [📝 article][gowebly_devto_article_url] demonstrating the main 
+features of the `gowebly` CLI.
+
 <img width="100%" alt="gowebly logo" src="https://github.com/gowebly/gowebly/assets/11155743/55c80da2-30c6-45e7-a813-1ddc42764480">
 
 ## ⚡️ Quick start
@@ -383,6 +387,8 @@ distributed under the [Creative Commons License][repo_cc_license_url] (CC BY-SA
 <!-- Readme links -->
 
 [gowebly_helpers_url]: https://github.com/gowebly/helpers
+[gowebly_youtube_video_url]: https://www.youtube.com/watch?v=qazYscnLku4
+[gowebly_devto_article_url]: https://dev.to/koddr/
 [cgapp_url]: https://github.com/create-go-app/cli
 [cgapp_stars_url]: https://github.com/create-go-app/cli/stargazers
 [nodejs_url]: https://nodejs.org
