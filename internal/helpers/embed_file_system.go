@@ -68,8 +68,19 @@ func GenerateFilesByTemplateFromEmbedFS(efs embed.FS, templates []EmbedTemplate)
 		}
 
 		// Rename temp file.
-		if err := renameFile(file.Name(), t.OutputFile); err != nil {
-			return err
+		if err := os.Rename(file.Name(), t.OutputFile); err != nil {
+			// Define a new variable for the exit error.
+			var exitErr *os.LinkError
+
+			// Check, if the current error is exit error.
+			if errors.As(err, &exitErr) {
+				// Try to rename file in non-Unix system.
+				if err := renameFileNonUnix(file.Name(), t.OutputFile); err != nil {
+					return err
+				}
+			} else {
+				return err
+			}
 		}
 
 		// Set variables to the given.
@@ -86,23 +97,9 @@ func GenerateFilesByTemplateFromEmbedFS(efs embed.FS, templates []EmbedTemplate)
 	return nil
 }
 
-// renameFile renames the given src file name to the dest.
-func renameFile(src, dest string) error {
-	// Rename the source file to the destination file.
-	if err := copyFile(src, dest); err != nil {
-		return err
-	}
-
-	// Cleanup the source file.
-	if err := os.RemoveAll(src); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// copyFile copies the given src file to the dest.
-func copyFile(src, dest string) error {
+// renameFileNonUnix renames the given src file name to the destination for the
+// non-Unix systems.
+func renameFileNonUnix(src, dest string) error {
 	// Open the source file.
 	input, err := os.Open(filepath.Clean(src))
 	if err != nil {
@@ -136,6 +133,11 @@ func copyFile(src, dest string) error {
 
 	// Set the right chmod to the destination file.
 	if err := os.Chmod(dest, inputFileInfo.Mode()); err != nil {
+		return err
+	}
+
+	// Cleanup the source file.
+	if err := os.RemoveAll(src); err != nil {
 		return err
 	}
 
