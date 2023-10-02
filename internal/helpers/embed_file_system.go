@@ -3,7 +3,6 @@ package helpers
 import (
 	"embed"
 	"errors"
-	"fmt"
 	"html/template"
 	"io"
 	"os"
@@ -86,53 +85,58 @@ func GenerateFilesByTemplateFromEmbedFS(efs embed.FS, templates []EmbedTemplate)
 	return nil
 }
 
-func renameFile(src string, dst string) (err error) {
-	err = copyFile(src, dst)
-	if err != nil {
-		return fmt.Errorf("failed to copy source file %s to %s: %s", src, dst, err)
+// renameFile renames the given src file name to the dest.
+func renameFile(src, dest string) error {
+	// Rename the source file to the destination file.
+	if err := copyFile(src, dest); err != nil {
+		return err
 	}
-	err = os.RemoveAll(src)
-	if err != nil {
-		return fmt.Errorf("failed to cleanup source file %s: %s", src, err)
+
+	// Cleanup the source file.
+	if err := os.RemoveAll(src); err != nil {
+		return err
 	}
+
 	return nil
 }
 
-func copyFile(src, dst string) (err error) {
-	in, err := os.Open(src)
+// copyFile copies the given src file to the dest.
+func copyFile(src, dest string) error {
+	// Open the source file.
+	input, err := os.Open(src)
 	if err != nil {
-		return
+		return err
 	}
-	defer in.Close()
+	defer input.Close()
 
-	out, err := os.Create(dst)
+	// Create the destination file.
+	output, err := os.Create(dest)
 	if err != nil {
-		return
+		return err
 	}
-	defer func() {
-		if e := out.Close(); e != nil {
-			err = e
-		}
-	}()
+	defer output.Close()
 
-	_, err = io.Copy(out, in)
+	// Copy all content of the source file to the destination.
+	_, err = io.Copy(output, input)
 	if err != nil {
-		return
-	}
-
-	err = out.Sync()
-	if err != nil {
-		return
+		return err
 	}
 
-	si, err := os.Stat(src)
-	if err != nil {
-		return
-	}
-	err = os.Chmod(dst, si.Mode())
-	if err != nil {
-		return
+	// Commit the current contents of the destination file to stable storage.
+	if err := output.Sync(); err != nil {
+		return err
 	}
 
-	return
+	// Get file info from the source file.
+	inputFileInfo, err := os.Stat(src)
+	if err != nil {
+		return err
+	}
+
+	// Set the right chmod to the destination file.
+	if err := os.Chmod(dest, inputFileInfo.Mode()); err != nil {
+		return err
+	}
+
+	return nil
 }
