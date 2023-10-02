@@ -3,7 +3,9 @@ package helpers
 import (
 	"embed"
 	"errors"
+	"fmt"
 	"html/template"
+	"io"
 	"os"
 
 	"github.com/gowebly/gowebly/internal/constants"
@@ -66,7 +68,7 @@ func GenerateFilesByTemplateFromEmbedFS(efs embed.FS, templates []EmbedTemplate)
 		}
 
 		// Rename temp file.
-		if err := os.Rename(file.Name(), t.OutputFile); err != nil {
+		if err := renameFile(file.Name(), t.OutputFile); err != nil {
 			return err
 		}
 
@@ -82,4 +84,55 @@ func GenerateFilesByTemplateFromEmbedFS(efs embed.FS, templates []EmbedTemplate)
 	}
 
 	return nil
+}
+
+func renameFile(src string, dst string) (err error) {
+	err = copyFile(src, dst)
+	if err != nil {
+		return fmt.Errorf("failed to copy source file %s to %s: %s", src, dst, err)
+	}
+	err = os.RemoveAll(src)
+	if err != nil {
+		return fmt.Errorf("failed to cleanup source file %s: %s", src, err)
+	}
+	return nil
+}
+
+func copyFile(src, dst string) (err error) {
+	in, err := os.Open(src)
+	if err != nil {
+		return
+	}
+	defer in.Close()
+
+	out, err := os.Create(dst)
+	if err != nil {
+		return
+	}
+	defer func() {
+		if e := out.Close(); e != nil {
+			err = e
+		}
+	}()
+
+	_, err = io.Copy(out, in)
+	if err != nil {
+		return
+	}
+
+	err = out.Sync()
+	if err != nil {
+		return
+	}
+
+	si, err := os.Stat(src)
+	if err != nil {
+		return
+	}
+	err = os.Chmod(dst, si.Mode())
+	if err != nil {
+		return
+	}
+
+	return
 }

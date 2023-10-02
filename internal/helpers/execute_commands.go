@@ -2,6 +2,7 @@ package helpers
 
 import (
 	"fmt"
+	"log"
 	"os"
 	"os/exec"
 )
@@ -34,8 +35,16 @@ func Execute(commands []Command) error {
 			cmd.Stderr = os.Stderr
 		}
 
-		if err := cmd.Run(); err != nil {
-			return fmt.Errorf("cmd: can't execute command '%s %s'", c.Name, c.Options)
+		if err := cmd.Start(); err != nil {
+			return fmt.Errorf("cmd.Start: %v", err)
+		}
+
+		if err := cmd.Wait(); err != nil {
+			if exiterr, ok := err.(*exec.ExitError); ok {
+				return fmt.Errorf("Exit Status: %d", exiterr.ExitCode())
+			} else {
+				return fmt.Errorf("cmd.Wait: %v", err)
+			}
 		}
 	}
 
