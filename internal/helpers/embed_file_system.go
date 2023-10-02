@@ -6,6 +6,7 @@ import (
 	"html/template"
 	"io"
 	"os"
+	"path/filepath"
 
 	"github.com/gowebly/gowebly/internal/constants"
 )
@@ -103,14 +104,14 @@ func renameFile(src, dest string) error {
 // copyFile copies the given src file to the dest.
 func copyFile(src, dest string) error {
 	// Open the source file.
-	input, err := os.Open(src)
+	input, err := os.Open(filepath.Clean(src))
 	if err != nil {
 		return err
 	}
 	defer input.Close()
 
 	// Create the destination file.
-	output, err := os.Create(dest)
+	output, err := os.Create(filepath.Clean(dest))
 	if err != nil {
 		return err
 	}
