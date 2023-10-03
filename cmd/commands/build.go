@@ -96,10 +96,16 @@ func Build(di *injectors.Injector, flag string) error {
 	if err := helpers.Execute(
 		[]helpers.Command{
 			{
-				true, frontendRuntime, []string{"run", "build:prod"}, nil,
+				true,
+				"go",
+				[]string{"mod", "tidy"},
+				nil,
 			},
 			{
-				true, "go", []string{"mod", "tidy"}, nil,
+				true,
+				frontendRuntime,
+				[]string{"run", "build:prod"},
+				nil,
 			},
 		},
 	); err != nil {

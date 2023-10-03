@@ -2,11 +2,12 @@
   "name": "{{ .PackageName }}",
   "version": "1.0.0",
   "description": "Frontend part with UnoCSS of the gowebly project.",
+  "license": "MIT",
   "scripts": {
+    "watch": "{{ if eq .RuntimeEnvironment "bun" }}bunx{{ else }}npx --yes{{ end }} @unocss/cli \"**/*.{html,css}\" -o ./static/styles.css -w",
     "build:dev": "{{ if eq .RuntimeEnvironment "bun" }}bunx{{ else }}npx --yes{{ end }} @unocss/cli \"**/*.{html,css}\" -o ./static/styles.css",
     "build:prod": "{{ if eq .RuntimeEnvironment "bun" }}bunx{{ else }}npx --yes{{ end }} @unocss/cli \"**/*.{html,css}\" -o ./static/styles.css -m"
   },
-  "license": "MIT",
   "devDependencies": {
     "@unocss/cli": "latest",
     "@unocss/postcss": "latest",
