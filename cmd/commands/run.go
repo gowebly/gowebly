@@ -15,27 +15,8 @@ func Run(di *injectors.Injector) error {
 		"wait", "margin-top",
 	)
 
-	// Remove previously generated .env and JS files.
+	// Remove previously generated style files.
 	_ = helpers.RemoveFiles("static/styles.css")
-
-	// Set the default JavaScript runtime environment.
-	frontendRuntime := "npm"
-
-	// Check, if the runtime of the frontend part is switched.
-	if di.Config.Frontend.RuntimeEnvironment == "bun" {
-		frontendRuntime = "bun"
-	}
-
-	// Re-generate styles of the frontend part.
-	if err := helpers.Execute(
-		[]helpers.Command{
-			{
-				true, frontendRuntime, []string{"run", "build:dev"}, nil,
-			},
-		},
-	); err != nil {
-		return err
-	}
 
 	// Print block of messages.
 	helpers.PrintStyledBlock(
@@ -85,8 +66,22 @@ func Run(di *injectors.Injector) error {
 		},
 	)
 
-	return helpers.Execute(
+	// Set the default JavaScript runtime environment.
+	frontendRuntime := "npm"
+
+	// Check, if the runtime of the frontend part is switched.
+	if di.Config.Frontend.RuntimeEnvironment == "bun" {
+		frontendRuntime = "bun"
+	}
+
+	return helpers.ExecuteInGoroutine(
 		[]helpers.Command{
+			{
+				true,
+				frontendRuntime,
+				[]string{"run", "watch"},
+				nil,
+			},
 			{
 				false,
 				"go",

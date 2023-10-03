@@ -32,7 +32,7 @@ vendor/
 # Binary directories.
 bin/
 
-# Temp directories.
+# Temp and local cache directories.
 dist/
 tmp/
-{{ if eq .CSSFramework "default" }}.parcel-cache/{{ end }}
+.parcel-cache/

@@ -32,11 +32,13 @@ func CopyFilesFromEmbedFS(efs embed.FS, files []EmbedFile) error {
 		}
 
 		// Create a config file.
-		if err := MakeFiles([]File{
-			{
-				f.OutputFile, data,
+		if err := MakeFiles(
+			[]File{
+				{
+					f.OutputFile, data,
+				},
 			},
-		}); err != nil {
+		); err != nil {
 			return err
 		}
 	}
@@ -47,6 +49,13 @@ func CopyFilesFromEmbedFS(efs embed.FS, files []EmbedFile) error {
 // GenerateFilesByTemplateFromEmbedFS generates new files from the given template with
 // variables from embed FS.
 func GenerateFilesByTemplateFromEmbedFS(efs embed.FS, templates []EmbedTemplate) error {
+	// Create a new temp folder.
+	folder, err := os.MkdirTemp("", "*")
+	if err != nil {
+		return err
+	}
+	defer os.RemoveAll(folder)
+
 	for _, t := range templates {
 		// Check, if file is existing.
 		if IsExistInFolder(t.OutputFile, false) {
@@ -60,7 +69,7 @@ func GenerateFilesByTemplateFromEmbedFS(efs embed.FS, templates []EmbedTemplate)
 		}
 
 		// Create a new temp file with the given data.
-		file, err := os.CreateTemp("", "*")
+		file, err := os.CreateTemp(folder, "*")
 		if err != nil {
 			return err
 		}

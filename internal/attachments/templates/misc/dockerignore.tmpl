@@ -9,16 +9,19 @@
 node_modules/
 bin/
 tmp/
-{{ if eq .CSSFramework "default" }}.parcel-cache/{{ end }}
+tests/
+.parcel-cache/
 
 # Ignore files.
 **/.DS_Store
 .dockerignore
 .gitignore
+.postcssrc
 Dockerfile
 **/*_test.go
 package.json
 *-lock.json
+*.lockb
 *.config.*
 *.md
 *.out
