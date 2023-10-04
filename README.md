@@ -339,6 +339,12 @@ We are here to save you (_and ourselves_) from this routine pain! ✨
 
 ## 🏆 A win-win cooperation
 
+If you liked the `gowebly` project and found it useful for your tasks, 
+please give it a 🌟 **GitHub Star** and click 👁️ **Watch** to avoid missing 
+notifications about new versions!
+
+<img width="100%" alt="gowebly star and watch" src="https://github.com/gowebly/gowebly/assets/11155743/6f92ec26-1fe3-44c6-9a13-3abd3ffa58eb">
+
 And now, I invite you to participate in this project! Let's work **together** to
 create the **most useful** tool for developers on the web today.
 
@@ -346,6 +352,10 @@ create the **most useful** tool for developers on the web today.
 - [Pull requests][repo_pull_request_url]: send your improvements to the current.
 
 Your PRs & issues are welcome! Thank you 😘
+
+### 🌟 Stargazers
+
+[![gowebly stargazers][repo_badge_reporoster_url]][repo_stargazers_url]
 
 ## ⚠️ License
 
@@ -380,6 +390,8 @@ distributed under the [Creative Commons License][repo_cc_license_url] (CC BY-SA
 [repo_readme_es_url]: https://github.com/gowebly/gowebly/blob/main/README_ES.md
 [repo_default_config]: https://github.com/gowebly/gowebly/blob/main/internal/attachments/configs/default.yml
 [repo_main_layout]: https://github.com/gowebly/gowebly/blob/main/internal/attachments/templates/frontend/main.html
+[repo_stargazers_url]: https://github.com/gowebly/gowebly/stargazers
+[repo_badge_reporoster_url]: https://reporoster.com/stars/notext/gowebly/gowebly
 
 <!-- Author links -->
 

@@ -280,12 +280,20 @@ go get -u github.com/gowebly/helpers
 
 ## 🏆 双赢合作
 
+如果您喜欢 `gowebly` 项目，并发现它对您的工作很有用，请给它一个 🌟 GitHub Star 并点击 👁️ Watch 以避免错过有关新版本的通知！
+
+<img width="100%" alt="gowebly star and watch" src="https://github.com/gowebly/gowebly/assets/11155743/6f92ec26-1fe3-44c6-9a13-3abd3ffa58eb">
+
 现在，我邀请您参与这个项目！让我们共同努力，为开发人员打造当今网络上最实用的工具。
 
 - [Issues][repo_issues_url]：提出问题并提交您的功能。
 - [Pull requests][repo_pull_request_url]：提交您对当前版本的改进。
 
 欢迎您提交 PR 和问题！谢谢 😘
+
+### 🌟 追星族
+
+[![gowebly stargazers][repo_badge_reporoster_url]][repo_stargazers_url]
 
 ## ⚠️ 许可证
 
@@ -319,6 +327,8 @@ go get -u github.com/gowebly/helpers
 [repo_readme_es_url]: https://github.com/gowebly/gowebly/blob/main/README_ES.md
 [repo_default_config]: https://github.com/gowebly/gowebly/blob/main/internal/attachments/configs/default.yml
 [repo_main_layout]: https://github.com/gowebly/gowebly/blob/main/internal/attachments/templates/frontend/main.html
+[repo_stargazers_url]: https://github.com/gowebly/gowebly/stargazers
+[repo_badge_reporoster_url]: https://reporoster.com/stars/notext/gowebly/gowebly
 
 <!-- Author links -->
 

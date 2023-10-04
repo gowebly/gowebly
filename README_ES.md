@@ -346,6 +346,12 @@ que le ayuda a iniciar una increíble aplicación web en **Go** utilizando
 
 ## 🏆 Una cooperación beneficiosa para todos
 
+¡Si te ha gustado el proyecto `gowebly` y te ha resultado útil para tus 
+tareas, por favor, dale un 🌟 **GitHub Star** y haz clic en 👁️ **Watch** para 
+no perderte las notificaciones sobre nuevas versiones!
+
+<img width="100%" alt="gowebly star and watch" src="https://github.com/gowebly/gowebly/assets/11155743/6f92ec26-1fe3-44c6-9a13-3abd3ffa58eb">
+
 Y ahora, ¡te invito a participar en este proyecto! Trabajemos **juntos** 
 para crear la herramienta **más útil** para desarrolladores en la web hoy en 
 día.
@@ -354,6 +360,10 @@ día.
 - [Pull requests][repo_pull_request_url]: envía tus mejoras a la corriente.
 
 ¡Tus PR y issues son bienvenidos! Gracias 😘
+
+### 🌟 Guardianes de la Galaxia
+
+[![gowebly stargazers][repo_badge_reporoster_url]][repo_stargazers_url]
 
 ## ⚠️ Licencia
 
@@ -388,6 +398,8 @@ distribuido bajo [Licencia Creative Commons][repo_cc_license_url] (CC BY-SA
 [repo_readme_es_url]: https://github.com/gowebly/gowebly/blob/main/README_ES.md
 [repo_default_config]: https://github.com/gowebly/gowebly/blob/main/internal/attachments/configs/default.yml
 [repo_main_layout]: https://github.com/gowebly/gowebly/blob/main/internal/attachments/templates/frontend/main.html
+[repo_stargazers_url]: https://github.com/gowebly/gowebly/stargazers
+[repo_badge_reporoster_url]: https://reporoster.com/stars/notext/gowebly/gowebly
 
 <!-- Author links -->
 
