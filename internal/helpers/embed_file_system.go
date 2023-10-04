@@ -4,6 +4,7 @@ import (
 	"embed"
 	"errors"
 	"html/template"
+	"io"
 	"os"
 
 	"github.com/gowebly/gowebly/internal/constants"
@@ -50,14 +51,13 @@ func CopyFilesFromEmbedFS(efs embed.FS, files []EmbedFile) error {
 // variables from embed FS.
 func GenerateFilesByTemplateFromEmbedFS(efs embed.FS, templates []EmbedTemplate) error {
 	// Create a new temp folder.
-	folder, err := os.MkdirTemp("", "*")
+	tempFolder, err := os.MkdirTemp("", "*")
 	if err != nil {
 		return err
 	}
-	defer os.RemoveAll(folder)
 
 	for _, t := range templates {
-		// Check, if file is existing.
+		// Check if file exists.
 		if IsExistInFolder(t.OutputFile, false) {
 			return errors.New(constants.ErrorProjectFolderIsNotEmpty)
 		}
@@ -69,26 +69,42 @@ func GenerateFilesByTemplateFromEmbedFS(efs embed.FS, templates []EmbedTemplate)
 		}
 
 		// Create a new temp file with the given data.
-		file, err := os.CreateTemp(folder, "*")
+		tempFile, err := os.CreateTemp(tempFolder, "*")
 		if err != nil {
 			return err
 		}
 
-		// Rename temp file.
-		if err := os.Rename(file.Name(), t.OutputFile); err != nil {
-			return err
-		}
-
 		// Set variables to the given.
-		if err := tmpl.Execute(file, t.Data); err != nil {
+		if err := tmpl.Execute(tempFile, t.Data); err != nil {
 			return err
 		}
 
-		// Close file.
-		if err := file.Close(); err != nil {
+		// Reset the record position to the beginning of the file.
+		if _, err := tempFile.Seek(0, 0); err != nil {
+			return err
+		}
+
+		// Copy temp file to the output file.
+		outputFile, err := os.Create(t.OutputFile)
+		if err != nil {
+			return err
+		}
+
+		// Copy file from the temp file to the output.
+		if _, err := io.Copy(outputFile, tempFile); err != nil {
+			return err
+		}
+
+		// Close temp file.
+		if err := tempFile.Close(); err != nil {
+			return err
+		}
+
+		// Close output file.
+		if err := outputFile.Close(); err != nil {
 			return err
 		}
 	}
 
-	return nil
+	return os.RemoveAll(tempFolder)
 }
