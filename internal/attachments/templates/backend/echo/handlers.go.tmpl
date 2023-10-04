@@ -10,3 +10,15 @@ import (
 func indexViewHandler(c echo.Context) error {
 	return c.Render(http.StatusOK, "templates/pages/index.html", nil)
 }
+
+// showContentAPIHandler handles an API endpoint to show content.
+func showContentAPIHandler(c echo.Context) error {
+	// Check, if the current request has a 'HX-Request' header.
+	// For more information, see https://htmx.org/docs/#request-headers
+	if c.Request().Header.Get("HX-Request") != "true" {
+		// If not, return HTTP 400 error.
+		return echo.NewHTTPError(http.StatusBadRequest, "non-htmx request")
+	}
+
+	return c.String(http.StatusOK, "<p>🎉 Hello from <strong>htmx</strong>!<br>(<code>GET /api/show</code>)</p>")
+}

@@ -86,6 +86,10 @@ func Create(di *injectors.Injector) error {
 				filepath.Join("templates", "static", "favicon.ico"),
 				filepath.Join("static", "favicon.ico"),
 			},
+			{
+				filepath.Join("templates", "static", "gowebly-logo.svg"),
+				filepath.Join("static", "gowebly-logo.svg"),
+			},
 		},
 	); err != nil {
 		return err

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log/slog"
 	"net/http"
 	"path/filepath"
@@ -10,7 +11,7 @@ import (
 
 // indexViewHandler handles a view for the index page.
 func indexViewHandler(w http.ResponseWriter, r *http.Request) {
-	// Check, if current URL is '/'.
+	// Check, if the current URL is '/'.
 	if r.URL.Path != "/" {
 		// If not, return HTTP 404 error.
 		http.NotFound(w, r)
@@ -38,4 +39,30 @@ func indexViewHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Send log message.
 	slog.Info("render page", "method", r.Method, "status", http.StatusOK, "path", r.URL.Path)
+}
+
+// showContentAPIHandler handles an API endpoint to show content.
+func showContentAPIHandler(w http.ResponseWriter, r *http.Request) {
+	// Check, if the current request method is GET.
+	if r.Method != http.MethodGet {
+		// If not, return HTTP 405 error.
+		w.WriteHeader(http.StatusMethodNotAllowed)
+		slog.Error("request API", "method", r.Method, "status", http.StatusMethodNotAllowed, "path", r.URL.Path)
+		return
+	}
+
+	// Check, if the current request has a 'HX-Request' header.
+	// For more information, see https://htmx.org/docs/#request-headers
+	if r.Header.Get("HX-Request") != "true" {
+		// If not, return HTTP 400 error.
+		w.WriteHeader(http.StatusBadRequest)
+		slog.Error("request API", "method", r.Method, "status", http.StatusBadRequest, "path", r.URL.Path)
+		return
+	}
+
+	// Send HTML content.
+	fmt.Fprintf(w, "<p>🎉 Hello from <strong>htmx</strong>!<br>(<code>GET /api/show</code>)</p>")
+
+	// Send log message.
+	slog.Info("request API", "method", r.Method, "status", http.StatusOK, "path", r.URL.Path)
 }
