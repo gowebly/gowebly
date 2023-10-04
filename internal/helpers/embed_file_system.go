@@ -33,11 +33,13 @@ func CopyFilesFromEmbedFS(efs embed.FS, files []EmbedFile) error {
 		}
 
 		// Create a config file.
-		if err := MakeFiles([]File{
-			{
-				f.OutputFile, data,
+		if err := MakeFiles(
+			[]File{
+				{
+					f.OutputFile, data,
+				},
 			},
-		}); err != nil {
+		); err != nil {
 			return err
 		}
 	}

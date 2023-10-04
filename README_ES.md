@@ -11,7 +11,7 @@
 Esta herramienta CLI puede construir fácilmente increíbles aplicaciones web 
 con **Go** en el backend, utilizando [**htmx**][htmx_url] & 
 [**hyperscript**][hyperscript_url] y los más populares atomic/utility-first 
-**CSS frameworks** en el frontend.
+**frameworks CSS** en el frontend.
 
 Características:
 
@@ -24,8 +24,9 @@ Características:
   y preparación para la producción;
 - Ayuda a entrar más rápidamente en la pila tecnológica **Go** + **htmx** + 
   **hyperscript**;
-- La posibilidad de añadir simplemente a tu proyecto un **marco CSS** 
+- La posibilidad de añadir simplemente a tu proyecto un **framework CSS** 
   atómico/utility-first listo para usar y completamente personalizado;
+- Admite el modo **live-reloading** para sus estilos CSS.
 - Dispone de una biblioteca de **ayudantes de fácil uso** para su código Go;
 - Contiene un completo **ejemplo** de cómo utilizarlo fuera de la caja.
 
@@ -250,11 +251,11 @@ gowebly run
 
 Cada vez que haga `run` comando para su proyecto:
 
-1. CLI valida la configuración y aplica todos los ajustes al proyecto actual;
+1. CLI válida la configuración y aplica todos los ajustes al proyecto actual;
 2. CLI prepara la parte frontend de tu proyecto (ejecuta
-   `npm|bun run build:dev`);
-3. CLI prepara una versión de desarrollo (no de producción) del framework 
-   **CSS** seleccionado en la carpeta `./static` y lo coloca como una 
+   `npm|bun run watch`);
+3. CLI prepara una versión de desarrollo (no de producción) del **framework 
+   CSS** seleccionado en la carpeta `./static` y lo coloca como una 
    etiqueta `<link>` (al final de la etiqueta `<head>`) en la plantilla Go 
    HTML [`templates/main.html`][repo_main_layout];
 4. CLI inicia el backend de un proyecto con los ajustes de la configuración 

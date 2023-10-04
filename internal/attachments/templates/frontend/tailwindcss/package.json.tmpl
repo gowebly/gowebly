@@ -2,13 +2,15 @@
   "name": "{{ .PackageName }}",
   "version": "1.0.0",
   "description": "Frontend part with Tailwind CSS of the gowebly project.",
-  "scripts": {
-    "build:dev": "{{ if eq .RuntimeEnvironment "bun" }}bunx{{ else }}npx --yes{{ end }} tailwindcss -i ./assets/styles.css -o ./static/styles.css",
-    "build:prod": "{{ if eq .RuntimeEnvironment "bun" }}bunx{{ else }}npx --yes{{ end }} tailwindcss -i ./assets/styles.css -o ./static/styles.css -m"
-  },
   "license": "MIT",
+  "scripts": {
+    "watch": "{{ if eq .RuntimeEnvironment "bun" }}bunx{{ else }}npx --yes{{ end }} parcel watch --no-cache --no-source-maps --dist-dir ./static ./assets/styles.css",
+    "build:dev": "{{ if eq .RuntimeEnvironment "bun" }}bunx{{ else }}npx --yes{{ end }} parcel build --no-cache --no-source-maps --no-optimize --dist-dir ./static ./assets/styles.css",
+    "build:prod": "{{ if eq .RuntimeEnvironment "bun" }}bunx{{ else }}npx --yes{{ end }} parcel build --no-cache --no-source-maps --dist-dir ./static ./assets/styles.css"
+  },
+  "browserslist": "> 0.5%, last 2 versions, not dead",
   "devDependencies": {
-    "autoprefixer": "latest",
+    "parcel": "latest",
     "postcss": "latest",
     "tailwindcss": "latest"
   }

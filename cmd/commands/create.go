@@ -71,7 +71,9 @@ func Create(di *injectors.Injector) error {
 				filepath.Join("templates", "main.html"),
 			},
 			{
-				filepath.Join("templates", "frontend", di.Config.Frontend.CSSFramework, "index.html"),
+				filepath.Join(
+					"templates", "frontend", di.Config.Frontend.CSSFramework, "index.html",
+				),
 				filepath.Join("templates", "pages", "index.html"),
 			},
 			{
@@ -113,8 +115,8 @@ func Create(di *injectors.Injector) error {
 			di.Attachments.Templates,
 			[]helpers.EmbedFile{
 				{
-					filepath.Join("templates", "frontend", "tailwindcss", "postcss.config.js"),
-					"postcss.config.js",
+					filepath.Join("templates", "frontend", "tailwindcss", "postcssrc.tmpl"),
+					".postcssrc",
 				},
 				{
 					filepath.Join("templates", "frontend", "tailwindcss", "tailwind.config.js"),
@@ -130,8 +132,8 @@ func Create(di *injectors.Injector) error {
 			di.Attachments.Templates,
 			[]helpers.EmbedFile{
 				{
-					filepath.Join("templates", "frontend", "unocss", "postcss.config.js"),
-					"postcss.config.js",
+					filepath.Join("templates", "frontend", "unocss", "postcssrc.tmpl"),
+					".postcssrc",
 				},
 				{
 					filepath.Join("templates", "frontend", "unocss", "uno.config.ts"),
@@ -180,16 +182,39 @@ func Create(di *injectors.Injector) error {
 	}
 
 	// Execute system commands.
+	if err := helpers.ExecuteInGoroutine(
+		[]helpers.Command{
+			{
+				true,
+				"go",
+				[]string{"mod", "tidy"},
+				nil,
+			},
+			{
+				true,
+				frontendRuntime,
+				[]string{"install"},
+				nil,
+			},
+		},
+	); err != nil {
+		return err
+	}
+
+	// Frontend build message.
+	helpers.PrintStyled(
+		"Building a CSS bundle in the development (non-production) mode for the frontend part... Please wait!",
+		"wait", "",
+	)
+
+	// Execute system commands.
 	if err := helpers.Execute(
 		[]helpers.Command{
 			{
-				true, "npm", []string{"install"}, nil,
-			},
-			{
-				true, frontendRuntime, []string{"run", "build:dev"}, nil,
-			},
-			{
-				true, "go", []string{"mod", "tidy"}, nil,
+				true,
+				frontendRuntime,
+				[]string{"run", "build:dev"},
+				nil,
 			},
 		},
 	); err != nil {

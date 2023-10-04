@@ -19,6 +19,7 @@
 - 智能 CLI，可完成大部分常规设置和生产准备工作；
 - 有助于更快地进入 Go + htmx + hyperscript 技术栈；
 - 可在项目中添加即用型和完全定制的原子/实用工具优先 CSS 框架；
+- 支持 CSS 样式的实时重载模式。
 - 为你的 Go 代码提供一个用户友好型助手库；
 - 包含如何使用该框架的综合示例。
 
@@ -212,7 +213,7 @@ gowebly run
 每次为项目执行 `run` 命令时：
 
 1. CLI 会验证配置并将所有设置应用到当前项目；
-2. CLI 准备项目的前端部分（运行 `npm|bun run build:dev`）；
+2. CLI 准备项目的前端部分（运行 `npm|bun run watch`）；
 3. CLI 将所选 CSS 框架的开发（非生产）版本放入 `./static` 文件夹，并将其作为 `<link>` 标记（位于 `<head>` 
    标记的底部）放入 Go HTML 模板 [`templates/main.html`][repo_main_layout]；
 4. 通过简单的 `go run` 命令，CLI 可使用默认配置（或 `.gowebly.yml` 配置文件）中的设置启动项目的后端。

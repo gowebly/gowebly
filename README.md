@@ -24,6 +24,7 @@ Features:
   stack faster;
 - The possibility of simply adding a ready-to-use and completely customized 
   atomic/utility-first **CSS framework** to your project;
+- Supports **live-reloading mode** for your CSS styles;
 - Has a library of **user-friendly** helpers for your Go code;
 - Contains a comprehensive **example** of how to use it out of the box.
 
@@ -249,8 +250,7 @@ gowebly run
 Every time you make `run` command for your project:
 
 1. CLI validates the config and applies all settings to the current project;
-2. CLI prepares the frontend part of your project (runs
-   `npm|bun run build:dev`);
+2. CLI prepares the frontend part of your project (runs `npm|bun run watch`);
 3. CLI prepares a development (non-production) version of the selected **CSS 
    framework** to the `./static` folder and places it as a `<link>` tag (at 
    the bottom of the `<head>` tag) in the Go HTML template
