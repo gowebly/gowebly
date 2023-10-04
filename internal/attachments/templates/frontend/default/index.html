@@ -17,12 +17,19 @@
 {{ define "content" }}
 <main>
     <div>
-        <h1>Welcome to example!</h1>
-        <p>You're here because it worked out.</p>
-        <p>
-            <a href="https://github.com/gowebly/gowebly#-complete-user-guide" target="_blank">Documentation</a>,
-            <a href="https://github.com/gowebly/gowebly" target="_blank">GitHub</a>
-        </p>
+        <p><img width="224px" src="/static/gowebly-logo.svg" alt="gowebly logo"></p>
+        <div>
+            <h1>Welcome to example!</h1>
+            <p>You're here because it worked out.</p>
+            <p>
+                <a href="https://gowebly.org" target="_blank">Documentation</a>,
+                <a href="https://github.com/gowebly/gowebly" target="_blank">GitHub</a>
+            </p>
+        </div>
+        <div>
+            <p><button hx-get="/api/show" hx-target="#htmx-result">Show content</button></p>
+            <div id="htmx-result"></div>
+        </div>
     </div>
 </main>
 {{ end }}

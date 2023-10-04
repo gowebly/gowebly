@@ -50,5 +50,8 @@ func runServer() error {
 	// Handle index page view.
 	server.Get("/", indexViewHandler)
 
+	// Handle API endpoints.
+	server.Get("/api/show", showContentAPIHandler)
+
 	return server.Listen(fmt.Sprintf(":%d", port))
 }

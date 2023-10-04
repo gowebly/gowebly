@@ -63,6 +63,9 @@ func runServer() error {
 	// Handle index page view.
 	echo.GET("/", indexViewHandler)
 
+	// Handle API endpoints.
+	echo.GET("/api/show", showContentAPIHandler)
+
 	// Create a new server instance with options from environment variables.
 	// For more information, see https://blog.cloudflare.com/the-complete-guide-to-golang-net-http-timeouts/
 	server := http.Server{
