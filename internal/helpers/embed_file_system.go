@@ -6,7 +6,6 @@ import (
 	"html/template"
 	"io"
 	"os"
-	"path/filepath"
 
 	"github.com/gowebly/gowebly/internal/constants"
 )
@@ -49,8 +48,14 @@ func CopyFilesFromEmbedFS(efs embed.FS, files []EmbedFile) error {
 // GenerateFilesByTemplateFromEmbedFS generates new files from the given template with
 // variables from embed FS.
 func GenerateFilesByTemplateFromEmbedFS(efs embed.FS, templates []EmbedTemplate) error {
+	// Create a new temp folder.
+	tempFolder, err := os.MkdirTemp("", "*")
+	if err != nil {
+		return err
+	}
+
 	for _, t := range templates {
-		// Check, if file is existing.
+		// Check if file exists.
 		if IsExistInFolder(t.OutputFile, false) {
 			return errors.New(constants.ErrorProjectFolderIsNotEmpty)
 		}
@@ -62,84 +67,42 @@ func GenerateFilesByTemplateFromEmbedFS(efs embed.FS, templates []EmbedTemplate)
 		}
 
 		// Create a new temp file with the given data.
-		file, err := os.CreateTemp("", "*")
+		tempFile, err := os.CreateTemp(tempFolder, "*")
 		if err != nil {
 			return err
 		}
 
-		// Rename temp file.
-		if err := os.Rename(file.Name(), t.OutputFile); err != nil {
-			// Define a new variable for the exit error.
-			var exitErr *os.LinkError
-
-			// Check, if the current error is exit error.
-			if errors.As(err, &exitErr) {
-				// Try to rename file in non-Unix system.
-				if err := renameFileNonUnix(file.Name(), t.OutputFile); err != nil {
-					return err
-				}
-			} else {
-				return err
-			}
-		}
-
 		// Set variables to the given.
-		if err := tmpl.Execute(file, t.Data); err != nil {
+		if err := tmpl.Execute(tempFile, t.Data); err != nil {
 			return err
 		}
 
-		// Close file.
-		if err := file.Close(); err != nil {
+		// Reset the record position to the beginning of the file.
+		if _, err := tempFile.Seek(0, 0); err != nil {
+			return err
+		}
+
+		// Copy temp file to the output file.
+		outputFile, err := os.Create(t.OutputFile)
+		if err != nil {
+			return err
+		}
+
+		// Copy file from the temp file to the output.
+		if _, err := io.Copy(outputFile, tempFile); err != nil {
+			return err
+		}
+
+		// Close temp file.
+		if err := tempFile.Close(); err != nil {
+			return err
+		}
+
+		// Close output file.
+		if err := outputFile.Close(); err != nil {
 			return err
 		}
 	}
 
-	return nil
-}
-
-// renameFileNonUnix renames the given src file name to the destination for the
-// non-Unix systems.
-func renameFileNonUnix(src, dest string) error {
-	// Open the source file.
-	input, err := os.Open(filepath.Clean(src))
-	if err != nil {
-		return err
-	}
-	defer input.Close()
-
-	// Create the destination file.
-	output, err := os.Create(filepath.Clean(dest))
-	if err != nil {
-		return err
-	}
-	defer output.Close()
-
-	// Copy all content of the source file to the destination.
-	_, err = io.Copy(output, input)
-	if err != nil {
-		return err
-	}
-
-	// Commit the current contents of the destination file to stable storage.
-	if err := output.Sync(); err != nil {
-		return err
-	}
-
-	// Get file info from the source file.
-	inputFileInfo, err := os.Stat(src)
-	if err != nil {
-		return err
-	}
-
-	// Set the right chmod to the destination file.
-	if err := os.Chmod(dest, inputFileInfo.Mode()); err != nil {
-		return err
-	}
-
-	// Cleanup the source file.
-	if err := os.RemoveAll(src); err != nil {
-		return err
-	}
-
-	return nil
+	return os.RemoveAll(tempFolder)
 }
