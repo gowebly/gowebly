@@ -313,7 +313,7 @@ gowebly doctor
 Every time you make `doctor` command for your system:
 
 1. CLI checks the versions of all the required tools to make your project 
-   successful (such as Go, Node.js, Docker, etc.);
+   successful (such as gowebly CLI, Go, Node.js, Docker, Docker Compose, etc.);
 2. The CLI produces a report with the installed version for each tool.
 
 ## 🙋 User-friendly helpers
