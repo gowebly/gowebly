@@ -259,7 +259,7 @@ gowebly doctor
 
 > 💡 注意：这对自我调试过程或在 GitHub 仓库中创建新的 [issue][repo_issues_url] 错误报告非常有用。
 
-<img width="720" alt="gowebly doctor" src="https://github.com/gowebly/gowebly/assets/11155743/3f7445bf-c559-40b6-a834-c09ab6040da8">
+<img width="720" alt="gowebly doctor" src="https://github.com/koddr/gowebly/assets/11155743/d901ea2e-023b-4f4e-830b-ad8ba26b3910">
 
 每次为系统执行 `doctor` 命令时：
 

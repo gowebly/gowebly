@@ -308,7 +308,7 @@ gowebly doctor
 > 💡 Note: This is very useful for the self-debugging process, or creating a 
 > new [issue][repo_issues_url] with a bug report in this GitHub repository.
 
-<img width="720" alt="gowebly doctor" src="https://github.com/gowebly/gowebly/assets/11155743/3f7445bf-c559-40b6-a834-c09ab6040da8">
+<img width="720" alt="gowebly doctor" src="https://github.com/koddr/gowebly/assets/11155743/d901ea2e-023b-4f4e-830b-ad8ba26b3910">
 
 Every time you make `doctor` command for your system:
 

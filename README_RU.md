@@ -304,7 +304,7 @@ gowebly doctor
 > 💡 Примечание: Это очень полезно для процесса отладки, или создания нового 
 > [issue][repo_issues_url] с сообщением об ошибке в этом GitHub-репозитории.
 
-<img width="720" alt="gowebly doctor" src="https://github.com/gowebly/gowebly/assets/11155743/3f7445bf-c559-40b6-a834-c09ab6040da8">
+<img width="720" alt="gowebly doctor" src="https://github.com/koddr/gowebly/assets/11155743/d901ea2e-023b-4f4e-830b-ad8ba26b3910">
 
 Каждый раз, когда вы выполняете команду `doctor` для вашей системы:
 
