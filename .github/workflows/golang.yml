@@ -37,8 +37,5 @@ jobs:
       - name: Run "gordonklaus/ineffassign" for code checks
         run: go run github.com/gordonklaus/ineffassign@latest ./...
 
-      - name: Run Go test with coverage report
-        run: go test -race -coverpkg=./... -coverprofile=cover.out ./...
-
-      - name: Run Go tool for the coverage report
-        run: go tool cover -func cover.out
+      - name: Run Go test
+        run: go test -race ./...

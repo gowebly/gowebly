@@ -6,7 +6,7 @@ labels: enhancement
 assignees: koddr
 ---
 
-<!-- ⚡️ Please create a discussion BEFORE submitting a pull request! ⚡️ -->
+<!-- ⚡️ Please create an issue BEFORE submitting a pull request! ⚡️ -->
 
 **Required check list:**
 
@@ -15,26 +15,31 @@ assignees: koddr
 - [ ] This is not about a third-party project, framework, or technology.
 
 **Is your feature request related to a problem? Please describe.**
-_A clear and concise description of what the issue is._
+
+<!-- A clear and concise description of what the issue is. -->
 
 ...
 
 **Describe the solution you'd like:**
-_A clear and concise description of what you want to happen._
+
+<!-- A clear and concise description of what you want to happen. -->
 
 ...
 
 **Describe alternatives you've considered:**
-_A clear and concise description of any alternative solutions._
+
+<!-- A clear and concise description of any alternative solutions. -->
 
 ...
 
 **Screenshots:**
-_If applicable, add screenshots to help explain your feature._
+
+<!-- If applicable, add screenshots to help explain your feature. -->
 
 ...
 
 **Additional context:**
-_Any other context or screenshots about the feature request here._
+
+<!-- Any other context or screenshots about the feature request here. -->
 
 ...

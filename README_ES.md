@@ -1,8 +1,10 @@
+<img width="256px" alt="gowebly logo" src="https://raw.githubusercontent.com/gowebly/gowebly/main/internal/attachments/templates/static/gowebly-logo.svg">
+
 # gowebly – Una herramienta CLI de última generación para crear increíbles aplicaciones web en Go utilizando htmx e hyperscript
 
 [![Go version][go_version_img]][go_dev_url]
 [![Go report][go_report_img]][go_report_url]
-[![Code coverage][go_code_coverage_img]][repo_url]
+[![Code coverage][go_code_coverage_img]][go_code_coverage_url]
 [![License][repo_license_img]][repo_license_url]
 
 [English][repo_url] | [Русский][repo_readme_ru_url] | [中文][repo_readme_cn_url] 
@@ -34,8 +36,6 @@ Características:
 > breve [📺 vídeo][gowebly_youtube_video_url] y preparado un 
 > [📝 artículo][gowebly_devto_article_url] de introducción en el que se 
 > muestran las principales características de la CLI `gowebly`.
-
-<img width="100%" alt="gowebly logo" src="https://github.com/gowebly/gowebly/assets/11155743/55c80da2-30c6-45e7-a813-1ddc42764480">
 
 ## ⚡️ Inicio rápido
 
@@ -381,7 +381,8 @@ distribuido bajo [Licencia Creative Commons][repo_cc_license_url] (CC BY-SA
 [go_report_url]: https://goreportcard.com/report/github.com/gowebly/gowebly
 [go_dev_url]: https://pkg.go.dev/github.com/gowebly/gowebly
 [go_version_img]: https://img.shields.io/badge/Go-1.21+-00ADD8?style=for-the-badge&logo=go
-[go_code_coverage_img]: https://img.shields.io/badge/code_coverage-33.8%25-success?style=for-the-badge&logo=none
+[go_code_coverage_url]: https://codecov.io/gh/gowebly/gowebly
+[go_code_coverage_img]: https://img.shields.io/codecov/c/gh/gowebly/gowebly.svg?logo=codecov&style=for-the-badge
 [go_report_img]: https://img.shields.io/badge/Go_report-A+-success?style=for-the-badge&logo=none
 
 <!-- Repository links -->

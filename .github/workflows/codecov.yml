@@ -1,0 +1,28 @@
+name: Codecov workflow
+
+on:
+  push:
+    paths: [ '**.go' ]
+  pull_request:
+    paths: [ '**.go' ]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        go: [ 'stable' ]
+        os: [ 'ubuntu-latest' ]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-go@v4
+        with:
+          go-version: ${{ matrix.go }}
+
+      - name: Run Go test with coverage report
+        run: go test -race -coverpkg=./... -coverprofile=coverage.out -covermode=atomic ./...
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
