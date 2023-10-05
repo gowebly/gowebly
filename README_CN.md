@@ -249,6 +249,23 @@ gowebly build [OPTION]
    `.dockerignore`、`Dockerfile`、`docker-compose.yml`），以便通过
    [Portainer][portainer_url] （推荐）或手动将其部署到远程服务器的隔离容器中。
 
+### `doctor`
+
+命令来显示系统的有用信息。
+
+```console
+gowebly doctor
+```
+
+> 💡 注意：这对自我调试过程或在 GitHub 仓库中创建新的 [issue][repo_issues_url] 错误报告非常有用。
+
+<img width="720" alt="gowebly doctor" src="https://github.com/gowebly/gowebly/assets/11155743/3f7445bf-c559-40b6-a834-c09ab6040da8">
+
+每次为系统执行 `doctor` 命令时：
+
+1. CLI 会检查项目成功所需的所有工具（如 Go、Node.js、Docker 等）的版本；
+2. CLI 会生成一份报告，列出每个工具的安装版本。
+
 ## 🙋 用户友好型助手
 
 `gowebly` CLI 有一个用户友好的 [helpers][gowebly_helpers_url] 库，可用于编写代码。这将帮助您以更快的速度在 

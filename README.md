@@ -297,6 +297,25 @@ Every time you make `build` command for your project:
    isolated containers via [Portainer][portainer_url] (_recommended_),
    or manually, to your remote server.
 
+### `doctor`
+
+Command to show helpful **information** about your system.
+
+```console
+gowebly doctor
+```
+
+> 💡 Note: This is very useful for the self-debugging process, or creating a 
+> new [issue][repo_issues_url] with a bug report in this GitHub repository.
+
+<img width="720" alt="gowebly doctor" src="https://github.com/gowebly/gowebly/assets/11155743/3f7445bf-c559-40b6-a834-c09ab6040da8">
+
+Every time you make `doctor` command for your system:
+
+1. CLI checks the versions of all the required tools to make your project 
+   successful (such as Go, Node.js, Docker, etc.);
+2. The CLI produces a report with the installed version for each tool.
+
 ## 🙋 User-friendly helpers
 
 The `gowebly` CLI has a library of user-friendly [helpers][gowebly_helpers_url] 
