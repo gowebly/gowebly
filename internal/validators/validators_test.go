@@ -1,6 +1,7 @@
 package validators
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/stretchr/testify/require"
@@ -14,91 +15,19 @@ func TestValidate(t *testing.T) {
 		Backend:  nil,
 		Frontend: nil,
 	})
-	require.EqualError(t, err, constants.ErrorValidateConfigBackendBlockNotFound)
-
-	err = Validate(&config.Config{
-		Backend:  &config.Backend{ModuleName: "", GoFramework: "default", Port: 5000, Timeout: &config.Timeout{}},
-		Frontend: nil,
-	})
-	require.EqualError(t, err, constants.ErrorValidateConfigBackendModuleNameNotFound)
-
-	err = Validate(&config.Config{
-		Backend:  &config.Backend{ModuleName: "project", GoFramework: "", Port: 5000, Timeout: &config.Timeout{}},
-		Frontend: nil,
-	})
-	require.EqualError(t, err, constants.ErrorValidateConfigBackendGoFrameworkNotFound)
-
-	err = Validate(&config.Config{
-		Backend:  &config.Backend{ModuleName: "project", GoFramework: "unknown", Port: 5000, Timeout: &config.Timeout{}},
-		Frontend: nil,
-	})
-	require.EqualError(t, err, constants.ErrorValidateConfigBackendGoFrameworkUnknown)
-
-	err = Validate(&config.Config{
-		Backend:  &config.Backend{ModuleName: "project", GoFramework: "default", Port: 0, Timeout: &config.Timeout{}},
-		Frontend: nil,
-	})
-	require.EqualError(t, err, constants.ErrorValidateConfigBackendPortNotFound)
+	require.EqualError(t, err, fmt.Sprintf(constants.ErrorValidateConfigBlockNotFound, "backend"))
 
 	err = Validate(&config.Config{
 		Backend:  &config.Backend{ModuleName: "project", GoFramework: "default", Port: 5000, Timeout: nil},
 		Frontend: nil,
 	})
-	require.EqualError(t, err, constants.ErrorValidateConfigBackendTimeoutNotFound)
+	require.EqualError(t, err, fmt.Sprintf(constants.ErrorValidateConfigOptionInBlockNotFound, "timeout", "backend"))
 
 	err = Validate(&config.Config{
 		Backend:  &config.Backend{ModuleName: "project", GoFramework: "default", Port: 5000, Timeout: &config.Timeout{}},
 		Frontend: nil,
 	})
-	require.EqualError(t, err, constants.ErrorValidateConfigFrontendBlockNotFound)
-
-	err = Validate(&config.Config{
-		Backend:  &config.Backend{ModuleName: "project", GoFramework: "default", Port: 5000, Timeout: &config.Timeout{}},
-		Frontend: &config.Frontend{PackageName: "", CSSFramework: "", RuntimeEnvironment: "", HTMX: "", Hyperscript: ""},
-	})
-	require.EqualError(t, err, constants.ErrorValidateConfigFrontendPackageNameNotFound)
-
-	err = Validate(&config.Config{
-		Backend:  &config.Backend{ModuleName: "project", GoFramework: "default", Port: 5000, Timeout: &config.Timeout{}},
-		Frontend: &config.Frontend{PackageName: "project", CSSFramework: "", RuntimeEnvironment: "", HTMX: "", Hyperscript: ""},
-	})
-	require.EqualError(t, err, constants.ErrorValidateConfigFrontendCSSFrameworkNotFound)
-
-	err = Validate(&config.Config{
-		Backend:  &config.Backend{ModuleName: "project", GoFramework: "default", Port: 5000, Timeout: &config.Timeout{}},
-		Frontend: &config.Frontend{PackageName: "project", CSSFramework: "", RuntimeEnvironment: "", HTMX: "", Hyperscript: ""},
-	})
-	require.EqualError(t, err, constants.ErrorValidateConfigFrontendCSSFrameworkNotFound)
-
-	err = Validate(&config.Config{
-		Backend:  &config.Backend{ModuleName: "project", GoFramework: "default", Port: 5000, Timeout: &config.Timeout{}},
-		Frontend: &config.Frontend{PackageName: "project", CSSFramework: "unknown", RuntimeEnvironment: "", HTMX: "", Hyperscript: ""},
-	})
-	require.EqualError(t, err, constants.ErrorValidateConfigFrontendCSSFrameworkUnknown)
-
-	err = Validate(&config.Config{
-		Backend:  &config.Backend{ModuleName: "project", GoFramework: "default", Port: 5000, Timeout: &config.Timeout{}},
-		Frontend: &config.Frontend{PackageName: "project", CSSFramework: "default", RuntimeEnvironment: "", HTMX: "", Hyperscript: ""},
-	})
-	require.EqualError(t, err, constants.ErrorValidateConfigFrontendRuntimeEnvironmentNotFound)
-
-	err = Validate(&config.Config{
-		Backend:  &config.Backend{ModuleName: "project", GoFramework: "default", Port: 5000, Timeout: &config.Timeout{}},
-		Frontend: &config.Frontend{PackageName: "project", CSSFramework: "default", RuntimeEnvironment: "unknown", HTMX: "", Hyperscript: ""},
-	})
-	require.EqualError(t, err, constants.ErrorValidateConfigFrontendRuntimeEnvironmentUnknown)
-
-	err = Validate(&config.Config{
-		Backend:  &config.Backend{ModuleName: "project", GoFramework: "default", Port: 5000, Timeout: &config.Timeout{}},
-		Frontend: &config.Frontend{PackageName: "project", CSSFramework: "default", RuntimeEnvironment: "default", HTMX: "", Hyperscript: ""},
-	})
-	require.EqualError(t, err, constants.ErrorValidateConfigFrontendHTMXNotFound)
-
-	err = Validate(&config.Config{
-		Backend:  &config.Backend{ModuleName: "project", GoFramework: "default", Port: 5000, Timeout: &config.Timeout{}},
-		Frontend: &config.Frontend{PackageName: "project", CSSFramework: "default", RuntimeEnvironment: "default", HTMX: "latest", Hyperscript: ""},
-	})
-	require.EqualError(t, err, constants.ErrorValidateConfigFrontendHyperscriptNotFound)
+	require.EqualError(t, err, fmt.Sprintf(constants.ErrorValidateConfigBlockNotFound, "frontend"))
 
 	err = Validate(&config.Config{
 		Backend:  &config.Backend{ModuleName: "project", GoFramework: "default", Port: 5000, Timeout: &config.Timeout{}},

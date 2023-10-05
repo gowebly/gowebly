@@ -154,8 +154,12 @@ func Build(di *injectors.Injector, flag string) error {
 				"info", "margin-left",
 			},
 			{
+				"To print all commands, just run 'gowebly' without any commands or options",
+				"warning", "margin-top",
+			},
+			{
 				fmt.Sprintf("For more information, see %s", constants.LinkToCompleteUserGuide),
-				"warning", "margin-top-bottom",
+				"warning", "margin-bottom",
 			},
 		},
 	)

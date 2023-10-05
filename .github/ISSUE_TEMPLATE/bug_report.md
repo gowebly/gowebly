@@ -16,9 +16,9 @@ assignees: koddr
 
 **My environment:**
 
-- OS: <!-- Run 'uname -a' on terminal and put output here -->
-- Go: <!-- Run 'go version' on terminal and put output here -->
-- gowebly: <!-- Put installed version of the gowebly CLI here -->
+<!-- Run 'gowebly doctor' on your terminal and put output here -->
+
+...
 
 **Describe the bug:**
 
