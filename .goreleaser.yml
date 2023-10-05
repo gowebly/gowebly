@@ -43,7 +43,7 @@ release:
   header: |
     ## ✨ The {{ .ProjectName }} `{{ .Tag }}` release
     
-    <img width="100%" alt="gowebly logo" src="https://github.com/gowebly/gowebly/assets/11155743/55c80da2-30c6-45e7-a813-1ddc42764480">
+    <img width="100%" alt="gowebly banner with logo" src="https://github.com/gowebly/.github/blob/a8ae889ed2c5baefcd307ad4505161f98f75669f/images/gowebly-banner-logo.png">
   footer: |    
     ## How to update?
     
