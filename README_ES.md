@@ -1,4 +1,4 @@
-<img width="256px" alt="gowebly logo" src="https://raw.githubusercontent.com/gowebly/gowebly/main/internal/attachments/templates/static/gowebly-logo.svg">
+<img width="256px" alt="gowebly logo" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly-logo.svg">
 
 # gowebly – Una herramienta CLI de última generación para crear increíbles aplicaciones web en Go utilizando htmx e hyperscript
 
@@ -133,7 +133,7 @@ gowebly init
 > para lectura, `10` para escritura;
 > - Últimas versiones de **htmx** & **hyperscript**.
 
-<img width="720" alt="gowebly init" src="https://github.com/gowebly/gowebly/assets/11155743/679dd0e1-ecd6-4cfb-b145-c9f551ab2d9c">
+<img width="720" alt="gowebly init" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly_init.png">
 
 Normalmente, un archivo de configuración creado contiene las siguientes 
 opciones:
@@ -194,7 +194,7 @@ gowebly create
 > configuración (`.gowebly.yml`), el CLI de `gowebly` crea un nuevo proyecto 
 > con una configuración [por defecto][repo_default_config].
 
-<img width="720" alt="gowebly create" src="https://github.com/gowebly/gowebly/assets/11155743/35b15677-4991-406d-b666-dfbc40beb1ce">
+<img width="720" alt="gowebly create" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly_create.png">
 
 Cada vez que haga `crear` comando para su proyecto:
 
@@ -247,7 +247,7 @@ gowebly run
 > configuración (`.gowebly.yml`), el CLI de `gowebly` ejecuta tu proyecto 
 > con una configuración [por defecto][repo_default_config].
 
-<img width="720" alt="gowebly run" src="https://github.com/gowebly/gowebly/assets/11155743/51c05652-4601-4f8b-8722-20401d0099d1">
+<img width="720" alt="gowebly run" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly_run.png">
 
 Cada vez que haga `run` comando para su proyecto:
 
@@ -275,7 +275,7 @@ gowebly build [OPTION]
 > configuración (`.gowebly.yml`), el CLI de `gowebly` construye tu proyecto 
 > con una configuración [por defecto][repo_default_config].
 
-<img width="720" alt="gowebly build" src="https://github.com/gowebly/gowebly/assets/11155743/ac35b01f-0596-4d33-832e-1618709497d3">
+<img width="720" alt="gowebly build" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly_build.png">
 
 Puedes añadir las siguientes opciones:
 
@@ -312,7 +312,7 @@ gowebly doctor
 > un nuevo [issue][repo_issues_url] con un informe de error en este 
 > repositorio de GitHub.
 
-<img width="720" alt="gowebly doctor" src="https://github.com/koddr/gowebly/assets/11155743/d901ea2e-023b-4f4e-830b-ad8ba26b3910">
+<img width="720" alt="gowebly doctor" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly_doctor.png">
 
 Cada vez que haga `doctor` comando para su sistema:
 

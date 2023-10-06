@@ -23,12 +23,12 @@ func Run(flags []string) error {
 	// Inject all dependencies (config, embed files).
 	di, err := inject()
 	if err != nil {
-		return errors.New(constants.ErrorDependencyInjectionNotComplete)
+		return errors.New(constants.ErrorGoweblyDINotComplete)
 	}
 
 	// Check, if flag set is not empty.
 	if len(flags) == 0 {
-		return commands.Help(di)
+		return commands.Unknown()
 	}
 
 	// Validate a config.
@@ -41,7 +41,7 @@ func Run(flags []string) error {
 	case "init":
 		// Check, if flag set more than 1.
 		if len(flags) > 1 {
-			return fmt.Errorf(constants.ErrorRunCommandWithUnknownFlag, flags[0], flags[1])
+			return fmt.Errorf(constants.ErrorCMDUnknownFlag, flags[0], flags[1])
 		}
 
 		// Init a default YAML config file (.gowebly.yml) in the current folder.
@@ -49,7 +49,7 @@ func Run(flags []string) error {
 	case "create":
 		// Check, if flag set more than 1.
 		if len(flags) > 1 {
-			return fmt.Errorf(constants.ErrorRunCommandWithUnknownFlag, flags[0], flags[1])
+			return fmt.Errorf(constants.ErrorCMDUnknownFlag, flags[0], flags[1])
 		}
 
 		// Creating a new project with the given Go backend.
@@ -57,7 +57,7 @@ func Run(flags []string) error {
 	case "run":
 		// Check, if flag set more than 1.
 		if len(flags) > 1 {
-			return fmt.Errorf(constants.ErrorRunCommandWithUnknownFlag, flags[0], flags[1])
+			return fmt.Errorf(constants.ErrorCMDUnknownFlag, flags[0], flags[1])
 		}
 
 		// Running project in a development mode (non-production).
@@ -66,7 +66,7 @@ func Run(flags []string) error {
 		// Check, if flag set more than 1.
 		if len(flags) > 1 {
 			if flags[1] != "--skip-docker" {
-				return fmt.Errorf(constants.ErrorRunCommandWithUnknownFlag, flags[0], flags[1])
+				return fmt.Errorf(constants.ErrorCMDUnknownFlag, flags[0], flags[1])
 			}
 
 			// Building project to production with skipped Docker part.
@@ -78,13 +78,13 @@ func Run(flags []string) error {
 	case "doctor":
 		// Check, if flag set more than 1.
 		if len(flags) > 1 {
-			return fmt.Errorf(constants.ErrorRunCommandWithUnknownFlag, flags[0], flags[1])
+			return fmt.Errorf(constants.ErrorCMDUnknownFlag, flags[0], flags[1])
 		}
 
 		// Show all information about user's system.
 		return commands.Doctor(di)
 	default:
 		// Show help message.
-		return commands.Help(di)
+		return commands.Unknown()
 	}
 }

@@ -2,7 +2,7 @@ package helpers
 
 import (
 	"embed"
-	"errors"
+	"fmt"
 	"html/template"
 	"io"
 	"os"
@@ -59,7 +59,7 @@ func GenerateFilesByTemplateFromEmbedFS(efs embed.FS, templates []EmbedTemplate)
 	for _, t := range templates {
 		// Check if file exists.
 		if IsExistInFolder(t.OutputFile, false) {
-			return errors.New(constants.ErrorProjectFolderIsNotEmpty)
+			return fmt.Errorf(constants.ErrorOSFileIsExists, t.OutputFile)
 		}
 
 		// Parse template from embed file system.

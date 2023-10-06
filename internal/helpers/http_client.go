@@ -1,10 +1,13 @@
 package helpers
 
 import (
+	"context"
 	"fmt"
 	"io"
 	"net/http"
 	"time"
+
+	"github.com/gowebly/gowebly/internal/constants"
 )
 
 type Download struct {
@@ -24,43 +27,69 @@ func DownloadFiles(files []Download) error {
 		},
 	}
 
+	// Create a new context and a cancel function.
+	ctx, cancel := context.WithCancel(context.Background())
+
+	// Create error channel.
+	errChan := make(chan error, len(files))
+
 	for _, f := range files {
-		// Download and save file from URL.
-		if err := func(f Download, client *http.Client) error {
-			// Download file from the given URL.
-			resp, err := client.Get(f.URL)
+		// Run command process in goroutine.
+		go func(f Download, client *http.Client) {
+			// Notify the main goroutine about the completion of the current goroutine.
+			defer func() { errChan <- nil }()
+
+			// Create a new HTTP request with context.
+			req, err := http.NewRequestWithContext(ctx, http.MethodGet, f.URL, nil)
 			if err != nil {
-				return err
+				errChan <- err
+				return
 			}
-			defer resp.Body.Close()
+
+			// Download file from the given URL.
+			resp, err := client.Do(req)
+			if err != nil {
+				errChan <- err
+				return
+			}
 
 			// Check server response.
 			if resp.StatusCode != http.StatusOK {
-				return fmt.Errorf("http: can't download file from URL '%s' (code %d)", f.URL, resp.StatusCode)
+				errChan <- fmt.Errorf(constants.ErrorHTTPDownloadFile, f.URL, resp.StatusCode)
+				return
 			}
 
 			// Read response body.
 			data, err := io.ReadAll(resp.Body)
 			if err != nil {
-				return err
+				errChan <- err
+				return
 			}
 
 			// Create a temp file for download data.
-			if err := MakeFiles(
-				[]File{
-					{
-						f.OutputFile, data,
-					},
-				},
-			); err != nil {
-				return err
+			if err := MakeFile(File{f.OutputFile, data}); err != nil {
+				errChan <- err
+				return
 			}
 
-			return nil
-		}(f, client); err != nil {
+			if err := resp.Body.Close(); err != nil {
+				errChan <- err
+				return
+			}
+		}(f, client)
+	}
+
+	// Wait for all goroutines to complete.
+	for range files {
+		// Cancel the context if an error occurred.
+		if err := <-errChan; err != nil {
+			cancel()
 			return err
 		}
 	}
+
+	// Cancel the context if the process is successes.
+	cancel()
 
 	return nil
 }
