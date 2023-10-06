@@ -5,14 +5,15 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
+
+	"github.com/gowebly/gowebly/internal/constants"
 )
 
 // Command represents a struct for cmd commands.
 type Command struct {
-	SkipOutput bool
-	Name       string
-	Options    []string
-	EnvVars    []string
+	SkipOutput       bool
+	Name             string
+	Options, EnvVars []string
 }
 
 // Execute executes all commands with (or without) options.
@@ -37,7 +38,7 @@ func Execute(commands []Command) error {
 
 		// Run command process.
 		if err := cmd.Run(); err != nil {
-			return fmt.Errorf("cmd: can't execute command '%s %s'", c.Name, c.Options)
+			return fmt.Errorf(constants.ErrorCMDCanNotExecuteCommand, c.Name, c.Options)
 		}
 	}
 
@@ -47,7 +48,7 @@ func Execute(commands []Command) error {
 // ExecuteInGoroutine executes all commands with (or without) options in a
 // separated goroutines.
 func ExecuteInGoroutine(commands []Command) error {
-	// Create context and cancel function.
+	// Create a new context and a cancel function.
 	ctx, cancel := context.WithCancel(context.Background())
 
 	// Create error channel.
@@ -78,7 +79,7 @@ func ExecuteInGoroutine(commands []Command) error {
 
 			// Run the current cmd command.
 			if err := cmd.Run(); err != nil {
-				errChan <- err
+				errChan <- fmt.Errorf(constants.ErrorCMDCanNotExecuteCommand, c.Name, c.Options)
 				return
 			}
 		}(c)

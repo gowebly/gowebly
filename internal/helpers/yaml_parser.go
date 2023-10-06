@@ -10,6 +10,7 @@ import (
 	"github.com/knadh/koanf/v2"
 
 	"github.com/gowebly/gowebly/internal/attachments"
+	"github.com/gowebly/gowebly/internal/constants"
 )
 
 // ParseYAMLToStruct parses the given YAML file from a path to struct *T using
@@ -17,7 +18,7 @@ import (
 func ParseYAMLToStruct[T any](path string, model *T) (*T, error) {
 	// Check, if path is not empty.
 	if path == "" {
-		return nil, errors.New("the given path of the YAML config file is empty")
+		return nil, errors.New(constants.ErrorGoweblyConfigPathIsEmpty)
 	}
 
 	// Create a new koanf instance and parse the given path.
@@ -28,7 +29,7 @@ func ParseYAMLToStruct[T any](path string, model *T) (*T, error) {
 
 	// Unmarshal structured data to the given struct.
 	if err = k.Unmarshal("", &model); err != nil {
-		return nil, errors.New("fail unmarshalling data from the YAML config file to struct")
+		return nil, errors.New(constants.ErrorGoweblyUnmarshalConfigFileToStructNotComplete)
 	}
 
 	return model, nil
@@ -50,7 +51,7 @@ func newKoanfByPath(path string) (*koanf.Koanf, error) {
 		// Else, read the default config file from the embed.FS.
 		defaultConfig, err := attachments.ConfigsFiles.ReadFile("configs/default.yml")
 		if err != nil {
-			return nil, errors.New("a default YAML config file is not found")
+			return nil, errors.New(constants.ErrorGoweblyDefaultYAMLConfigFileNotFound)
 		}
 
 		// Set provider to the rawbytes.Provider with a default config file.
@@ -59,7 +60,7 @@ func newKoanfByPath(path string) (*koanf.Koanf, error) {
 
 	// Load structured file from the given provider with the koanf's yaml.Parser.
 	if err := k.Load(provider, yaml.Parser()); err != nil {
-		return nil, errors.New("not valid structure of the YAML config file from the given path")
+		return nil, errors.New(constants.ErrorGoweblyYAMLConfigFileNotValid)
 	}
 
 	return k, nil

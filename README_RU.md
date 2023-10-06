@@ -1,4 +1,4 @@
-<img width="256px" alt="gowebly logo" src="https://raw.githubusercontent.com/gowebly/gowebly/main/internal/attachments/templates/static/gowebly-logo.svg">
+<img width="256px" alt="gowebly logo" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly-logo.svg">
 
 # gowebly – CLI-инструмент нового поколения для создания удивительных веб-приложений на языке Go с использованием htmx и hyperscript
 
@@ -129,7 +129,7 @@ gowebly init
 > записи;
 > - Последние версии **htmx** и **hyperscript**.
 
-<img width="720" alt="gowebly init" src="https://github.com/gowebly/gowebly/assets/11155743/679dd0e1-ecd6-4cfb-b145-c9f551ab2d9c">
+<img width="720" alt="gowebly init" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly_init.png">
 
 Как правило, созданный файл конфигурации содержит следующие настройки:
 
@@ -191,7 +191,7 @@ gowebly create
 > конфигурации (`.gowebly.yml`), то `gowebly` CLI создает новый проект с 
 > конфигурацией [по умолчанию][repo_default_config].
 
-<img width="720" alt="gowebly create" src="https://github.com/gowebly/gowebly/assets/11155743/35b15677-4991-406d-b666-dfbc40beb1ce">
+<img width="720" alt="gowebly create" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly_create.png">
 
 Каждый раз, когда вы выполняете команду `create` для своего проекта:
 
@@ -242,7 +242,7 @@ gowebly run
 > конфигурации (`.gowebly.yml`), то `gowebly` CLI запустит ваш проект с 
 > конфигурацией [по умолчанию][repo_default_config].
 
-<img width="720" alt="gowebly run" src="https://github.com/gowebly/gowebly/assets/11155743/51c05652-4601-4f8b-8722-20401d0099d1">
+<img width="720" alt="gowebly run" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly_run.png">
 
 Каждый раз, когда вы выполняете команду `run` для своего проекта:
 
@@ -269,7 +269,7 @@ gowebly build [OPTION]
 > конфигурационного файла (`.gowebly.yml`), то `gowebly` CLI собирает проект 
 > с конфигурацией [по умолчанию][repo_default_config].
 
-<img width="720" alt="gowebly build" src="https://github.com/gowebly/gowebly/assets/11155743/ac35b01f-0596-4d33-832e-1618709497d3">
+<img width="720" alt="gowebly build" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly_build.png">
 
 Вы можете добавить следующие опции:
 
@@ -304,7 +304,7 @@ gowebly doctor
 > 💡 Примечание: Это очень полезно для процесса отладки, или создания нового 
 > [issue][repo_issues_url] с сообщением об ошибке в этом GitHub-репозитории.
 
-<img width="720" alt="gowebly doctor" src="https://github.com/koddr/gowebly/assets/11155743/d901ea2e-023b-4f4e-830b-ad8ba26b3910">
+<img width="720" alt="gowebly doctor" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly_doctor.png">
 
 Каждый раз, когда вы выполняете команду `doctor` для вашей системы:
 

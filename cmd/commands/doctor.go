@@ -53,20 +53,17 @@ func Doctor(di *injectors.Injector) error {
 				"success", "margin-left",
 			},
 			{
-				tools["go"][0],
-				tools["go"][1], "margin-left",
+				tools[0].Output, tools[0].Status, "margin-left",
 			},
 			{
-				tools["docker"][0],
-				tools["docker"][1], "margin-left",
+				tools[1].Output, tools[1].Status, "margin-left",
 			},
 			{
-				tools["docker-compose"][0],
-				tools["docker-compose"][1], "margin-left",
+				tools[2].Output, tools[2].Status, "margin-left",
 			},
 			{
-				fmt.Sprintf("%s %s", frontendRuntime, tools[frontendRuntime][0]),
-				tools[frontendRuntime][1], "margin-left",
+				fmt.Sprintf("%s %s", frontendRuntime, tools[3].Output),
+				tools[3].Status, "margin-left",
 			},
 			{
 				"Next steps:", "", "margin-top-bottom",

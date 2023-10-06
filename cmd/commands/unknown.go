@@ -5,11 +5,10 @@ import (
 
 	"github.com/gowebly/gowebly/internal/constants"
 	"github.com/gowebly/gowebly/internal/helpers"
-	"github.com/gowebly/gowebly/internal/injectors"
 )
 
-// Help runs the 'help' cmd command or nothing.
-func Help(di *injectors.Injector) error {
+// Unknown runs an unknown cmd command or nothing.
+func Unknown() error {
 	// Print block of messages.
 	helpers.PrintStyledBlock(
 		[]helpers.StyledOutput{
@@ -34,8 +33,12 @@ func Help(di *injectors.Injector) error {
 				"info", "margin-left",
 			},
 			{
-				"'build' to build your project for production and prepare Docker files for deploy",
+				"'build [OPTION]' to build your project for production and prepare Docker files for deploy",
 				"info", "margin-left",
+			},
+			{
+				"option '--skip-docker' to skip generation process for the Docker files",
+				"info", "margin-left-2",
 			},
 			{
 				"'doctor' to show all information about your system (for self-debug or issue on GitHub)",

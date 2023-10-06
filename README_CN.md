@@ -1,4 +1,4 @@
-<img width="256px" alt="gowebly logo" src="https://raw.githubusercontent.com/gowebly/gowebly/main/internal/attachments/templates/static/gowebly-logo.svg">
+<img width="256px" alt="gowebly logo" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly-logo.svg">
 
 # gowebly – 新一代 CLI 工具，可使用 htmx 和 hyperscript 在 Go 中构建令人惊叹的网络应用程序
 
@@ -105,7 +105,7 @@ gowebly init
 > - 服务器端口为 `5000`，超时（秒）： 读取超时 5 秒，写入超时 10 秒；
 > - 最新版本的 htmx 和 hyperscript。
 
-<img width="720" alt="gowebly init" src="https://github.com/gowebly/gowebly/assets/11155743/679dd0e1-ecd6-4cfb-b145-c9f551ab2d9c">
+<img width="720" alt="gowebly init" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly_init.png">
 
 通常情况下，创建的配置文件包含以下选项：
 
@@ -161,7 +161,7 @@ gowebly create
 > 💡 注意：如果不运行 `init` 命令来创建配置文件（`.gowebly.yml`），则 `gowebly` CLI 会以 
 > [default][repo_default_config] 配置创建一个新项目。
 
-<img width="720" alt="gowebly create" src="https://github.com/gowebly/gowebly/assets/11155743/35b15677-4991-406d-b666-dfbc40beb1ce">
+<img width="720" alt="gowebly create" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly_create.png">
 
 每次为项目执行 `create` 命令时：
 
@@ -208,7 +208,7 @@ gowebly run
 > 💡 注意：如果不运行 `init` 命令来创建配置文件（`.gowebly.yml`），则 `gowebly` CLI 会以 
 > [default][repo_default_config] 配置运行项目。
 
-<img width="720" alt="gowebly run" src="https://github.com/gowebly/gowebly/assets/11155743/51c05652-4601-4f8b-8722-20401d0099d1">
+<img width="720" alt="gowebly run" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly_run.png">
 
 每次为项目执行 `run` 命令时：
 
@@ -229,7 +229,7 @@ gowebly build [OPTION]
 > 💡 注意：如果不运行 `init` 命令来创建配置文件（`.gowebly.yml`），则 `gowebly` CLI 会以 
 > [default][repo_default_config] 配置来构建项目。
 
-<img width="720" alt="gowebly build" src="https://github.com/gowebly/gowebly/assets/11155743/ac35b01f-0596-4d33-832e-1618709497d3">
+<img width="720" alt="gowebly build" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly_build.png">
 
 您可以添加以下选项：
 
@@ -259,7 +259,7 @@ gowebly doctor
 
 > 💡 注意：这对自我调试过程或在 GitHub 仓库中创建新的 [issue][repo_issues_url] 错误报告非常有用。
 
-<img width="720" alt="gowebly doctor" src="https://github.com/koddr/gowebly/assets/11155743/d901ea2e-023b-4f4e-830b-ad8ba26b3910">
+<img width="720" alt="gowebly doctor" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly_doctor.png">
 
 每次为系统执行 `doctor` 命令时：
 

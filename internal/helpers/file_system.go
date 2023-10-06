@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+
+	"github.com/gowebly/gowebly/internal/constants"
 )
 
 // File represent a struct to a file.
@@ -24,16 +26,21 @@ func IsExistInFolder(name string, isFolder bool) bool {
 	return false
 }
 
+// MakeFile makes a single file with name and data.
+func MakeFile(file File) error {
+	// Check, if file is existing.
+	if IsExistInFolder(file.Name, false) {
+		return fmt.Errorf(constants.ErrorOSFileIsExists, file.Name)
+	}
+
+	return os.WriteFile(file.Name, file.Data, 0o600)
+}
+
 // MakeFiles makes a multiply files with names and data.
 func MakeFiles(files []File) error {
 	for _, f := range files {
-		// Check, if file is existing.
-		if IsExistInFolder(f.Name, false) {
-			return fmt.Errorf("os: file with name '%s' is found in the current folder, cannot be overwritten", f.Name)
-		}
-
 		// Create a new file.
-		if err := os.WriteFile(f.Name, f.Data, 0o600); err != nil {
+		if err := MakeFile(f); err != nil {
 			return err
 		}
 	}
@@ -46,10 +53,7 @@ func MakeFolders(names ...string) error {
 	for _, name := range names {
 		// Check, if folder is existing.
 		if IsExistInFolder(name, true) {
-			return fmt.Errorf(
-				"os: folder with name '%s' is found in the current folder, cannot be overwritten",
-				name,
-			)
+			return fmt.Errorf(constants.ErrorOSFolderIsExists, name)
 		}
 
 		// Create a new folder.
@@ -66,7 +70,7 @@ func RemoveFiles(names ...string) error {
 	for _, name := range names {
 		// Remove file by name.
 		if err := os.Remove(name); err != nil {
-			return fmt.Errorf("os: can't remove a file with name '%s'", name)
+			return fmt.Errorf(constants.ErrorOSRemoveFile, name)
 		}
 	}
 
