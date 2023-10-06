@@ -43,8 +43,8 @@ release:
   header: |
     ## ✨ The {{ .ProjectName }} `{{ .Tag }}` release
     
-    <img width="100%" alt="gowebly banner with logo" src="https://github.com/gowebly/.github/blob/a8ae889ed2c5baefcd307ad4505161f98f75669f/images/gowebly-banner-logo.png">
-  footer: |    
+    <img width="100%" alt="gowebly banner with logo" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly-banner-logo.png">
+  footer: |
     ## How to update?
     
     For native Go installation (any platforms):
