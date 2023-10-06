@@ -40,7 +40,7 @@ func DownloadFiles(files []Download) error {
 			defer func() { errChan <- nil }()
 
 			// Create a new HTTP request with context.
-			req, err := http.NewRequestWithContext(ctx, http.MethodGet, f.URL, nil)
+			req, err := http.NewRequestWithContext(ctx, http.MethodGet, f.URL, http.NoBody)
 			if err != nil {
 				errChan <- err
 				return
