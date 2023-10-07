@@ -299,7 +299,7 @@ Every time you make `build` command for your project:
 
 ### `doctor`
 
-Command to show a helpful **information** about your system.
+Command to show helpful **information** about your system.
 
 ```console
 gowebly doctor

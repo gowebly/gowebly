@@ -5,7 +5,7 @@ const (
 		List of the internal gowebly error messages.
 	*/
 
-	// ErrorGoweblyDINotComplete represents error message, when a config path is empty.
+	// ErrorGoweblyConfigPathIsEmpty represents error message, when a config path is empty.
 	ErrorGoweblyConfigPathIsEmpty string = "gowebly: a path of the config file is empty"
 	// ErrorGoweblyDINotComplete represents error message, when dependency injection not complete.
 	ErrorGoweblyDINotComplete string = "gowebly: a dependency injection process is not complete"

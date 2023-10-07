@@ -125,7 +125,7 @@ gowebly init
 > en **project**;
 > - Sin ningún framework Go para la parte backend (sólo paquete integrado 
 > **net/http**);
-> - Sin ningún framework CSS para la parte frontend (sólo estilos por defecto 
+> - Sin ningún framework CSS para la parte frontend (solo estilos por defecto 
 > para el código de ejemplo);
 > - El entorno de ejecución JavaScript para la parte frontend utilizará 
 > **Node.js**;
@@ -198,7 +198,7 @@ gowebly create
 
 Cada vez que haga `crear` comando para su proyecto:
 
-1. CLI valida la configuración y aplica todos los ajustes al proyecto actual;
+1. CLI válida la configuración y aplica todos los ajustes al proyecto actual;
 2. CLI prepara la parte backend de tu proyecto (genera la estructura del 
    proyecto y los archivos de utilidades necesarios, ejecuta `go mod tidy`);
 3. CLI prepara la parte frontend de tu proyecto (genera los archivos de 
@@ -285,7 +285,7 @@ Puedes añadir las siguientes opciones:
 
 Cada vez que haga `build` comando para su proyecto:
 
-1. CLI valida la configuración y aplica todos los ajustes al proyecto actual;
+1. CLI válida la configuración y aplica todos los ajustes al proyecto actual;
 2. CLI descarga versiones minimizadas de **htmx** y **hyperscript** (desde 
    el CDN oficial y de confianza [unpkg.com][unpkg_url]) a la carpeta
    `./static` y las coloca como etiquetas separadas `<script>` (al final de la 
@@ -317,7 +317,7 @@ gowebly doctor
 Cada vez que haga `doctor` comando para su sistema:
 
 1. CLI comprueba las versiones de todas las herramientas necesarias para que 
-   tu proyecto tenga éxito (como gowebly CLI, Go, Node.js, Docker, Docker 
+   tu proyecto tenga éxito (como `gowebly` CLI, Go, Node.js, Docker, Docker 
    Compose, etc.);
 2. CLI produce un informe con la versión instalada para cada herramienta.
 
@@ -380,7 +380,7 @@ día.
 - [Issues][repo_issues_url]: haz preguntas y envía tus funcionalidades.
 - [Pull requests][repo_pull_request_url]: envía tus mejoras a la corriente.
 
-¡Tus PR y issues son bienvenidos! Gracias 😘
+¡Tus PR e issues son bienvenidos! Gracias 😘
 
 ### 🌟 Guardianes de la Galaxia
 

@@ -27,27 +27,27 @@ func Create(di *injectors.Injector) error {
 		di.Attachments.Templates,
 		[]helpers.EmbedTemplate{
 			{
-				filepath.Join("templates", "backend", di.Config.Backend.GoFramework, "go.mod.tmpl"),
+				fmt.Sprintf("templates/backend/%s/go.mod.tmpl", di.Config.Backend.GoFramework),
 				"go.mod",
 				di.Config.Backend,
 			},
 			{
-				filepath.Join("templates", "backend", di.Config.Backend.GoFramework, "handlers.go.tmpl"),
+				fmt.Sprintf("templates/backend/%s/handlers.go.tmpl", di.Config.Backend.GoFramework),
 				"handlers.go",
 				nil,
 			},
 			{
-				filepath.Join("templates", "backend", di.Config.Backend.GoFramework, "server.go.tmpl"),
+				fmt.Sprintf("templates/backend/%s/server.go.tmpl", di.Config.Backend.GoFramework),
 				"server.go",
 				di.Config.Backend,
 			},
 			{
-				filepath.Join("templates", "backend", di.Config.Backend.GoFramework, "main.go.tmpl"),
+				fmt.Sprintf("templates/backend/%s/main.go.tmpl", di.Config.Backend.GoFramework),
 				"main.go",
 				di.Config.Backend,
 			},
 			{
-				filepath.Join("templates", "misc", "gitignore.tmpl"),
+				"templates/misc/gitignore.tmpl",
 				".gitignore",
 				di.Config.Frontend,
 			},
@@ -67,28 +67,24 @@ func Create(di *injectors.Injector) error {
 		di.Attachments.Templates,
 		[]helpers.EmbedFile{
 			{
-				filepath.Join("templates", "frontend", "main.html"),
+				"templates/frontend/main.html",
 				filepath.Join("templates", "main.html"),
 			},
 			{
-				filepath.Join(
-					"templates", "frontend", di.Config.Frontend.CSSFramework, "index.html",
-				),
+				fmt.Sprintf("templates/frontend/%s/index.html", di.Config.Frontend.CSSFramework),
 				filepath.Join("templates", "pages", "index.html"),
 			},
 			{
-				filepath.Join(
-					"templates", "frontend", di.Config.Frontend.CSSFramework, "assets", "styles.css",
-				),
+				fmt.Sprintf("templates/frontend/%s/assets/styles.css", di.Config.Frontend.CSSFramework),
 				filepath.Join("assets", "styles.css"),
 			},
 			{
-				filepath.Join("templates", "static", "favicon.ico"),
+				"static/favicon.ico",
 				filepath.Join("static", "favicon.ico"),
 			},
 			{
-				filepath.Join("templates", "static", "gowebly-logo.svg"),
-				filepath.Join("static", "gowebly-logo.svg"),
+				"static/logo.svg",
+				filepath.Join("static", "logo.svg"),
 			},
 		},
 	); err != nil {
@@ -100,9 +96,7 @@ func Create(di *injectors.Injector) error {
 		di.Attachments.Templates,
 		[]helpers.EmbedTemplate{
 			{
-				filepath.Join(
-					"templates", "frontend", di.Config.Frontend.CSSFramework, "package.json.tmpl",
-				),
+				fmt.Sprintf("templates/frontend/%s/package.json.tmpl", di.Config.Frontend.CSSFramework),
 				"package.json",
 				di.Config.Frontend,
 			},
@@ -119,11 +113,11 @@ func Create(di *injectors.Injector) error {
 			di.Attachments.Templates,
 			[]helpers.EmbedFile{
 				{
-					filepath.Join("templates", "frontend", "tailwindcss", "postcssrc.tmpl"),
+					"templates/frontend/tailwindcss/postcssrc.tmpl",
 					".postcssrc",
 				},
 				{
-					filepath.Join("templates", "frontend", "tailwindcss", "tailwind.config.js"),
+					"templates/frontend/tailwindcss/tailwind.config.js",
 					"tailwind.config.js",
 				},
 			},
@@ -136,11 +130,11 @@ func Create(di *injectors.Injector) error {
 			di.Attachments.Templates,
 			[]helpers.EmbedFile{
 				{
-					filepath.Join("templates", "frontend", "unocss", "postcssrc.tmpl"),
+					"templates/frontend/unocss/postcssrc.tmpl",
 					".postcssrc",
 				},
 				{
-					filepath.Join("templates", "frontend", "unocss", "uno.config.ts"),
+					"templates/frontend/unocss/uno.config.ts",
 					"uno.config.ts",
 				},
 			},

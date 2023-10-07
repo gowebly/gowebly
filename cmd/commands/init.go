@@ -16,18 +16,16 @@ func Init(di *injectors.Injector) error {
 		"wait", "margin-top",
 	)
 
-	// Read the attachments (embedded) config file.
-	cfgFile, err := di.Attachments.Configs.ReadFile("configs/default.yml")
-	if err != nil {
-		return err
-	}
-
-	// Create a config file.
-	if err := helpers.MakeFiles([]helpers.File{
-		{
-			constants.YAMLConfigFileName, cfgFile,
+	// Copy a default config file from the embed file system.
+	if err := helpers.CopyFilesFromEmbedFS(
+		di.Attachments.Templates,
+		[]helpers.EmbedFile{
+			{
+				"configs/default.yml",
+				constants.YAMLConfigFileName,
+			},
 		},
-	}); err != nil {
+	); err != nil {
 		return err
 	}
 
