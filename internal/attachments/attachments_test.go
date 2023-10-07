@@ -7,5 +7,5 @@ import (
 )
 
 func TestNew(t *testing.T) {
-	require.EqualValues(t, New(), &Files{Configs: ConfigsFiles, Templates: TemplatesFiles})
+	require.EqualValues(t, New(), &Files{Configs: ConfigsFiles, Templates: TemplatesFiles, Static: StaticFiles})
 }
