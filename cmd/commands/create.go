@@ -78,6 +78,15 @@ func Create(di *injectors.Injector) error {
 				fmt.Sprintf("templates/frontend/%s/assets/styles.css", di.Config.Frontend.CSSFramework),
 				filepath.Join("assets", "styles.css"),
 			},
+		},
+	); err != nil {
+		return err
+	}
+
+	// Copy static files from the embed file system.
+	if err := helpers.CopyFilesFromEmbedFS(
+		di.Attachments.Static,
+		[]helpers.EmbedFile{
 			{
 				"static/favicon.ico",
 				filepath.Join("static", "favicon.ico"),
