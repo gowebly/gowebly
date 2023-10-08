@@ -7,7 +7,7 @@
 [![Code coverage][go_code_coverage_img]][go_code_coverage_url]
 [![License][repo_license_img]][repo_license_url]
 
-[English][repo_url] | [Русский][repo_readme_ru_url] | **中文** | 
+[English][repo_url] | [Русский][repo_readme_ru_url] | **简体中文** | 
 [Español][repo_readme_es_url]
 
 这款 CLI 工具可在后端使用 **Go**，在前端使用 [**htmx**][htmx_url] 和 
@@ -18,6 +18,7 @@
 - 根据 [Apache 2.0][repo_license_url] 许可，100%免费开源；
 - 适用于任何知识水平和技术专长的开发人员；
 - 文档齐全，作者提供了大量提示和帮助；
+- 跨平台和多体系结构允许在 GNU/Linux、MS Windows（包括 WSL）和 Apple macOS 上成功运行；
 - 智能 CLI，可完成大部分常规设置和生产准备工作；
 - 有助于更快地进入 Go + htmx + hyperscript 技术栈；
 - 可在项目中添加即用型和完全定制的原子/实用工具优先 CSS 框架；
@@ -179,7 +180,13 @@ gowebly create
 ├── assets
 │   └── styles.css
 ├── static
-│   ├── favicon.ico
+│   ├── favicons
+│   │   ├── apple-touch-icon.png
+│   │   ├── favicon.png
+│   │   ├── favicon.svg
+│   │   └── favicon.ico
+│   ├── images
+│   │   └── logo.svg
 │   ├── htmx.min.js
 │   ├── hyperscript.min.js
 │   └── styles.css
@@ -192,7 +199,6 @@ gowebly create
 ├── go.sum
 ├── handlers.go
 ├── main.go
-├── package-lock.json
 ├── package.json
 └── server.go
 ```

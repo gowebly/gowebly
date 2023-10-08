@@ -7,7 +7,7 @@
 [![Code coverage][go_code_coverage_img]][go_code_coverage_url]
 [![License][repo_license_img]][repo_license_url]
 
-**English** | [Русский][repo_readme_ru_url] | [中文][repo_readme_cn_url] | 
+**English** | [Русский][repo_readme_ru_url] | [简体中文][repo_readme_cn_url] | 
 [Español][repo_readme_es_url]
 
 This CLI tool can easily build amazing web applications with **Go** 
@@ -20,6 +20,8 @@ Features:
   license;
 - For **any** level of developer's knowledge and technical expertise;
 - **Well-documented**, with a lot of tips and assists from the authors;
+- Cross-platform and multi-architecture allows **successful running** on 
+  GNU/Linux, MS Windows (including WSL) and Apple macOS;
 - Smart CLI that **does most** of the routine setup and preparation for 
   production;
 - Helps to get into the **Go** + **htmx** + **hyperscript** technology 
@@ -106,7 +108,7 @@ needed information, feel free to create an [issue][repo_issues_url] or send a
 [PR][repo_pull_request_url] to this repository.
 
 Don't forget to switch this page for your language (current is
-**English**): [Русский][repo_readme_ru_url], [中文][repo_readme_cn_url],
+**English**): [Русский][repo_readme_ru_url], [简体中文][repo_readme_cn_url],
 [Español][repo_readme_es_url].
 
 ### `init`
@@ -215,7 +217,13 @@ Typically, a created project contains the following files and folders:
 ├── assets
 │   └── styles.css
 ├── static
-│   ├── favicon.ico
+│   ├── favicons
+│   │   ├── apple-touch-icon.png
+│   │   ├── favicon.png
+│   │   ├── favicon.svg
+│   │   └── favicon.ico
+│   ├── images
+│   │   └── logo.svg
 │   ├── htmx.min.js
 │   ├── hyperscript.min.js
 │   └── styles.css
@@ -228,7 +236,6 @@ Typically, a created project contains the following files and folders:
 ├── go.sum
 ├── handlers.go
 ├── main.go
-├── package-lock.json
 ├── package.json
 └── server.go
 ```
