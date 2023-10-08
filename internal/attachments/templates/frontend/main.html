@@ -5,9 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline';">
+        <meta name="theme-color" content="#FEFEF5">
         <title>{{ block "title" . }}{{ end }}</title>
         {{ block "meta" . }}{{ end }}
-        <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
+        <link rel="apple-touch-icon" href="/static/favicons/apple-touch-icon.png">
+        <link rel="shortcut icon" href="/static/favicons/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/static/favicons/favicon.svg" type="image/svg+xml">
+        <link rel="icon" href="/static/favicons/favicon.png" sizes="any">
         <link href="/static/styles.css" rel="stylesheet">
         {{ block "styles" .}}{{ end }}
     </head>
