@@ -7,8 +7,8 @@
 [![Code coverage][go_code_coverage_img]][go_code_coverage_url]
 [![License][repo_license_img]][repo_license_url]
 
-[English][repo_url] | [Русский][repo_readme_ru_url] | [中文][repo_readme_cn_url] 
-| **Español**
+[English][repo_url] | [Русский][repo_readme_ru_url] | 
+[简体中文][repo_readme_cn_url] | **Español**
 
 Esta herramienta CLI puede construir fácilmente increíbles aplicaciones web 
 con **Go** en el backend, utilizando [**htmx**][htmx_url] & 
@@ -22,6 +22,8 @@ Características:
 - Para **cualquier** nivel de conocimiento y experiencia técnica del 
   desarrollador;
 - **Bien documentado**, con muchos consejos y ayudas de los autores;
+- Multiplataforma y multiarquitectura permite **ejecutar con éxito** en 
+  GNU/Linux, MS Windows (incluido WSL) y Apple macOS;
 - CLI inteligente que **hace la mayor parte** de la rutina de configuración 
   y preparación para la producción;
 - Ayuda a entrar más rápidamente en la pila tecnológica **Go** + **htmx** + 
@@ -217,7 +219,13 @@ Típicamente, un proyecto creado contiene los siguientes archivos y carpetas:
 ├── assets
 │   └── styles.css
 ├── static
-│   ├── favicon.ico
+│   ├── favicons
+│   │   ├── apple-touch-icon.png
+│   │   ├── favicon.png
+│   │   ├── favicon.svg
+│   │   └── favicon.ico
+│   ├── images
+│   │   └── logo.svg
 │   ├── htmx.min.js
 │   ├── hyperscript.min.js
 │   └── styles.css
@@ -230,7 +238,6 @@ Típicamente, un proyecto creado contiene los siguientes archivos y carpetas:
 ├── go.sum
 ├── handlers.go
 ├── main.go
-├── package-lock.json
 ├── package.json
 └── server.go
 ```

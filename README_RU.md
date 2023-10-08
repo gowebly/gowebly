@@ -7,7 +7,7 @@
 [![Code coverage][go_code_coverage_img]][go_code_coverage_url]
 [![License][repo_license_img]][repo_license_url]
 
-[English][repo_url] | **Русский** | [中文][repo_readme_cn_url] |
+[English][repo_url] | **Русский** | [简体中文][repo_readme_cn_url] |
 [Español][repo_readme_es_url]
 
 С помощью этого CLI-инструмента можно легко создавать удивительные 
@@ -21,6 +21,8 @@
   [Apache 2.0][repo_license_url];
 - Для **любого** уровня знаний и технической экспертизы разработчика;
 - **Хорошо документирован**, содержит множество советов и подсказок от авторов;
+- Кроссплатформенность и мультиархитектурность позволяют **успешно 
+  работать** под GNU/Linux, MS Windows (включая WSL) и Apple macOS;
 - Умный CLI, который **делает большую часть** рутинной настройки и 
   подготовки к продакшену;
 - Помогает быстрее войти в стек технологий **Go** + **htmx** + **hyperscript**;
@@ -212,7 +214,13 @@ gowebly create
 ├── assets
 │   └── styles.css
 ├── static
-│   ├── favicon.ico
+│   ├── favicons
+│   │   ├── apple-touch-icon.png
+│   │   ├── favicon.png
+│   │   ├── favicon.svg
+│   │   └── favicon.ico
+│   ├── images
+│   │   └── logo.svg
 │   ├── htmx.min.js
 │   ├── hyperscript.min.js
 │   └── styles.css
@@ -225,7 +233,6 @@ gowebly create
 ├── go.sum
 ├── handlers.go
 ├── main.go
-├── package-lock.json
 ├── package.json
 └── server.go
 ```
