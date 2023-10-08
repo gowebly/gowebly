@@ -11,29 +11,42 @@ import (
 )
 
 func TestValidate(t *testing.T) {
-	err := Validate(&config.Config{
-		Backend:  nil,
-		Frontend: nil,
-	})
-	require.EqualError(t, err, fmt.Sprintf(constants.ErrorValidateConfigBlockNotFound, "backend"))
-
-	err = Validate(&config.Config{
-		Backend:  &config.Backend{ModuleName: "project", GoFramework: "default", Port: 5000, Timeout: nil},
-		Frontend: nil,
-	})
-	require.EqualError(t, err, fmt.Sprintf(constants.ErrorValidateConfigOptionInBlockNotFound, "timeout", "backend"))
-
-	err = Validate(&config.Config{
-		Backend:  &config.Backend{ModuleName: "project", GoFramework: "default", Port: 5000, Timeout: &config.Timeout{Read: 0, Write: 0}},
-		Frontend: nil,
-	})
-	require.EqualError(t, err, fmt.Sprintf(constants.ErrorValidateConfigBlockNotFound, "frontend"))
-
-	timeout := &config.Timeout{Read: 0, Write: 0}
-
-	err = Validate(&config.Config{
-		Backend:  &config.Backend{ModuleName: "project", GoFramework: "default", Port: 5000, Timeout: timeout},
-		Frontend: &config.Frontend{PackageName: "project", CSSFramework: "default", RuntimeEnvironment: "default", HTMX: "latest", Hyperscript: "latest"},
-	})
-	require.NoError(t, err)
+	require.EqualError(
+		t,
+		Validate(&config.Config{
+			Backend:  nil,
+			Frontend: nil,
+		}),
+		fmt.Sprintf(constants.ErrorValidateConfigBlockNotFound, "backend"),
+	)
+	require.EqualError(
+		t,
+		Validate(&config.Config{
+			Backend:  &config.Backend{ModuleName: "project", GoFramework: "default", Port: 5000, Timeout: nil},
+			Frontend: nil,
+		}),
+		fmt.Sprintf(constants.ErrorValidateConfigOptionInBlockNotFound, "timeout", "backend"),
+	)
+	require.EqualError(
+		t,
+		Validate(&config.Config{
+			Backend: &config.Backend{
+				ModuleName: "project", GoFramework: "default", Port: 5000, Timeout: &config.Timeout{Read: 0, Write: 0},
+			},
+			Frontend: nil,
+		}),
+		fmt.Sprintf(constants.ErrorValidateConfigBlockNotFound, "frontend"),
+	)
+	require.NoError(
+		t,
+		Validate(&config.Config{
+			Backend: &config.Backend{
+				ModuleName: "project", GoFramework: "default", Port: 5000, Timeout: &config.Timeout{Read: 0, Write: 0},
+			},
+			Frontend: &config.Frontend{
+				PackageName: "project", CSSFramework: "default", RuntimeEnvironment: "default",
+				HTMX: "latest", Hyperscript: "latest",
+			},
+		}),
+	)
 }

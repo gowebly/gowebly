@@ -34,7 +34,7 @@ func DownloadFiles(files []Download) error {
 	errChan := make(chan error, len(files))
 
 	for _, f := range files {
-		// Run command process in goroutine.
+		// Run download process in goroutine.
 		go func(f Download, client *http.Client) {
 			// Notify the main goroutine about the completion of the current goroutine.
 			defer func() { errChan <- nil }()
@@ -66,12 +66,13 @@ func DownloadFiles(files []Download) error {
 				return
 			}
 
-			// Create a temp file for download data.
+			// Create a temp file for the downloaded data.
 			if err := MakeFile(File{f.OutputFile, data}); err != nil {
 				errChan <- err
 				return
 			}
 
+			// Close response body.
 			if err := resp.Body.Close(); err != nil {
 				errChan <- err
 				return

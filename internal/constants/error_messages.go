@@ -40,8 +40,8 @@ const (
 
 	// ErrorCMDUnknownFlag represents error message, when user run cmd command with unknown flag.
 	ErrorCMDUnknownFlag string = "cmd: unknown flag '%s' for the '%s' command"
-	// ErrorCMDCanNotExecuteCommand represents error message, when a cmd command was not executed.
-	ErrorCMDCanNotExecuteCommand string = "cmd: can't execute command '%s' with options %s"
+	// ErrorCMDNotExecuteCommand represents error message, when a cmd command was not executed.
+	ErrorCMDNotExecuteCommand string = "cmd: can't execute command '%s' with options %s"
 
 	/*
 		List of the error messages for validators.

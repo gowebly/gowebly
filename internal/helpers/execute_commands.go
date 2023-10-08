@@ -38,7 +38,7 @@ func Execute(commands []Command) error {
 
 		// Run command process.
 		if err := cmd.Run(); err != nil {
-			return fmt.Errorf(constants.ErrorCMDCanNotExecuteCommand, c.Name, c.Options)
+			return fmt.Errorf(constants.ErrorCMDNotExecuteCommand, c.Name, c.Options)
 		}
 	}
 
@@ -79,7 +79,7 @@ func ExecuteInGoroutine(commands []Command) error {
 
 			// Run the current cmd command.
 			if err := cmd.Run(); err != nil {
-				errChan <- fmt.Errorf(constants.ErrorCMDCanNotExecuteCommand, c.Name, c.Options)
+				errChan <- fmt.Errorf(constants.ErrorCMDNotExecuteCommand, c.Name, c.Options)
 				return
 			}
 		}(c)

@@ -12,7 +12,11 @@ import (
 func TestNew(t *testing.T) {
 	_, err := New(
 		&config.Config{Backend: nil, Frontend: nil},
-		&attachments.Files{Configs: attachments.ConfigsFiles, Templates: attachments.TemplatesFiles},
+		&attachments.Files{
+			Configs:   attachments.ConfigsFiles,
+			Templates: attachments.TemplatesFiles,
+			Static:    attachments.StaticFiles,
+		},
 	)
 	require.NoError(t, err)
 }

@@ -12,10 +12,16 @@ import (
 )
 
 func TestCheckTools(t *testing.T) {
-	testCase1 := CheckTools([]Tool{{"go", "version"}})
 	output1, _ := exec.Command("go", "version").Output()
-	require.EqualValues(t, testCase1[0].Output, strings.Trim(string(output1), "\n"))
 
-	testCase2 := CheckTools([]Tool{{"unknown", "version"}})
-	require.EqualValues(t, testCase2[0].Output, fmt.Sprintf(constants.ErrorHelperToolNotInstalled, "unknown"))
+	require.EqualValues(
+		t,
+		CheckTools([]Tool{{"go", "version"}})[0].Output,
+		strings.Trim(string(output1), "\n"),
+	)
+	require.EqualValues(
+		t,
+		CheckTools([]Tool{{"unknown", "version"}})[0].Output,
+		fmt.Sprintf(constants.ErrorHelperToolNotInstalled, "unknown"),
+	)
 }
