@@ -36,17 +36,17 @@ func Build(di *injectors.Injector, flag string) error {
 			di.Attachments.Templates,
 			[]helpers.EmbedTemplate{
 				{
-					filepath.Join("templates", "misc", "dockerignore.tmpl"),
+					"templates/misc/dockerignore.tmpl",
 					".dockerignore",
 					di.Config.Frontend,
 				},
 				{
-					filepath.Join("templates", "misc", "Dockerfile.tmpl"),
+					"templates/misc/Dockerfile.tmpl",
 					"Dockerfile",
 					di.Config.Backend,
 				},
 				{
-					filepath.Join("templates", "misc", "docker-compose.yml.tmpl"),
+					"templates/misc/docker-compose.yml.tmpl",
 					"docker-compose.yml",
 					di.Config.Backend,
 				},
@@ -93,7 +93,7 @@ func Build(di *injectors.Injector, flag string) error {
 	}
 
 	// Execute system commands.
-	if err := helpers.Execute(
+	if err := helpers.ExecuteInGoroutine(
 		[]helpers.Command{
 			{
 				true,

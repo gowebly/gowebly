@@ -6,7 +6,7 @@ const (
 	*/
 
 	// CLIVersion represents the current gowebly CLI version.
-	CLIVersion string = "1.3.0"
+	CLIVersion string = "1.3.1"
 	// YAMLConfigFileName represents name of the YAML config file.
 	YAMLConfigFileName string = ".gowebly.yml"
 	// LinkToCompleteUserGuide represents URL to the official Complete user guide on the GitHub.

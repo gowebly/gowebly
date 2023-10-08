@@ -263,7 +263,7 @@ gowebly doctor
 
 每次为系统执行 `doctor` 命令时：
 
-1. CLI 会检查项目成功所需的所有工具（如 gowebly CLI、Go、Node.js、Docker、Docker Compose 等）的版本；
+1. CLI 会检查项目成功所需的所有工具（如 `gowebly` CLI、Go、Node.js、Docker、Docker Compose 等）的版本；
 2. CLI 会生成一份报告，列出每个工具的安装版本。
 
 ## 🙋 用户友好型助手
