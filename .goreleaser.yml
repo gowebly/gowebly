@@ -75,7 +75,8 @@ release:
     
     - Creating tests and benchmarks for code;
     - Improving existing functions, structs, or tests;
-    - Feature requests with interesting functions that would be good to add.
+    - Feature requests with interesting functions that would be good to add;
+    - Say a few words about the project on your social networks and blogs (Dev.to, Medium, Хабр, and so on).
     
     Your PRs & issues are welcome! Thanks 😉
     

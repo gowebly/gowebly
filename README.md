@@ -366,18 +366,22 @@ We are here to save you (_and ourselves_) from this routine pain! ✨
 ## 🏆 A win-win cooperation
 
 If you liked the `gowebly` project and found it useful for your tasks, 
-please give it a 🌟 **GitHub Star** and click 👁️ **Watch** to avoid missing 
-notifications about new versions!
+please click a 👁️ **Watch** button to avoid missing notifications about new 
+versions, and give it a 🌟 **GitHub Star**!
+
+It really **motivates** us to make this product **even** better.
 
 <img width="100%" alt="gowebly star and watch" src="https://github.com/gowebly/gowebly/assets/11155743/6f92ec26-1fe3-44c6-9a13-3abd3ffa58eb">
 
 And now, I invite you to participate in this project! Let's work **together** to
-create the **most useful** tool for developers on the web today.
+create and popularize the **most useful** tool for developers on the web today.
 
 - [Issues][repo_issues_url]: ask questions and submit your features.
 - [Pull requests][repo_pull_request_url]: send your improvements to the current.
+- Say a few words about the project on your social networks and blogs
+  (Dev.to, Medium, Хабр, and so on).
 
-Your PRs & issues are welcome! Thank you 😘
+Your PRs, issues & any words are welcome! Thank you 😘
 
 ### 🌟 Stargazers
 

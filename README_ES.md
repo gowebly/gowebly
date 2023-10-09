@@ -374,20 +374,24 @@ que le ayuda a iniciar una increíble aplicación web en **Go** utilizando
 
 ## 🏆 Una cooperación beneficiosa para todos
 
-¡Si te ha gustado el proyecto `gowebly` y te ha resultado útil para tus 
-tareas, por favor, dale un 🌟 **GitHub Star** y haz clic en 👁️ **Watch** para 
-no perderte las notificaciones sobre nuevas versiones!
+Si te ha gustado el proyecto `gowebly` y te ha resultado útil para tus 
+tareas, haz clic en el botón 👁️ **Watch** para no perderte las 
+notificaciones sobre nuevas versiones y ¡dale una 🌟 **GitHub Star**!
+
+Realmente **nos motiva** a hacer este producto **aún** mejor.
 
 <img width="100%" alt="gowebly star and watch" src="https://github.com/gowebly/gowebly/assets/11155743/6f92ec26-1fe3-44c6-9a13-3abd3ffa58eb">
 
 Y ahora, ¡te invito a participar en este proyecto! Trabajemos **juntos** 
-para crear la herramienta **más útil** para desarrolladores en la web hoy en 
-día.
+para crear y popularizar la herramienta **más útil** para desarrolladores 
+que existe actualmente en la web.
 
 - [Issues][repo_issues_url]: haz preguntas y envía tus funcionalidades.
 - [Pull requests][repo_pull_request_url]: envía tus mejoras a la corriente.
+- Di unas palabras sobre el proyecto en tus redes sociales y blogs (Dev.to, 
+  Medium, Хабр, etcétera).
 
-¡Tus PR e issues son bienvenidos! Gracias 😘
+¡Tus PR, issues & cualquier palabra son bienvenidos! Gracias 😘
 
 ### 🌟 Guardianes de la Galaxia
 
