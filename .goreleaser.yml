@@ -42,46 +42,46 @@ release:
   mode: replace
   header: |
     ## ✨ The {{ .ProjectName }} `{{ .Tag }}` release
-    
+
     <img width="100%" alt="gowebly banner with logo" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly-banner-logo.png">
   footer: |
     ## How to update?
-    
+
     For native Go installation (any platforms):
-    
+
     ```console
     go install github.com/gowebly/gowebly@latest
     ```
-    
+
     For [Homebrew][brew_url] users (GNU/Linux, Apple macOS):
-    
+
     ```console
     brew upgrade gowebly/tap/gowebly
     ```
-    
+
     For [Docker][docker_url] users (any platforms):
-    
+
     ```console
     docker pull gowebly/gowebly:latest
     ```
-    
+
     For other ways (any platforms): manually download and re-install a ready-made package from the `Assets` section.
-    
+
     > 💡 Note: See the [Complete user guide][gowebly_url] to get a general information.
-    
+
     ## Your help to improve project
-    
+
     We would be truly grateful for any help with:
-    
+
     - Creating tests and benchmarks for code;
     - Improving existing functions, structs, or tests;
     - Feature requests with interesting functions that would be good to add;
     - Say a few words about the project on your social networks and blogs (Dev.to, Medium, Хабр, and so on).
-    
+
     Your PRs & issues are welcome! Thanks 😉
-    
+
     <!-- Links -->
-    
+
     [brew_url]: https://brew.sh
     [docker_url]: https://www.docker.com
     [gowebly_url]: https://gowebly.org
@@ -129,7 +129,7 @@ brews:
       After install, create a new project (with a default configuration):
 
       $ gowebly create
-      
+
       💡 Note: See the Complete user guide (https://gowebly.org/) to get a general information.
     homepage: 'https://github.com/gowebly/{{ .ProjectName }}'
     description: |

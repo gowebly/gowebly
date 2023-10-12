@@ -1,7 +1,6 @@
 package config
 
 import (
-	"github.com/gowebly/gowebly/internal/constants"
 	"github.com/gowebly/gowebly/internal/helpers"
 )
 
@@ -36,6 +35,6 @@ type Frontend struct {
 
 // New creates a new config.
 func New() (*Config, error) {
-	// Parse a default YAML config file from the given path to a struct.
-	return helpers.ParseYAMLToStruct(constants.YAMLConfigFileName, &Config{})
+	// Parse a default YAML config file to a struct.
+	return helpers.ParseYAMLToStruct(&Config{})
 }

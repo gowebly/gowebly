@@ -20,18 +20,18 @@ func main() {
 		helpers.PrintStyledBlock(
 			[]helpers.StyledOutput{
 				{
-					"Please fix error(s):", "error", "margin-top-bottom",
+					Text: "Please fix error(s):", State: "error", Style: "margin-top-bottom",
 				},
 				{
-					err.Error(), "info", "margin-left",
+					Text: err.Error(), State: "info", Style: "margin-left",
 				},
 				{
-					"To print all commands, just run 'gowebly' without any commands or options",
-					"warning", "margin-top",
+					Text:  "To print all commands, just run 'gowebly' without any commands or options",
+					State: "warning", Style: "margin-top",
 				},
 				{
-					fmt.Sprintf("For more information, see %s", constants.LinkToCompleteUserGuide),
-					"warning", "margin-bottom",
+					Text:  fmt.Sprintf("For more information, see %s", constants.LinkToCompleteUserGuide),
+					State: "warning", Style: "margin-bottom",
 				},
 			},
 		)

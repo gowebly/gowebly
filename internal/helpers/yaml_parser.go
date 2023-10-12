@@ -15,14 +15,9 @@ import (
 
 // ParseYAMLToStruct parses the given YAML file from a path to struct *T using
 // "knadh/koanf" package.
-func ParseYAMLToStruct[T any](path string, model *T) (*T, error) {
-	// Check, if path is not empty.
-	if path == "" {
-		return nil, errors.New(constants.ErrorGoweblyConfigPathIsEmpty)
-	}
-
-	// Create a new koanf instance and parse the given path.
-	k, err := newKoanfByPath(filepath.Clean(path))
+func ParseYAMLToStruct[T any](model *T) (*T, error) {
+	// Create a new koanf instance and parse the given path to a struct.
+	k, err := newKoanfByPath(filepath.Clean(constants.YAMLConfigFileName))
 	if err != nil {
 		return nil, err
 	}
@@ -43,7 +38,7 @@ func newKoanfByPath(path string) (*koanf.Koanf, error) {
 	// Create a new koanf instance.
 	k := koanf.New(".")
 
-	// Check, if config file ('.cgapp.yml') is existing.
+	// Check, if config file ('.gowebly.yml') is existing.
 	if IsExistInFolder(path, false) {
 		// If exists, set provider to the file.Provider with the given path.
 		provider = file.Provider(path)
