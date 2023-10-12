@@ -18,11 +18,11 @@ func Init(di *injectors.Injector) error {
 
 	// Copy a default config file from the embed file system.
 	if err := helpers.CopyFilesFromEmbedFS(
-		di.Attachments.Templates,
+		di.Attachments.Configs,
 		[]helpers.EmbedFile{
 			{
-				"configs/default.yml",
-				constants.YAMLConfigFileName,
+				EmbedFile:  "configs/default.yml",
+				OutputFile: constants.YAMLConfigFileName,
 			},
 		},
 	); err != nil {
@@ -33,27 +33,27 @@ func Init(di *injectors.Injector) error {
 	helpers.PrintStyledBlock(
 		[]helpers.StyledOutput{
 			{
-				"Successfully created a default config file ('.gowebly.yml') in the current folder!",
-				"success", "margin-top",
+				Text:  "Successfully created a default config file ('.gowebly.yml') in the current folder!",
+				State: "success", Style: "margin-top",
 			},
 			{
-				"Next steps:", "", "margin-top-bottom",
+				Text: "Next steps:", State: "", Style: "margin-top-bottom",
 			},
 			{
-				"Edit the '.gowebly.yml' file by adding your own options and parameters to it",
-				"info", "margin-left",
+				Text:  "Edit the '.gowebly.yml' file by adding your own options and parameters to it",
+				State: "info", Style: "margin-left",
 			},
 			{
-				"Run 'gowebly create' command to create a new project",
-				"info", "margin-left",
+				Text:  "Run 'gowebly create' command to create a new project",
+				State: "info", Style: "margin-left",
 			},
 			{
-				"To print all commands, just run 'gowebly' without any commands or options",
-				"warning", "margin-top",
+				Text:  "To print all commands, just run 'gowebly' without any commands or options",
+				State: "warning", Style: "margin-top",
 			},
 			{
-				fmt.Sprintf("For more information, see %s", constants.LinkToCompleteUserGuide),
-				"warning", "margin-bottom",
+				Text:  fmt.Sprintf("For more information, see %s", constants.LinkToCompleteUserGuide),
+				State: "warning", Style: "margin-bottom",
 			},
 		},
 	)

@@ -28,16 +28,16 @@ func Doctor(di *injectors.Injector) error {
 	tools := helpers.CheckTools(
 		[]helpers.Tool{
 			{
-				"go", "version",
+				Name: "go", VersionCommand: "version",
 			},
 			{
-				"docker", "-v",
+				Name: "docker", VersionCommand: "-v",
 			},
 			{
-				"docker-compose", "-v",
+				Name: "docker-compose", VersionCommand: "-v",
 			},
 			{
-				frontendRuntime, "-v",
+				Name: frontendRuntime, VersionCommand: "-v",
 			},
 		},
 	)
@@ -46,43 +46,43 @@ func Doctor(di *injectors.Injector) error {
 	helpers.PrintStyledBlock(
 		[]helpers.StyledOutput{
 			{
-				"Configuration of your system:", "", "margin-top-bottom",
+				Text: "Configuration of your system:", State: "", Style: "margin-top-bottom",
 			},
 			{
-				fmt.Sprintf("gowebly version %s", constants.CLIVersion),
-				"success", "margin-left",
+				Text:  fmt.Sprintf("gowebly version %s", constants.CLIVersion),
+				State: "success", Style: "margin-left",
 			},
 			{
-				tools[0].Output, tools[0].Status, "margin-left",
+				Text: tools[0].Output, State: tools[0].Status, Style: "margin-left",
 			},
 			{
-				tools[1].Output, tools[1].Status, "margin-left",
+				Text: tools[1].Output, State: tools[1].Status, Style: "margin-left",
 			},
 			{
-				tools[2].Output, tools[2].Status, "margin-left",
+				Text: tools[2].Output, State: tools[2].Status, Style: "margin-left",
 			},
 			{
-				fmt.Sprintf("%s %s", frontendRuntime, tools[3].Output),
-				tools[3].Status, "margin-left",
+				Text:  fmt.Sprintf("%s %s", frontendRuntime, tools[3].Output),
+				State: tools[3].Status, Style: "margin-left",
 			},
 			{
-				"Next steps:", "", "margin-top-bottom",
+				Text: "Next steps:", State: "", Style: "margin-top-bottom",
 			},
 			{
-				"If some tools from this list haven't been installed, we strongly recommend installing them manually",
-				"info", "margin-left",
+				Text:  "If some tools from this list haven't been installed, we strongly recommend installing them manually",
+				State: "info", Style: "margin-left",
 			},
 			{
-				"You can add this information to your issue on GitHub and developers will be able to help you more quickly",
-				"info", "margin-left",
+				Text:  "You can add this information to your issue on GitHub and developers will be able to help you more quickly",
+				State: "info", Style: "margin-left",
 			},
 			{
-				"To print all commands, just run 'gowebly' without any commands or options",
-				"warning", "margin-top",
+				Text:  "To print all commands, just run 'gowebly' without any commands or options",
+				State: "warning", Style: "margin-top",
 			},
 			{
-				fmt.Sprintf("For more information, see %s", constants.LinkToCompleteUserGuide),
-				"warning", "margin-bottom",
+				Text:  fmt.Sprintf("For more information, see %s", constants.LinkToCompleteUserGuide),
+				State: "warning", Style: "margin-bottom",
 			},
 		},
 	)

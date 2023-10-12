@@ -22,46 +22,46 @@ func Run(di *injectors.Injector) error {
 	helpers.PrintStyledBlock(
 		[]helpers.StyledOutput{
 			{
-				"Successfully run your project in a developer mode!",
-				"success", "margin-top",
+				Text:  "Successfully run your project in a developer mode!",
+				State: "success", Style: "margin-top",
 			},
 			{
-				"Project configuration:", "", "margin-top-bottom",
+				Text: "Project configuration:", State: "", Style: "margin-top-bottom",
 			},
 			{
-				fmt.Sprintf("Backend: %s", di.Config.Backend.GoFramework),
-				"info", "margin-left",
+				Text:  fmt.Sprintf("Backend: %s", di.Config.Backend.GoFramework),
+				State: "info", Style: "margin-left",
 			},
 			{
-				fmt.Sprintf(
+				Text: fmt.Sprintf(
 					"Server port is %d, timeout (in seconds): %d for read, %d for write",
 					di.Config.Backend.Port, di.Config.Backend.Timeout.Read, di.Config.Backend.Timeout.Write,
 				),
-				"info", "margin-left-2",
+				State: "info", Style: "margin-left-2",
 			},
 			{
-				fmt.Sprintf("Frontend: %s 'dev' (non-production)", di.Config.Frontend.CSSFramework),
-				"info", "margin-left",
+				Text:  fmt.Sprintf("Frontend: %s 'dev' (non-production)", di.Config.Frontend.CSSFramework),
+				State: "info", Style: "margin-left",
 			},
 			{
-				fmt.Sprintf(
+				Text: fmt.Sprintf(
 					"htmx '%s', hyperscript '%s'",
 					di.Config.Frontend.HTMX, di.Config.Frontend.Hyperscript,
 				),
-				"info", "margin-left-2",
+				State: "info", Style: "margin-left-2",
 			},
 			{
-				"Next steps:", "", "margin-top-bottom",
+				Text: "Next steps:", State: "", Style: "margin-top-bottom",
 			},
 			{
-				fmt.Sprintf(
+				Text: fmt.Sprintf(
 					"Open http://localhost:%d on a browser to see your project",
 					di.Config.Backend.Port,
 				),
-				"info", "margin-left",
+				State: "info", Style: "margin-left",
 			},
 			{
-				"Backend logs:", "", "margin-top-bottom",
+				Text: "Backend logs:", State: "", Style: "margin-top-bottom",
 			},
 		},
 	)
@@ -77,16 +77,14 @@ func Run(di *injectors.Injector) error {
 	return helpers.ExecuteInGoroutine(
 		[]helpers.Command{
 			{
-				true,
-				frontendRuntime,
-				[]string{"run", "watch"},
-				nil,
+				Name:       frontendRuntime,
+				Options:    []string{"run", "watch"},
+				SkipOutput: true,
 			},
 			{
-				false,
-				"go",
-				[]string{"run", "./..."},
-				[]string{
+				Name:    "go",
+				Options: []string{"run", "./..."},
+				EnvVars: []string{
 					fmt.Sprintf("BACKEND_PORT=%d", di.Config.Backend.Port),
 					fmt.Sprintf("BACKEND_READ_TIMEOUT=%d", di.Config.Backend.Timeout.Read),
 					fmt.Sprintf("BACKEND_WRITE_TIMEOUT=%d", di.Config.Backend.Timeout.Write),

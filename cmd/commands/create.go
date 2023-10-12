@@ -27,29 +27,29 @@ func Create(di *injectors.Injector) error {
 		di.Attachments.Templates,
 		[]helpers.EmbedTemplate{
 			{
-				fmt.Sprintf("templates/backend/%s/go.mod.tmpl", di.Config.Backend.GoFramework),
-				"go.mod",
-				di.Config.Backend,
+				EmbedFile:  fmt.Sprintf("templates/backend/%s/go.mod.tmpl", di.Config.Backend.GoFramework),
+				OutputFile: "go.mod",
+				Data:       di.Config.Backend,
 			},
 			{
-				fmt.Sprintf("templates/backend/%s/handlers.go.tmpl", di.Config.Backend.GoFramework),
-				"handlers.go",
-				nil,
+				EmbedFile:  fmt.Sprintf("templates/backend/%s/handlers.go.tmpl", di.Config.Backend.GoFramework),
+				OutputFile: "handlers.go",
+				Data:       nil,
 			},
 			{
-				fmt.Sprintf("templates/backend/%s/server.go.tmpl", di.Config.Backend.GoFramework),
-				"server.go",
-				di.Config.Backend,
+				EmbedFile:  fmt.Sprintf("templates/backend/%s/server.go.tmpl", di.Config.Backend.GoFramework),
+				OutputFile: "server.go",
+				Data:       di.Config.Backend,
 			},
 			{
-				fmt.Sprintf("templates/backend/%s/main.go.tmpl", di.Config.Backend.GoFramework),
-				"main.go",
-				di.Config.Backend,
+				EmbedFile:  fmt.Sprintf("templates/backend/%s/main.go.tmpl", di.Config.Backend.GoFramework),
+				OutputFile: "main.go",
+				Data:       di.Config.Backend,
 			},
 			{
-				"templates/misc/gitignore.tmpl",
-				".gitignore",
-				di.Config.Frontend,
+				EmbedFile:  "templates/misc/gitignore.tmpl",
+				OutputFile: ".gitignore",
+				Data:       di.Config.Frontend,
 			},
 		},
 	); err != nil {
@@ -67,16 +67,16 @@ func Create(di *injectors.Injector) error {
 		di.Attachments.Templates,
 		[]helpers.EmbedFile{
 			{
-				"templates/frontend/main.html",
-				filepath.Join("templates", "main.html"),
+				EmbedFile:  "templates/frontend/main.html",
+				OutputFile: filepath.Join("templates", "main.html"),
 			},
 			{
-				fmt.Sprintf("templates/frontend/%s/index.html", di.Config.Frontend.CSSFramework),
-				filepath.Join("templates", "pages", "index.html"),
+				EmbedFile:  fmt.Sprintf("templates/frontend/%s/index.html", di.Config.Frontend.CSSFramework),
+				OutputFile: filepath.Join("templates", "pages", "index.html"),
 			},
 			{
-				fmt.Sprintf("templates/frontend/%s/assets/styles.css", di.Config.Frontend.CSSFramework),
-				filepath.Join("assets", "styles.css"),
+				EmbedFile:  fmt.Sprintf("templates/frontend/%s/assets/styles.css", di.Config.Frontend.CSSFramework),
+				OutputFile: filepath.Join("assets", "styles.css"),
 			},
 		},
 	); err != nil {
@@ -88,24 +88,24 @@ func Create(di *injectors.Injector) error {
 		di.Attachments.Static,
 		[]helpers.EmbedFile{
 			{
-				"static/apple-touch-icon.png",
-				filepath.Join("static", "favicons", "apple-touch-icon.png"),
+				EmbedFile:  "static/apple-touch-icon.png",
+				OutputFile: filepath.Join("static", "favicons", "apple-touch-icon.png"),
 			},
 			{
-				"static/favicon.png",
-				filepath.Join("static", "favicons", "favicon.png"),
+				EmbedFile:  "static/favicon.png",
+				OutputFile: filepath.Join("static", "favicons", "favicon.png"),
 			},
 			{
-				"static/favicon.svg",
-				filepath.Join("static", "favicons", "favicon.svg"),
+				EmbedFile:  "static/favicon.svg",
+				OutputFile: filepath.Join("static", "favicons", "favicon.svg"),
 			},
 			{
-				"static/favicon.ico",
-				filepath.Join("static", "favicons", "favicon.ico"),
+				EmbedFile:  "static/favicon.ico",
+				OutputFile: filepath.Join("static", "favicons", "favicon.ico"),
 			},
 			{
-				"static/logo.svg",
-				filepath.Join("static", "images", "logo.svg"),
+				EmbedFile:  "static/logo.svg",
+				OutputFile: filepath.Join("static", "images", "logo.svg"),
 			},
 		},
 	); err != nil {
@@ -117,9 +117,9 @@ func Create(di *injectors.Injector) error {
 		di.Attachments.Templates,
 		[]helpers.EmbedTemplate{
 			{
-				fmt.Sprintf("templates/frontend/%s/package.json.tmpl", di.Config.Frontend.CSSFramework),
-				"package.json",
-				di.Config.Frontend,
+				EmbedFile:  fmt.Sprintf("templates/frontend/%s/package.json.tmpl", di.Config.Frontend.CSSFramework),
+				OutputFile: "package.json",
+				Data:       di.Config.Frontend,
 			},
 		},
 	); err != nil {
@@ -134,12 +134,12 @@ func Create(di *injectors.Injector) error {
 			di.Attachments.Templates,
 			[]helpers.EmbedFile{
 				{
-					"templates/frontend/tailwindcss/postcssrc.tmpl",
-					".postcssrc",
+					EmbedFile:  "templates/frontend/tailwindcss/postcssrc.tmpl",
+					OutputFile: ".postcssrc",
 				},
 				{
-					"templates/frontend/tailwindcss/tailwind.config.js",
-					"tailwind.config.js",
+					EmbedFile:  "templates/frontend/tailwindcss/tailwind.config.js",
+					OutputFile: "tailwind.config.js",
 				},
 			},
 		); err != nil {
@@ -151,12 +151,12 @@ func Create(di *injectors.Injector) error {
 			di.Attachments.Templates,
 			[]helpers.EmbedFile{
 				{
-					"templates/frontend/unocss/postcssrc.tmpl",
-					".postcssrc",
+					EmbedFile:  "templates/frontend/unocss/postcssrc.tmpl",
+					OutputFile: ".postcssrc",
 				},
 				{
-					"templates/frontend/unocss/uno.config.ts",
-					"uno.config.ts",
+					EmbedFile:  "templates/frontend/unocss/uno.config.ts",
+					OutputFile: "uno.config.ts",
 				},
 			},
 		); err != nil {
@@ -168,18 +168,18 @@ func Create(di *injectors.Injector) error {
 	if err := helpers.DownloadFiles(
 		[]helpers.Download{
 			{
-				fmt.Sprintf(
+				URL: fmt.Sprintf(
 					"%s/%s@%s",
 					constants.LinkToUnpkgCDN, constants.HTMXNameOfCDNRepository, di.Config.Frontend.HTMX,
 				),
-				filepath.Join("static", "htmx.min.js"),
+				OutputFile: filepath.Join("static", "htmx.min.js"),
 			},
 			{
-				fmt.Sprintf(
+				URL: fmt.Sprintf(
 					"%s/%s@%s",
 					constants.LinkToUnpkgCDN, constants.HyperscriptNameOfCDNRepository, di.Config.Frontend.Hyperscript,
 				),
-				filepath.Join("static", "hyperscript.min.js"),
+				OutputFile: filepath.Join("static", "hyperscript.min.js"),
 			},
 		},
 	); err != nil {
@@ -204,16 +204,16 @@ func Create(di *injectors.Injector) error {
 	if err := helpers.ExecuteInGoroutine(
 		[]helpers.Command{
 			{
-				true,
-				"go",
-				[]string{"mod", "tidy"},
-				nil,
+				Name:       "go",
+				Options:    []string{"mod", "tidy"},
+				SkipOutput: true,
+				EnvVars:    nil,
 			},
 			{
-				true,
-				frontendRuntime,
-				[]string{"install"},
-				nil,
+				Name:       frontendRuntime,
+				Options:    []string{"install"},
+				SkipOutput: true,
+				EnvVars:    nil,
 			},
 		},
 	); err != nil {
@@ -230,10 +230,10 @@ func Create(di *injectors.Injector) error {
 	if err := helpers.Execute(
 		[]helpers.Command{
 			{
-				true,
-				frontendRuntime,
-				[]string{"run", "build:dev"},
-				nil,
+				Name:       frontendRuntime,
+				Options:    []string{"run", "build:dev"},
+				SkipOutput: true,
+				EnvVars:    nil,
 			},
 		},
 	); err != nil {
@@ -244,68 +244,68 @@ func Create(di *injectors.Injector) error {
 	helpers.PrintStyledBlock(
 		[]helpers.StyledOutput{
 			{
-				"Successfully created a new project in the current folder!",
-				"success", "margin-top",
+				Text:  "Successfully created a new project in the current folder!",
+				State: "success", Style: "margin-top",
 			},
 			{
-				"Project configuration:", "", "margin-top-bottom",
+				Text: "Project configuration:", State: "", Style: "margin-top-bottom",
 			},
 			{
-				fmt.Sprintf("Backend: %s", di.Config.Backend.GoFramework),
-				"info", "margin-left",
+				Text:  fmt.Sprintf("Backend: %s", di.Config.Backend.GoFramework),
+				State: "info", Style: "margin-left",
 			},
 			{
-				fmt.Sprintf(
+				Text: fmt.Sprintf(
 					"Server port is %d, timeout (in seconds): %d for read, %d for write",
 					di.Config.Backend.Port, di.Config.Backend.Timeout.Read, di.Config.Backend.Timeout.Write,
 				),
-				"info", "margin-left-2",
+				State: "info", Style: "margin-left-2",
 			},
 			{
-				fmt.Sprintf("Frontend: %s", di.Config.Frontend.CSSFramework),
-				"info", "margin-left",
+				Text:  fmt.Sprintf("Frontend: %s", di.Config.Frontend.CSSFramework),
+				State: "info", Style: "margin-left",
 			},
 			{
-				fmt.Sprintf(
+				Text: fmt.Sprintf(
 					"htmx '%s', hyperscript '%s'",
 					di.Config.Frontend.HTMX, di.Config.Frontend.Hyperscript,
 				),
-				"info", "margin-left-2",
+				State: "info", Style: "margin-left-2",
 			},
 			{
-				"Next steps:", "", "margin-top-bottom",
+				Text: "Next steps:", State: "", Style: "margin-top-bottom",
 			},
 			{
-				"Design your business logic and future project architecture",
-				"info", "margin-left",
+				Text:  "Design your business logic and future project architecture",
+				State: "info", Style: "margin-left",
 			},
 			{
-				"Add your CSS styles to the './assets/styles.css' file",
-				"info", "margin-left",
+				Text:  "Add your CSS styles to the './assets/styles.css' file",
+				State: "info", Style: "margin-left",
 			},
 			{
-				"Add your HTML templates to the './templates' folder",
-				"info", "margin-left",
+				Text:  "Add your HTML templates to the './templates' folder",
+				State: "info", Style: "margin-left",
 			},
 			{
-				"Create new handlers for your HTML templates in the 'handlers.go' file",
-				"info", "margin-left",
+				Text:  "Create new handlers for your HTML templates in the 'handlers.go' file",
+				State: "info", Style: "margin-left",
 			},
 			{
-				"Run 'gowebly run' command to run your project in a development (non-production) mode",
-				"info", "margin-left",
+				Text:  "Run 'gowebly run' command to run your project in a development (non-production) mode",
+				State: "info", Style: "margin-left",
 			},
 			{
-				"Run 'gowebly build' command to build your project for the production",
-				"info", "margin-left",
+				Text:  "Run 'gowebly build' command to build your project for the production",
+				State: "info", Style: "margin-left",
 			},
 			{
-				"To print all commands, just run 'gowebly' without any commands or options",
-				"warning", "margin-top",
+				Text:  "To print all commands, just run 'gowebly' without any commands or options",
+				State: "warning", Style: "margin-top",
 			},
 			{
-				fmt.Sprintf("For more information, see %s", constants.LinkToCompleteUserGuide),
-				"warning", "margin-bottom",
+				Text:  fmt.Sprintf("For more information, see %s", constants.LinkToCompleteUserGuide),
+				State: "warning", Style: "margin-bottom",
 			},
 		},
 	)

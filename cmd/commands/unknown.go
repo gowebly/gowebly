@@ -13,44 +13,44 @@ func Unknown() error {
 	helpers.PrintStyledBlock(
 		[]helpers.StyledOutput{
 			{
-				"Oops... You've not specified any command to execute, or such a command is not supported!",
-				"error", "margin-top",
+				Text:  "Oops... You've not specified any command to execute, or such a command is not supported!",
+				State: "error", Style: "margin-top",
 			},
 			{
-				"Try to start with these commands:",
-				"", "margin-top-bottom",
+				Text:  "Try to start with these commands:",
+				State: "", Style: "margin-top-bottom",
 			},
 			{
-				"'init' to create a default config file (.gowebly.yml) in the current folder",
-				"info", "margin-left",
+				Text:  "'init' to create a default config file (.gowebly.yml) in the current folder",
+				State: "info", Style: "margin-left",
 			},
 			{
-				"'create' to create a new project (by a default or user config) in the current folder",
-				"info", "margin-left",
+				Text:  "'create' to create a new project (by a default or user config) in the current folder",
+				State: "info", Style: "margin-left",
 			},
 			{
-				"'run' to run your project in a development (non-production) mode",
-				"info", "margin-left",
+				Text:  "'run' to run your project in a development (non-production) mode",
+				State: "info", Style: "margin-left",
 			},
 			{
-				"'build [OPTION]' to build your project for production and prepare Docker files for deploy",
-				"info", "margin-left",
+				Text:  "'build [OPTION]' to build your project for production and prepare Docker files for deploy",
+				State: "info", Style: "margin-left",
 			},
 			{
-				"option '--skip-docker' to skip generation process for the Docker files",
-				"info", "margin-left-2",
+				Text:  "option '--skip-docker' to skip generation process for the Docker files",
+				State: "info", Style: "margin-left-2",
 			},
 			{
-				"'doctor' to show all information about your system (for self-debug or issue on GitHub)",
-				"info", "margin-left",
+				Text:  "'doctor' to show all information about your system (for self-debug or issue on GitHub)",
+				State: "info", Style: "margin-left",
 			},
 			{
-				"To print this message, just run 'gowebly' without any commands or options",
-				"warning", "margin-top",
+				Text:  "To print this message, just run 'gowebly' without any commands or options",
+				State: "warning", Style: "margin-top",
 			},
 			{
-				fmt.Sprintf("For more information, see %s", constants.LinkToCompleteUserGuide),
-				"warning", "margin-bottom",
+				Text:  fmt.Sprintf("For more information, see %s", constants.LinkToCompleteUserGuide),
+				State: "warning", Style: "margin-bottom",
 			},
 		},
 	)

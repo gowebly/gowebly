@@ -36,19 +36,19 @@ func Build(di *injectors.Injector, flag string) error {
 			di.Attachments.Templates,
 			[]helpers.EmbedTemplate{
 				{
-					"templates/misc/dockerignore.tmpl",
-					".dockerignore",
-					di.Config.Frontend,
+					EmbedFile:  "templates/misc/dockerignore.tmpl",
+					OutputFile: ".dockerignore",
+					Data:       di.Config.Frontend,
 				},
 				{
-					"templates/misc/Dockerfile.tmpl",
-					"Dockerfile",
-					di.Config.Backend,
+					EmbedFile:  "templates/misc/Dockerfile.tmpl",
+					OutputFile: "Dockerfile",
+					Data:       di.Config.Backend,
 				},
 				{
-					"templates/misc/docker-compose.yml.tmpl",
-					"docker-compose.yml",
-					di.Config.Backend,
+					EmbedFile:  "templates/misc/docker-compose.yml.tmpl",
+					OutputFile: "docker-compose.yml",
+					Data:       di.Config.Backend,
 				},
 			},
 		); err != nil {
@@ -66,18 +66,18 @@ func Build(di *injectors.Injector, flag string) error {
 	if err := helpers.DownloadFiles(
 		[]helpers.Download{
 			{
-				fmt.Sprintf(
+				URL: fmt.Sprintf(
 					"%s/%s@%s",
 					constants.LinkToUnpkgCDN, constants.HTMXNameOfCDNRepository, di.Config.Frontend.HTMX,
 				),
-				filepath.Join("static", "htmx.min.js"),
+				OutputFile: filepath.Join("static", "htmx.min.js"),
 			},
 			{
-				fmt.Sprintf(
+				URL: fmt.Sprintf(
 					"%s/%s@%s",
 					constants.LinkToUnpkgCDN, constants.HyperscriptNameOfCDNRepository, di.Config.Frontend.Hyperscript,
 				),
-				filepath.Join("static", "hyperscript.min.js"),
+				OutputFile: filepath.Join("static", "hyperscript.min.js"),
 			},
 		},
 	); err != nil {
@@ -96,16 +96,16 @@ func Build(di *injectors.Injector, flag string) error {
 	if err := helpers.ExecuteInGoroutine(
 		[]helpers.Command{
 			{
-				true,
-				"go",
-				[]string{"mod", "tidy"},
-				nil,
+				Name:       "go",
+				Options:    []string{"mod", "tidy"},
+				SkipOutput: true,
+				EnvVars:    nil,
 			},
 			{
-				true,
-				frontendRuntime,
-				[]string{"run", "build:prod"},
-				nil,
+				Name:       frontendRuntime,
+				Options:    []string{"run", "build:prod"},
+				SkipOutput: true,
+				EnvVars:    nil,
 			},
 		},
 	); err != nil {
@@ -116,50 +116,50 @@ func Build(di *injectors.Injector, flag string) error {
 	helpers.PrintStyledBlock(
 		[]helpers.StyledOutput{
 			{
-				"Successfully build your project for the production!", "success", "margin-top",
+				Text: "Successfully build your project for the production!", State: "success", Style: "margin-top",
 			},
 			{
-				"Project configuration:", "", "margin-top-bottom",
+				Text: "Project configuration:", State: "", Style: "margin-top-bottom",
 			},
 			{
-				fmt.Sprintf("Backend: %s", di.Config.Backend.GoFramework),
-				"info", "margin-left",
+				Text:  fmt.Sprintf("Backend: %s", di.Config.Backend.GoFramework),
+				State: "info", Style: "margin-left",
 			},
 			{
-				fmt.Sprintf(
+				Text: fmt.Sprintf(
 					"Server port is %d, timeout (in seconds): %d for read, %d for write",
 					di.Config.Backend.Port, di.Config.Backend.Timeout.Read, di.Config.Backend.Timeout.Write,
 				),
-				"info", "margin-left-2",
+				State: "info", Style: "margin-left-2",
 			},
 			{
-				fmt.Sprintf("Frontend: %s", di.Config.Frontend.CSSFramework),
-				"info", "margin-left",
+				Text:  fmt.Sprintf("Frontend: %s", di.Config.Frontend.CSSFramework),
+				State: "info", Style: "margin-left",
 			},
 			{
-				fmt.Sprintf(
+				Text: fmt.Sprintf(
 					"htmx '%s', hyperscript '%s'", di.Config.Frontend.HTMX, di.Config.Frontend.Hyperscript,
 				),
-				"info", "margin-left-2",
+				State: "info", Style: "margin-left-2",
 			},
 			{
-				"Next steps:", "", "margin-top-bottom",
+				Text: "Next steps:", State: "", Style: "margin-top-bottom",
 			},
 			{
-				"Run your project by 'docker-compose up' command on your remote server or local machine",
-				"info", "margin-left",
+				Text:  "Run your project by 'docker-compose up' command on your remote server or local machine",
+				State: "info", Style: "margin-left",
 			},
 			{
-				"You can use an auto-generated 'docker-compose.yml' file on the Portainer platform or manually",
-				"info", "margin-left",
+				Text:  "You can use an auto-generated 'docker-compose.yml' file on the Portainer platform or manually",
+				State: "info", Style: "margin-left",
 			},
 			{
-				"To print all commands, just run 'gowebly' without any commands or options",
-				"warning", "margin-top",
+				Text:  "To print all commands, just run 'gowebly' without any commands or options",
+				State: "warning", Style: "margin-top",
 			},
 			{
-				fmt.Sprintf("For more information, see %s", constants.LinkToCompleteUserGuide),
-				"warning", "margin-bottom",
+				Text:  fmt.Sprintf("For more information, see %s", constants.LinkToCompleteUserGuide),
+				State: "warning", Style: "margin-bottom",
 			},
 		},
 	)
