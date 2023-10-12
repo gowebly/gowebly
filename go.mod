@@ -3,7 +3,7 @@ module github.com/gowebly/gowebly
 go 1.21
 
 require (
-	github.com/charmbracelet/lipgloss v0.9.0
+	github.com/charmbracelet/lipgloss v0.9.1
 	github.com/google/wire v0.5.0
 	github.com/knadh/koanf/parsers/yaml v0.1.0
 	github.com/knadh/koanf/providers/file v0.1.0
