@@ -30,3 +30,39 @@ frontend:
   htmx: latest
   # 'hyperscript' (string) option can be any existing version
   hyperscript: latest
+
+  # The 'manifest' block sets the PWA manifest options.
+  # For more information, see https://developer.mozilla.org/en-US/docs/Web/Manifest
+  # Optional to set up.
+  manifest:
+    # 'name' (string) option can be any name of your project
+    name: project
+    # 'short_name' (string) option can be any short name of your project
+    short_name: project
+    # 'description' (string) option can be any description of your project
+    description: |
+      Description of your project.
+    # 'background_color' (string) option can be any HEX color
+    background_color: '#FEFEF5'
+    # 'theme_color' (string) option can be any HEX color
+    theme_color: '#FEFEF5'
+    # 'display' (string) option can be one of the values: 'fullscreen', 'standalone', 'minimal-ui', or 'browser'
+    display: standalone
+    # 'orientation' (string) option can be one of the values: 'landscape', 'landscape-primary', 'landscape-secondary',
+    # 'portrait', 'portrait-primary', 'portrait-secondary', 'natural', or 'any'
+    orientation: portrait
+    # 'start_url' (string) option can be any URL path or dot ('.')
+    start_url: .
+
+    # The 'icons' block sets the PWA icons options.
+    # For more information, see https://developer.mozilla.org/en-US/docs/Web/Manifest/icons
+    # Required to set up, if you want to use PWA manifest.
+    icons:
+      -
+        # 'src' (string) option can be any URL path relative to the manifest.json file,
+        # e.g. 'favicons/manifest-touch-icon.svg', if manifest.json is in the same folder
+        src: favicons/manifest-touch-icon.svg
+        # 'type' (string) option can be one of the values: 'image/jpeg', 'image/png', 'image/svg+xml', or 'image/webp'
+        type: image/svg+xml
+        # 'sizes' (string) option can be any size of your icon (e.g. '128x128 256x256 512x512' or 'any' for SVG)
+        sizes: any

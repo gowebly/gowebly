@@ -45,7 +45,71 @@ func TestValidate(t *testing.T) {
 			},
 			Frontend: &config.Frontend{
 				PackageName: "project", CSSFramework: "default", RuntimeEnvironment: "default",
-				HTMX: "latest", Hyperscript: "latest",
+				HTMX: "latest", Hyperscript: "latest", Manifest: nil,
+			},
+		}),
+	)
+	require.Error(
+		t,
+		Validate(&config.Config{
+			Backend: &config.Backend{
+				ModuleName: "project", GoFramework: "default", Port: 5000, Timeout: &config.Timeout{Read: 0, Write: 0},
+			},
+			Frontend: &config.Frontend{
+				PackageName: "project", CSSFramework: "default", RuntimeEnvironment: "default",
+				HTMX: "latest", Hyperscript: "latest", Manifest: &config.Manifest{},
+			},
+		}),
+	)
+	require.Error(
+		t,
+		Validate(&config.Config{
+			Backend: &config.Backend{
+				ModuleName: "project", GoFramework: "default", Port: 5000, Timeout: &config.Timeout{Read: 0, Write: 0},
+			},
+			Frontend: &config.Frontend{
+				PackageName: "project", CSSFramework: "default", RuntimeEnvironment: "default",
+				HTMX: "latest", Hyperscript: "latest", Manifest: &config.Manifest{
+					Name: "project", ShortName: "project", Description: "project", BackgroundColor: "project",
+					ThemeColor: "project", Display: "project", Orientation: "project", StartURL: "project",
+					Icons: nil,
+				},
+			},
+		}),
+	)
+	require.Error(
+		t,
+		Validate(&config.Config{
+			Backend: &config.Backend{
+				ModuleName: "project", GoFramework: "default", Port: 5000, Timeout: &config.Timeout{Read: 0, Write: 0},
+			},
+			Frontend: &config.Frontend{
+				PackageName: "project", CSSFramework: "default", RuntimeEnvironment: "default",
+				HTMX: "latest", Hyperscript: "latest", Manifest: &config.Manifest{
+					Name: "project", ShortName: "project", Description: "project", BackgroundColor: "#ffffff",
+					ThemeColor: "#ffffff", Display: "standalone", Orientation: "portrait", StartURL: ".",
+					Icons: []*config.Icon{
+						{Src: "src", Type: "type", Sizes: "sizes"},
+					},
+				},
+			},
+		}),
+	)
+	require.NoError(
+		t,
+		Validate(&config.Config{
+			Backend: &config.Backend{
+				ModuleName: "project", GoFramework: "default", Port: 5000, Timeout: &config.Timeout{Read: 0, Write: 0},
+			},
+			Frontend: &config.Frontend{
+				PackageName: "project", CSSFramework: "default", RuntimeEnvironment: "default",
+				HTMX: "latest", Hyperscript: "latest", Manifest: &config.Manifest{
+					Name: "project", ShortName: "project", Description: "project", BackgroundColor: "#ffffff",
+					ThemeColor: "#ffffff", Display: "standalone", Orientation: "portrait", StartURL: ".",
+					Icons: []*config.Icon{
+						{Src: "src", Type: "image/svg+xml", Sizes: "sizes"},
+					},
+				},
 			},
 		}),
 	)

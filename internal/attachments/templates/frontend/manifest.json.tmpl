@@ -1,0 +1,17 @@
+{
+    "name": "{{ .Name }}",
+    "short_name": "{{ .ShortName }}",
+    "description": "{{ .Description }}",
+    "background_color": "{{ .BackgroundColor }}",
+    "theme_color": "{{ .ThemeColor }}",
+    "display": "{{ .Display }}",
+    "orientation": "{{ .Orientation }}",
+    "start_url": "{{ .StartURL }}",
+    "icons": [
+        {{ range $index, $element := .Icons }}{
+            "src": "{{ $element.Src }}",
+            "type": "{{ $element.Type }}",
+            "sizes": "{{ $element.Sizes }}"
+        },{{ end }}
+    ]
+}

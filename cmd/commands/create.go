@@ -18,7 +18,7 @@ func Create(di *injectors.Injector) error {
 	)
 
 	// Create a new folder(s).
-	if err := helpers.MakeFolders("assets", "static/favicons", "static/images", "templates/pages"); err != nil {
+	if err := helpers.MakeFolders("assets", "static/favicons/touch", "static/images", "templates/pages"); err != nil {
 		return err
 	}
 
@@ -88,10 +88,6 @@ func Create(di *injectors.Injector) error {
 		di.Attachments.Static,
 		[]helpers.EmbedFile{
 			{
-				EmbedFile:  "static/apple-touch-icon.png",
-				OutputFile: filepath.Join("static", "favicons", "apple-touch-icon.png"),
-			},
-			{
 				EmbedFile:  "static/favicon.png",
 				OutputFile: filepath.Join("static", "favicons", "favicon.png"),
 			},
@@ -106,6 +102,18 @@ func Create(di *injectors.Injector) error {
 			{
 				EmbedFile:  "static/logo.svg",
 				OutputFile: filepath.Join("static", "images", "logo.svg"),
+			},
+			{
+				EmbedFile:  "static/favicon.png",
+				OutputFile: filepath.Join("static", "favicons", "apple-touch-icon.png"),
+			},
+			{
+				EmbedFile:  "static/favicon.png",
+				OutputFile: filepath.Join("static", "favicons", "manifest-touch-icon.png"),
+			},
+			{
+				EmbedFile:  "static/favicon.svg",
+				OutputFile: filepath.Join("static", "favicons", "manifest-touch-icon.svg"),
 			},
 		},
 	); err != nil {
@@ -186,7 +194,46 @@ func Create(di *injectors.Injector) error {
 		return err
 	}
 
-	// Frontend part message.
+	// Check, if the 'manifest' option is set.
+	if di.Config.Frontend.Manifest != nil {
+		// Manifest part message.
+		helpers.PrintStyled(
+			"Generating the PWA manifest for the frontend part... Please wait!",
+			"wait", "",
+		)
+
+		// Check, if the manifest icon is not changed from the default.
+		if di.Config.Frontend.Manifest.Icons[0].Src == "favicons/manifest-touch-icon.svg" {
+			// Copy static files from the embed file system.
+			if err := helpers.CopyFilesFromEmbedFS(
+				di.Attachments.Static,
+				[]helpers.EmbedFile{
+					{
+						EmbedFile:  "static/favicon.svg",
+						OutputFile: filepath.Join("static", "favicons", "manifest-touch-icon.svg"),
+					},
+				},
+			); err != nil {
+				return err
+			}
+		}
+
+		// Create manifest.json file from templates.
+		if err := helpers.GenerateFilesByTemplateFromEmbedFS(
+			di.Attachments.Templates,
+			[]helpers.EmbedTemplate{
+				{
+					EmbedFile:  "templates/frontend/manifest.json.tmpl",
+					OutputFile: filepath.Join("static", "manifest.json"),
+					Data:       di.Config.Frontend.Manifest,
+				},
+			},
+		); err != nil {
+			return err
+		}
+	}
+
+	// Dependencies part message.
 	helpers.PrintStyled(
 		"Fetching dependencies of the backend and frontend parts... Please wait!",
 		"wait", "",
