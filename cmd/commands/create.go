@@ -18,7 +18,7 @@ func Create(di *injectors.Injector) error {
 	)
 
 	// Create a new folder(s).
-	if err := helpers.MakeFolders("assets", "static/favicons/touch", "static/images", "templates/pages"); err != nil {
+	if err := helpers.MakeFolders("assets", "static/favicons", "static/images", "templates/pages"); err != nil {
 		return err
 	}
 
@@ -106,14 +106,6 @@ func Create(di *injectors.Injector) error {
 			{
 				EmbedFile:  "static/favicon.png",
 				OutputFile: filepath.Join("static", "favicons", "apple-touch-icon.png"),
-			},
-			{
-				EmbedFile:  "static/favicon.png",
-				OutputFile: filepath.Join("static", "favicons", "manifest-touch-icon.png"),
-			},
-			{
-				EmbedFile:  "static/favicon.svg",
-				OutputFile: filepath.Join("static", "favicons", "manifest-touch-icon.svg"),
 			},
 		},
 	); err != nil {

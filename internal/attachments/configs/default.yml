@@ -40,8 +40,7 @@ frontend:
     # 'short_name' (string) option can be any short name of your project
     short_name: project
     # 'description' (string) option can be any description of your project
-    description: |
-      Description of your project.
+    description: Description of your project.
     # 'background_color' (string) option can be any HEX color
     background_color: '#FEFEF5'
     # 'theme_color' (string) option can be any HEX color
