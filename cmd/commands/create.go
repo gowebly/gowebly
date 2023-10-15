@@ -71,6 +71,10 @@ func Create(di *injectors.Injector) error {
 				OutputFile: filepath.Join("templates", "main.html"),
 			},
 			{
+				EmbedFile:  "templates/frontend/manifest.json",
+				OutputFile: filepath.Join("static", "manifest.json"),
+			},
+			{
 				EmbedFile:  fmt.Sprintf("templates/frontend/%s/index.html", di.Config.Frontend.CSSFramework),
 				OutputFile: filepath.Join("templates", "pages", "index.html"),
 			},
@@ -106,6 +110,18 @@ func Create(di *injectors.Injector) error {
 			{
 				EmbedFile:  "static/favicon.png",
 				OutputFile: filepath.Join("static", "favicons", "apple-touch-icon.png"),
+			},
+			{
+				EmbedFile:  "static/favicon.svg",
+				OutputFile: filepath.Join("static", "favicons", "manifest-touch-icon.svg"),
+			},
+			{
+				EmbedFile:  "static/manifest-desktop-screenshot.jpeg",
+				OutputFile: filepath.Join("static", "favicons", "manifest-desktop-screenshot.jpeg"),
+			},
+			{
+				EmbedFile:  "static/manifest-mobile-screenshot.jpeg",
+				OutputFile: filepath.Join("static", "favicons", "manifest-mobile-screenshot.jpeg"),
 			},
 		},
 	); err != nil {
@@ -184,45 +200,6 @@ func Create(di *injectors.Injector) error {
 		},
 	); err != nil {
 		return err
-	}
-
-	// Check, if the 'manifest' option is set.
-	if di.Config.Frontend.Manifest != nil {
-		// Manifest part message.
-		helpers.PrintStyled(
-			"Generating the PWA manifest for the frontend part... Please wait!",
-			"wait", "",
-		)
-
-		// Check, if the manifest icon is not changed from the default.
-		if di.Config.Frontend.Manifest.Icons[0].Src == "favicons/manifest-touch-icon.svg" {
-			// Copy static files from the embed file system.
-			if err := helpers.CopyFilesFromEmbedFS(
-				di.Attachments.Static,
-				[]helpers.EmbedFile{
-					{
-						EmbedFile:  "static/favicon.svg",
-						OutputFile: filepath.Join("static", "favicons", "manifest-touch-icon.svg"),
-					},
-				},
-			); err != nil {
-				return err
-			}
-		}
-
-		// Create manifest.json file from templates.
-		if err := helpers.GenerateFilesByTemplateFromEmbedFS(
-			di.Attachments.Templates,
-			[]helpers.EmbedTemplate{
-				{
-					EmbedFile:  "templates/frontend/manifest.json.tmpl",
-					OutputFile: filepath.Join("static", "manifest.json"),
-					Data:       di.Config.Frontend.Manifest,
-				},
-			},
-		); err != nil {
-			return err
-		}
 	}
 
 	// Dependencies part message.
@@ -320,6 +297,10 @@ func Create(di *injectors.Injector) error {
 			},
 			{
 				Text:  "Add your CSS styles to the './assets/styles.css' file",
+				State: "info", Style: "margin-left",
+			},
+			{
+				Text:  "Add your PWA (Progressive Web App) settings to the './static/manifest.json' file",
 				State: "info", Style: "margin-left",
 			},
 			{

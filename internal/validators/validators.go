@@ -3,7 +3,6 @@ package validators
 import (
 	"fmt"
 	"slices"
-	"strings"
 
 	"github.com/gowebly/gowebly/internal/config"
 	"github.com/gowebly/gowebly/internal/constants"
@@ -96,127 +95,6 @@ func Validate(cfg *config.Config) error {
 		// Check, if 'hyperscript' option in the 'frontend' block is not set.
 		if cfg.Frontend.Hyperscript == "" {
 			return fmt.Errorf(constants.ErrorValidateConfigOptionInBlockNotFound, "hyperscript", "frontend")
-		}
-
-		// Check, if 'manifest' option in the 'frontend' block is set.
-		if cfg.Frontend.Manifest != nil {
-			// Check, if 'name' option in the 'manifest' block is not set.
-			if cfg.Frontend.Manifest.Name == "" {
-				return fmt.Errorf(constants.ErrorValidateConfigOptionInBlockNotFound, "name", "manifest")
-			}
-
-			// Check, if 'short_name' option in the 'manifest' block is not set.
-			if cfg.Frontend.Manifest.ShortName == "" {
-				return fmt.Errorf(constants.ErrorValidateConfigOptionInBlockNotFound, "short_name", "manifest")
-			}
-
-			// Check, if 'description' option in the 'manifest' block is not set.
-			if cfg.Frontend.Manifest.Description == "" {
-				return fmt.Errorf(constants.ErrorValidateConfigOptionInBlockNotFound, "description", "manifest")
-			}
-
-			// Check, if 'background_color' option in the 'manifest' block is not set.
-			if cfg.Frontend.Manifest.BackgroundColor == "" {
-				return fmt.Errorf(constants.ErrorValidateConfigOptionInBlockNotFound, "background_color", "manifest")
-			}
-
-			// Check, if 'background_color' option in the 'manifest' block has a wrong value.
-			if !strings.HasPrefix(cfg.Frontend.Manifest.BackgroundColor, "#") {
-				return fmt.Errorf(
-					constants.ErrorValidateConfigValueInOptionInvalid,
-					"background_color", "manifest", cfg.Frontend.Manifest.BackgroundColor,
-				)
-			}
-
-			// Check, if 'theme_color' option in the 'manifest' block is not set.
-			if cfg.Frontend.Manifest.ThemeColor == "" {
-				return fmt.Errorf(constants.ErrorValidateConfigOptionInBlockNotFound, "theme_color", "manifest")
-			}
-
-			// Check, if 'theme_color' option in the 'manifest' block has a wrong value.
-			if !strings.HasPrefix(cfg.Frontend.Manifest.ThemeColor, "#") {
-				return fmt.Errorf(
-					constants.ErrorValidateConfigValueInOptionInvalid,
-					"theme_color", "manifest", cfg.Frontend.Manifest.ThemeColor,
-				)
-			}
-
-			// Check, if 'display' option in the 'manifest' block is not set.
-			if cfg.Frontend.Manifest.Display == "" {
-				return fmt.Errorf(constants.ErrorValidateConfigOptionInBlockNotFound, "display", "manifest")
-			}
-
-			// Check, if 'display' option in the 'manifest' block has a wrong value.
-			displayVariants := []string{"fullscreen", "standalone", "minimal-ui", "browser"}
-			if !slices.Contains(displayVariants, cfg.Frontend.Manifest.Display) {
-				return fmt.Errorf(
-					constants.ErrorValidateConfigValueInOptionInvalid,
-					"display", "manifest", cfg.Frontend.Manifest.Display,
-				)
-			}
-
-			// Check, if 'orientation' option in the 'manifest' block is not set.
-			if cfg.Frontend.Manifest.Orientation == "" {
-				return fmt.Errorf(constants.ErrorValidateConfigOptionInBlockNotFound, "orientation", "manifest")
-			}
-
-			// Check, if 'orientation' option in the 'manifest' block has a wrong value.
-			orientationVariants := []string{
-				"landscape", "landscape-primary", "landscape-secondary",
-				"portrait", "portrait-primary", "portrait-secondary",
-				"natural", "any",
-			}
-			if !slices.Contains(orientationVariants, cfg.Frontend.Manifest.Orientation) {
-				return fmt.Errorf(
-					constants.ErrorValidateConfigValueInOptionInvalid,
-					"orientation", "manifest", cfg.Frontend.Manifest.Orientation,
-				)
-			}
-
-			// Check, if 'start_url' option in the 'manifest' block is not set.
-			if cfg.Frontend.Manifest.StartURL == "" {
-				return fmt.Errorf(constants.ErrorValidateConfigOptionInBlockNotFound, "start_url", "manifest")
-			}
-
-			// Check, if 'icons' option in the 'manifest' block is not set.
-			if cfg.Frontend.Manifest.Icons == nil {
-				return fmt.Errorf(constants.ErrorValidateConfigOptionInBlockNotFound, "icons", "manifest")
-			}
-
-			// Check, if 'icons' option in the 'manifest' block is not empty.
-			if len(cfg.Frontend.Manifest.Icons) == 0 {
-				return fmt.Errorf(constants.ErrorValidateConfigOptionInBlockEmpty, "icons", "manifest")
-			}
-
-			// Check, if 'icons' option in the 'manifest' block has values.
-			if len(cfg.Frontend.Manifest.Icons) > 0 {
-				// Check, if 'src' option in the 'icons' block is set.
-				for _, icon := range cfg.Frontend.Manifest.Icons {
-					// Check, if 'src' option in the 'icons' block is not set.
-					if icon.Src == "" {
-						return fmt.Errorf(constants.ErrorValidateConfigOptionInBlockNotFound, "src", "icons")
-					}
-
-					// Check, if 'type' option in the 'icons' block is not set.
-					if icon.Type == "" {
-						return fmt.Errorf(constants.ErrorValidateConfigOptionInBlockNotFound, "type", "icons")
-					}
-
-					// Check, if 'type' option in the 'icons' block has a wrong value.
-					typeVariants := []string{"image/jpeg", "image/png", "image/svg+xml", "image/webp"}
-					if !slices.Contains(typeVariants, icon.Type) {
-						return fmt.Errorf(
-							constants.ErrorValidateConfigValueInOptionInvalid,
-							"type", "icons", icon.Type,
-						)
-					}
-
-					// Check, if 'sizes' option in the 'icons' block is not set.
-					if icon.Sizes == "" {
-						return fmt.Errorf(constants.ErrorValidateConfigOptionInBlockNotFound, "sizes", "icons")
-					}
-				}
-			}
 		}
 	}
 
