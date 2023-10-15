@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline';">
-        <meta name="theme-color" content="#FEFEF5">
-        <title>{{ block "title" . }}{{ end }}</title>
-        {{ block "meta" . }}{{ end }}
-        <link rel="apple-touch-icon" href="/static/favicons/apple-touch-icon.png">
-        <link rel="shortcut icon" href="/static/favicons/favicon.ico" type="image/x-icon">
-        <link rel="icon" href="/static/favicons/favicon.svg" type="image/svg+xml">
-        <link rel="icon" href="/static/favicons/favicon.png" sizes="any">
-        <link href="/static/styles.css" rel="stylesheet">
-        {{ block "styles" .}}{{ end }}
-    </head>
-    <body>
-        {{ block "content" . }}{{ end }}
-        <script src="/static/htmx.min.js"></script>
-        <script src="/static/hyperscript.min.js"></script>
-        {{ block "scripts" .}}{{ end }}
-    </body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline';">
+    <meta name="theme-color" content="#FEFEF5">
+    <title>{{ block "title" . }}{{ end }}</title>
+    {{ block "meta" . }}{{ end }}
+    <link rel="manifest" href="/static/manifest.json">
+    <link rel="apple-touch-icon" href="/static/favicons/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/static/favicons/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/static/favicons/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/static/favicons/favicon.png" sizes="any">
+    <link href="/static/styles.css" rel="stylesheet">
+    {{ block "styles" .}}{{ end }}
+</head>
+
+<body>
+    {{ block "content" . }}{{ end }}
+    <script src="/static/htmx.min.js"></script>
+    <script src="/static/hyperscript.min.js"></script>
+    {{ block "scripts" .}}{{ end }}
+</body>
+
 </html>

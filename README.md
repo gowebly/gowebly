@@ -7,56 +7,41 @@
 [![Code coverage][go_code_coverage_img]][go_code_coverage_url]
 [![License][repo_license_img]][repo_license_url]
 
-**English** | [Русский][repo_readme_ru_url] | [简体中文][repo_readme_cn_url] | 
-[Español][repo_readme_es_url]
+**English** | [Русский][repo_readme_ru_url] | [简体中文][repo_readme_cn_url] | [Español][repo_readme_es_url]
 
-This CLI tool can easily build amazing web applications with **Go** 
-on the backend, using [**htmx**][htmx_url] & [**hyperscript**][hyperscript_url] 
-and the most popular atomic/utility-first **CSS frameworks** on the frontend.
+This CLI tool can easily build amazing web applications with **Go** on the backend, using [**htmx**][htmx_url] & [**hyperscript**][hyperscript_url] and the most popular atomic/utility-first **CSS frameworks** on the frontend.
 
 Features:
 
-- 100% **free** and **open source** under the [Apache 2.0][repo_license_url] 
-  license;
+- 100% **free** and **open source** under the [Apache 2.0][repo_license_url] license;
 - For **any** level of developer's knowledge and technical expertise;
 - **Well-documented**, with a lot of tips and assists from the authors;
-- Cross-platform and multi-architecture allows **successful running** on 
-  GNU/Linux, MS Windows (including WSL) and Apple macOS;
-- Smart CLI that **does most** of the routine setup and preparation for 
-  production;
-- Helps to get into the **Go** + **htmx** + **hyperscript** technology 
-  stack faster;
-- The possibility of simply adding a ready-to-use and completely customized 
-  atomic/utility-first **CSS framework** to your project;
+- Cross-platform and multi-architecture allows **successful running** on GNU/Linux, MS Windows (including WSL) and Apple macOS;
+- Smart CLI that **does most** of the routine setup and preparation for production;
+- Helps to get into the **Go** + **htmx** + **hyperscript** technology stack faster;
+- The possibility of simply adding a ready-to-use and completely customized atomic/utility-first **CSS framework** to your project;
+- Ready to install as **PWA** (Progressive Web App) in your browser or mobile device;
 - Supports **live-reloading mode** for your CSS styles;
 - Has a library of **user-friendly** helpers for your Go code;
 - Contains a comprehensive **example** of how to use it out of the box.
 
-> 💬 From the authors: To give you a full understanding of the project, we have 
-> recorded a short [📺 video][gowebly_youtube_video_url] and prepared an 
-> introduction [📝 article][gowebly_devto_article_url] demonstrating the main 
-> features of the `gowebly` CLI.
+> 💬 From the authors: To give you a full understanding of the project, we have recorded a short [📺 video][gowebly_youtube_video_url] and prepared an introduction [📝 article][gowebly_devto_article_url] demonstrating the main features of the `gowebly` CLI.
 
 ## ⚡️ Quick start
 
-First, [download][go_download_url] and install **Go**. Version `1.21` (or 
-higher) is required.
+First, [download][go_download_url] and install **Go**. Version `1.21` (or higher) is required.
 
-Now, you can use `gowebly` without installation. Just [`go run`][go_run_url] 
-it to create a new project with a [default][repo_default_config] configuration:
+Now, you can use `gowebly` without installation. Just [`go run`][go_run_url] it to create a new project with a [default][repo_default_config] configuration:
 
 ```console
 go run github.com/gowebly/gowebly@latest create
 ```
 
-That's it! 🔥 A wonderful web application, using the built-in **net/http** 
-package (as a Go backend), **htmx** & **hyperscript** is available in your Go 
-HTML templates.
+That's it! 🔥 A wonderful web application, using the built-in **net/http** package (as a Go backend), **htmx** & **hyperscript** is available in your Go HTML templates.
 
 ### 🔹 A full Go-way to quick start
 
-If you still want to install `gowebly` CLI to your system by Golang, use the 
-[`go install`][go_install_url] command:
+If you still want to install `gowebly` CLI to your system by Golang, use the [`go install`][go_install_url] command:
 
 ```console
 go install github.com/gowebly/gowebly@latest
@@ -64,8 +49,7 @@ go install github.com/gowebly/gowebly@latest
 
 ### 🍺 Homebrew-way to quick start
 
-GNU/Linux and Apple macOS users available way to install `gowebly` CLI via 
-[Homebrew][brew_url].
+GNU/Linux and Apple macOS users available way to install `gowebly` CLI via [Homebrew][brew_url].
 
 Tap a new formula:
 
@@ -81,8 +65,7 @@ brew install gowebly/tap/gowebly
 
 ### 🐳 Docker-way to quick start
 
-Feel free to using `gowebly` CLI from our 
-[official Docker image][docker_image_url] and run it in the isolated container:
+Feel free to using `gowebly` CLI from our [official Docker image][docker_image_url] and run it in the isolated container:
 
 ```console
 docker run --rm -it -v ${PWD}:${PWD} -w ${PWD} gowebly/gowebly:latest create
@@ -90,46 +73,32 @@ docker run --rm -it -v ${PWD}:${PWD} -w ${PWD} gowebly/gowebly:latest create
 
 ### 📦 Other way to quick start
 
-Download ready-made `exe` files for Windows, `deb`, `rpm`, `apk` or Arch 
-Linux packages from the [Releases][repo_releases_url] page.
+Download ready-made `exe` files for Windows, `deb`, `rpm`, `apk` or Arch Linux packages from the [Releases][repo_releases_url] page.
 
 ## 📖 Complete user guide
 
-To get a complete guide to use and understand the basic principles of the
-`gowebly` CLI, we have prepared a comprehensive explanation of each command at
-once in this README file.
+To get a complete guide to use and understand the basic principles of the `gowebly` CLI, we have prepared a comprehensive explanation of each command at once in this README file.
 
-> 💬 From the authors: We always treasure your time and want you to start 
-> building really great web products on this awesome technology stack as 
-> soon as possible!
+> 💬 From the authors: We always treasure your time and want you to start building really great web products on this awesome technology stack as soon as possible!
 
-We hope you find answers to all of your questions! 👌 But, if you do not find 
-needed information, feel free to create an [issue][repo_issues_url] or send a 
-[PR][repo_pull_request_url] to this repository.
+We hope you find answers to all of your questions! 👌 But, if you do not find needed information, feel free to create an [issue][repo_issues_url] or send a [PR][repo_pull_request_url] to this repository.
 
-Don't forget to switch this page for your language (current is
-**English**): [Русский][repo_readme_ru_url], [简体中文][repo_readme_cn_url],
-[Español][repo_readme_es_url].
+Don't forget to switch this page for your language (current is **English**): [Русский][repo_readme_ru_url], [简体中文][repo_readme_cn_url], [Español][repo_readme_es_url].
 
 ### `init`
 
-Command to create a **default** config file 
-([`.gowebly.yml`][repo_default_config]) in the current folder.
+Command to create a **default** config file ([`.gowebly.yml`][repo_default_config]) in the current folder.
 
 ```console
 gowebly init
 ```
 
-> 💡 Note: Of course, you can skip this step if you're comfortable with the
-> following default configuration for your new project:
+> 💡 Note: Of course, you can skip this step if you're comfortable with the following default configuration for your new project:
 >
 > - Go module (`go.mod`) and `package.json` names are set to **project**;
-> - Without any Go framework for the backend part (only built-in
-> **net/http** package);
-> - Without any CSS framework for the frontend part (only default styles for
-> the code example);
-> - The JavaScript runtime environment for the frontend part is set to 
-> **Node.js**;
+> - Without any Go framework for the backend part (only built-in **net/http** package);
+> - Without any CSS framework for the frontend part (only default styles for the code example);
+> - The JavaScript runtime environment for the frontend part is set to **Node.js**;
 > - Server port is `5000`, timeout (in seconds): `5` for read, `10` for write;
 > - Latest versions of the **htmx** & **hyperscript**.
 
@@ -157,58 +126,48 @@ frontend:
 But, you can choose any **Go framework** for your project's backend:
 
 | Go framework | Description                                                                 |
-|--------------|-----------------------------------------------------------------------------|
+| ------------ | --------------------------------------------------------------------------- |
 | `default`    | Don't use any Go framework (only built-in [net/http][net_http_url] package) |
 | `fiber`      | Use a Go backend with the [Fiber][fiber_url] web framework                  |
 | `echo`       | Use a Go backend with the [Echo][echo_url] web framework                    |
 | `chi`        | Use a Go backend with the [chi][chi_url] composable router                  |
 
-In additional, you can choose versions of the **htmx**, **hyperscript**, and 
-one of the most popular atomic/utility-first **CSS framework** to your 
+In additional, you can choose versions of the **htmx**, **hyperscript**, and
+one of the most popular atomic/utility-first **CSS framework** to your
 project:
 
 | CSS framework | Description                                                            |
-|---------------|------------------------------------------------------------------------|
+| ------------- | ---------------------------------------------------------------------- |
 | `default`     | Don't use any CSS framework (only default styles for the code example) |
 | `tailwindcss` | Use the [Tailwind CSS][tailwindcss_url] as a CSS framework             |
 | `unocss`      | Use the [UnoCSS][unocss_url] as a CSS framework                        |
 
-Also, you can set one of the JavaScript runtime environment for your 
+Also, you can set one of the JavaScript runtime environment for your
 frontend part:
 
 | JavaScript runtime | Description                                                       |
-|--------------------|-------------------------------------------------------------------|
+| ------------------ | ----------------------------------------------------------------- |
 | `default`          | Use the [Node.js][nodejs_url] as a JavaScript runtime environment |
 | `bun`              | Use the [Bun][bun_url] as a JavaScript runtime environment        |
 
 ### `create`
 
-Command to create a new project with the **Go** backend, **htmx** & 
-**hyperscript**, and (_optionally_) atomic/utility-first **CSS framework**.
+Command to create a new project with the **Go** backend, **htmx** & **hyperscript**, and (_optionally_) atomic/utility-first **CSS framework**.
 
 ```console
 gowebly create
 ```
 
-> 💡 Note: If you don't run `init` command to create a config file 
-> (`.gowebly.yml`), the `gowebly` CLI creates a new project with a 
-> [default][repo_default_config] configuration.
+> 💡 Note: If you don't run `init` command to create a config file (`.gowebly.yml`), the `gowebly` CLI creates a new project with a [default][repo_default_config] configuration.
 
 <img width="720" alt="gowebly create" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly_create.png">
 
 Every time you make `create` command for your project:
 
 1. CLI validates the config and applies all settings to the current project;
-2. CLI prepares the backend part of your project (generates the project 
-   structure and needed utility files, runs `go mod tidy`);
-3. CLI prepares the frontend part of your project (generates the needed utility 
-   files, runs `npm|bun install` and `npm|bun run build:dev` for the first 
-   time);
-4. CLI downloads minimized versions of **htmx** and **hyperscript** (from
-   official and trusted [unpkg.com][unpkg_url] CDN) to the `./static` folder
-   and places them as separated `<script>` tags (at the bottom of the
-   `<body>` tag) in the Go HTML template 
-   [`templates/main.html`][repo_main_layout].
+2. CLI prepares the backend part of your project (generates the project structure and needed utility files, runs `go mod tidy`);
+3. CLI prepares the frontend part of your project (generates the needed utility files, runs `npm|bun install` and `npm|bun run build:dev` for the first time);
+4. CLI downloads minimized versions of **htmx** and **hyperscript** (from official and trusted [unpkg.com][unpkg_url] CDN) to the `./static` folder and places them as separated `<script>` tags (at the bottom of the `<body>` tag) in the Go HTML template [`templates/main.html`][repo_main_layout].
 
 Typically, a created project contains the following files and folders:
 
@@ -219,14 +178,18 @@ Typically, a created project contains the following files and folders:
 ├── static
 │   ├── favicons
 │   │   ├── apple-touch-icon.png
+│   │   ├── favicon.ico
 │   │   ├── favicon.png
 │   │   ├── favicon.svg
-│   │   └── favicon.ico
+│   │   ├── manifest-desktop-screenshot.jpeg
+│   │   ├── manifest-mobile-screenshot.jpeg
+│   │   └── manifest-touch-icon.svg
 │   ├── images
 │   │   └── logo.svg
 │   ├── htmx.min.js
 │   ├── hyperscript.min.js
-│   └── styles.css
+│   ├── styles.css
+│   └── manifest.json
 ├── templates
 │   ├── pages
 │   │   └── index.html
@@ -248,9 +211,7 @@ Command to run your project in a **development** (non-production) mode.
 gowebly run
 ```
 
-> 💡 Note: If you don't run `init` command to create a config file
-> (`.gowebly.yml`), the `gowebly` CLI runs your project with a
-> [default][repo_default_config] configuration.
+> 💡 Note: If you don't run `init` command to create a config file (`.gowebly.yml`), the `gowebly` CLI runs your project with a [default][repo_default_config] configuration.
 
 <img width="720" alt="gowebly run" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly_run.png">
 
@@ -258,51 +219,33 @@ Every time you make `run` command for your project:
 
 1. CLI validates the config and applies all settings to the current project;
 2. CLI prepares the frontend part of your project (runs `npm|bun run watch`);
-3. CLI prepares a development (non-production) version of the selected **CSS 
-   framework** to the `./static` folder and places it as a `<link>` tag (at 
-   the bottom of the `<head>` tag) in the Go HTML template
-   [`templates/main.html`][repo_main_layout];
-4. CLI starts a project's backend with settings from the default 
-   configuration (or from the `.gowebly.yml` config file) by a simple `go run` 
-   command.
+3. CLI prepares a development (non-production) version of the selected **CSS framework** to the `./static` folder and places it as a `<link>` tag (at the bottom of the `<head>` tag) in the Go HTML template [`templates/main.html`][repo_main_layout];
+4. CLI starts a project's backend with settings from the default configuration (or from the `.gowebly.yml` config file) by a simple `go run` command.
 
 ### `build`
 
-Command to build your project for **production** and prepare Docker files for 
-deploy.
+Command to build your project for **production** and prepare Docker files for deploy.
 
 ```console
 gowebly build [OPTION]
 ```
 
-> 💡 Note: If you don't run `init` command to create a config file
-> (`.gowebly.yml`), the `gowebly` CLI builds your project with a
-> [default][repo_default_config] configuration.
+> 💡 Note: If you don't run `init` command to create a config file (`.gowebly.yml`), the `gowebly` CLI builds your project with a [default][repo_default_config] configuration.
 
 <img width="720" alt="gowebly build" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly_build.png">
 
 You might add the following options:
 
 | Option          | Description                                                                    | Required? |
-|-----------------|--------------------------------------------------------------------------------|-----------|
+| --------------- | ------------------------------------------------------------------------------ | --------- |
 | `--skip-docker` | Skip generation process for the Docker files (it's helpful if you've your own) | no        |
 
 Every time you make `build` command for your project:
 
 1. CLI validates the config and applies all settings to the current project;
-2. CLI downloads minimized versions of **htmx** and **hyperscript** (from
-   official and trusted [unpkg.com][unpkg_url] CDN) to the `./static` folder
-   and places them as separated `<script>` tags (at the bottom of the
-   `<body>` tag) in the Go HTML template
-   [`templates/main.html`][repo_main_layout];
-3. CLI prepares a production version of the selected **CSS framework** and 
-   places it as a `<link>` tag (at the bottom of the `<head>` tag) in the Go 
-   HTML template [`templates/main.html`][repo_main_layout];
-4. If the `--skip-docker` option is not set, CLI generate a clear and 
-   well-documented Docker files (`.dockerignore`, `Dockerfile`, 
-   `docker-compose.yml`) in the root of the project folder to deploy it in 
-   isolated containers via [Portainer][portainer_url] (_recommended_),
-   or manually, to your remote server.
+2. CLI downloads minimized versions of **htmx** and **hyperscript** (from official and trusted [unpkg.com][unpkg_url] CDN) to the `./static` folder and places them as separated `<script>` tags (at the bottom of the `<body>` tag) in the Go HTML template [`templates/main.html`][repo_main_layout];
+3. CLI prepares a production version of the selected **CSS framework** and places it as a `<link>` tag (at the bottom of the `<head>` tag) in the Go HTML template [`templates/main.html`][repo_main_layout];
+4. If the `--skip-docker` option is not set, CLI generate a clear and well-documented Docker files (`.dockerignore`, `Dockerfile`, `docker-compose.yml`) in the root of the project folder to deploy it in isolated containers via [Portainer][portainer_url] (_recommended_), or manually, to your remote server.
 
 ### `doctor`
 
@@ -312,74 +255,52 @@ Command to show helpful **information** about your system.
 gowebly doctor
 ```
 
-> 💡 Note: This is very useful for the self-debugging process, or creating a 
-> new [issue][repo_issues_url] with a bug report in this GitHub repository.
+> 💡 Note: This is very useful for the self-debugging process, or creating a new [issue][repo_issues_url] with a bug report in this GitHub repository.
 
 <img width="720" alt="gowebly doctor" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly_doctor.png">
 
 Every time you make `doctor` command for your system:
 
-1. CLI checks the versions of all the required tools to make your project 
-   successful (such as `gowebly` CLI, Go, Node.js, Docker, Docker Compose, etc.);
+1. CLI checks the versions of all the required tools to make your project successful (such as `gowebly` CLI, Go, Node.js, Docker, Docker Compose, etc.);
 2. CLI produces a report with the installed version for each tool.
 
 ## 🙋 User-friendly helpers
 
-The `gowebly` CLI has a library of user-friendly [helpers][gowebly_helpers_url] 
-for your code. This will help you start building beautiful web applications 
-in Go even faster.
+The `gowebly` CLI has a library of user-friendly [helpers][gowebly_helpers_url] for your code. This will help you start building beautiful web applications in Go even faster.
 
 ```console
 go get -u github.com/gowebly/helpers
 ```
 
-> 💡 Note: The `gowebly helpers` library is **already** included in the Go 
-> backend that is created by the `create` command, but you can use these 
-> helpers in other projects as well.
+> 💡 Note: The `gowebly helpers` library is **already** included in the Go backend that is created by the `create` command, but you can use these helpers in other projects as well.
 
 ## 🎯 Motivation to create
 
-Tell us, how often have you had to start a new project from scratch and had
-to make painful manual configurations? 🤔 Especially, when you are just getting
-acquainted with a new technology or stack, where everything is new to you.
+Tell us, how often have you had to start a new project from scratch and had to make painful manual configurations? 🤔 Especially, when you are just getting acquainted with a new technology or stack, where everything is new to you.
 
-For many developers, _including us_, this process is as tedious and even
-depressing as possible, and doesn't carry any useful workload. It is a **very**
-frustrating process that can push any developer away from technology a lot.
+For many developers, _including us_, this process is as tedious and even depressing as possible, and doesn't carry any useful workload. It is a **very** frustrating process that can push any developer away from technology a lot.
 
-Why not just give all that awful manual work to machines? Let them do all
-the hard work for us, and we will just create awesome web products and not
-have to think about build and deploy.
+Why not just give all that awful manual work to machines? Let them do all the hard work for us, and we will just create awesome web products and not have to think about build and deploy.
 
-That's why we created the `gowebly` CLI and its helpers' library, which helps 
-you start an amazing web applications in **Go** using **htmx**, 
-**hyperscript** and popular atomic/utility-first **CSS frameworks**.
+That's why we created the `gowebly` CLI and its helpers' library, which helps you start an amazing web applications in **Go** using **htmx**, **hyperscript** and popular atomic/utility-first **CSS frameworks**.
 
 We are here to save you (_and ourselves_) from this routine pain! ✨
 
-> 💬 From the authors: Earlier, we have already saved the world once, it was 
-> [Create Go App][cgapp_url] (yep, that's our project too). The 
-> [GitHub stars][cgapp_stars_url] statistics of this project can't lie: 
-> more than **2.2k** developers of any level and different countries start a 
-> new project through this CLI tool.
+> 💬 From the authors: Earlier, we have already saved the world once, it was [Create Go App][cgapp_url] (yep, that's our project too). The [GitHub stars][cgapp_stars_url] statistics of this project can't lie: more than **2.2k** developers of any level and different countries start a new project through this CLI tool.
 
 ## 🏆 A win-win cooperation
 
-If you liked the `gowebly` project and found it useful for your tasks, 
-please click a 👁️ **Watch** button to avoid missing notifications about new 
-versions, and give it a 🌟 **GitHub Star**!
+If you liked the `gowebly` project and found it useful for your tasks, please click a 👁️ **Watch** button to avoid missing notifications about new versions, and give it a 🌟 **GitHub Star**!
 
 It really **motivates** us to make this product **even** better.
 
 <img width="100%" alt="gowebly star and watch" src="https://github.com/gowebly/gowebly/assets/11155743/6f92ec26-1fe3-44c6-9a13-3abd3ffa58eb">
 
-And now, I invite you to participate in this project! Let's work **together** to
-create and popularize the **most useful** tool for developers on the web today.
+And now, I invite you to participate in this project! Let's work **together** to create and popularize the **most useful** tool for developers on the web today.
 
 - [Issues][repo_issues_url]: ask questions and submit your features.
 - [Pull requests][repo_pull_request_url]: send your improvements to the current.
-- Say a few words about the project on your social networks and blogs
-  (Dev.to, Medium, Хабр, and so on).
+- Say a few words about the project on your social networks and blogs (Dev.to, Medium, Хабр, and so on).
 
 Your PRs, issues & any words are welcome! Thank you 😘
 
@@ -389,11 +310,7 @@ Your PRs, issues & any words are welcome! Thank you 😘
 
 ## ⚠️ License
 
-[`gowebly`][repo_url] is free and open-source software licensed 
-under the [Apache 2.0 License][repo_license_url], created and supported by 
-[Vic Shóstak][author_url] with 🩵 for people and robots. Official logo 
-distributed under the [Creative Commons License][repo_cc_license_url] (CC BY-SA 
-4.0 International).
+[`gowebly`][repo_url] is free and open-source software licensed under the [Apache 2.0 License][repo_license_url], created and supported by [Vic Shóstak][author_url] with 🩵 for people and robots. Official logo distributed under the [Creative Commons License][repo_cc_license_url] (CC BY-SA 4.0 International).
 
 <!-- Go links -->
 

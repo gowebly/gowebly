@@ -51,8 +51,12 @@ const (
 	ErrorValidateConfigBlockNotFound string = "config: '%s' block is required"
 	// ErrorValidateConfigOptionInBlockNotFound represents error message, when an option in the block is not found.
 	ErrorValidateConfigOptionInBlockNotFound string = "config: '%s' option in the '%s' block is required"
+	// ErrorValidateConfigOptionInBlockEmpty represents error message, when an option in the block is empty.
+	ErrorValidateConfigOptionInBlockEmpty string = "config: '%s' option in the '%s' block is empty"
 	// ErrorValidateConfigValueInOptionUnknown represents error message, when an option in the block has unknown value.
 	ErrorValidateConfigValueInOptionUnknown string = "config: '%s' option in the '%s' block has unknown value '%s'"
+	// ErrorValidateConfigValueInOptionInvalid represents error message, when an option in the block has invalid value.
+	ErrorValidateConfigValueInOptionInvalid string = "config: '%s' option in the '%s' block has invalid value '%s'"
 
 	/*
 		List of the error messages for helpers.

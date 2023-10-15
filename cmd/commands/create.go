@@ -71,6 +71,10 @@ func Create(di *injectors.Injector) error {
 				OutputFile: filepath.Join("templates", "main.html"),
 			},
 			{
+				EmbedFile:  "templates/frontend/manifest.json",
+				OutputFile: filepath.Join("static", "manifest.json"),
+			},
+			{
 				EmbedFile:  fmt.Sprintf("templates/frontend/%s/index.html", di.Config.Frontend.CSSFramework),
 				OutputFile: filepath.Join("templates", "pages", "index.html"),
 			},
@@ -88,10 +92,6 @@ func Create(di *injectors.Injector) error {
 		di.Attachments.Static,
 		[]helpers.EmbedFile{
 			{
-				EmbedFile:  "static/apple-touch-icon.png",
-				OutputFile: filepath.Join("static", "favicons", "apple-touch-icon.png"),
-			},
-			{
 				EmbedFile:  "static/favicon.png",
 				OutputFile: filepath.Join("static", "favicons", "favicon.png"),
 			},
@@ -106,6 +106,22 @@ func Create(di *injectors.Injector) error {
 			{
 				EmbedFile:  "static/logo.svg",
 				OutputFile: filepath.Join("static", "images", "logo.svg"),
+			},
+			{
+				EmbedFile:  "static/favicon.png",
+				OutputFile: filepath.Join("static", "favicons", "apple-touch-icon.png"),
+			},
+			{
+				EmbedFile:  "static/favicon.svg",
+				OutputFile: filepath.Join("static", "favicons", "manifest-touch-icon.svg"),
+			},
+			{
+				EmbedFile:  "static/manifest-desktop-screenshot.jpeg",
+				OutputFile: filepath.Join("static", "favicons", "manifest-desktop-screenshot.jpeg"),
+			},
+			{
+				EmbedFile:  "static/manifest-mobile-screenshot.jpeg",
+				OutputFile: filepath.Join("static", "favicons", "manifest-mobile-screenshot.jpeg"),
 			},
 		},
 	); err != nil {
@@ -186,7 +202,7 @@ func Create(di *injectors.Injector) error {
 		return err
 	}
 
-	// Frontend part message.
+	// Dependencies part message.
 	helpers.PrintStyled(
 		"Fetching dependencies of the backend and frontend parts... Please wait!",
 		"wait", "",
@@ -281,6 +297,10 @@ func Create(di *injectors.Injector) error {
 			},
 			{
 				Text:  "Add your CSS styles to the './assets/styles.css' file",
+				State: "info", Style: "margin-left",
+			},
+			{
+				Text:  "Add your PWA (Progressive Web App) settings to the './static/manifest.json' file",
 				State: "info", Style: "margin-left",
 			},
 			{
