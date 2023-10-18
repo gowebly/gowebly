@@ -117,11 +117,11 @@ func Create(di *injectors.Injector) error {
 			},
 			{
 				EmbedFile:  "static/manifest-desktop-screenshot.jpeg",
-				OutputFile: filepath.Join("static", "favicons", "manifest-desktop-screenshot.jpeg"),
+				OutputFile: filepath.Join("static", "favicons", "manifest-screenshot-desktop.jpeg"),
 			},
 			{
 				EmbedFile:  "static/manifest-mobile-screenshot.jpeg",
-				OutputFile: filepath.Join("static", "favicons", "manifest-mobile-screenshot.jpeg"),
+				OutputFile: filepath.Join("static", "favicons", "manifest-screenshot-mobile.jpeg"),
 			},
 		},
 	); err != nil {
