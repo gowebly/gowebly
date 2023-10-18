@@ -120,7 +120,7 @@ func Create(di *injectors.Injector) error {
 				OutputFile: filepath.Join("static", "favicons", "manifest-screenshot-desktop.jpeg"),
 			},
 			{
-				EmbedFile:  "static/manifest-mobile-desktop.jpeg",
+				EmbedFile:  "static/manifest-mobile-screenshot.jpeg",
 				OutputFile: filepath.Join("static", "favicons", "manifest-screenshot-mobile.jpeg"),
 			},
 		},

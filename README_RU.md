@@ -178,7 +178,7 @@ gowebly create
 │   │   ├── favicon.png
 │   │   ├── favicon.svg
 │   │   ├── manifest-screenshot-desktop.jpeg
-│   │   ├── manifest-mobile-desktop.jpeg
+│   │   ├── manifest-mobile-screenshot.jpeg
 │   │   └── manifest-touch-icon.svg
 │   ├── images
 │   │   └── logo.svg
