@@ -176,8 +176,8 @@ Típicamente, un proyecto creado contiene los siguientes archivos y carpetas:
 │   │   ├── favicon.ico
 │   │   ├── favicon.png
 │   │   ├── favicon.svg
-│   │   ├── manifest-desktop-screenshot.jpeg
-│   │   ├── manifest-mobile-screenshot.jpeg
+│   │   ├── manifest-screenshot-desktop.jpeg
+│   │   ├── manifest-mobile-desktop.jpeg
 │   │   └── manifest-touch-icon.svg
 │   ├── images
 │   │   └── logo.svg

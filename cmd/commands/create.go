@@ -116,11 +116,11 @@ func Create(di *injectors.Injector) error {
 				OutputFile: filepath.Join("static", "favicons", "manifest-touch-icon.svg"),
 			},
 			{
-				EmbedFile:  "static/manifest-desktop-screenshot.jpeg",
+				EmbedFile:  "static/manifest-screenshot-desktop.jpeg",
 				OutputFile: filepath.Join("static", "favicons", "manifest-screenshot-desktop.jpeg"),
 			},
 			{
-				EmbedFile:  "static/manifest-mobile-screenshot.jpeg",
+				EmbedFile:  "static/manifest-mobile-desktop.jpeg",
 				OutputFile: filepath.Join("static", "favicons", "manifest-screenshot-mobile.jpeg"),
 			},
 		},
