@@ -25,7 +25,8 @@ Features:
 - Has a library of **user-friendly** helpers for your Go code;
 - Contains a comprehensive **example** of how to use it out of the box.
 
-> 💬 From the authors: To give you a full understanding of the project, we have recorded a short [📺 video][gowebly_youtube_video_url] and prepared an introduction [📝 article][gowebly_devto_article_url] demonstrating the main features of the `gowebly` CLI.
+> [!NOTE]
+> To give you a full understanding of the project, we have recorded a short [📺 video][gowebly_youtube_video_url] and prepared an introduction [📝 article][gowebly_devto_article_url] demonstrating the main features of the `gowebly` CLI.
 
 ## ⚡️ Quick start
 
@@ -79,7 +80,8 @@ Download ready-made `exe` files for Windows, `deb`, `rpm`, `apk` or Arch Linux p
 
 To get a complete guide to use and understand the basic principles of the `gowebly` CLI, we have prepared a comprehensive explanation of each command at once in this README file.
 
-> 💬 From the authors: We always treasure your time and want you to start building really great web products on this awesome technology stack as soon as possible!
+> [!NOTE]
+> We always treasure your time and want you to start building really great web products on this awesome technology stack as soon as possible!
 
 We hope you find answers to all of your questions! 👌 But, if you do not find needed information, feel free to create an [issue][repo_issues_url] or send a [PR][repo_pull_request_url] to this repository.
 
@@ -158,7 +160,8 @@ Command to create a new project with the **Go** backend, **htmx** & **hyperscrip
 gowebly create
 ```
 
-> 💡 Note: If you don't run `init` command to create a config file (`.gowebly.yml`), the `gowebly` CLI creates a new project with a [default][repo_default_config] configuration.
+> [!IMPORTANT]
+> If you don't run `init` command to create a config file (`.gowebly.yml`), the `gowebly` CLI creates a new project with a [default][repo_default_config] configuration.
 
 <img width="720" alt="gowebly create" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly_create.png">
 
@@ -211,7 +214,8 @@ Command to run your project in a **development** (non-production) mode.
 gowebly run
 ```
 
-> 💡 Note: If you don't run `init` command to create a config file (`.gowebly.yml`), the `gowebly` CLI runs your project with a [default][repo_default_config] configuration.
+> [!IMPORTANT]
+> If you don't run `init` command to create a config file (`.gowebly.yml`), the `gowebly` CLI runs your project with a [default][repo_default_config] configuration.
 
 <img width="720" alt="gowebly run" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly_run.png">
 
@@ -230,7 +234,8 @@ Command to build your project for **production** and prepare Docker files for de
 gowebly build [OPTION]
 ```
 
-> 💡 Note: If you don't run `init` command to create a config file (`.gowebly.yml`), the `gowebly` CLI builds your project with a [default][repo_default_config] configuration.
+> [!IMPORTANT]
+> If you don't run `init` command to create a config file (`.gowebly.yml`), the `gowebly` CLI builds your project with a [default][repo_default_config] configuration.
 
 <img width="720" alt="gowebly build" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly_build.png">
 
@@ -255,7 +260,8 @@ Command to show helpful **information** about your system.
 gowebly doctor
 ```
 
-> 💡 Note: This is very useful for the self-debugging process, or creating a new [issue][repo_issues_url] with a bug report in this GitHub repository.
+> [!IMPORTANT]
+> This is very useful for the self-debugging process, or creating a new [issue][repo_issues_url] with a bug report in this GitHub repository.
 
 <img width="720" alt="gowebly doctor" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly_doctor.png">
 
@@ -272,7 +278,8 @@ The `gowebly` CLI has a library of user-friendly [helpers][gowebly_helpers_url] 
 go get -u github.com/gowebly/helpers
 ```
 
-> 💡 Note: The `gowebly helpers` library is **already** included in the Go backend that is created by the `create` command, but you can use these helpers in other projects as well.
+> [!NOTE]
+> The `gowebly helpers` library is **already** included in the Go backend that is created by the `create` command, but you can use these helpers in other projects as well.
 
 ## 🎯 Motivation to create
 
@@ -286,7 +293,8 @@ That's why we created the `gowebly` CLI and its helpers' library, which helps yo
 
 We are here to save you (_and ourselves_) from this routine pain! ✨
 
-> 💬 From the authors: Earlier, we have already saved the world once, it was [Create Go App][cgapp_url] (yep, that's our project too). The [GitHub stars][cgapp_stars_url] statistics of this project can't lie: more than **2.2k** developers of any level and different countries start a new project through this CLI tool.
+> [!NOTE]
+> Earlier, we have already saved the world once, it was [Create Go App][cgapp_url] (yep, that's our project too). The [GitHub stars][cgapp_stars_url] statistics of this project can't lie: more than **2.2k** developers of any level and different countries start a new project through this CLI tool.
 
 ## 🏆 A win-win cooperation
 
