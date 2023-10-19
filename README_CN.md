@@ -26,7 +26,8 @@
 - 为你的 Go 代码提供用户友好的帮助程序库；
 - 包含如何使用该框架的综合示例。
 
-> 💬 作者的话： 为了让您充分了解该项目，我们录制了一段简短的 [📺视频][gowebly_youtube_video_url]，并准备了一篇介绍 [📝文章][gowebly_devto_article_url]，演示了 `gowebly` CLI 的主要功能。
+> [!NOTE]
+> 为了让您充分了解该项目，我们录制了一段简短的 [📺视频][gowebly_youtube_video_url]，并准备了一篇介绍 [📝文章][gowebly_devto_article_url]，演示了 `gowebly` CLI 的主要功能。
 
 ## ⚡️ 快速启动
 
@@ -80,7 +81,8 @@ docker run --rm -it -v ${PWD}:${PWD} -w ${PWD} gowebly/gowebly:latest create
 
 为了获得完整的使用指南并理解 `gowebly` CLI 的基本原理，我们在 README 文件中对每条命令都做了全面的解释。
 
-> 💬 作者的话 我们一直非常珍惜您的时间，并希望您能尽快开始在这个超棒的技术栈上构建真正出色的网络产品！
+> [!NOTE]
+> 我们一直非常珍惜您的时间，并希望您能尽快开始在这个超棒的技术栈上构建真正出色的网络产品！
 
 我们希望您能找到所有问题的答案！👌 但是，如果您没有找到所需的信息，请随时创建一个 [issue][repo_issues_url] 或发送一个 [PR][repo_pull_request_url] 到此版本库。
 
@@ -92,7 +94,8 @@ docker run --rm -it -v ${PWD}:${PWD} -w ${PWD} gowebly/gowebly:latest create
 gowebly init
 ```
 
-> 💡 注意：当然，如果你对新项目的以下默认配置感到满意，也可以跳过这一步：
+> [!WARNING]
+> 当然，如果你对新项目的以下默认配置感到满意，也可以跳过这一步：
 >
 > - Go 模块 (`go.mod`) 和 `package.json` 名称设置为项目；
 > - 后端部分不使用任何 Go 框架（仅使用内置的 net/http 包）；
@@ -154,7 +157,8 @@ frontend:
 gowebly create
 ```
 
-> 💡 注意：如果不运行 `init` 命令来创建配置文件（`.gowebly.yml`），则 `gowebly` CLI 会以 [default][repo_default_config] 配置创建一个新项目。
+> [!IMPORTANT]
+> 如果不运行 `init` 命令来创建配置文件（`.gowebly.yml`），则 `gowebly` CLI 会以 [default][repo_default_config] 配置创建一个新项目。
 
 <img width="720" alt="gowebly create" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly_create.png">
 
@@ -209,7 +213,8 @@ gowebly create
 gowebly run
 ```
 
-> 💡 注意：如果不运行 `init` 命令来创建配置文件（`.gowebly.yml`），则 `gowebly` CLI 会以 [default][repo_default_config] 配置运行项目。
+> [!IMPORTANT]
+> 如果不运行 `init` 命令来创建配置文件（`.gowebly.yml`），则 `gowebly` CLI 会以 [default][repo_default_config] 配置运行项目。
 
 <img width="720" alt="gowebly run" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly_run.png">
 
@@ -228,7 +233,8 @@ gowebly run
 gowebly build [OPTION]
 ```
 
-> 💡 注意：如果不运行 `init` 命令来创建配置文件（`.gowebly.yml`），则 `gowebly` CLI 会以 [default][repo_default_config] 配置来构建项目。
+> [!IMPORTANT]
+> 如果不运行 `init` 命令来创建配置文件（`.gowebly.yml`），则 `gowebly` CLI 会以 [default][repo_default_config] 配置来构建项目。
 
 <img width="720" alt="gowebly build" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly_build.png">
 
@@ -253,7 +259,8 @@ gowebly build [OPTION]
 gowebly doctor
 ```
 
-> 💡 注意：这对自我调试过程或在 GitHub 仓库中创建新的 [issue][repo_issues_url] 错误报告非常有用。
+> [!IMPORTANT]
+> 这对自我调试过程或在 GitHub 仓库中创建新的 [issue][repo_issues_url] 错误报告非常有用。
 
 <img width="720" alt="gowebly doctor" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly_doctor.png">
 
@@ -270,7 +277,8 @@ gowebly doctor
 go get -u github.com/gowebly/helpers
 ```
 
-> 💡 注意：`create` 命令创建的 Go 后端已经包含了 `gowebly helpers` 库，但你也可以在其他项目中使用这些助手。
+> [!WARNING]
+> `create` 命令创建的 Go 后端已经包含了 `gowebly helpers` 库，但你也可以在其他项目中使用这些助手。
 
 ## 🎯 创作动力
 
@@ -284,7 +292,8 @@ go get -u github.com/gowebly/helpers
 
 我们就是来帮你（和我们自己）免去这些日常的痛苦的！✨
 
-> 💬 作者的话： 此前，我们已经拯救过世界一次，那就是 [Create Go App][cgapp_url]（没错，那也是我们的项目）。 [GitHub stars][cgapp_stars_url] 对这个项目的统计不会说谎：超过 2.2 千名不同国家、不同水平的开发者通过这个 CLI 工具启动了一个新项目。
+> [!NOTE]
+> 此前，我们已经拯救过世界一次，那就是 [Create Go App][cgapp_url]（没错，那也是我们的项目）。 [GitHub stars][cgapp_stars_url] 对这个项目的统计不会说谎：超过 2.2 千名不同国家、不同水平的开发者通过这个 CLI 工具启动了一个新项目。
 
 ## 🏆 双赢合作
 

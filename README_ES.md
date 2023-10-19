@@ -25,7 +25,8 @@ Características:
 - Dispone de una biblioteca de **ayudantes de fácil uso** para su código Go;
 - Contiene un completo **ejemplo** de cómo utilizarlo fuera de la caja.
 
-> 💬 De los autores: Para que conozcas a fondo el proyecto, hemos grabado un breve [📺 vídeo][gowebly_youtube_video_url] y preparado un [📝 artículo][gowebly_devto_article_url] de introducción en el que se muestran las principales características de la CLI `gowebly`.
+> [!NOTE]
+> Para que conozcas a fondo el proyecto, hemos grabado un breve [📺 vídeo][gowebly_youtube_video_url] y preparado un [📝 artículo][gowebly_devto_article_url] de introducción en el que se muestran las principales características de la CLI `gowebly`.
 
 ## ⚡️ Inicio rápido
 
@@ -79,7 +80,8 @@ Descargue archivos `exe` para Windows, `deb`, `rpm`, `apk` o Arch Linux desde la
 
 Para obtener una guía completa de uso y comprender los principios básicos de la CLI `gowebly`, hemos preparado una explicación exhaustiva de cada comando a la vez en este archivo README.
 
-> 💬 De los autores: Siempre valoramos tu tiempo y queremos que empieces a crear productos web realmente geniales en esta impresionante pila tecnológica lo antes posible.
+> [!NOTE]
+> Siempre valoramos tu tiempo y queremos que empieces a crear productos web realmente geniales en esta impresionante pila tecnológica lo antes posible.
 
 Esperamos que encuentres respuesta a todas tus preguntas 👌 Pero, si no encuentras la información que necesitas, no dudes en crear una [issue][repo_issues_url] o enviar un [PR][repo_pull_request_url] a este repositorio.
 
@@ -91,7 +93,8 @@ Comando para crear un archivo de configuración por **defecto** ([`.gowebly.yml`
 gowebly init
 ```
 
-> 💡 Nota: Por supuesto, puedes saltarte este paso si te sientes cómodo con la siguiente configuración por defecto para tu nuevo proyecto:
+> [!WARNING]
+> Por supuesto, puedes saltarte este paso si te sientes cómodo con la siguiente configuración por defecto para tu nuevo proyecto:
 >
 > - Los nombres de los módulos Go (`go.mod`) y `package.json` se establecen en **project**;
 > - Sin ningún framework Go para la parte backend (sólo paquete integrado **net/http**);
@@ -153,7 +156,8 @@ Comando para crear un nuevo proyecto con el backend **Go**, **htmx** & **hypersc
 gowebly create
 ```
 
-> 💡 Nota: Si no ejecutas el comando `init` para crear un archivo de configuración (`.gowebly.yml`), el CLI de `gowebly` crea un nuevo proyecto con una configuración [por defecto][repo_default_config].
+> [!IMPORTANT]
+> Si no ejecutas el comando `init` para crear un archivo de configuración (`.gowebly.yml`), el CLI de `gowebly` crea un nuevo proyecto con una configuración [por defecto][repo_default_config].
 
 <img width="720" alt="gowebly create" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly_create.png">
 
@@ -206,7 +210,8 @@ Comando para ejecutar su proyecto en modo **desarrollo** (no producción).
 gowebly run
 ```
 
-> 💡 Nota: Si no ejecutas el comando `init` para crear un fichero de configuración (`.gowebly.yml`), el CLI de `gowebly` ejecuta tu proyecto con una configuración [por defecto][repo_default_config].
+> [!IMPORTANT]
+> Si no ejecutas el comando `init` para crear un fichero de configuración (`.gowebly.yml`), el CLI de `gowebly` ejecuta tu proyecto con una configuración [por defecto][repo_default_config].
 
 <img width="720" alt="gowebly run" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly_run.png">
 
@@ -225,7 +230,8 @@ Comando para construir su proyecto para **producción** y preparar los archivos 
 gowebly build [OPTION]
 ```
 
-> 💡 Nota: Si no ejecutas el comando `init` para crear un archivo de configuración (`.gowebly.yml`), el CLI de `gowebly` construye tu proyecto con una configuración [por defecto][repo_default_config].
+> [!IMPORTANT]
+> Si no ejecutas el comando `init` para crear un archivo de configuración (`.gowebly.yml`), el CLI de `gowebly` construye tu proyecto con una configuración [por defecto][repo_default_config].
 
 <img width="720" alt="gowebly build" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly_build.png">
 
@@ -250,7 +256,8 @@ Comando para mostrar **información** útil sobre tu sistema.
 gowebly doctor
 ```
 
-> 💡 Nota: Esto es muy útil para el proceso de autodepuración, o para crear un nuevo [issue][repo_issues_url] con un informe de error en este repositorio de GitHub.
+> [!IMPORTANT]
+> Esto es muy útil para el proceso de autodepuración, o para crear un nuevo [issue][repo_issues_url] con un informe de error en este repositorio de GitHub.
 
 <img width="720" alt="gowebly doctor" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly_doctor.png">
 
@@ -267,7 +274,8 @@ La CLI `gowebly` tiene una librería de [helpers][gowebly_helpers_url] amigables
 go get -u github.com/gowebly/helpers
 ```
 
-> 💡 Nota: La librería `gowebly helpers` está **ya** incluida en el backend Go que se crea con el comando `create`, pero puedes usar estos helpers en otros proyectos también.
+> [!WARNING]
+> La librería `gowebly helpers` está **ya** incluida en el backend Go que se crea con el comando `create`, pero puedes usar estos helpers en otros proyectos también.
 
 ## 🎯 Motivación para crear
 
@@ -281,7 +289,8 @@ Es por eso que hemos generado la CLI `gowebly` y su biblioteca de ayudantes, que
 
 ¡Estamos aquí para salvarte (_y salvarnos_) de este dolor rutinario! ✨
 
-> 💬 De los autores: Anteriormente, ya hemos salvado el mundo una vez, fue [Create Go App][cgapp_url] (sí, ese también es nuestro proyecto). Las estadísticas de [GitHub stars][cgapp_stars_url] de este proyecto no pueden mentir: más de **2.2k** desarrolladores de cualquier nivel y diferentes países comienzan un nuevo proyecto a través de esta herramienta CLI.
+> [!NOTE]
+> Anteriormente, ya hemos salvado el mundo una vez, fue [Create Go App][cgapp_url] (sí, ese también es nuestro proyecto). Las estadísticas de [GitHub stars][cgapp_stars_url] de este proyecto no pueden mentir: más de **2.2k** desarrolladores de cualquier nivel y diferentes países comienzan un nuevo proyecto a través de esta herramienta CLI.
 
 ## 🏆 Una cooperación beneficiosa para todos
 

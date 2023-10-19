@@ -95,7 +95,8 @@ Command to create a **default** config file ([`.gowebly.yml`][repo_default_confi
 gowebly init
 ```
 
-> 💡 Note: Of course, you can skip this step if you're comfortable with the following default configuration for your new project:
+> [!WARNING]
+> Of course, you can skip this step if you're comfortable with the following default configuration for your new project:
 >
 > - Go module (`go.mod`) and `package.json` names are set to **project**;
 > - Without any Go framework for the backend part (only built-in **net/http** package);
@@ -278,7 +279,7 @@ The `gowebly` CLI has a library of user-friendly [helpers][gowebly_helpers_url] 
 go get -u github.com/gowebly/helpers
 ```
 
-> [!NOTE]
+> [!WARNING]
 > The `gowebly helpers` library is **already** included in the Go backend that is created by the `create` command, but you can use these helpers in other projects as well.
 
 ## 🎯 Motivation to create
