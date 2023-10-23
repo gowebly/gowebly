@@ -19,6 +19,8 @@ before:
 builds:
   -
     id: default
+    ldflags:
+      - -s -w -X "github.com/gowebly/gowebly/cmd/commands.version={{ .Tag }}"
     env: [ CGO_ENABLED=0 ]
     goos: [ linux, windows, darwin ]
     goarch: [ amd64, arm64 ]
