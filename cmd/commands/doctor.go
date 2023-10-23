@@ -8,6 +8,9 @@ import (
 	"github.com/gowebly/gowebly/internal/injectors"
 )
 
+// version represents the current gowebly CLI version.
+var version string = "dev"
+
 // Doctor runs the 'doctor' cmd command.
 func Doctor(di *injectors.Injector) error {
 	// Header message.
@@ -49,7 +52,7 @@ func Doctor(di *injectors.Injector) error {
 				Text: "Configuration of your system:", State: "", Style: "margin-top-bottom",
 			},
 			{
-				Text:  fmt.Sprintf("gowebly version %s", constants.CLIVersion),
+				Text:  fmt.Sprintf("gowebly version %s", version),
 				State: "success", Style: "margin-left",
 			},
 			{
