@@ -19,7 +19,7 @@ Features:
 - Cross-platform and multi-architecture allows **successful running** on GNU/Linux, MS Windows (including WSL) and Apple macOS;
 - Smart CLI that **does most** of the routine setup and preparation for production;
 - Helps to get into the **Go** + **htmx** + **hyperscript** technology stack faster;
-- Supports non-HTML Go web development way with the **templ** template engine;
+- Supports non-HTML Go web development way with the **templ** template engine with hot-reload features;
 - The possibility of simply adding a ready-to-use and completely customized atomic/utility-first **CSS framework** to your project;
 - Ready to install as **PWA** (Progressive Web App) in your browser or mobile device;
 - Supports **live-reloading mode** for your CSS styles;
@@ -144,6 +144,9 @@ You can choose any **template engine**:
 | --------------- | ----------------------------------------------------------------------------------------- |
 | `default`       | Don't use any template engines (only built-in [html/template][html_template_url] package) |
 | `templ`         | Use the [templ][ah_templ_url] template engine                                             |
+
+> [!NOTE]
+> The `gowebly` CLI already knows how to use the **templ** template engine when creating a new project and run it.
 
 In additional, you can choose versions of the **htmx**, **hyperscript**, and
 one of the most popular atomic/utility-first **CSS framework** to your
