@@ -92,8 +92,7 @@ release:
 
 dockers:
   -
-    # For GNU/Linux x86_64
-    id: '{{ .ProjectName }}_linux_amd64'
+    id: '{{ .ProjectName }}_linux_amd64' # For GNU/Linux x86_64
     ids: [ default ]
     use: buildx
     skip_push: auto
@@ -110,8 +109,7 @@ dockers:
     push_flags:
       - '--tls-verify=false'
   -
-    # For GNU/Linux ARM
-    id: '{{ .ProjectName }}_linux_arm64'
+    id: '{{ .ProjectName }}_linux_arm64' # For GNU/Linux ARM
     ids: [ default ]
     use: buildx
     skip_push: auto
@@ -128,8 +126,7 @@ dockers:
     push_flags:
       - '--tls-verify=false'
   -
-    # For Apple macOS x86_64
-    id: '{{ .ProjectName }}_darwin_amd64'
+    id: '{{ .ProjectName }}_darwin_amd64' # For Apple macOS x86_64
     ids: [ default ]
     use: buildx
     skip_push: auto
@@ -146,8 +143,7 @@ dockers:
     push_flags:
       - '--tls-verify=false'
   -
-    # For Apple macOS ARM
-    id: '{{ .ProjectName }}_darwin_arm64'
+    id: '{{ .ProjectName }}_darwin_arm64' # For Apple macOS ARM
     ids: [ default ]
     use: buildx
     skip_push: auto
@@ -181,7 +177,6 @@ docker_manifests:
       - 'gowebly/{{ .ProjectName }}:{{ .Tag }}-linux-arm64'
       - 'gowebly/{{ .ProjectName }}:{{ .Tag }}-darwin-amd64'
       - 'gowebly/{{ .ProjectName }}:{{ .Tag }}-darwin-arm64'
-
 
 brews:
   -
