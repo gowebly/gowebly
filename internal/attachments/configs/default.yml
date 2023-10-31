@@ -5,6 +5,8 @@ backend:
   module_name: project
   # 'go_framework' (string) option can be one of the values: 'fiber', 'echo', 'chi', or 'default'
   go_framework: default
+  # 'template_engine' (string) option can be one of the values: 'templ', or 'default'
+  template_engine: default
   # 'port' (int) option can be any port that is not taken up on your system
   port: 5000
 

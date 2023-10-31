@@ -1,0 +1,68 @@
+package pages
+
+// MetaTags defines meta tags.
+
+templ MetaTags(keywords, description string) {
+	<meta name="keywords" content={ keywords }/>
+	<meta name="description" content={ description }/>
+}
+
+// styledTextStyles defines CSS styles for component.
+
+css styledTextStyles() {
+	color: blue;
+	margin: 1rem 0;
+}
+
+// BodyContent defines HTML content.
+
+templ BodyContent(h1, text string) {
+	<main class="grid place-items-center h-screen bg-[#FEFEF5] text-slate-800 font-sans">
+		<div>
+			<img width="224px" src="/static/images/logo.svg" alt="logo"/>
+			<div>
+				<h1 class="text-2xl text-blue-600">{ h1 }</h1>
+				<p>{ text }</p>
+				<p class={ styledTextStyles() }>
+					Hello from <strong>templ</strong>!
+					<br/>
+					Edit this styled text in the './templates/pages/index.templ' file.
+				</p>
+				<p>
+					<a
+ 						class="text-blue-400 underline hover:text-blue-200 hover:no-underline"
+ 						href="https://gowebly.org"
+ 						target="_blank"
+					>
+						Documentation
+					</a>,
+					<a
+ 						class="text-blue-400 underline hover:text-blue-200 hover:no-underline"
+ 						href="https://github.com/gowebly/gowebly"
+ 						target="_blank"
+					>
+						GitHub
+					</a>
+				</p>
+			</div>
+			<div>
+				<p>
+					<button
+ 						class="bg-blue-600 text-white rounded cursor-pointer pt-2 pb-2 pl-4 pr-4 border-0 hover:bg-blue-400"
+ 						hx-get="/api/show"
+ 						hx-target="#htmx-result"
+					>
+						Show content
+					</button>
+				</p>
+				<div id="htmx-result"></div>
+			</div>
+		</div>
+	</main>
+}
+
+// BodyScripts defines JavaScript code.
+
+script BodyScripts() {
+	console.log("Hello from templ!", "Edit this JavaScript code in the './templates/pages/index.templ' file.");
+}

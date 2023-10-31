@@ -19,6 +19,7 @@ Características:
 - Multiplataforma y multiarquitectura permite **ejecutar con éxito** en GNU/Linux, MS Windows (incluido WSL) y Apple macOS;
 - CLI inteligente que **hace la mayor parte** de la rutina de configuración y preparación para la producción;
 - Ayuda a entrar más rápidamente en la pila tecnológica **Go** + **htmx** + **hyperscript**;
+- Soporta la forma de desarrollar aplicaciones web utilizando el motor de plantillas **templ** con recarga en caliente;
 - La posibilidad de añadir simplemente a tu proyecto un **framework CSS** atómico/utility-first listo para usar y completamente personalizado;
 - Listo para instalar como **PWA** (Progressive Web App) en tu navegador o dispositivo móvil;
 - Admite el modo **live-reloading** para sus estilos CSS.
@@ -97,7 +98,8 @@ gowebly init
 > Por supuesto, puedes saltarte este paso si te sientes cómodo con la siguiente configuración por defecto para tu nuevo proyecto:
 >
 > - Los nombres de los módulos Go (`go.mod`) y `package.json` se establecen en **project**;
-> - Sin ningún framework Go para la parte backend (sólo paquete integrado **net/http**);
+> - Sin ningún framework Go para la parte backend (solo paquete integrado **net/http**);
+> - Con un motor de plantillas por defecto (solo paquete integrado **html/template**);
 > - Sin ningún framework CSS para la parte frontend (solo estilos por defecto para el código de ejemplo);
 > - El entorno de ejecución JavaScript para la parte frontend utilizará **Node.js**;
 > - El puerto del servidor es `5000`, tiempo de espera (en segundos): `5` para lectura, `10` para escritura;
@@ -111,6 +113,7 @@ Normalmente, un archivo de configuración creado contiene las siguientes opcione
 backend:
    module_name: project # (string) option can be any name of your Go module (for example, 'github.com/user/project')
    go_framework: default # (string) option can be one of the values: 'fiber', 'echo', 'chi', or 'default'
+   template_engine: default # (string) option can be one of the values: 'templ', or 'default'
    port: 5000 # (int) option can be any port that is not taken up on your system
    timeout:
       read: 5 # (int) option can be any number of seconds, 5 is recommended
@@ -131,7 +134,17 @@ Pero, puedes elegir cualquier **Go framework** para el backend de tu proyecto:
 | `default`    | No uses ningún framework Go (solo el paquete integrado [net/http][net_http_url]) |
 | `fiber`      | Utilizar un backend Go con el framework web [Fiber][fiber_url]                   |
 | `echo`       | Utilizar un backend Go con el framework web [Echo][echo_url]                     |
-| `chi`        | Utilizar un backend Go con el enrutador componible [chi][chi_url]                |
+| `chi`        | Utilizar un backend Go con el erutado componible [chi][chi_url]                  |
+
+Puede elegir cualquier **motor de plantillas**:
+
+| Motor de plantillas | Descripción                                                                                          |
+| ------------------- | ---------------------------------------------------------------------------------------------------- |
+| `default`           | No utilice ningún motor de plantillas (solo el paquete integrado [html/template][html_template_url]) |
+| `templ`             | Utilice el motor de plantillas [templ][ah_templ_url]                                                 |
+
+> [!NOTE]
+> El CLI `gowebly` ya sabe como usar el motor de plantillas **templ** cuando se crea y ejecuta un proyecto.
 
 Además, puedes elegir versiones de **htmx**, **hyperscript**, y uno de los más populares atomic/utility-first **CSS framework** para tu proyecto:
 
@@ -343,7 +356,7 @@ Y ahora, ¡te invito a participar en este proyecto! Trabajemos **juntos** para c
 [repo_default_config]: https://github.com/gowebly/gowebly/blob/main/internal/attachments/configs/default.yml
 [repo_main_layout]: https://github.com/gowebly/gowebly/blob/main/internal/attachments/templates/frontend/main.html
 [repo_stargazers_url]: https://github.com/gowebly/gowebly/stargazers
-[repo_badge_reporoster_url]: https://reporoster.com/stars/notext/gowebly/gowebly
+[repo_badge_reporoster_url]: https://user-images.githubusercontent.com/11155743/275514241-8ecdf4bd-c35e-4e28-a937-b0a63aa1dbaf.png
 
 <!-- Author links -->
 
@@ -367,6 +380,8 @@ Y ahora, ¡te invito a participar en este proyecto! Trabajemos **juntos** para c
 [unocss_url]: https://unocss.dev
 [unpkg_url]: https://unpkg.com
 [net_http_url]: https://pkg.go.dev/net/http
+[html_template_url]: https://pkg.go.dev/html/template
+[ah_templ_url]: https://github.com/a-h/templ
 [fiber_url]: https://github.com/gofiber/fiber
 [echo_url]: https://github.com/labstack/echo
 [chi_url]: https://github.com/go-chi/chi

@@ -3,6 +3,7 @@ module {{ .ModuleName }}
 go 1.21
 
 require (
+    {{ if eq .TemplateEngine "templ" }}github.com/a-h/templ latest{{ end }}
     github.com/go-chi/chi/v5 latest
     github.com/gowebly/helpers latest
 )

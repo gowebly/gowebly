@@ -19,6 +19,7 @@ Features:
 - Cross-platform and multi-architecture allows **successful running** on GNU/Linux, MS Windows (including WSL) and Apple macOS;
 - Smart CLI that **does most** of the routine setup and preparation for production;
 - Helps to get into the **Go** + **htmx** + **hyperscript** technology stack faster;
+- Supports the way web applications are developed using the **templ** templating engine with hot-reloading;
 - The possibility of simply adding a ready-to-use and completely customized atomic/utility-first **CSS framework** to your project;
 - Ready to install as **PWA** (Progressive Web App) in your browser or mobile device;
 - Supports **live-reloading mode** for your CSS styles;
@@ -100,6 +101,7 @@ gowebly init
 >
 > - Go module (`go.mod`) and `package.json` names are set to **project**;
 > - Without any Go framework for the backend part (only built-in **net/http** package);
+> - With a default template engine (only built-in **html/template** package);
 > - Without any CSS framework for the frontend part (only default styles for the code example);
 > - The JavaScript runtime environment for the frontend part is set to **Node.js**;
 > - Server port is `5000`, timeout (in seconds): `5` for read, `10` for write;
@@ -113,6 +115,7 @@ Typically, a created config file contains the following options:
 backend:
    module_name: project # (string) option can be any name of your Go module (for example, 'github.com/user/project')
    go_framework: default # (string) option can be one of the values: 'fiber', 'echo', 'chi', or 'default'
+   template_engine: default # (string) option can be one of the values: 'templ', or 'default'
    port: 5000 # (int) option can be any port that is not taken up on your system
    timeout:
       read: 5 # (int) option can be any number of seconds, 5 is recommended
@@ -134,6 +137,16 @@ But, you can choose any **Go framework** for your project's backend:
 | `fiber`      | Use a Go backend with the [Fiber][fiber_url] web framework                  |
 | `echo`       | Use a Go backend with the [Echo][echo_url] web framework                    |
 | `chi`        | Use a Go backend with the [chi][chi_url] composable router                  |
+
+You can choose any **template engine**:
+
+| Template engine | Description                                                                               |
+| --------------- | ----------------------------------------------------------------------------------------- |
+| `default`       | Don't use any template engines (only built-in [html/template][html_template_url] package) |
+| `templ`         | Use the [templ][ah_templ_url] template engine                                             |
+
+> [!NOTE]
+> The `gowebly` CLI already knows how to use the **templ** template engine when create and run your project.
 
 In additional, you can choose versions of the **htmx**, **hyperscript**, and
 one of the most popular atomic/utility-first **CSS framework** to your
@@ -348,7 +361,7 @@ Your PRs, issues & any words are welcome! Thank you 😘
 [repo_default_config]: https://github.com/gowebly/gowebly/blob/main/internal/attachments/configs/default.yml
 [repo_main_layout]: https://github.com/gowebly/gowebly/blob/main/internal/attachments/templates/frontend/main.html
 [repo_stargazers_url]: https://github.com/gowebly/gowebly/stargazers
-[repo_badge_reporoster_url]: https://reporoster.com/stars/notext/gowebly/gowebly
+[repo_badge_reporoster_url]: https://user-images.githubusercontent.com/11155743/275514241-8ecdf4bd-c35e-4e28-a937-b0a63aa1dbaf.png
 
 <!-- Author links -->
 
@@ -372,6 +385,8 @@ Your PRs, issues & any words are welcome! Thank you 😘
 [unocss_url]: https://unocss.dev
 [unpkg_url]: https://unpkg.com
 [net_http_url]: https://pkg.go.dev/net/http
+[html_template_url]: https://pkg.go.dev/html/template
+[ah_templ_url]: https://github.com/a-h/templ
 [fiber_url]: https://github.com/gofiber/fiber
 [echo_url]: https://github.com/labstack/echo
 [chi_url]: https://github.com/go-chi/chi

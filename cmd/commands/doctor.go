@@ -27,23 +27,24 @@ func Doctor(di *injectors.Injector) error {
 		frontendRuntime = "bun"
 	}
 
-	//
-	tools := helpers.CheckTools(
-		[]helpers.Tool{
-			{
-				Name: "go", VersionCommand: "version",
-			},
-			{
-				Name: "docker", VersionCommand: "-v",
-			},
-			{
-				Name: "docker-compose", VersionCommand: "-v",
-			},
-			{
-				Name: frontendRuntime, VersionCommand: "-v",
-			},
+	// Create a list of tools to check.
+	toolsList := []helpers.Tool{
+		{
+			Name: "go", VersionCommand: "version",
 		},
-	)
+		{
+			Name: "docker", VersionCommand: "-v",
+		},
+		{
+			Name: "docker-compose", VersionCommand: "-v",
+		},
+		{
+			Name: frontendRuntime, VersionCommand: "-v",
+		},
+	}
+
+	// Check tools.
+	tools := helpers.CheckTools(toolsList)
 
 	// Print block of messages.
 	helpers.PrintStyledBlock(

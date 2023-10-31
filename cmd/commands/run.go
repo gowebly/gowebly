@@ -40,6 +40,10 @@ func Run(di *injectors.Injector) error {
 				State: "info", Style: "margin-left-2",
 			},
 			{
+				Text:  fmt.Sprintf("Template engine: %s", di.Config.Backend.TemplateEngine),
+				State: "info", Style: "margin-left-2",
+			},
+			{
 				Text:  fmt.Sprintf("Frontend: %s 'dev' (non-production)", di.Config.Frontend.CSSFramework),
 				State: "info", Style: "margin-left",
 			},
@@ -74,22 +78,53 @@ func Run(di *injectors.Injector) error {
 		frontendRuntime = "bun"
 	}
 
-	return helpers.ExecuteInGoroutine(
-		[]helpers.Command{
-			{
-				Name:       frontendRuntime,
-				Options:    []string{"run", "watch"},
-				SkipOutput: true,
-			},
-			{
-				Name:    "go",
-				Options: []string{"run", "./..."},
-				EnvVars: []string{
-					fmt.Sprintf("BACKEND_PORT=%d", di.Config.Backend.Port),
-					fmt.Sprintf("BACKEND_READ_TIMEOUT=%d", di.Config.Backend.Timeout.Read),
-					fmt.Sprintf("BACKEND_WRITE_TIMEOUT=%d", di.Config.Backend.Timeout.Write),
+	// Execute system commands.
+	switch di.Config.Backend.TemplateEngine {
+	case "templ":
+		// Execute system commands with a-h/templ template engine.
+		// See https://github.com/a-h/templ for more information.
+		return helpers.ExecuteInGoroutine(
+			[]helpers.Command{
+				{
+					Name:       frontendRuntime,
+					Options:    []string{"run", "watch"},
+					SkipOutput: true,
+				},
+				{
+					Name:       "templ",
+					Options:    []string{"generate", "--watch"},
+					SkipOutput: true,
+				},
+				{
+					Name:    "go",
+					Options: []string{"run", "."},
+					EnvVars: []string{
+						fmt.Sprintf("BACKEND_PORT=%d", di.Config.Backend.Port),
+						fmt.Sprintf("BACKEND_READ_TIMEOUT=%d", di.Config.Backend.Timeout.Read),
+						fmt.Sprintf("BACKEND_WRITE_TIMEOUT=%d", di.Config.Backend.Timeout.Write),
+					},
 				},
 			},
-		},
-	)
+		)
+	default:
+		// Execute system commands with the default template/html (built-in) template engine.
+		return helpers.ExecuteInGoroutine(
+			[]helpers.Command{
+				{
+					Name:       frontendRuntime,
+					Options:    []string{"run", "watch"},
+					SkipOutput: true,
+				},
+				{
+					Name:    "go",
+					Options: []string{"run", "."},
+					EnvVars: []string{
+						fmt.Sprintf("BACKEND_PORT=%d", di.Config.Backend.Port),
+						fmt.Sprintf("BACKEND_READ_TIMEOUT=%d", di.Config.Backend.Timeout.Read),
+						fmt.Sprintf("BACKEND_WRITE_TIMEOUT=%d", di.Config.Backend.Timeout.Write),
+					},
+				},
+			},
+		)
+	}
 }
