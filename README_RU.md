@@ -19,6 +19,7 @@
 - Кроссплатформенность и мультиархитектурность позволяют **успешно работать** под GNU/Linux, MS Windows (включая WSL) и Apple macOS;
 - Умный CLI, который **делает большую часть** рутинной настройки и подготовки к продакшену;
 - Помогает быстрее войти в стек технологий **Go** + **htmx** + **hyperscript**;
+- Поддержка способа разработки веб-приложений с помощью шаблонизатора **templ** с функцией hot-reloading;
 - Возможность простого добавления в свой проект готового к использованию и полностью настроенного атомарного/утилитарного **CSS-фреймворка**;
 - Готов к установке в качестве **PWA** (Progressive Web App) в браузере или на мобильном устройстве;
 - Поддерживает **режим live-reloading** для ваших CSS стилей;
@@ -98,6 +99,7 @@ gowebly init
 >
 > - Имена модулей Go (`go.mod`) и `package.json` установлены, как **project**;
 > - Без Go-фреймворка для backend-части (только встроенный пакет **net/http**);
+> - С шаблонизатором по умолчанию (только встроенный пакет **html/template**);
 > - Без CSS-фреймворка для frontend-части (только стили по умолчанию для примера кода);
 > - Среда выполнения JavaScript для frontend-части будет использовать **Node.js**;
 > - Порт сервера – `5000`, таймаут (в секундах): `5` для чтения, `10` для записи;
@@ -111,6 +113,7 @@ gowebly init
 backend:
    module_name: project # (string) option can be any name of your Go module (for example, 'github.com/user/project')
    go_framework: default # (string) option can be one of the values: 'fiber', 'echo', 'chi', or 'default'
+   template_engine: default # (string) option can be one of the values: 'templ', or 'default'
    port: 5000 # (int) option can be any port that is not taken up on your system
    timeout:
       read: 5 # (int) option can be any number of seconds, 5 is recommended
@@ -132,6 +135,16 @@ frontend:
 | `fiber`      | Использовать [Fiber][fiber_url] веб-фреймворк в качестве бэкенда                 |
 | `echo`       | Использовать [Echo][echo_url] веб-фреймворк в качестве бэкенда                   |
 | `chi`        | Использовать композитный роутер [chi][chi_url] в качестве бэкенда                |
+
+Вы можете выбрать любой **шаблонизатор**:
+
+| Шаблонизатор | Описание                                                                                   |
+| ------------ | ------------------------------------------------------------------------------------------ |
+| `default`    | Без какого-либо шаблонизатора (только встроенный пакет [html/template][html_template_url]) |
+| `templ`      | Использовать [templ][ah_templ_url] в качестве шаблонизатора                                |
+
+> [!NOTE]
+> CLI `gowebly` уже умеет использовать шаблонизатор **templ** при создании и запуске проекта.
 
 Кроме того, вы можете выбрать для своего проекта версии **htmx**, **hyperscript**, а также один из самых популярных атомарных/утилитарных **CSS-фреймворков**:
 
@@ -368,6 +381,8 @@ go get -u github.com/gowebly/helpers
 [unocss_url]: https://unocss.dev
 [unpkg_url]: https://unpkg.com
 [net_http_url]: https://pkg.go.dev/net/http
+[html_template_url]: https://pkg.go.dev/html/template
+[ah_templ_url]: https://github.com/a-h/templ
 [fiber_url]: https://github.com/gofiber/fiber
 [echo_url]: https://github.com/labstack/echo
 [chi_url]: https://github.com/go-chi/chi

@@ -20,6 +20,7 @@
 - 跨平台和多体系结构，可在 GNU/Linux、MS Windows（包括 WSL）和 Apple macOS 上成功运行；
 - 智能 CLI 可完成大部分常规设置和生产准备工作；
 - 有助于更快地进入 Go + htmx + hyperscript 技术栈；
+- 支持使用带有热加载功能的 templ 模板引擎开发网络应用程序的方式；
 - 可为您的项目添加随时可用、完全定制的原子/实用工具优先 CSS 框架；
 - 可作为 PWA（渐进式网络应用程序）安装在浏览器或移动设备中；
 - 支持 CSS 样式的实时重载模式；
@@ -99,6 +100,7 @@ gowebly init
 >
 > - Go 模块 (`go.mod`) 和 `package.json` 名称设置为项目；
 > - 后端部分不使用任何 Go 框架（仅使用内置的 net/http 包）；
+> - 带默认模板引擎（仅内置 html/template 包）；
 > - 前端部分不使用任何 CSS 框架（仅使用代码示例的默认样式）；
 > - 前端部分的 JavaScript 运行环境将使用 Node.js；
 > - 服务器端口为 `5000`，超时（秒）： 读取超时 5 秒，写入超时 10 秒；
@@ -112,6 +114,7 @@ gowebly init
 backend:
    module_name: project # (string) option can be any name of your Go module (for example, 'github.com/user/project')
    go_framework: default # (string) option can be one of the values: 'fiber', 'echo', 'chi', or 'default'
+   template_engine: default # (string) option can be one of the values: 'templ', or 'default'
    port: 5000 # (int) option can be any port that is not taken up on your system
    timeout:
       read: 5 # (int) option can be any number of seconds, 5 is recommended
@@ -133,6 +136,16 @@ frontend:
 | `fiber`      | 使用 Go 后端和 [Fiber][fiber_url] 网络框架                         |
 | `echo`       | 使用 Go 后端和 [Echo][echo_url] 网络框架                           |
 | `chi`        | 使用 Go 后端和 [chi][chi_url] 可组合路由器                         |
+
+您可以选择任何模板引擎：
+
+| Template engine | 说明                                                                     |
+| --------------- | ------------------------------------------------------------------------ |
+| `default`       | 不使用任何模板引擎（仅使用内置的 [html/template][html_template_url] 包） |
+| `templ`         | 使用 [templ][ah_templ_url] 模板引擎                                      |
+
+> [!NOTE]
+> 在创建和运行项目时，`gowebly` CLI 已经知道如何使用 templ 模板引擎。
 
 此外，您还可以为您的项目选择 htmx、hyperscript 和最流行的原子/实用工具优先 CSS 框架之一的版本：
 
@@ -370,6 +383,8 @@ go get -u github.com/gowebly/helpers
 [unocss_url]: https://unocss.dev
 [unpkg_url]: https://unpkg.com
 [net_http_url]: https://pkg.go.dev/net/http
+[html_template_url]: https://pkg.go.dev/html/template
+[ah_templ_url]: https://github.com/a-h/templ
 [fiber_url]: https://github.com/gofiber/fiber
 [echo_url]: https://github.com/labstack/echo
 [chi_url]: https://github.com/go-chi/chi
