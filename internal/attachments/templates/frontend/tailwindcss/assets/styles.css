@@ -28,4 +28,8 @@
     button {
         @apply bg-blue-600 text-white rounded cursor-pointer pt-2 pb-2 pl-4 pr-4 hover:bg-blue-400;
     }
+
+    main {
+        @apply grid place-items-center h-screen;
+    }
 }

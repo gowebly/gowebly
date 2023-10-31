@@ -24,24 +24,7 @@ templ Layout(title string, metaTags, bodyContent templ.Component) {
 			<link href="/static/styles.css" rel="stylesheet"/>
 		</head>
 		<body onload={ pages.BodyScripts() }>
-			<main>
-				<div>
-					<p>
-						<img width="224px" src="/static/images/logo.svg" alt="logo"/>
-					</p>
-					<div>
-						{! bodyContent }
-						<p>
-							<a href="https://gowebly.org" target="_blank">Documentation</a>,
-							<a href="https://github.com/gowebly/gowebly" target="_blank">GitHub</a>
-						</p>
-					</div>
-					<div>
-						<p><button hx-get="/api/show" hx-target="#htmx-result">Show content</button></p>
-						<div id="htmx-result"></div>
-					</div>
-				</div>
-			</main>
+			{! bodyContent }
 			<script src="/static/htmx.min.js"></script>
 			<script src="/static/hyperscript.min.js"></script>
 		</body>
