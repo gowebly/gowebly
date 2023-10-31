@@ -32,19 +32,19 @@ func Create(di *injectors.Injector) error {
 				Data:       di.Config.Backend,
 			},
 			{
-				EmbedFile:  fmt.Sprintf("templates/backend/%s/handlers.go.tmpl", di.Config.Backend.GoFramework),
-				OutputFile: "handlers.go",
-				Data:       nil,
-			},
-			{
 				EmbedFile:  fmt.Sprintf("templates/backend/%s/server.go.tmpl", di.Config.Backend.GoFramework),
 				OutputFile: "server.go",
 				Data:       di.Config.Backend,
 			},
 			{
+				EmbedFile:  fmt.Sprintf("templates/backend/%s/handlers.go.tmpl", di.Config.Backend.GoFramework),
+				OutputFile: "handlers.go",
+				Data:       di.Config.Backend,
+			},
+			{
 				EmbedFile:  fmt.Sprintf("templates/backend/%s/main.go.tmpl", di.Config.Backend.GoFramework),
 				OutputFile: "main.go",
-				Data:       di.Config.Backend,
+				Data:       nil,
 			},
 			{
 				EmbedFile:  "templates/misc/gitignore.tmpl",
@@ -58,6 +58,83 @@ func Create(di *injectors.Injector) error {
 
 	// Frontend part message.
 	helpers.PrintStyled(
+		"Preparing the backend template engine... Please wait!",
+		"wait", "",
+	)
+
+	// Create frontend files from templates.
+	switch di.Config.Backend.TemplateEngine {
+	case "templ":
+		// Copy frontend files from the embed file system for the a-h/templ template engine.
+		// See https://github.com/a-h/templ for more information.
+		if err := helpers.CopyFilesFromEmbedFS(
+			di.Attachments.Templates,
+			[]helpers.EmbedFile{
+				{
+					EmbedFile:  fmt.Sprintf("templates/frontend/%s/index.templ", di.Config.Frontend.CSSFramework),
+					OutputFile: filepath.Join("templates", "pages", "index.templ"),
+				},
+			},
+		); err != nil {
+			return err
+		}
+
+		// Create backend and misc files from templates.
+		if err := helpers.GenerateFilesByTemplateFromEmbedFS(
+			di.Attachments.Templates,
+			[]helpers.EmbedTemplate{
+				{
+					EmbedFile:  "templates/frontend/main.templ.tmpl",
+					OutputFile: filepath.Join("templates", "main.templ"),
+					Data:       di.Config,
+				},
+			},
+		); err != nil {
+			return err
+		}
+
+		// Execute system commands.
+		if err := helpers.Execute(
+			[]helpers.Command{
+				// Install a-h/templ template engine CLI.
+				{
+					Name:       "go",
+					Options:    []string{"install", "github.com/a-h/templ/cmd/templ@latest"},
+					SkipOutput: true,
+					EnvVars:    nil,
+				},
+				// Generate Go code from the *.templ files.
+				{
+					Name:       "templ",
+					Options:    []string{"generate"},
+					SkipOutput: true,
+					EnvVars:    nil,
+				},
+			},
+		); err != nil {
+			return err
+		}
+	default:
+		// Copy frontend files from the embed file system for the default template/html (built-in) template engine.
+		if err := helpers.CopyFilesFromEmbedFS(
+			di.Attachments.Templates,
+			[]helpers.EmbedFile{
+				{
+					EmbedFile:  "templates/frontend/main.html",
+					OutputFile: filepath.Join("templates", "main.html"),
+				},
+				{
+					EmbedFile:  fmt.Sprintf("templates/frontend/%s/index.html", di.Config.Frontend.CSSFramework),
+					OutputFile: filepath.Join("templates", "pages", "index.html"),
+				},
+			},
+		); err != nil {
+			return err
+		}
+	}
+
+	// Frontend part message.
+	helpers.PrintStyled(
 		"Downloading and preparing the frontend part... Please wait!",
 		"wait", "",
 	)
@@ -67,16 +144,8 @@ func Create(di *injectors.Injector) error {
 		di.Attachments.Templates,
 		[]helpers.EmbedFile{
 			{
-				EmbedFile:  "templates/frontend/main.html",
-				OutputFile: filepath.Join("templates", "main.html"),
-			},
-			{
 				EmbedFile:  "templates/frontend/manifest.json",
 				OutputFile: filepath.Join("static", "manifest.json"),
-			},
-			{
-				EmbedFile:  fmt.Sprintf("templates/frontend/%s/index.html", di.Config.Frontend.CSSFramework),
-				OutputFile: filepath.Join("templates", "pages", "index.html"),
 			},
 			{
 				EmbedFile:  fmt.Sprintf("templates/frontend/%s/assets/styles.css", di.Config.Frontend.CSSFramework),
@@ -236,6 +305,20 @@ func Create(di *injectors.Injector) error {
 		return err
 	}
 
+	// Execute system commands.
+	if err := helpers.Execute(
+		[]helpers.Command{
+			{
+				Name:       "go",
+				Options:    []string{"fmt"},
+				SkipOutput: true,
+				EnvVars:    nil,
+			},
+		},
+	); err != nil {
+		return err
+	}
+
 	// Frontend build message.
 	helpers.PrintStyled(
 		"Building a CSS bundle in the development (non-production) mode for the frontend part... Please wait!",
@@ -278,6 +361,10 @@ func Create(di *injectors.Injector) error {
 				State: "info", Style: "margin-left-2",
 			},
 			{
+				Text:  fmt.Sprintf("Template engine: %s", di.Config.Backend.TemplateEngine),
+				State: "info", Style: "margin-left-2",
+			},
+			{
 				Text:  fmt.Sprintf("Frontend: %s", di.Config.Frontend.CSSFramework),
 				State: "info", Style: "margin-left",
 			},
@@ -304,7 +391,7 @@ func Create(di *injectors.Injector) error {
 				State: "info", Style: "margin-left",
 			},
 			{
-				Text:  "Add your HTML templates to the './templates' folder",
+				Text:  "Add your templates to the './templates' folder",
 				State: "info", Style: "margin-left",
 			},
 			{

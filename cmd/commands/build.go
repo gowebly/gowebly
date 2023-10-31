@@ -93,17 +93,62 @@ func Build(di *injectors.Injector, flag string) error {
 	}
 
 	// Execute system commands.
-	if err := helpers.ExecuteInGoroutine(
+	switch di.Config.Backend.TemplateEngine {
+	case "templ":
+		// Build project with the a-h/templ template engine.
+		// See https://github.com/a-h/templ for more information.
+		if err := helpers.ExecuteInGoroutine(
+			[]helpers.Command{
+				{
+					Name:       "go",
+					Options:    []string{"mod", "tidy"},
+					SkipOutput: true,
+					EnvVars:    nil,
+				},
+				{
+					Name:       "templ",
+					Options:    []string{"generate"},
+					SkipOutput: true,
+					EnvVars:    nil,
+				},
+				{
+					Name:       frontendRuntime,
+					Options:    []string{"run", "build:prod"},
+					SkipOutput: true,
+					EnvVars:    nil,
+				},
+			},
+		); err != nil {
+			return err
+		}
+	default:
+		// Build project with the default template/html (built-in) template engine.
+		if err := helpers.ExecuteInGoroutine(
+			[]helpers.Command{
+				{
+					Name:       "go",
+					Options:    []string{"mod", "tidy"},
+					SkipOutput: true,
+					EnvVars:    nil,
+				},
+				{
+					Name:       frontendRuntime,
+					Options:    []string{"run", "build:prod"},
+					SkipOutput: true,
+					EnvVars:    nil,
+				},
+			},
+		); err != nil {
+			return err
+		}
+	}
+
+	// Execute system commands.
+	if err := helpers.Execute(
 		[]helpers.Command{
 			{
 				Name:       "go",
-				Options:    []string{"mod", "tidy"},
-				SkipOutput: true,
-				EnvVars:    nil,
-			},
-			{
-				Name:       frontendRuntime,
-				Options:    []string{"run", "build:prod"},
+				Options:    []string{"fmt"},
 				SkipOutput: true,
 				EnvVars:    nil,
 			},
@@ -130,6 +175,10 @@ func Build(di *injectors.Injector, flag string) error {
 					"Server port is %d, timeout (in seconds): %d for read, %d for write",
 					di.Config.Backend.Port, di.Config.Backend.Timeout.Read, di.Config.Backend.Timeout.Write,
 				),
+				State: "info", Style: "margin-left-2",
+			},
+			{
+				Text:  fmt.Sprintf("Template engine: %s", di.Config.Backend.TemplateEngine),
 				State: "info", Style: "margin-left-2",
 			},
 			{

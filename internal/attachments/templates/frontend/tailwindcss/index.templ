@@ -1,0 +1,37 @@
+package pages
+
+// MetaTags defines meta tags.
+
+templ MetaTags(keywords, description string) {
+	<meta name="keywords" content={ keywords }/>
+	<meta name="description" content={ description }/>
+}
+
+// HeadStyles defines CSS styles.
+
+templ HeadStyles(styles []string) {
+	if len(styles) > 0 {
+		<style>
+			for _, style := range styles {
+				{ style }
+			}
+		</style>
+	}
+}
+
+// BodyContent defines HTML content.
+
+templ BodyContent(h1, text string) {
+	<h1>{ h1 }</h1>
+	<p>{ text }</p>
+}
+
+// BodyScripts defines JavaScript code.
+
+templ BodyScripts(scripts []string) {
+	if len(scripts) > 0 {
+		for _, script := range scripts {
+			<script>{ script }</script>
+		}
+	}
+}
