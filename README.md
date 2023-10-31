@@ -146,7 +146,7 @@ You can choose any **template engine**:
 | `templ`         | Use the [templ][ah_templ_url] template engine                                             |
 
 > [!NOTE]
-> The `gowebly` CLI already knows how to use the **templ** template engine when creating a new project and run it.
+> The `gowebly` CLI already knows how to use the **templ** template engine when creating and running a project.
 
 In additional, you can choose versions of the **htmx**, **hyperscript**, and
 one of the most popular atomic/utility-first **CSS framework** to your
