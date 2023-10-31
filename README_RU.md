@@ -357,7 +357,7 @@ go get -u github.com/gowebly/helpers
 [repo_default_config]: https://github.com/gowebly/gowebly/blob/main/internal/attachments/configs/default.yml
 [repo_main_layout]: https://github.com/gowebly/gowebly/blob/main/internal/attachments/templates/frontend/main.html
 [repo_stargazers_url]: https://github.com/gowebly/gowebly/stargazers
-[repo_badge_reporoster_url]: https://reporoster.com/stars/notext/gowebly/gowebly
+[repo_badge_reporoster_url]: https://user-images.githubusercontent.com/11155743/275514241-8ecdf4bd-c35e-4e28-a937-b0a63aa1dbaf.png
 
 <!-- Author links -->
 
