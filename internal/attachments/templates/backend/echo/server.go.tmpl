@@ -1,11 +1,13 @@
 package main
 
 import (
-	"fmt"
-	"html/template"
+	{{ if eq .TemplateEngine "default" }}
 	"io"
-	"net/http"
+	"html/template"
 	"path/filepath"
+	{{ end }}
+	"fmt"
+	"net/http"
 	"strconv"
 	"time"
 
@@ -15,6 +17,7 @@ import (
 	gowebly "github.com/gowebly/helpers"
 )
 
+{{ if eq .TemplateEngine "default" }}
 // TemplateRegistry represents a custom 'html/template' renderer for Echo framework.
 type Template struct {
 	templates *template.Template
@@ -29,6 +32,7 @@ func (t *Template) Render(w io.Writer, name string, data interface{}, c echo.Con
 
 	return tmpl.Execute(w, nil)
 }
+{{ end }}
 
 // runServer runs a new HTTP server with the loaded environment variables.
 func runServer() error {
@@ -49,10 +53,12 @@ func runServer() error {
 	// Create a new Echo server.
 	echo := echo.New()
 
+	{{ if eq .TemplateEngine "default" }}
 	// Create a new Echo renderer for templates.
 	echo.Renderer = &Template{
 		templates: template.Must(template.ParseGlob("templates/**/*.html")),
 	}
+	{{ end }}
 
 	// Add Echo middlewares.
 	echo.Use(middleware.Logger())
