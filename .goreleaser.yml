@@ -97,8 +97,8 @@ dockers:
     use: buildx
     skip_push: auto
     image_templates:
-      - 'gowebly/{{ .ProjectName }}:latest-linux-amd64'
-      - 'gowebly/{{ .ProjectName }}:{{ .Tag }}-linux-amd64'
+      - 'gowebly/{{ .ProjectName }}:latest-amd64'
+      - 'gowebly/{{ .ProjectName }}:{{ .Tag }}-amd64'
     build_flag_templates:
       - '--pull'
       - '--label=org.opencontainers.image.created={{ .Date }}'
@@ -114,8 +114,8 @@ dockers:
     use: buildx
     skip_push: auto
     image_templates:
-      - 'gowebly/{{ .ProjectName }}:latest-linux-arm64'
-      - 'gowebly/{{ .ProjectName }}:{{ .Tag }}-linux-arm64'
+      - 'gowebly/{{ .ProjectName }}:latest-arm64'
+      - 'gowebly/{{ .ProjectName }}:{{ .Tag }}-arm64'
     build_flag_templates:
       - '--pull'
       - '--label=org.opencontainers.image.created={{ .Date }}'
@@ -131,14 +131,14 @@ docker_manifests:
     name_template: 'gowebly/{{ .ProjectName }}:latest'
     skip_push: auto
     image_templates:
-      - 'gowebly/{{ .ProjectName }}:latest-linux-amd64'
-      - 'gowebly/{{ .ProjectName }}:latest-linux-arm64'
+      - 'gowebly/{{ .ProjectName }}:latest-amd64'
+      - 'gowebly/{{ .ProjectName }}:latest-arm64'
   -
     name_template: 'gowebly/{{ .ProjectName }}:{{ .Tag }}'
     skip_push: auto
     image_templates:
-      - 'gowebly/{{ .ProjectName }}:{{ .Tag }}-linux-amd64'
-      - 'gowebly/{{ .ProjectName }}:{{ .Tag }}-linux-arm64'
+      - 'gowebly/{{ .ProjectName }}:{{ .Tag }}-amd64'
+      - 'gowebly/{{ .ProjectName }}:{{ .Tag }}-arm64'
 
 brews:
   -
