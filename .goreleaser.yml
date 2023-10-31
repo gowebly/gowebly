@@ -94,6 +94,7 @@ dockers:
   -
     id: '{{ .ProjectName }}_linux_amd64' # For GNU/Linux x86_64
     ids: [ default ]
+    use: buildx
     skip_push: auto
     image_templates:
       - 'gowebly/{{ .ProjectName }}:latest-linux-amd64'
@@ -110,6 +111,7 @@ dockers:
   -
     id: '{{ .ProjectName }}_linux_arm64' # For GNU/Linux ARM
     ids: [ default ]
+    use: buildx
     skip_push: auto
     image_templates:
       - 'gowebly/{{ .ProjectName }}:latest-linux-arm64'
@@ -126,6 +128,7 @@ dockers:
   -
     id: '{{ .ProjectName }}_darwin_amd64' # For Apple macOS x86_64
     ids: [ default ]
+    use: buildx
     skip_push: auto
     image_templates:
       - 'gowebly/{{ .ProjectName }}:latest-darwin-amd64'
@@ -142,6 +145,7 @@ dockers:
   -
     id: '{{ .ProjectName }}_darwin_arm64' # For Apple macOS ARM
     ids: [ default ]
+    use: buildx
     skip_push: auto
     image_templates:
       - 'gowebly/{{ .ProjectName }}:latest-darwin-arm64'
