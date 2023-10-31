@@ -25,15 +25,15 @@ builds:
     goos: [ linux, windows, darwin ]
     goarch: [ amd64, arm64 ]
 
-# upx:
-#   -
-#     ids: [ default ]
-#     enabled: true
-#     compress: best
-#     lzma: true
-#     brute: true
-#     goos: [ linux, windows ] # skip darwin (macOS 13.x Ventura is not supported now)
-#     goarch: [ amd64, arm64 ]
+upx:
+  -
+    ids: [ default ]
+    enabled: true
+    compress: best
+    lzma: true
+    brute: true
+    goos: [ linux, windows ] # skip darwin (macOS 13.x Ventura is not supported now)
+    goarch: [ amd64, arm64 ]
 
 release:
   ids: [ default ]
@@ -97,8 +97,8 @@ dockers:
     use: buildx
     skip_push: auto
     image_templates:
-      - 'gowebly/{{ .ProjectName }}:latest-amd64'
-      - 'gowebly/{{ .ProjectName }}:{{ .Tag }}-amd64'
+      - 'gowebly/{{ .ProjectName }}:latest-linux-amd64'
+      - 'gowebly/{{ .ProjectName }}:{{ .Tag }}-linux-amd64'
     build_flag_templates:
       - '--pull'
       - '--label=org.opencontainers.image.created={{ .Date }}'
@@ -114,8 +114,8 @@ dockers:
     use: buildx
     skip_push: auto
     image_templates:
-      - 'gowebly/{{ .ProjectName }}:latest-arm64'
-      - 'gowebly/{{ .ProjectName }}:{{ .Tag }}-arm64'
+      - 'gowebly/{{ .ProjectName }}:latest-linux-arm64'
+      - 'gowebly/{{ .ProjectName }}:{{ .Tag }}-linux-arm64'
     build_flag_templates:
       - '--pull'
       - '--label=org.opencontainers.image.created={{ .Date }}'
@@ -125,20 +125,58 @@ dockers:
       - '--platform=linux/arm64'
     push_flags:
       - '--tls-verify=false'
+  -
+    id: '{{ .ProjectName }}_darwin_amd64' # For Apple macOS x86_64
+    ids: [ default ]
+    use: buildx
+    skip_push: auto
+    image_templates:
+      - 'gowebly/{{ .ProjectName }}:latest-darwin-amd64'
+      - 'gowebly/{{ .ProjectName }}:{{ .Tag }}-darwin-amd64'
+    build_flag_templates:
+      - '--pull'
+      - '--label=org.opencontainers.image.created={{ .Date }}'
+      - '--label=org.opencontainers.image.title={{ .ProjectName }}'
+      - '--label=org.opencontainers.image.revision={{ .FullCommit }}'
+      - '--label=org.opencontainers.image.version={{ .Version }}'
+      - '--platform=darwin/amd64'
+    push_flags:
+      - '--tls-verify=false'
+  -
+    id: '{{ .ProjectName }}_darwin_arm64' # For Apple macOS ARM
+    ids: [ default ]
+    use: buildx
+    skip_push: auto
+    image_templates:
+      - 'gowebly/{{ .ProjectName }}:latest-darwin-arm64'
+      - 'gowebly/{{ .ProjectName }}:{{ .Tag }}-darwin-arm64'
+    build_flag_templates:
+      - '--pull'
+      - '--label=org.opencontainers.image.created={{ .Date }}'
+      - '--label=org.opencontainers.image.title={{ .ProjectName }}'
+      - '--label=org.opencontainers.image.revision={{ .FullCommit }}'
+      - '--label=org.opencontainers.image.version={{ .Version }}'
+      - '--platform=darwin/arm64'
+    push_flags:
+      - '--tls-verify=false'
 
 docker_manifests:
   -
     name_template: 'gowebly/{{ .ProjectName }}:latest'
     skip_push: auto
     image_templates:
-      - 'gowebly/{{ .ProjectName }}:latest-amd64'
-      - 'gowebly/{{ .ProjectName }}:latest-arm64'
+      - 'gowebly/{{ .ProjectName }}:latest-linux-amd64'
+      - 'gowebly/{{ .ProjectName }}:latest-linux-arm64'
+      - 'gowebly/{{ .ProjectName }}:latest-darwin-amd64'
+      - 'gowebly/{{ .ProjectName }}:latest-darwin-arm64'
   -
     name_template: 'gowebly/{{ .ProjectName }}:{{ .Tag }}'
     skip_push: auto
     image_templates:
-      - 'gowebly/{{ .ProjectName }}:{{ .Tag }}-amd64'
-      - 'gowebly/{{ .ProjectName }}:{{ .Tag }}-arm64'
+      - 'gowebly/{{ .ProjectName }}:{{ .Tag }}-linux-amd64'
+      - 'gowebly/{{ .ProjectName }}:{{ .Tag }}-linux-arm64'
+      - 'gowebly/{{ .ProjectName }}:{{ .Tag }}-darwin-amd64'
+      - 'gowebly/{{ .ProjectName }}:{{ .Tag }}-darwin-arm64'
 
 brews:
   -
