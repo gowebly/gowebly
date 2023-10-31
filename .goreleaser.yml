@@ -94,7 +94,6 @@ dockers:
   -
     id: '{{ .ProjectName }}_linux_amd64' # For GNU/Linux x86_64
     ids: [ default ]
-    use: buildx
     skip_push: auto
     image_templates:
       - 'gowebly/{{ .ProjectName }}:latest-linux-amd64'
@@ -111,7 +110,6 @@ dockers:
   -
     id: '{{ .ProjectName }}_linux_arm64' # For GNU/Linux ARM
     ids: [ default ]
-    use: buildx
     skip_push: auto
     image_templates:
       - 'gowebly/{{ .ProjectName }}:latest-linux-arm64'
@@ -125,6 +123,38 @@ dockers:
       - '--platform=linux/arm64'
     push_flags:
       - '--tls-verify=false'
+  -
+    id: '{{ .ProjectName }}_darwin_amd64' # For Apple macOS x86_64
+    ids: [ default ]
+    skip_push: auto
+    image_templates:
+      - 'gowebly/{{ .ProjectName }}:latest-darwin-amd64'
+      - 'gowebly/{{ .ProjectName }}:{{ .Tag }}-darwin-amd64'
+    build_flag_templates:
+      - '--pull'
+      - '--label=org.opencontainers.image.created={{ .Date }}'
+      - '--label=org.opencontainers.image.title={{ .ProjectName }}'
+      - '--label=org.opencontainers.image.revision={{ .FullCommit }}'
+      - '--label=org.opencontainers.image.version={{ .Version }}'
+      - '--platform=darwin/amd64'
+    push_flags:
+      - '--tls-verify=false'
+  -
+    id: '{{ .ProjectName }}_darwin_arm64' # For Apple macOS ARM
+    ids: [ default ]
+    skip_push: auto
+    image_templates:
+      - 'gowebly/{{ .ProjectName }}:latest-darwin-arm64'
+      - 'gowebly/{{ .ProjectName }}:{{ .Tag }}-darwin-arm64'
+    build_flag_templates:
+      - '--pull'
+      - '--label=org.opencontainers.image.created={{ .Date }}'
+      - '--label=org.opencontainers.image.title={{ .ProjectName }}'
+      - '--label=org.opencontainers.image.revision={{ .FullCommit }}'
+      - '--label=org.opencontainers.image.version={{ .Version }}'
+      - '--platform=darwin/arm64'
+    push_flags:
+      - '--tls-verify=false'
 
 docker_manifests:
   -
@@ -133,12 +163,16 @@ docker_manifests:
     image_templates:
       - 'gowebly/{{ .ProjectName }}:latest-linux-amd64'
       - 'gowebly/{{ .ProjectName }}:latest-linux-arm64'
+      - 'gowebly/{{ .ProjectName }}:latest-darwin-amd64'
+      - 'gowebly/{{ .ProjectName }}:latest-darwin-arm64'
   -
     name_template: 'gowebly/{{ .ProjectName }}:{{ .Tag }}'
     skip_push: auto
     image_templates:
       - 'gowebly/{{ .ProjectName }}:{{ .Tag }}-linux-amd64'
       - 'gowebly/{{ .ProjectName }}:{{ .Tag }}-linux-arm64'
+      - 'gowebly/{{ .ProjectName }}:{{ .Tag }}-darwin-amd64'
+      - 'gowebly/{{ .ProjectName }}:{{ .Tag }}-darwin-arm64'
 
 brews:
   -
