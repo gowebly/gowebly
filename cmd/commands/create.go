@@ -56,15 +56,15 @@ func Create(di *injectors.Injector) error {
 		return err
 	}
 
-	// Frontend part message.
-	helpers.PrintStyled(
-		"Preparing the backend template engine... Please wait!",
-		"wait", "",
-	)
-
 	// Create frontend files from templates.
 	switch di.Config.Backend.TemplateEngine {
 	case "templ":
+		// Backend template engine part message.
+		helpers.PrintStyled(
+			"Preparing the backend template engine... Please wait!",
+			"wait", "",
+		)
+
 		// Copy frontend files from the embed file system for the a-h/templ template engine.
 		// See https://github.com/a-h/templ for more information.
 		if err := helpers.CopyFilesFromEmbedFS(

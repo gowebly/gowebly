@@ -43,6 +43,14 @@ func Doctor(di *injectors.Injector) error {
 		},
 	}
 
+	// Check, if the template engine is templ.
+	if di.Config.Backend.TemplateEngine == "templ" {
+		// Add templ tool.
+		toolsList = append(toolsList, helpers.Tool{
+			Name: "templ", VersionCommand: "version",
+		})
+	}
+
 	// Check tools.
 	tools := helpers.CheckTools(toolsList)
 
@@ -69,6 +77,25 @@ func Doctor(di *injectors.Injector) error {
 				Text:  fmt.Sprintf("%s %s", frontendRuntime, tools[3].Output),
 				State: tools[3].Status, Style: "margin-left",
 			},
+		},
+	)
+
+	// Check, if the template engine is templ.
+	if di.Config.Backend.TemplateEngine == "templ" {
+		// Print block of message for templ.
+		helpers.PrintStyledBlock(
+			[]helpers.StyledOutput{
+				{
+					Text:  fmt.Sprintf("%s %s", "templ", tools[4].Output),
+					State: tools[4].Status, Style: "margin-left",
+				},
+			},
+		)
+	}
+
+	// Print block of messages.
+	helpers.PrintStyledBlock(
+		[]helpers.StyledOutput{
 			{
 				Text: "Next steps:", State: "", Style: "margin-top-bottom",
 			},

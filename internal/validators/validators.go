@@ -35,6 +35,19 @@ func Validate(cfg *config.Config) error {
 			)
 		}
 
+		// Check, if 'template_engine' option in the 'backend' block is not set.
+		if cfg.Backend.TemplateEngine == "" {
+			return fmt.Errorf(constants.ErrorValidateConfigOptionInBlockNotFound, "template_engine", "backend")
+		}
+
+		// Check, if 'template_engine' option in the 'backend' block has a known value.
+		if !slices.Contains([]string{"default", "templ"}, cfg.Backend.TemplateEngine) {
+			return fmt.Errorf(
+				constants.ErrorValidateConfigValueInOptionUnknown,
+				"template_engine", "backend", cfg.Backend.TemplateEngine,
+			)
+		}
+
 		// Check, if 'port' option in the 'backend' block is not set.
 		if cfg.Backend.Port == 0 {
 			return fmt.Errorf(constants.ErrorValidateConfigOptionInBlockNotFound, "port", "backend")

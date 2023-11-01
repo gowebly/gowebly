@@ -31,6 +31,7 @@ func indexViewHandler(c *fiber.Ctx) error {
 		),
 	)
 
+	// Render template layout.
 	return adaptor.HTTPHandler(templateHandler)(c)
 	{{ else }}
 	return c.Render("pages/index", nil)

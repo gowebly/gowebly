@@ -27,7 +27,9 @@ func TestValidate(t *testing.T) {
 		{
 			name: "Timeout option in Backend block not found",
 			config: &config.Config{
-				Backend:  &config.Backend{ModuleName: "project", GoFramework: "default", Port: 5000, Timeout: nil},
+				Backend: &config.Backend{
+					ModuleName: "project", GoFramework: "default", TemplateEngine: "default", Port: 5000, Timeout: nil,
+				},
 				Frontend: nil,
 			},
 			wantErr: fmt.Sprintf(constants.ErrorValidateConfigOptionInBlockNotFound, "timeout", "backend"),
@@ -35,7 +37,9 @@ func TestValidate(t *testing.T) {
 		{
 			name: "ModuleName option in Backend block not found",
 			config: &config.Config{
-				Backend:  &config.Backend{ModuleName: "", GoFramework: "default", Port: 5000, Timeout: nil},
+				Backend: &config.Backend{
+					ModuleName: "", GoFramework: "default", TemplateEngine: "default", Port: 5000, Timeout: nil,
+				},
 				Frontend: nil,
 			},
 			wantErr: fmt.Sprintf(constants.ErrorValidateConfigOptionInBlockNotFound, "module_name", "backend"),
@@ -43,7 +47,9 @@ func TestValidate(t *testing.T) {
 		{
 			name: "GoFramework option in Backend block not found",
 			config: &config.Config{
-				Backend:  &config.Backend{ModuleName: "project", GoFramework: "", Port: 5000, Timeout: nil},
+				Backend: &config.Backend{
+					ModuleName: "project", GoFramework: "", TemplateEngine: "default", Port: 5000, Timeout: nil,
+				},
 				Frontend: nil,
 			},
 			wantErr: fmt.Sprintf(constants.ErrorValidateConfigOptionInBlockNotFound, "go_framework", "backend"),
@@ -51,18 +57,72 @@ func TestValidate(t *testing.T) {
 		{
 			name: "Unknown value in GoFramework option in Backend block",
 			config: &config.Config{
-				Backend:  &config.Backend{ModuleName: "project", GoFramework: "unknown", Port: 5000, Timeout: nil},
+				Backend: &config.Backend{
+					ModuleName: "project", GoFramework: "unknown", TemplateEngine: "default", Port: 5000, Timeout: nil,
+				},
 				Frontend: nil,
 			},
 			wantErr: fmt.Sprintf(constants.ErrorValidateConfigValueInOptionUnknown, "go_framework", "backend", "unknown"),
 		},
 		{
-			name: "Port option in Backend block not found",
+			name: "TemplateEngine option in Backend block not found",
 			config: &config.Config{
-				Backend:  &config.Backend{ModuleName: "project", GoFramework: "default", Port: 0, Timeout: nil},
+				Backend: &config.Backend{
+					ModuleName: "project", GoFramework: "default", TemplateEngine: "", Port: 5000, Timeout: nil,
+				},
 				Frontend: nil,
 			},
-			wantErr: fmt.Sprintf(constants.ErrorValidateConfigOptionInBlockNotFound, "port", "backend"),
+			wantErr: fmt.Sprintf(constants.ErrorValidateConfigOptionInBlockNotFound, "template_engine", "backend"),
+		},
+		{
+			name: "Unknown value in TemplateEngine option in Backend block",
+			config: &config.Config{
+				Backend: &config.Backend{
+					ModuleName: "project", GoFramework: "default", TemplateEngine: "unknown", Port: 5000, Timeout: nil,
+				},
+				Frontend: nil,
+			},
+			wantErr: fmt.Sprintf(constants.ErrorValidateConfigValueInOptionUnknown, "template_engine", "backend", "unknown"),
+		},
+		{
+			name: "Port option in Backend block not found",
+			config: &config.Config{
+				Backend: &config.Backend{
+					ModuleName: "project", GoFramework: "default", TemplateEngine: "default", Port: 0, Timeout: nil,
+				},
+				Frontend: nil,
+			},
+			wantErr: fmt.Sprintf(constants.ErrorValidateConfigValueInOptionUnknown, "port", "backend", "0"),
+		},
+		{
+			name: "Timeout option in Backend block not found",
+			config: &config.Config{
+				Backend:  &config.Backend{ModuleName: "project", GoFramework: "default", Port: 5000, Timeout: nil},
+				Frontend: nil,
+			},
+			wantErr: fmt.Sprintf(constants.ErrorValidateConfigOptionInBlockNotFound, "timeout", "backend"),
+		},
+		{
+			name: "Read option (Timeout) in Backend block not found",
+			config: &config.Config{
+				Backend: &config.Backend{
+					ModuleName: "project", GoFramework: "default", TemplateEngine: "default", Port: 5000,
+					Timeout: &config.Timeout{Read: 0, Write: 0},
+				},
+				Frontend: nil,
+			},
+			wantErr: fmt.Sprintf(constants.ErrorValidateConfigOptionInBlockNotFound, "read (timeout)", "backend"),
+		},
+		{
+			name: "Write option (Timeout) in Backend block not found",
+			config: &config.Config{
+				Backend: &config.Backend{
+					ModuleName: "project", GoFramework: "default", TemplateEngine: "default", Port: 5000,
+					Timeout: &config.Timeout{Read: 0, Write: 0},
+				},
+				Frontend: nil,
+			},
+			wantErr: fmt.Sprintf(constants.ErrorValidateConfigOptionInBlockNotFound, "write (timeout)", "backend"),
 		},
 		{
 			name: "Frontend block not found",
@@ -78,7 +138,8 @@ func TestValidate(t *testing.T) {
 			name: "Package name in the Frontend block not found",
 			config: &config.Config{
 				Backend: &config.Backend{
-					ModuleName: "project", GoFramework: "default", Port: 5000, Timeout: &config.Timeout{Read: 5, Write: 10},
+					ModuleName: "project", GoFramework: "default", TemplateEngine: "default", Port: 5000,
+					Timeout: &config.Timeout{Read: 5, Write: 10},
 				},
 				Frontend: &config.Frontend{
 					PackageName: "", CSSFramework: "default", RuntimeEnvironment: "default",
@@ -91,7 +152,8 @@ func TestValidate(t *testing.T) {
 			name: "CSS framework in the Frontend block not found",
 			config: &config.Config{
 				Backend: &config.Backend{
-					ModuleName: "project", GoFramework: "default", Port: 5000, Timeout: &config.Timeout{Read: 5, Write: 10},
+					ModuleName: "project", GoFramework: "default", TemplateEngine: "default", Port: 5000,
+					Timeout: &config.Timeout{Read: 5, Write: 10},
 				},
 				Frontend: &config.Frontend{
 					PackageName: "project", CSSFramework: "", RuntimeEnvironment: "default",
@@ -104,7 +166,8 @@ func TestValidate(t *testing.T) {
 			name: "CSS framework in the Frontend block has unknown value",
 			config: &config.Config{
 				Backend: &config.Backend{
-					ModuleName: "project", GoFramework: "default", Port: 5000, Timeout: &config.Timeout{Read: 5, Write: 10},
+					ModuleName: "project", GoFramework: "default", TemplateEngine: "default", Port: 5000,
+					Timeout: &config.Timeout{Read: 5, Write: 10},
 				},
 				Frontend: &config.Frontend{
 					PackageName: "project", CSSFramework: "unknown", RuntimeEnvironment: "default",
@@ -117,7 +180,8 @@ func TestValidate(t *testing.T) {
 			name: "Runtime environment in the Frontend block not found",
 			config: &config.Config{
 				Backend: &config.Backend{
-					ModuleName: "project", GoFramework: "default", Port: 5000, Timeout: &config.Timeout{Read: 5, Write: 10},
+					ModuleName: "project", GoFramework: "default", TemplateEngine: "default", Port: 5000,
+					Timeout: &config.Timeout{Read: 5, Write: 10},
 				},
 				Frontend: &config.Frontend{
 					PackageName: "project", CSSFramework: "default", RuntimeEnvironment: "",
@@ -130,7 +194,8 @@ func TestValidate(t *testing.T) {
 			name: "Runtime environment in the Frontend block has unknown value",
 			config: &config.Config{
 				Backend: &config.Backend{
-					ModuleName: "project", GoFramework: "default", Port: 5000, Timeout: &config.Timeout{Read: 5, Write: 10},
+					ModuleName: "project", GoFramework: "default", TemplateEngine: "default", Port: 5000,
+					Timeout: &config.Timeout{Read: 5, Write: 10},
 				},
 				Frontend: &config.Frontend{
 					PackageName: "project", CSSFramework: "default", RuntimeEnvironment: "unknown",
@@ -143,7 +208,8 @@ func TestValidate(t *testing.T) {
 			name: "HTMX in the Frontend block not found",
 			config: &config.Config{
 				Backend: &config.Backend{
-					ModuleName: "project", GoFramework: "default", Port: 5000, Timeout: &config.Timeout{Read: 5, Write: 10},
+					ModuleName: "project", GoFramework: "default", TemplateEngine: "default", Port: 5000,
+					Timeout: &config.Timeout{Read: 5, Write: 10},
 				},
 				Frontend: &config.Frontend{
 					PackageName: "project", CSSFramework: "default", RuntimeEnvironment: "default",
@@ -156,7 +222,8 @@ func TestValidate(t *testing.T) {
 			name: "Hyperscript in the Frontend block not found",
 			config: &config.Config{
 				Backend: &config.Backend{
-					ModuleName: "project", GoFramework: "default", Port: 5000, Timeout: &config.Timeout{Read: 5, Write: 10},
+					ModuleName: "project", GoFramework: "default", TemplateEngine: "default", Port: 5000,
+					Timeout: &config.Timeout{Read: 5, Write: 10},
 				},
 				Frontend: &config.Frontend{
 					PackageName: "project", CSSFramework: "default", RuntimeEnvironment: "default",
@@ -169,7 +236,8 @@ func TestValidate(t *testing.T) {
 			name: "Empty PackageName option in Frontend block",
 			config: &config.Config{
 				Backend: &config.Backend{
-					ModuleName: "project", GoFramework: "default", Port: 5000, Timeout: &config.Timeout{Read: 5, Write: 10},
+					ModuleName: "project", GoFramework: "default", TemplateEngine: "default", Port: 5000,
+					Timeout: &config.Timeout{Read: 5, Write: 10},
 				},
 				Frontend: &config.Frontend{
 					PackageName: "project", CSSFramework: "default", RuntimeEnvironment: "default",
