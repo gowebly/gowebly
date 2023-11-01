@@ -26,6 +26,7 @@ func indexViewHandler(c echo.Context) error {
 		"You're here because it worked out.", // define p text
 	)
 
+	// Render template layout.
 	return templates.Layout(
 		"Welcome to example!", // define title text
 		metaTags, bodyContent,
