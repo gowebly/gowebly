@@ -35,7 +35,7 @@ func indexViewHandler(w http.ResponseWriter, r *http.Request) {
 		"You're here because it worked out.", // define p text
 	)
 
-	// Define paths to the user templates.
+	// Define template layout.
 	if err := templates.Layout(
 		"Welcome to example!", // define title text
 		metaTags, bodyContent,
