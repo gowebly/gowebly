@@ -73,6 +73,9 @@ Feel free to using `gowebly` CLI from our [official Docker image][docker_image_u
 docker run --rm -it -v ${PWD}:${PWD} -w ${PWD} gowebly/gowebly:latest create
 ```
 
+> [!IMPORTANT]
+> This Docker image works **only** on the GNU/Linux systems (`amd64` / `arm64`, including WSL).
+
 ### 📦 Other way to quick start
 
 Download ready-made `exe` files for Windows, `deb`, `rpm`, `apk` or Arch Linux packages from the [Releases][repo_releases_url] page.

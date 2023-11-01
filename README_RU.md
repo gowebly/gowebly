@@ -73,6 +73,9 @@ brew install gowebly/tap/gowebly
 docker run --rm -it -v ${PWD}:${PWD} -w ${PWD} gowebly/gowebly:latest create
 ```
 
+> [!IMPORTANT]
+> Этот Docker-образ работает **только** на системах GNU/Linux (`amd64` / `arm64`, включая WSL).
+
 ### 📦 Другой путь для быстрого старта
 
 Скачать готовые `exe` файлы для Windows, пакеты `deb`, `rpm`, `apk` или Arch Linux — можно на странице [Releases][repo_releases_url].

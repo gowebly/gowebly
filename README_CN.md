@@ -74,6 +74,9 @@ brew install gowebly/tap/gowebly
 docker run --rm -it -v ${PWD}:${PWD} -w ${PWD} gowebly/gowebly:latest create
 ```
 
+> [!IMPORTANT]
+> 该 Docker 镜像仅适用于 GNU/Linux 系统（`amd64` / `arm64`，包括 WSL）。
+
 ### 📦 其他快速入门方法
 
 从 [Releases][repo_releases_url] 页面为 Windows、`deb`、`rpm`、`apk` 或 Arch Linux 软件包下载现成的 `exe` 文件。
