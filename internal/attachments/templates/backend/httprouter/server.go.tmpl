@@ -1,0 +1,52 @@
+package main
+
+import (
+	"fmt"
+	"net/http"
+	"strconv"
+	"time"
+
+	gowebly "github.com/gowebly/helpers"
+	"github.com/julienschmidt/httprouter"
+)
+
+// runServer runs a new HTTP server with the loaded environment variables.
+func runServer() error {
+	// Validate environment variables.
+	port, err := strconv.Atoi(gowebly.Getenv("BACKEND_PORT", "{{ .Port }}"))
+	if err != nil {
+		return err
+	}
+	readTimeout, err := strconv.Atoi(gowebly.Getenv("BACKEND_READ_TIMEOUT", "{{ .Timeout.Read }}"))
+	if err != nil {
+		return err
+	}
+	writeTimeout, err := strconv.Atoi(gowebly.Getenv("BACKEND_WRITE_TIMEOUT", "{{ .Timeout.Write }}"))
+	if err != nil {
+		return err
+	}
+
+	// Create a new HTTP router.
+	router := httprouter.New()
+
+	// Handle static files.
+	// For more information, see https://github.com/julienschmidt/httprouter?tab=readme-ov-file#static-files
+	router.NotFound = http.StripPrefix("/static/", http.FileServer(http.Dir("static")))
+
+	// Handle index page view.
+	router.GET("/", indexViewHandler)
+
+	// Handle API endpoints.
+	router.GET("/api/show", showContentAPIHandler)
+
+	// Create a new server instance with options from environment variables.
+	// For more information, see https://blog.cloudflare.com/the-complete-guide-to-golang-net-http-timeouts/
+	server := &http.Server{
+		Addr:         fmt.Sprintf(":%d", port),
+		ReadTimeout:  time.Duration(readTimeout) * time.Second,
+		WriteTimeout: time.Duration(writeTimeout) * time.Second,
+		Handler:      router,
+	}
+
+	return server.ListenAndServe()
+}

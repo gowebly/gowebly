@@ -61,7 +61,7 @@ release:
     brew upgrade gowebly/tap/gowebly
     ```
 
-    For [Docker][docker_url] users (any platforms):
+    For [Docker][docker_url] users (GNU/Linux only):
 
     ```console
     docker pull gowebly/gowebly:latest
