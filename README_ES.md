@@ -19,6 +19,7 @@ Características:
 - Multiplataforma y multiarquitectura permite **ejecutar con éxito** en GNU/Linux, MS Windows (incluido WSL) y Apple macOS;
 - CLI inteligente que **hace la mayor parte** de la rutina de configuración y preparación para la producción;
 - Ayuda a entrar más rápidamente en la pila tecnológica **Go** + **htmx** + **hyperscript**;
+- Soporta los frameworks web Go más populares, como **Fiber**, **Echo**, **Chi** y **httprouter**;
 - Soporta la forma de desarrollar aplicaciones web utilizando el motor de plantillas **templ** con recarga en caliente;
 - La posibilidad de añadir simplemente a tu proyecto un **framework CSS** atómico/utility-first listo para usar y completamente personalizado;
 - Listo para instalar como **PWA** (Progressive Web App) en tu navegador o dispositivo móvil;
@@ -115,7 +116,7 @@ Normalmente, un archivo de configuración creado contiene las siguientes opcione
 ```yaml
 backend:
    module_name: project # (string) option can be any name of your Go module (for example, 'github.com/user/project')
-   go_framework: default # (string) option can be one of the values: 'fiber', 'echo', 'chi', or 'default'
+   go_framework: default # (string) option can be one of the values: 'fiber', 'echo', 'chi', 'httprouter', or 'default'
    template_engine: default # (string) option can be one of the values: 'templ', or 'default'
    port: 5000 # (int) option can be any port that is not taken up on your system
    timeout:
@@ -132,12 +133,13 @@ frontend:
 
 Pero, puedes elegir cualquier **Go framework** para el backend de tu proyecto:
 
-| Go framework | Descripción                                                                      |
-| ------------ | -------------------------------------------------------------------------------- |
-| `default`    | No uses ningún framework Go (solo el paquete integrado [net/http][net_http_url]) |
-| `fiber`      | Utilizar un backend Go con el framework web [Fiber][fiber_url]                   |
-| `echo`       | Utilizar un backend Go con el framework web [Echo][echo_url]                     |
-| `chi`        | Utilizar un backend Go con el erutado componible [chi][chi_url]                  |
+| Go framework | Descripción                                                                            |
+| ------------ | -------------------------------------------------------------------------------------- |
+| `default`    | No uses ningún framework Go (solo el paquete integrado [net/http][net_http_url])       |
+| `fiber`      | Utilizar un backend Go con el framework web [Fiber][fiber_url]                         |
+| `echo`       | Utilizar un backend Go con el framework web [Echo][echo_url]                           |
+| `chi`        | Utilizar un backend Go con el erutado componible [chi][chi_url]                        |
+| `httprouter` | Utilizar un backend Go con el erutado de alto rendimiento [httprouter][httprouter_url] |
 
 Puede elegir cualquier **motor de plantillas**:
 
@@ -388,3 +390,4 @@ Y ahora, ¡te invito a participar en este proyecto! Trabajemos **juntos** para c
 [fiber_url]: https://github.com/gofiber/fiber
 [echo_url]: https://github.com/labstack/echo
 [chi_url]: https://github.com/go-chi/chi
+[httprouter_url]: https://github.com/julienschmidt/httprouter

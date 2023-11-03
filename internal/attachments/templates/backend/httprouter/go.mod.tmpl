@@ -1,0 +1,9 @@
+module {{ .ModuleName }}
+
+go 1.21
+
+require (
+    {{ if eq .TemplateEngine "templ" }}github.com/a-h/templ latest{{ end }}
+    github.com/julienschmidt/httprouter latest
+    github.com/gowebly/helpers latest
+)

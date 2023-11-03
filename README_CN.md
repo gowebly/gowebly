@@ -20,6 +20,7 @@
 - 跨平台和多体系结构，可在 GNU/Linux、MS Windows（包括 WSL）和 Apple macOS 上成功运行；
 - 智能 CLI 可完成大部分常规设置和生产准备工作；
 - 有助于更快地进入 Go + htmx + hyperscript 技术栈；
+- 开箱即支持最流行的 Go 网络框架，如 Fiber、Echo、Chi 和 httprouter；
 - 支持使用带有热加载功能的 templ 模板引擎开发网络应用程序的方式；
 - 可为您的项目添加随时可用、完全定制的原子/实用工具优先 CSS 框架；
 - 可作为 PWA（渐进式网络应用程序）安装在浏览器或移动设备中；
@@ -116,7 +117,7 @@ gowebly init
 ```yaml
 backend:
    module_name: project # (string) option can be any name of your Go module (for example, 'github.com/user/project')
-   go_framework: default # (string) option can be one of the values: 'fiber', 'echo', 'chi', or 'default'
+   go_framework: default # (string) option can be one of the values: 'fiber', 'echo', 'chi', 'httprouter', or 'default'
    template_engine: default # (string) option can be one of the values: 'templ', or 'default'
    port: 5000 # (int) option can be any port that is not taken up on your system
    timeout:
@@ -139,6 +140,7 @@ frontend:
 | `fiber`      | 使用 Go 后端和 [Fiber][fiber_url] 网络框架                         |
 | `echo`       | 使用 Go 后端和 [Echo][echo_url] 网络框架                           |
 | `chi`        | 使用 Go 后端和 [chi][chi_url] 可组合路由器                         |
+| `httprouter` | 使用 Go 后台和 [httprouter][httprouter_url] 高性能路由器           |
 
 您可以选择任何模板引擎：
 
@@ -391,3 +393,4 @@ go get -u github.com/gowebly/helpers
 [fiber_url]: https://github.com/gofiber/fiber
 [echo_url]: https://github.com/labstack/echo
 [chi_url]: https://github.com/go-chi/chi
+[httprouter_url]: https://github.com/julienschmidt/httprouter
