@@ -19,8 +19,8 @@ Características:
 - Multiplataforma y multiarquitectura permite **ejecutar con éxito** en GNU/Linux, MS Windows (incluido WSL) y Apple macOS;
 - CLI inteligente que **hace la mayor parte** de la rutina de configuración y preparación para la producción;
 - Ayuda a entrar más rápidamente en la pila tecnológica **Go** + **htmx** + **hyperscript**;
-- Soporta los frameworks web Go más populares, como **Fiber**, **Echo**, **Chi** y **httprouter**;
-- Soporta la forma de desarrollar aplicaciones web utilizando el motor de plantillas **templ** con recarga en caliente;
+- Soporta los frameworks web Go más populares, como **Fiber**, **Gin**, **Echo**, **Chi** y **HttpRouter**;
+- Soporta la forma de desarrollar aplicaciones web utilizando el motor de plantillas **Templ** con recarga en caliente;
 - La posibilidad de añadir simplemente a tu proyecto un **framework CSS** atómico/utility-first listo para usar y completamente personalizado;
 - Listo para instalar como **PWA** (Progressive Web App) en tu navegador o dispositivo móvil;
 - Admite el modo **live-reloading** para sus estilos CSS.
@@ -106,7 +106,7 @@ gowebly init
 > - Con un motor de plantillas por defecto (solo paquete integrado **html/template**);
 > - Sin ningún framework CSS para la parte frontend (solo estilos por defecto para el código de ejemplo);
 > - El entorno de ejecución JavaScript para la parte frontend utilizará **Node.js**;
-> - El puerto del servidor es `5000`, tiempo de espera (en segundos): `5` para lectura, `10` para escritura;
+> - El puerto del servidor es `7000`, tiempo de espera (en segundos): `5` para lectura, `10` para escritura;
 > - Últimas versiones de **htmx** & **hyperscript**.
 
 <img width="720" alt="gowebly init" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly_init.png">
@@ -116,9 +116,9 @@ Normalmente, un archivo de configuración creado contiene las siguientes opcione
 ```yaml
 backend:
    module_name: project # (string) option can be any name of your Go module (for example, 'github.com/user/project')
-   go_framework: default # (string) option can be one of the values: 'fiber', 'echo', 'chi', 'httprouter', or 'default'
+   go_framework: default # (string) option can be one of the values: 'fiber', 'gin', 'echo', 'chi', 'httprouter', or 'default'
    template_engine: default # (string) option can be one of the values: 'templ', or 'default'
-   port: 5000 # (int) option can be any port that is not taken up on your system
+   port: 7000 # (int) option can be any port that is not taken up on your system
    timeout:
       read: 5 # (int) option can be any number of seconds, 5 is recommended
       write: 10 # (int) option can be any number of seconds, 10 is recommended
@@ -137,19 +137,20 @@ Pero, puedes elegir cualquier **Go framework** para el backend de tu proyecto:
 | ------------ | -------------------------------------------------------------------------------------- |
 | `default`    | No uses ningún framework Go (solo el paquete integrado [net/http][net_http_url])       |
 | `fiber`      | Utilizar un backend Go con el framework web [Fiber][fiber_url]                         |
+| `gin`        | Utilizar un backend Go con el framework web [Gin][gin_url]                             |
 | `echo`       | Utilizar un backend Go con el framework web [Echo][echo_url]                           |
-| `chi`        | Utilizar un backend Go con el erutado componible [chi][chi_url]                        |
-| `httprouter` | Utilizar un backend Go con el erutado de alto rendimiento [httprouter][httprouter_url] |
+| `chi`        | Utilizar un backend Go con el erutado componible [Chi][chi_url]                        |
+| `httprouter` | Utilizar un backend Go con el erutado de alto rendimiento [HttpRouter][httprouter_url] |
 
 Puede elegir cualquier **motor de plantillas**:
 
 | Motor de plantillas | Descripción                                                                                          |
 | ------------------- | ---------------------------------------------------------------------------------------------------- |
 | `default`           | No utilice ningún motor de plantillas (solo el paquete integrado [html/template][html_template_url]) |
-| `templ`             | Utilice el motor de plantillas [templ][ah_templ_url]                                                 |
+| `templ`             | Utilice el motor de plantillas [Templ][ah_templ_url]                                                 |
 
 > [!NOTE]
-> El CLI `gowebly` ya sabe como usar el motor de plantillas **templ** cuando se crea y ejecuta un proyecto.
+> El CLI `gowebly` ya sabe como usar el motor de plantillas **Templ** cuando se crea y ejecuta un proyecto.
 
 Además, puedes elegir versiones de **htmx**, **hyperscript**, y uno de los más populares atomic/utility-first **CSS framework** para tu proyecto:
 
@@ -388,6 +389,7 @@ Y ahora, ¡te invito a participar en este proyecto! Trabajemos **juntos** para c
 [html_template_url]: https://pkg.go.dev/html/template
 [ah_templ_url]: https://github.com/a-h/templ
 [fiber_url]: https://github.com/gofiber/fiber
+[gin_url]: https://github.com/gin-gonic/gin
 [echo_url]: https://github.com/labstack/echo
 [chi_url]: https://github.com/go-chi/chi
 [httprouter_url]: https://github.com/julienschmidt/httprouter

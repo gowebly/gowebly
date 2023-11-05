@@ -73,7 +73,7 @@ func indexViewHandler(w http.ResponseWriter, r *http.Request) {
 func showContentAPIHandler(w http.ResponseWriter, r *http.Request) {
 	// Check, if the current request has a 'HX-Request' header.
 	// For more information, see https://htmx.org/docs/#request-headers
-	if r.Header.Get("HX-Request") != "true" {
+	if r.Header.Get("HX-Request") == "" || r.Header.Get("HX-Request") != "true" {
 		// If not, return HTTP 400 error.
 		w.WriteHeader(http.StatusBadRequest)
 		slog.Error("request API", "method", r.Method, "status", http.StatusBadRequest, "path", r.URL.Path)
