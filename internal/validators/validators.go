@@ -28,7 +28,7 @@ func Validate(cfg *config.Config) error {
 		}
 
 		// Check, if 'go_framework' option in the 'backend' block has a known value.
-		if !slices.Contains([]string{"default", "fiber", "echo", "chi", "httprouter"}, cfg.Backend.GoFramework) {
+		if !slices.Contains([]string{"default", "fiber", "gin", "echo", "chi", "httprouter"}, cfg.Backend.GoFramework) {
 			return fmt.Errorf(
 				constants.ErrorValidateConfigValueInOptionUnknown,
 				"go_framework", "backend", cfg.Backend.GoFramework,
