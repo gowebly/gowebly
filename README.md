@@ -28,7 +28,7 @@ Features:
 - Contains a comprehensive **example** of how to use it out of the box.
 
 > [!NOTE]
-> To give you a full understanding of the project, we have recorded a short [📺 video][gowebly_youtube_video_url] and prepared an introduction [📝 article][gowebly_devto_article_url] demonstrating the main features of the `gowebly` CLI.
+> To give you a full understanding of the project, we have recorded a short [📺 video][gowebly_youtube_video_url] and prepared an introduction [📝 article][gowebly_devto_article_url] demonstrating the main features of the **Gowebly** CLI.
 
 ## ⚡️ Quick start
 
@@ -87,7 +87,7 @@ For many developers, _including us_, this process is as tedious and even depress
 
 Why not just give all that awful manual work to machines? Let them do all the hard work for us, and we will just create awesome web products and not have to think about build and deploy.
 
-That's why we created the `gowebly` CLI and its helpers' library, which helps you start an amazing web applications in **Go** using **htmx**, **hyperscript** and popular atomic/utility-first **CSS frameworks**.
+That's why we created the **Gowebly** CLI and its helpers' library, which helps you start an amazing web applications in **Go** using **htmx**, **hyperscript** and popular atomic/utility-first **CSS frameworks**.
 
 We are here to save you (_and ourselves_) from this routine pain! ✨
 
@@ -96,7 +96,7 @@ We are here to save you (_and ourselves_) from this routine pain! ✨
 
 ## 🏆 A win-win cooperation
 
-If you liked the `gowebly` project and found it useful for your tasks, please click a 👁️ **Watch** button to avoid missing notifications about new versions, and give it a 🌟 **GitHub Star**!
+If you liked the **Gowebly** project and found it useful for your tasks, please click a 👁️ **Watch** button to avoid missing notifications about new versions, and give it a 🌟 **GitHub Star**!
 
 It really **motivates** us to make this product **even** better.
 
