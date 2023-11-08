@@ -28,7 +28,7 @@ Features:
 - Contains a comprehensive **example** of how to use it out of the box.
 
 > [!NOTE]
-> To give you a full understanding of the project, we have recorded a short [📺 video][gowebly_youtube_video_url] and prepared an introduction [📝 article][gowebly_devto_article_url] demonstrating the main features of the **Gowebly** CLI.
+> To give you a full understanding of the project, we have recorded a short 📺 [video][gowebly_youtube_video_url] and prepared an introduction 📝 [article][gowebly_devto_article_url] demonstrating the main features of the **Gowebly** CLI.
 
 ## ⚡️ Quick start
 
@@ -75,7 +75,7 @@ Download ready-made `exe` files for Windows, `deb`, `rpm`, `apk` or Arch Linux p
 
 ## 📖 Complete user guide
 
-We always treasure your time and want you to start building really great web products on this awesome technology stack as soon as possible! Therefore, to get a complete guide to use and understand the basic principles of the **Gowebly** CLI, we have prepared a comprehensive explanation of the project in this [📖 Documentation][repo_docs_url].
+We always treasure your time and want you to start building really great web products on this awesome technology stack as soon as possible! Therefore, to get a complete guide to use and understand the basic principles of the **Gowebly** CLI, we have prepared a comprehensive explanation of the project in this 📖 [Documentation][repo_docs_url].
 
 We hope you find answers to all of your questions! 👌
 
@@ -145,6 +145,7 @@ Your PRs, issues & any words are welcome! Thank you 😘
 [repo_readme_es_url]: https://github.com/gowebly/gowebly/blob/main/README_ES.md
 [repo_stargazers_url]: https://github.com/gowebly/gowebly/stargazers
 [repo_badge_stargazers_img]: https://user-images.githubusercontent.com/11155743/275514241-8ecdf4bd-c35e-4e28-a937-b0a63aa1dbaf.png
+[repo_default_config_url]: https://github.com/koddr/gowebly/blob/main/internal/attachments/configs/default.yml
 
 <!-- Author links -->
 
@@ -157,5 +158,7 @@ Your PRs, issues & any words are welcome! Thank you 😘
 [gowebly_devto_article_url]: https://dev.to/koddr/a-next-generation-cli-tool-for-building-amazing-web-apps-in-go-using-htmx-hyperscript-336d
 [cgapp_url]: https://github.com/create-go-app/cli
 [cgapp_stars_url]: https://github.com/create-go-app/cli/stargazers
+[htmx_url]: https://htmx.org
+[hyperscript_url]: https://hyperscript.org
 [brew_url]: https://brew.sh
 [docker_image_url]: https://hub.docker.com/repository/docker/gowebly/gowebly
