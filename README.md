@@ -34,7 +34,7 @@ Features:
 
 First, [download][go_download_url] and install **Go**. Version `1.21` (or higher) is required.
 
-Now, you can use the **Gowebly** CLI without installation. Just [`go run`][go_run_url] it to create a new project with a [default][repo_default_config] configuration:
+Now, you can use the **Gowebly** CLI without installation. Just run it with [`go run`][go_run_url] to create a new project with a [default][repo_default_config] configuration:
 
 ```console
 go run github.com/gowebly/gowebly@latest create
@@ -42,7 +42,7 @@ go run github.com/gowebly/gowebly@latest create
 
 That's it! 🔥 A wonderful web application has been created in the current folder.
 
-It will use the **net/http** package (as a Go backend) and the **html/template** package (as a template engine). The **htmx** and **hyperscript** packages are already available in your HTML templates.
+It will use the **net/http** package (as a Go backend) and the **html/template** package (as a template engine). The **htmx** and **hyperscript** libraries are already available in your HTML templates.
 
 ### 🐳 Docker-way to quick start
 
@@ -98,7 +98,7 @@ We are here to save you (_and ourselves_) from this routine pain! ✨
 
 ## 🏆 A win-win cooperation
 
-If you liked the **Gowebly** project and found it useful for your tasks, please click a 👁️ **Watch** button to avoid missing notifications about new versions, and give it a 🌟 **GitHub Star**!
+If you liked the **Gowebly** CLI and found it useful for your tasks, please click a 👁️ **Watch** button to avoid missing notifications about new versions, and give it a 🌟 **GitHub Star**!
 
 It really **motivates** us to make this product **even** better.
 
