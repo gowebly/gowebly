@@ -44,6 +44,17 @@ That's it! 🔥 A wonderful web application has been created in the current fold
 
 It will use the **net/http** package (as a Go backend) and the **html/template** package (as a template engine). The **htmx** and **hyperscript** packages are already available in your HTML templates.
 
+### 🐳 Docker-way to quick start
+
+Feel free to using the **Gowebly** CLI from our [official Docker image][docker_image_url] and run it in the isolated container:
+
+```console
+docker run --rm -it -v ${PWD}:${PWD} -w ${PWD} gowebly/gowebly:latest create
+```
+
+> [!IMPORTANT]
+> This Docker image works **only** on the GNU/Linux systems (`amd64` or `arm64`, including WSL).
+
 ### 🍺 Homebrew-way to quick start
 
 GNU/Linux and Apple macOS users available way to install **Gowebly** CLI via [Homebrew][brew_url].
@@ -59,17 +70,6 @@ Install:
 ```console
 brew install gowebly/tap/gowebly
 ```
-
-### 🐳 Docker-way to quick start
-
-Feel free to using the **Gowebly** CLI from our [official Docker image][docker_image_url] and run it in the isolated container:
-
-```console
-docker run --rm -it -v ${PWD}:${PWD} -w ${PWD} gowebly/gowebly:latest create
-```
-
-> [!IMPORTANT]
-> This Docker image works **only** on the GNU/Linux systems (`amd64` or `arm64`, including WSL).
 
 ### 📦 Other way to quick start
 
