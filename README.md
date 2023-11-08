@@ -1,6 +1,6 @@
 <img width="256px" alt="gowebly logo" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly-logo.svg">
 
-# gowebly – A next-generation CLI tool for building amazing web apps in Go using htmx & hyperscript
+# The Gowebly CLI – A next-generation CLI tool for building amazing web apps in Go using htmx & hyperscript
 
 [![Go version][go_version_img]][go_dev_url]
 [![Go report][go_report_img]][go_report_url]
