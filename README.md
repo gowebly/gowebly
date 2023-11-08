@@ -40,7 +40,9 @@ Now, you can use the **Gowebly** CLI without installation. Just [`go run`][go_ru
 go run github.com/gowebly/gowebly@latest create
 ```
 
-That's it! 🔥 A wonderful web application, using the built-in **net/http** package (as a Go backend), **htmx** & **hyperscript** is available in your Go HTML templates.
+That's it! 🔥 A wonderful web application has been created in the current folder.
+
+It will use the **net/http** package (as a Go backend) and the **html/template** package (as a template engine). The **htmx** and **hyperscript** packages are already available in your HTML templates.
 
 ### 🍺 Homebrew-way to quick start
 
