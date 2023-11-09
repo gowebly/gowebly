@@ -1,4 +1,4 @@
-<img width="256px" alt="gowebly logo" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly-logo.svg">
+<a href="https://gowebly.org" target="_blank" title="Go to the Gowebly's Complete user guide"><img width="256px" alt="gowebly logo" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly-logo.svg"></a>
 
 # The Gowebly CLI – CLI-инструмент нового поколения для создания удивительных веб-приложений на языке Go с использованием htmx и hyperscript
 
@@ -15,7 +15,7 @@
 
 - 100% **свободный** и **открытый исходный код** под лицензией [Apache 2.0][repo_license_url];
 - Для **любого** уровня знаний и технической экспертизы разработчика;
-- [**Хорошо документирован**][repo_docs_url], содержит большое количество советов и подсказок от авторов;
+- [**Хорошо документирован**][docs_url], содержит большое количество советов и подсказок от авторов;
 - Кроссплатформенность и мультиархитектурность позволяет **успешно запускаться** на GNU/Linux, MS Windows (включая WSL) и Apple macOS;
 - Умный CLI, который **делает большую часть** рутинной настройки и подготовки к работе;
 - Помогает быстрее освоить стек технологий **Go** + **htmx** + **hyperscript**;
@@ -77,9 +77,25 @@ brew install gowebly/tap/gowebly
 
 ## 📖 Полное руководство пользователя
 
-Мы всегда ценим ваше время и хотим, чтобы вы как можно скорее начали создавать действительно отличные веб-продукты на этом потрясающем технологическом стеке! Поэтому, чтобы получить полное руководство по использованию и понять основные принципы работы **Gowebly** CLI, мы подготовили исчерпывающее объяснение проекта в 📖 [Документации][repo_docs_url].
+Мы всегда ценим ваше время и хотим, чтобы вы как можно скорее начали создавать действительно отличные веб-продукты на этом потрясающем технологическом стеке! Поэтому, чтобы получить полное руководство по использованию и понять основные принципы работы **Gowebly** CLI, мы подготовили исчерпывающее объяснение проекта в этом 📖 [**Полном руководстве пользователя**][docs_url].
 
-Мы надеемся, что вы найдете ответы на все свои вопросы! 👌
+<a href="https://gowebly.org" target="_blank" title="Go to the Gowebly's Complete user guide"><img width="324px" alt="gowebly docs banner" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly-docs-banner.png"></a>
+
+Мы постарались сделать так, чтобы вам было **как можно удобнее** осваивать этот замечательный инструмент, поэтому каждая команда CLI имеет достаточное текстовое описание, а также визуальную схему её работы.
+
+### Путь обучения
+
+Настоятельно рекомендуется начать изучение с краткой вводной статьи «[**How does it work?**][docs_how_it_works_url]», чтобы понять основной принцип работы и основные компоненты, встроенные в **Gowebly** CLI.
+
+Следующие шаги:
+
+1. [Установите CLI на свою систему][docs_installation_url].
+2. [Сконфигурируйте проект][docs_configuring_url]
+3. [Начните создание нового проекта][docs_create_new_project_url]
+4. [Запустите проект локально][docs_run_project_url]
+5. [Сборка проекта для продакшена][docs_build_project_url]
+
+Надеемся, что вы найдете ответы на все свои вопросы! 😉
 
 ## 🎯 Мотивация к созданию
 
@@ -137,7 +153,6 @@ brew install gowebly/tap/gowebly
 [repo_url]: https://github.com/gowebly/gowebly
 [repo_issues_url]: https://github.com/gowebly/gowebly/issues
 [repo_pull_request_url]: https://github.com/gowebly/gowebly/pulls
-[repo_docs_url]: https://gowebly.org
 [repo_releases_url]: https://github.com/gowebly/gowebly/releases
 [repo_license_url]: https://github.com/gowebly/gowebly/blob/main/LICENSE
 [repo_license_img]: https://img.shields.io/badge/license-Apache_2.0-red?style=for-the-badge&logo=none
@@ -148,6 +163,16 @@ brew install gowebly/tap/gowebly
 [repo_stargazers_url]: https://github.com/gowebly/gowebly/stargazers
 [repo_badge_stargazers_img]: https://user-images.githubusercontent.com/11155743/275514241-8ecdf4bd-c35e-4e28-a937-b0a63aa1dbaf.png
 [repo_default_config_url]: https://github.com/koddr/gowebly/blob/main/internal/attachments/configs/default.yml
+
+<!-- Docs links -->
+
+[docs_url]: https://gowebly.org
+[docs_how_it_works_url]: https://gowebly.org/complete-user-guide/how-does-it-work/index.html
+[docs_installation_url]: https://gowebly.org/complete-user-guide/installation/index.html
+[docs_configuring_url]: https://gowebly.org/complete-user-guide/configuration/index.html
+[docs_create_new_project_url]: https://gowebly.org/complete-user-guide/create-new-project/index.html
+[docs_run_project_url]: https://gowebly.org/complete-user-guide/run-your-project/index.html
+[docs_build_project_url]: https://gowebly.org/complete-user-guide/build-your-project/index.html
 
 <!-- Author links -->
 
