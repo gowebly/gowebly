@@ -79,7 +79,7 @@ brew install gowebly/tap/gowebly
 
 我们一直非常珍惜您的时间，并希望您能尽快开始在这个超棒的技术栈上构建真正出色的网络产品！因此，为了获得完整的使用指南并了解 Gowebly CLI 的基本原理，我们在此 📖 [完整用户指南][docs_url] 中准备了一份全面的项目说明。
 
-<a href="https://gowebly.org" target="_blank" title="Go to the Gowebly's Complete user guide"><img width="360px" alt="gowebly docs banner" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly-docs-banner.png"></a>
+<a href="https://gowebly.org" target="_blank" title="Go to the Gowebly's Complete user guide"><img width="360px" alt="gowebly docs banner" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly-docs-banner.svg"></a>
 
 为了让您尽可能轻松地学习这一出色的工具，我们对每条 CLI 命令都进行了充分的文字说明，并提供了工作原理的直观图。
 

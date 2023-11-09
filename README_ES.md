@@ -79,7 +79,7 @@ Descargue archivos `exe` ya creados para paquetes Windows, `deb`, `rpm`, `apk` o
 
 ¡Siempre valoramos tu tiempo y queremos que empieces a construir productos web realmente geniales sobre esta impresionante pila tecnológica lo antes posible! Por lo tanto, para obtener una guía completa para usar y entender los principios básicos de la CLI **Gowebly**, hemos preparado una explicación completa del proyecto en este 📖 [**Guía de usuario completa**][docs_url].
 
-<a href="https://gowebly.org" target="_blank" title="Go to the Gowebly's Complete user guide"><img width="360px" alt="gowebly docs banner" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly-docs-banner.png"></a>
+<a href="https://gowebly.org" target="_blank" title="Go to the Gowebly's Complete user guide"><img width="360px" alt="gowebly docs banner" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly-docs-banner.svg"></a>
 
 Nos hemos preocupado de que te resulte **lo más cómodo** aprender esta maravillosa herramienta, por lo que cada comando CLI tiene una descripción textual suficiente, así como un diagrama visual de cómo funciona.
 
