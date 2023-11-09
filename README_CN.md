@@ -1,4 +1,4 @@
-<img width="256px" alt="gowebly logo" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly-logo.svg">
+<a href="https://gowebly.org" target="_blank" title="Go to the Gowebly's Complete user guide"><img width="256px" alt="gowebly logo" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly-logo.svg"></a>
 
 # The Gowebly CLI – 新一代 CLI 工具，可使用 htmx 和 hyperscript 在 Go 中构建令人惊叹的网络应用程序
 
@@ -15,7 +15,7 @@
 
 - 根据 [Apache 2.0][repo_license_url] 许可，100% 免费开源；
 - 适合任何知识水平和技术专长的开发人员；
-- [文档齐全][repo_docs_url]，作者提供了大量提示和帮助；
+- [文档齐全][docs_url]，作者提供了大量提示和帮助；
 - 跨平台和多体系结构，可在 GNU/Linux、MS Windows（包括 WSL）和 Apple macOS 上成功运行；
 - 智能 CLI 可完成大部分常规设置和生产准备工作；
 - 有助于更快进入 Go + htmx + hyperscript 技术栈；
@@ -77,9 +77,25 @@ brew install gowebly/tap/gowebly
 
 ## 📖 完整的用户指南
 
-我们一直非常珍惜您的时间，并希望您能尽快开始在这个超棒的技术栈上构建真正出色的网络产品！因此，为了获得完整的使用指南并了解 Gowebly CLI 的基本原理，我们在此 📖 [文档][repo_docs_url] 中准备了一份全面的项目说明。
+我们一直非常珍惜您的时间，并希望您能尽快开始在这个超棒的技术栈上构建真正出色的网络产品！因此，为了获得完整的使用指南并了解 Gowebly CLI 的基本原理，我们在此 📖 [完整用户指南][docs_url] 中准备了一份全面的项目说明。
 
-希望您能找到所有问题的答案！ 👌
+<a href="https://gowebly.org" target="_blank" title="Go to the Gowebly's Complete user guide"><img width="360px" alt="gowebly docs banner" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly-docs-banner.png"></a>
+
+为了让您尽可能轻松地学习这一出色的工具，我们对每条 CLI 命令都进行了充分的文字说明，并提供了工作原理的直观图。
+
+### 学习路径
+
+强烈建议从一篇简短的介绍性文章 "[How does it work?][docs_how_it_works_url]" 开始学习，了解 Gowebly CLI 的基本原理和主要组件。
+
+下一步是：
+
+1. [在系统中安装 CLI][docs_installation_url]
+2. [配置您的项目][docs_configuring_url]
+3. [开始创建新项目][docs_create_new_project_url]
+4. [在本地运行项目][docs_run_project_url]
+5. [为生产建立您的项目][docs_build_project_url]
+
+希望你能找到所有问题的答案！ 😉
 
 ## 🎯 创建动机
 
@@ -137,7 +153,6 @@ brew install gowebly/tap/gowebly
 [repo_url]: https://github.com/gowebly/gowebly
 [repo_issues_url]: https://github.com/gowebly/gowebly/issues
 [repo_pull_request_url]: https://github.com/gowebly/gowebly/pulls
-[repo_docs_url]: https://gowebly.org
 [repo_releases_url]: https://github.com/gowebly/gowebly/releases
 [repo_license_url]: https://github.com/gowebly/gowebly/blob/main/LICENSE
 [repo_license_img]: https://img.shields.io/badge/license-Apache_2.0-red?style=for-the-badge&logo=none
@@ -148,6 +163,16 @@ brew install gowebly/tap/gowebly
 [repo_stargazers_url]: https://github.com/gowebly/gowebly/stargazers
 [repo_badge_stargazers_img]: https://user-images.githubusercontent.com/11155743/275514241-8ecdf4bd-c35e-4e28-a937-b0a63aa1dbaf.png
 [repo_default_config_url]: https://github.com/koddr/gowebly/blob/main/internal/attachments/configs/default.yml
+
+<!-- Docs links -->
+
+[docs_url]: https://gowebly.org
+[docs_how_it_works_url]: https://gowebly.org/complete-user-guide/how-does-it-work/index.html
+[docs_installation_url]: https://gowebly.org/complete-user-guide/installation/index.html
+[docs_configuring_url]: https://gowebly.org/complete-user-guide/configuration/index.html
+[docs_create_new_project_url]: https://gowebly.org/complete-user-guide/create-new-project/index.html
+[docs_run_project_url]: https://gowebly.org/complete-user-guide/run-your-project/index.html
+[docs_build_project_url]: https://gowebly.org/complete-user-guide/build-your-project/index.html
 
 <!-- Author links -->
 
