@@ -17,35 +17,33 @@ before:
     - go test -race ./...
 
 builds:
-  -
-    id: default
+  - id: default
     ldflags:
       - -s -w -X "github.com/gowebly/gowebly/cmd/commands.version={{ .Tag }}"
-    env: [ CGO_ENABLED=0 ]
-    goos: [ linux, windows, darwin ]
-    goarch: [ amd64, arm64 ]
+    env: [CGO_ENABLED=0]
+    goos: [linux, windows, darwin]
+    goarch: [amd64, arm64]
 
 upx:
-  -
-    ids: [ default ]
+  - ids: [default]
     enabled: true
     compress: best
     lzma: true
     brute: true
-    goos: [ linux, windows ] # skip darwin (macOS 13.x Ventura is not supported now)
-    goarch: [ amd64, arm64 ]
+    goos: [linux, windows] # skip darwin (macOS 13.x Ventura is not supported now)
+    goarch: [amd64, arm64]
 
 release:
-  ids: [ default ]
+  ids: [default]
   draft: true
   replace_existing_draft: true
-  target_commitish: '{{ .Commit }}'
+  target_commitish: "{{ .Commit }}"
   prerelease: auto
   mode: replace
   header: |
     ## ✨ The {{ .ProjectName }} `{{ .Tag }}` release
 
-    <img width="100%" alt="gowebly banner with logo" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly-banner-logo.png">
+    <img width="100%" alt="gowebly banner with logo" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly-project-banner.svg">
   footer: |
     ## How to update?
 
@@ -91,71 +89,66 @@ release:
   skip_upload: false
 
 dockers:
-  -
-    id: '{{ .ProjectName }}_linux_amd64' # For GNU/Linux x86_64
-    ids: [ default ]
+  - id: "{{ .ProjectName }}_linux_amd64" # For GNU/Linux x86_64
+    ids: [default]
     use: buildx
     skip_push: auto
     image_templates:
-      - 'gowebly/{{ .ProjectName }}:latest-linux-amd64'
-      - 'gowebly/{{ .ProjectName }}:{{ .Tag }}-linux-amd64'
+      - "gowebly/{{ .ProjectName }}:latest-linux-amd64"
+      - "gowebly/{{ .ProjectName }}:{{ .Tag }}-linux-amd64"
     build_flag_templates:
-      - '--pull'
-      - '--label=org.opencontainers.image.created={{ .Date }}'
-      - '--label=org.opencontainers.image.title={{ .ProjectName }}'
-      - '--label=org.opencontainers.image.revision={{ .FullCommit }}'
-      - '--label=org.opencontainers.image.version={{ .Version }}'
-      - '--platform=linux/amd64'
+      - "--pull"
+      - "--label=org.opencontainers.image.created={{ .Date }}"
+      - "--label=org.opencontainers.image.title={{ .ProjectName }}"
+      - "--label=org.opencontainers.image.revision={{ .FullCommit }}"
+      - "--label=org.opencontainers.image.version={{ .Version }}"
+      - "--platform=linux/amd64"
     push_flags:
-      - '--tls-verify=false'
-  -
-    id: '{{ .ProjectName }}_linux_arm64' # For GNU/Linux ARM
-    ids: [ default ]
+      - "--tls-verify=false"
+  - id: "{{ .ProjectName }}_linux_arm64" # For GNU/Linux ARM
+    ids: [default]
     use: buildx
     skip_push: auto
     image_templates:
-      - 'gowebly/{{ .ProjectName }}:latest-linux-arm64'
-      - 'gowebly/{{ .ProjectName }}:{{ .Tag }}-linux-arm64'
+      - "gowebly/{{ .ProjectName }}:latest-linux-arm64"
+      - "gowebly/{{ .ProjectName }}:{{ .Tag }}-linux-arm64"
     build_flag_templates:
-      - '--pull'
-      - '--label=org.opencontainers.image.created={{ .Date }}'
-      - '--label=org.opencontainers.image.title={{ .ProjectName }}'
-      - '--label=org.opencontainers.image.revision={{ .FullCommit }}'
-      - '--label=org.opencontainers.image.version={{ .Version }}'
-      - '--platform=linux/arm64'
+      - "--pull"
+      - "--label=org.opencontainers.image.created={{ .Date }}"
+      - "--label=org.opencontainers.image.title={{ .ProjectName }}"
+      - "--label=org.opencontainers.image.revision={{ .FullCommit }}"
+      - "--label=org.opencontainers.image.version={{ .Version }}"
+      - "--platform=linux/arm64"
     push_flags:
-      - '--tls-verify=false'
+      - "--tls-verify=false"
 
 docker_manifests:
-  -
-    name_template: 'gowebly/{{ .ProjectName }}:latest'
+  - name_template: "gowebly/{{ .ProjectName }}:latest"
     skip_push: auto
     image_templates:
-      - 'gowebly/{{ .ProjectName }}:latest-linux-amd64'
-      - 'gowebly/{{ .ProjectName }}:latest-linux-arm64'
-  -
-    name_template: 'gowebly/{{ .ProjectName }}:{{ .Tag }}'
+      - "gowebly/{{ .ProjectName }}:latest-linux-amd64"
+      - "gowebly/{{ .ProjectName }}:latest-linux-arm64"
+  - name_template: "gowebly/{{ .ProjectName }}:{{ .Tag }}"
     skip_push: auto
     image_templates:
-      - 'gowebly/{{ .ProjectName }}:{{ .Tag }}-linux-amd64'
-      - 'gowebly/{{ .ProjectName }}:{{ .Tag }}-linux-arm64'
+      - "gowebly/{{ .ProjectName }}:{{ .Tag }}-linux-amd64"
+      - "gowebly/{{ .ProjectName }}:{{ .Tag }}-linux-arm64"
 
 brews:
-  -
-    repository:
+  - repository:
       owner: gowebly
       name: homebrew-tap
       branch: main
-      token: '{{ .Env.GITHUB_TOKEN }}'
+      token: "{{ .Env.GITHUB_TOKEN }}"
       pull_request:
         enabled: true
       git:
-        url: 'git@github.com:gowebly/homebrew-tap.git'
-        private_key: '{{ .Env.BREW_PRIVATE_KEY_PATH }}'
+        url: "git@github.com:gowebly/homebrew-tap.git"
+        private_key: "{{ .Env.BREW_PRIVATE_KEY_PATH }}"
     commit_author:
       name: Vic Shóstak
       email: koddr.me@gmail.com
-    commit_msg_template: 'Brew formula update for {{ .ProjectName }} version {{ .Tag }}'
+    commit_msg_template: "Brew formula update for {{ .ProjectName }} version {{ .Tag }}"
     folder: Formula
     caveats: |
       After install, create a new project (with a default configuration):
@@ -163,36 +156,34 @@ brews:
       $ gowebly create
 
       💡 Note: See the Complete user guide (https://gowebly.org/) to get a general information.
-    homepage: 'https://github.com/gowebly/{{ .ProjectName }}'
+    homepage: "https://github.com/gowebly/{{ .ProjectName }}"
     description: |
       A next-generation CLI tool for building amazing web applications in Go using htmx & hyperscript and the most popular atomic/utility-first CSS frameworks.
     license: Apache 2.0
     skip_upload: false
 
 nfpms:
-  -
-    maintainer: Vic Shóstak <koddr.me@gmail.com>
+  - maintainer: Vic Shóstak <koddr.me@gmail.com>
     description: |
       A next-generation CLI tool for building amazing web applications in Go using htmx & hyperscript and the most popular atomic/utility-first CSS frameworks.
-    homepage: 'https://github.com/gowebly/{{ .ProjectName }}'
+    homepage: "https://github.com/gowebly/{{ .ProjectName }}"
     license: Apache 2.0
-    formats: [ deb, rpm, apk, archlinux ]
+    formats: [deb, rpm, apk, archlinux]
 
 archives:
-  -
-    format_overrides:
+  - format_overrides:
       - goos: windows
         format: zip
-    files: [ LICENSE, README.md ]
+    files: [LICENSE, README.md]
 
 checksum:
-  name_template: 'checksums.txt'
+  name_template: "checksums.txt"
 
 changelog:
   sort: asc
   abbrev: -1
   filters:
-    exclude: [ '^*.md', '^*.ya?ml' ]
+    exclude: ["^*.md", "^*.ya?ml"]
   groups:
     - title: New features
       regexp: ^.*?((A|a)dd)|((F|f)eature).*?$
