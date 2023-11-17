@@ -3,10 +3,19 @@
   "version": "1.0.0",
   "description": "Frontend part with UnoCSS of the gowebly project.",
   "license": "MIT",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "source": [
+    "./assets/styles.css"
+  ],
+  "targets": {
+    "default": {
+      "distDir": "./static"
+    }
+  },
   "scripts": {
-    "watch": "{{ if eq .RuntimeEnvironment "bun" }}bunx{{ else }}npx --yes{{ end }} @unocss/cli \"**/*.{html,css}\" -o ./static/styles.css -w",
-    "build:dev": "{{ if eq .RuntimeEnvironment "bun" }}bunx{{ else }}npx --yes{{ end }} @unocss/cli \"**/*.{html,css}\" -o ./static/styles.css",
-    "build:prod": "{{ if eq .RuntimeEnvironment "bun" }}bunx{{ else }}npx --yes{{ end }} @unocss/cli \"**/*.{html,css}\" -o ./static/styles.css -m"
+    "watch": "{{ if eq .RuntimeEnvironment "bun" }}bunx{{ else }}npx --yes{{ end }} parcel watch",
+    "build:dev": "{{ if eq .RuntimeEnvironment "bun" }}bunx{{ else }}npx --yes{{ end }} parcel build --no-optimize",
+    "build:prod": "{{ if eq .RuntimeEnvironment "bun" }}bunx{{ else }}npx --yes{{ end }} parcel build"
   },
   "devDependencies": {
     "@unocss/cli": "latest",

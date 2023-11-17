@@ -3,12 +3,20 @@
   "version": "1.0.0",
   "description": "Frontend part without any CSS frameworks of the gowebly project.",
   "license": "MIT",
-  "scripts": {
-    "watch": "{{ if eq .RuntimeEnvironment "bun" }}bunx{{ else }}npx --yes{{ end }} parcel watch --no-cache --no-source-maps --dist-dir ./static ./assets/styles.css",
-    "build:dev": "{{ if eq .RuntimeEnvironment "bun" }}bunx{{ else }}npx --yes{{ end }} parcel build --no-cache --no-source-maps --no-optimize --dist-dir ./static ./assets/styles.css",
-    "build:prod": "{{ if eq .RuntimeEnvironment "bun" }}bunx{{ else }}npx --yes{{ end }} parcel build --no-cache --no-source-maps --dist-dir ./static ./assets/styles.css"
-  },
   "browserslist": "> 0.5%, last 2 versions, not dead",
+  "source": [
+    "./assets/styles.css"
+  ],
+  "targets": {
+    "default": {
+      "distDir": "./static"
+    }
+  },
+  "scripts": {
+    "watch": "{{ if eq .RuntimeEnvironment "bun" }}bunx{{ else }}npx --yes{{ end }} parcel watch",
+    "build:dev": "{{ if eq .RuntimeEnvironment "bun" }}bunx{{ else }}npx --yes{{ end }} parcel build --no-optimize",
+    "build:prod": "{{ if eq .RuntimeEnvironment "bun" }}bunx{{ else }}npx --yes{{ end }} parcel build"
+  },
   "devDependencies": {
     "parcel": "latest",
     "postcss": "latest"

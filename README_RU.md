@@ -124,6 +124,7 @@ brew install gowebly/tap/gowebly
 
 - [Issues][repo_issues_url]: задавайте вопросы и предлагайте свои улучшения.
 - [Pull requests][repo_pull_request_url]: присылайте свои улучшения.
+- [Discussions][repo_disscussions_url]: обсудить и поделиться своими идеями.
 - Скажите несколько слов о проекте в своих социальных сетях и блогах (Dev.to, Medium, Хабр и т.д.).
 
 Ваши PR, проблемы и любые слова приветствуются! Спасибо 😘
@@ -153,6 +154,7 @@ brew install gowebly/tap/gowebly
 [repo_url]: https://github.com/gowebly/gowebly
 [repo_issues_url]: https://github.com/gowebly/gowebly/issues
 [repo_pull_request_url]: https://github.com/gowebly/gowebly/pulls
+[repo_disscussions_url]: https://github.com/gowebly/gowebly/discussions
 [repo_releases_url]: https://github.com/gowebly/gowebly/releases
 [repo_license_url]: https://github.com/gowebly/gowebly/blob/main/LICENSE
 [repo_license_img]: https://img.shields.io/badge/license-Apache_2.0-red?style=for-the-badge&logo=none

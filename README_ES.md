@@ -124,6 +124,7 @@ Y ahora, ¡te invito a participar en este proyecto! Trabajemos **juntos** para c
 
 - [Issues][repo_issues_url]: haz preguntas y envía tus funcionalidades.
 - [Pull requests][repo_pull_request_url]: envía tus mejoras a la corriente.
+- [Discussions][repo_disscussions_url]: discute y comparte tus ideas.
 - Di unas palabras sobre el proyecto en tus redes sociales y blogs (Dev.to, Medium, Хабр, etc.).
 
 ¡Tus PR, problemas y cualquier palabra son bienvenidos! Gracias 😘
@@ -153,6 +154,7 @@ Y ahora, ¡te invito a participar en este proyecto! Trabajemos **juntos** para c
 [repo_url]: https://github.com/gowebly/gowebly
 [repo_issues_url]: https://github.com/gowebly/gowebly/issues
 [repo_pull_request_url]: https://github.com/gowebly/gowebly/pulls
+[repo_disscussions_url]: https://github.com/gowebly/gowebly/discussions
 [repo_releases_url]: https://github.com/gowebly/gowebly/releases
 [repo_license_url]: https://github.com/gowebly/gowebly/blob/main/LICENSE
 [repo_license_img]: https://img.shields.io/badge/license-Apache_2.0-red?style=for-the-badge&logo=none
