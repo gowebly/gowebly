@@ -85,15 +85,15 @@ brew install gowebly/tap/gowebly
 
 ### Путь обучения
 
-Настоятельно рекомендуется начать изучение с краткой вводной статьи «[**How does it work?**][docs_how_it_works_url]», чтобы понять основной принцип работы и основные компоненты, встроенные в **Gowebly** CLI.
+Настоятельно рекомендуем начать изучение с кратких вводных статей "[**Что такое Gowebly CLI?**][docs_what_is_gowebly_cli_url]" и "[**Как это работает?**][docs_how_it_works_url]", чтобы понять принцип работы и основные компоненты, встроенные в **Gowebly** CLI.
 
 Следующие шаги:
 
-1. [Установите CLI на свою систему][docs_installation_url].
-2. [Сконфигурируйте проект][docs_configuring_url]
-3. [Начните создание нового проекта][docs_create_new_project_url]
-4. [Запустите проект локально][docs_run_project_url]
-5. [Сборка проекта для продакшена][docs_build_project_url]
+1. [Установите CLI в свою систему](https://gowebly.org/complete-user-guide/installation)
+2. [Настройте проект](https://gowebly.org/complete-user-guide/configuration)
+3. [Начните создание нового проекта](https://gowebly.org/complete-user-guide/create-new-project)
+4. [Запустите проект локально](https://gowebly.org/complete-user-guide/run-your-project)
+5. [Сборка проекта для продакшена](https://gowebly.org/complete-user-guide/build-project)
 
 Надеемся, что вы найдете ответы на все свои вопросы! 😉
 
@@ -135,7 +135,7 @@ brew install gowebly/tap/gowebly
 
 ## ⚠️ License
 
-[`The Gowebly CLI`][repo_url] is free and open-source software licensed under the [Apache 2.0 License][repo_license_url], created and supported by [Vic Shóstak][author_url] with 🩵 for people and robots. Official logo distributed under the [Creative Commons License][repo_cc_license_url] (CC BY-SA 4.0 International).
+[`The Gowebly CLI`][repo_url] is free and open-source software licensed under the [Apache 2.0 License][repo_license_url], created and supported by [Vic Shóstak][author_url] and the [True Web Artisans][true_web_artisans_url] team with 🩵 for people and robots. Official logo distributed under the [Creative Commons License][repo_cc_license_url] (CC BY-SA 4.0 International).
 
 <!-- Go links -->
 
@@ -169,16 +169,13 @@ brew install gowebly/tap/gowebly
 <!-- Docs links -->
 
 [docs_url]: https://gowebly.org
-[docs_how_it_works_url]: https://gowebly.org/complete-user-guide/how-does-it-work/index.html
-[docs_installation_url]: https://gowebly.org/complete-user-guide/installation/index.html
-[docs_configuring_url]: https://gowebly.org/complete-user-guide/configuration/index.html
-[docs_create_new_project_url]: https://gowebly.org/complete-user-guide/create-new-project/index.html
-[docs_run_project_url]: https://gowebly.org/complete-user-guide/run-your-project/index.html
-[docs_build_project_url]: https://gowebly.org/complete-user-guide/build-your-project/index.html
+[docs_what_is_gowebly_cli_url]: https://gowebly.org/getting-started
+[docs_how_it_works_url]: https://gowebly.org/getting-started/how-does-it-work
 
 <!-- Author links -->
 
 [author_url]: https://github.com/koddr
+[true_web_artisans_url]: https://github.com/truewebartisans
 
 <!-- Readme links -->
 

@@ -85,15 +85,15 @@ Nos hemos preocupado de que te resulte **lo más cómodo** aprender esta maravil
 
 ### El camino del aprendizaje
 
-Se recomienda encarecidamente empezar a explorar con un breve artículo introductorio «[**How does it work?**][docs_how_it_works_url]» para comprender el principio básico y los principales componentes integrados en la CLI de **Gowebly**.
+Se recomienda encarecidamente empezar a explorar con breves artículos introductorios "[**¿Qué es Gowebly CLI?**][docs_what_is_gowebly_cli_url]" y "[**¿Cómo funciona?**][docs_how_it_works_url]" para entender el principio básico y los principales componentes incorporados en el **Gowebly** CLI.
 
 Los siguientes pasos son:
 
-1. [Instale la CLI en su sistema][docs_installation_url]
-2. [Configure su proyecto][docs_configuring_url]
-3. [Empezar a crear un nuevo proyecto][docs_create_new_project_url]
-4. [Ejecutar tu proyecto localmente][docs_run_project_url]
-5. [Construir su proyecto para la producción][docs_build_project_url]
+1. [Instala la CLI en tu sistema](https://gowebly.org/complete-user-guide/installation)
+2. [Configura tu proyecto](https://gowebly.org/complete-user-guide/configuration)
+3. [Empezar a crear un nuevo proyecto](https://gowebly.org/complete-user-guide/create-new-project)
+4. [Ejecutar su proyecto localmente](https://gowebly.org/complete-user-guide/run-your-project)
+5. [Construir su proyecto para la producción](https://gowebly.org/complete-user-guide/build-project)
 
 Espero que encuentres respuesta a todas tus preguntas! 😉
 
@@ -135,7 +135,7 @@ Y ahora, ¡te invito a participar en este proyecto! Trabajemos **juntos** para c
 
 ## ⚠️ License
 
-[`The Gowebly CLI`][repo_url] is free and open-source software licensed under the [Apache 2.0 License][repo_license_url], created and supported by [Vic Shóstak][author_url] with 🩵 for people and robots. Official logo distributed under the [Creative Commons License][repo_cc_license_url] (CC BY-SA 4.0 International).
+[`The Gowebly CLI`][repo_url] is free and open-source software licensed under the [Apache 2.0 License][repo_license_url], created and supported by [Vic Shóstak][author_url] and the [True Web Artisans][true_web_artisans_url] team with 🩵 for people and robots. Official logo distributed under the [Creative Commons License][repo_cc_license_url] (CC BY-SA 4.0 International).
 
 <!-- Go links -->
 
@@ -169,16 +169,13 @@ Y ahora, ¡te invito a participar en este proyecto! Trabajemos **juntos** para c
 <!-- Docs links -->
 
 [docs_url]: https://gowebly.org
-[docs_how_it_works_url]: https://gowebly.org/complete-user-guide/how-does-it-work/index.html
-[docs_installation_url]: https://gowebly.org/complete-user-guide/installation/index.html
-[docs_configuring_url]: https://gowebly.org/complete-user-guide/configuration/index.html
-[docs_create_new_project_url]: https://gowebly.org/complete-user-guide/create-new-project/index.html
-[docs_run_project_url]: https://gowebly.org/complete-user-guide/run-your-project/index.html
-[docs_build_project_url]: https://gowebly.org/complete-user-guide/build-your-project/index.html
+[docs_what_is_gowebly_cli_url]: https://gowebly.org/getting-started
+[docs_how_it_works_url]: https://gowebly.org/getting-started/how-does-it-work
 
 <!-- Author links -->
 
 [author_url]: https://github.com/koddr
+[true_web_artisans_url]: https://github.com/truewebartisans
 
 <!-- Readme links -->
 

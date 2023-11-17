@@ -73,7 +73,7 @@ brew install gowebly/tap/gowebly
 
 ### 📦 Other way to quick start
 
-Download ready-made `exe` files for Windows, `deb`, `rpm`, `apk` or Arch Linux packages from the [Releases][repo_releases_url] page.
+Download ready-made `exe` files for Windows, `deb` (for Debian, Ubuntu), `rpm` (for CentOS, Fedora), `apk` (for Alpine), or Arch Linux packages from the [Releases][repo_releases_url] page.
 
 ## 📖 Complete user guide
 
@@ -85,15 +85,15 @@ We have taken care to make it **as comfortable as possible** for you to learn th
 
 ### The learning path
 
-It is highly recommended to start exploring with a short introductory article "[**How does it work?**][docs_how_it_works_url]" to understand the basic principle and the main components built into the **Gowebly** CLI.
+It is highly recommended to start exploring with short introductory articles "[**What is Gowebly CLI?**][docs_what_is_gowebly_cli_url]" and "[**How does it work?**][docs_how_it_works_url]" to understand the basic principle and the main components built into the **Gowebly** CLI.
 
 Next steps are:
 
-1. [Install the CLI to your system][docs_installation_url]
-2. [Configure your project][docs_configuring_url]
-3. [Start creating a new project][docs_create_new_project_url]
-4. [Running your project locally][docs_run_project_url]
-5. [Build your project for the production][docs_build_project_url]
+1. [Install the CLI to your system](https://gowebly.org/complete-user-guide/installation)
+2. [Configure your project](https://gowebly.org/complete-user-guide/configuration)
+3. [Start creating a new project](https://gowebly.org/complete-user-guide/create-new-project)
+4. [Running your project locally](https://gowebly.org/complete-user-guide/run-your-project)
+5. [Build your project for the production](https://gowebly.org/complete-user-guide/build-project)
 
 Hope you find answers to all of your questions! 😉
 
@@ -135,7 +135,7 @@ Your PRs, issues & any words are welcome! Thank you 😘
 
 ## ⚠️ License
 
-[`The Gowebly CLI`][repo_url] is free and open-source software licensed under the [Apache 2.0 License][repo_license_url], created and supported by [Vic Shóstak][author_url] with 🩵 for people and robots. Official logo distributed under the [Creative Commons License][repo_cc_license_url] (CC BY-SA 4.0 International).
+[`The Gowebly CLI`][repo_url] is free and open-source software licensed under the [Apache 2.0 License][repo_license_url], created and supported by [Vic Shóstak][author_url] and the [True Web Artisans][true_web_artisans_url] team with 🩵 for people and robots. Official logo distributed under the [Creative Commons License][repo_cc_license_url] (CC BY-SA 4.0 International).
 
 <!-- Go links -->
 
@@ -169,16 +169,13 @@ Your PRs, issues & any words are welcome! Thank you 😘
 <!-- Docs links -->
 
 [docs_url]: https://gowebly.org
-[docs_how_it_works_url]: https://gowebly.org/complete-user-guide/how-does-it-work/index.html
-[docs_installation_url]: https://gowebly.org/complete-user-guide/installation/index.html
-[docs_configuring_url]: https://gowebly.org/complete-user-guide/configuration/index.html
-[docs_create_new_project_url]: https://gowebly.org/complete-user-guide/create-new-project/index.html
-[docs_run_project_url]: https://gowebly.org/complete-user-guide/run-your-project/index.html
-[docs_build_project_url]: https://gowebly.org/complete-user-guide/build-your-project/index.html
+[docs_what_is_gowebly_cli_url]: https://gowebly.org/getting-started
+[docs_how_it_works_url]: https://gowebly.org/getting-started/how-does-it-work
 
 <!-- Author links -->
 
 [author_url]: https://github.com/koddr
+[true_web_artisans_url]: https://github.com/truewebartisans
 
 <!-- Readme links -->
 

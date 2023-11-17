@@ -85,15 +85,15 @@ brew install gowebly/tap/gowebly
 
 ### 学习路径
 
-强烈建议从一篇简短的介绍性文章 "[How does it work?][docs_how_it_works_url]" 开始学习，了解 Gowebly CLI 的基本原理和主要组件。
+我们强烈建议您从介绍性短文 "[什么是 Gowebly CLI][docs_what_is_gowebly_cli_url]" 和 "[它是如何工作的？][docs_how_it_works_url]" 开始，了解 Gowebly CLI 的基本原理和主要组件。
 
-下一步是：
+接下来的步骤是
 
-1. [在系统中安装 CLI][docs_installation_url]
-2. [配置您的项目][docs_configuring_url]
-3. [开始创建新项目][docs_create_new_project_url]
-4. [在本地运行项目][docs_run_project_url]
-5. [为生产建立您的项目][docs_build_project_url]
+1. [将 CLI 安装到系统中](https://gowebly.org/complete-user-guide/installation)
+2. [配置您的项目](https://gowebly.org/complete-user-guide/configuration)
+3. [开始创建新项目](https://gowebly.org/complete-user-guide/create-new-project)
+4. [本地运行项目](https://gowebly.org/complete-user-guide/run-your-project)
+5. [为生产构建项目](https://gowebly.org/complete-user-guide/build-project)
 
 希望你能找到所有问题的答案！ 😉
 
@@ -135,7 +135,7 @@ brew install gowebly/tap/gowebly
 
 ## ⚠️ License
 
-[`The Gowebly CLI`][repo_url] is free and open-source software licensed under the [Apache 2.0 License][repo_license_url], created and supported by [Vic Shóstak][author_url] with 🩵 for people and robots. Official logo distributed under the [Creative Commons License][repo_cc_license_url] (CC BY-SA 4.0 International).
+[`The Gowebly CLI`][repo_url] is free and open-source software licensed under the [Apache 2.0 License][repo_license_url], created and supported by [Vic Shóstak][author_url] and the [True Web Artisans][true_web_artisans_url] team with 🩵 for people and robots. Official logo distributed under the [Creative Commons License][repo_cc_license_url] (CC BY-SA 4.0 International).
 
 <!-- Go links -->
 
@@ -169,16 +169,13 @@ brew install gowebly/tap/gowebly
 <!-- Docs links -->
 
 [docs_url]: https://gowebly.org
-[docs_how_it_works_url]: https://gowebly.org/complete-user-guide/how-does-it-work/index.html
-[docs_installation_url]: https://gowebly.org/complete-user-guide/installation/index.html
-[docs_configuring_url]: https://gowebly.org/complete-user-guide/configuration/index.html
-[docs_create_new_project_url]: https://gowebly.org/complete-user-guide/create-new-project/index.html
-[docs_run_project_url]: https://gowebly.org/complete-user-guide/run-your-project/index.html
-[docs_build_project_url]: https://gowebly.org/complete-user-guide/build-your-project/index.html
+[docs_what_is_gowebly_cli_url]: https://gowebly.org/getting-started
+[docs_how_it_works_url]: https://gowebly.org/getting-started/how-does-it-work
 
 <!-- Author links -->
 
 [author_url]: https://github.com/koddr
+[true_web_artisans_url]: https://github.com/truewebartisans
 
 <!-- Readme links -->
 
