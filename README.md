@@ -83,6 +83,9 @@ We always treasure your time and want you to start building really great web pro
 
 We have taken care to make it **as comfortable as possible** for you to learn this wonderful tool, so each CLI command has a sufficient textual description, as well as a visual diagram of how it works.
 
+> [!IMPORTANT]
+> Don't forget to switch the documentation to your language to make it even more comfortable to learn new knowledge! Supported languages: [English][docs_url], [Русский][docs_ru_url], [简体中文][docs_zh_hk_url], [Español][docs_es_url].
+
 ### The learning path
 
 It is highly recommended to start exploring with short introductory articles "[**What is Gowebly CLI?**][docs_what_is_gowebly_cli_url]" and "[**How does it work?**][docs_how_it_works_url]" to understand the basic principle and the main components built into the **Gowebly** CLI.
@@ -169,6 +172,9 @@ Your PRs, issues & any words are welcome! Thank you 😘
 <!-- Docs links -->
 
 [docs_url]: https://gowebly.org
+[docs_ru_url]: https://gowebly.org/ru/
+[docs_zh_hk_url]: https://gowebly.org/zh_HK/
+[docs_es_url]: https://gowebly.org/es/
 [docs_what_is_gowebly_cli_url]: https://gowebly.org/getting-started
 [docs_how_it_works_url]: https://gowebly.org/getting-started/how-does-it-work
 

@@ -83,17 +83,20 @@ Descargue archivos `exe` ya creados para paquetes Windows, `deb`, `rpm`, `apk` o
 
 Nos hemos preocupado de que te resulte **lo más cómodo** aprender esta maravillosa herramienta, por lo que cada comando CLI tiene una descripción textual suficiente, así como un diagrama visual de cómo funciona.
 
+> [!IMPORTANT]
+> No olvide cambiar la documentación a su idioma para que le resulte aún más cómodo aprender nuevos conocimientos. Idiomas soportados: [English][docs_url], [Русский][docs_ru_url], [简体中文][docs_zh_hk_url], [Español][docs_es_url].
+
 ### El camino del aprendizaje
 
 Se recomienda encarecidamente empezar a explorar con breves artículos introductorios "[**¿Qué es Gowebly CLI?**][docs_what_is_gowebly_cli_url]" y "[**¿Cómo funciona?**][docs_how_it_works_url]" para entender el principio básico y los principales componentes incorporados en el **Gowebly** CLI.
 
 Los siguientes pasos son:
 
-1. [Instala la CLI en tu sistema](https://gowebly.org/complete-user-guide/installation)
-2. [Configura tu proyecto](https://gowebly.org/complete-user-guide/configuration)
-3. [Empezar a crear un nuevo proyecto](https://gowebly.org/complete-user-guide/create-new-project)
-4. [Ejecutar su proyecto localmente](https://gowebly.org/complete-user-guide/run-your-project)
-5. [Construir su proyecto para la producción](https://gowebly.org/complete-user-guide/build-project)
+1. [Instala la CLI en tu sistema](https://gowebly.org/es/complete-user-guide/installation)
+2. [Configura tu proyecto](https://gowebly.org/es/complete-user-guide/configuration)
+3. [Empezar a crear un nuevo proyecto](https://gowebly.org/es/complete-user-guide/create-new-project)
+4. [Ejecutar su proyecto localmente](https://gowebly.org/es/complete-user-guide/run-your-project)
+5. [Construir su proyecto para la producción](https://gowebly.org/es/complete-user-guide/build-project)
 
 Espero que encuentres respuesta a todas tus preguntas! 😉
 
@@ -169,8 +172,11 @@ Y ahora, ¡te invito a participar en este proyecto! Trabajemos **juntos** para c
 <!-- Docs links -->
 
 [docs_url]: https://gowebly.org
-[docs_what_is_gowebly_cli_url]: https://gowebly.org/getting-started
-[docs_how_it_works_url]: https://gowebly.org/getting-started/how-does-it-work
+[docs_ru_url]: https://gowebly.org/ru/
+[docs_zh_hk_url]: https://gowebly.org/zh_HK/
+[docs_es_url]: https://gowebly.org/es/
+[docs_what_is_gowebly_cli_url]: https://gowebly.org/es/getting-started
+[docs_how_it_works_url]: https://gowebly.org/es/getting-started/how-does-it-work
 
 <!-- Author links -->
 

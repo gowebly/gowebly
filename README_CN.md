@@ -83,17 +83,20 @@ brew install gowebly/tap/gowebly
 
 为了让您尽可能轻松地学习这一出色的工具，我们对每条 CLI 命令都进行了充分的文字说明，并提供了工作原理的直观图。
 
+> [!IMPORTANT]
+> 别忘了将文档切换为你的语言，这样学习新知识会更轻松！支持的语言： [English][docs_url], [Русский][docs_ru_url], [简体中文][docs_zh_hk_url], [Español][docs_es_url].
+
 ### 学习路径
 
 我们强烈建议您从介绍性短文 "[什么是 Gowebly CLI][docs_what_is_gowebly_cli_url]" 和 "[它是如何工作的？][docs_how_it_works_url]" 开始，了解 Gowebly CLI 的基本原理和主要组件。
 
 接下来的步骤是
 
-1. [将 CLI 安装到系统中](https://gowebly.org/complete-user-guide/installation)
-2. [配置您的项目](https://gowebly.org/complete-user-guide/configuration)
-3. [开始创建新项目](https://gowebly.org/complete-user-guide/create-new-project)
-4. [本地运行项目](https://gowebly.org/complete-user-guide/run-your-project)
-5. [为生产构建项目](https://gowebly.org/complete-user-guide/build-project)
+1. [将 CLI 安装到系统中](https://gowebly.org/zh_HK/complete-user-guide/installation)
+2. [配置您的项目](https://gowebly.org/zh_HK/complete-user-guide/configuration)
+3. [开始创建新项目](https://gowebly.org/zh_HK/complete-user-guide/create-new-project)
+4. [本地运行项目](https://gowebly.org/zh_HK/complete-user-guide/run-your-project)
+5. [为生产构建项目](https://gowebly.org/zh_HK/complete-user-guide/build-project)
 
 希望你能找到所有问题的答案！ 😉
 
@@ -169,8 +172,11 @@ brew install gowebly/tap/gowebly
 <!-- Docs links -->
 
 [docs_url]: https://gowebly.org
-[docs_what_is_gowebly_cli_url]: https://gowebly.org/getting-started
-[docs_how_it_works_url]: https://gowebly.org/getting-started/how-does-it-work
+[docs_ru_url]: https://gowebly.org/ru/
+[docs_zh_hk_url]: https://gowebly.org/zh_HK/
+[docs_es_url]: https://gowebly.org/es/
+[docs_what_is_gowebly_cli_url]: https://gowebly.org/zh_HK/getting-started
+[docs_how_it_works_url]: https://gowebly.org/zh_HK/getting-started/how-does-it-work
 
 <!-- Author links -->
 

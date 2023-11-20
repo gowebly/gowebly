@@ -83,17 +83,20 @@ brew install gowebly/tap/gowebly
 
 Мы постарались сделать так, чтобы вам было **как можно удобнее** осваивать этот замечательный инструмент, поэтому каждая команда CLI имеет достаточное текстовое описание, а также визуальную схему её работы.
 
+> [!IMPORTANT]
+> Не забудьте переключить документацию на свой язык, чтобы было еще удобнее осваивать новые знания! Поддерживаемые языки: [English][docs_url], [Русский][docs_ru_url], [简体中文][docs_zh_hk_url], [Español][docs_es_url].
+
 ### Путь обучения
 
 Настоятельно рекомендуем начать изучение с кратких вводных статей "[**Что такое Gowebly CLI?**][docs_what_is_gowebly_cli_url]" и "[**Как это работает?**][docs_how_it_works_url]", чтобы понять принцип работы и основные компоненты, встроенные в **Gowebly** CLI.
 
 Следующие шаги:
 
-1. [Установите CLI в свою систему](https://gowebly.org/complete-user-guide/installation)
-2. [Настройте проект](https://gowebly.org/complete-user-guide/configuration)
-3. [Начните создание нового проекта](https://gowebly.org/complete-user-guide/create-new-project)
-4. [Запустите проект локально](https://gowebly.org/complete-user-guide/run-your-project)
-5. [Сборка проекта для продакшена](https://gowebly.org/complete-user-guide/build-project)
+1. [Установите CLI в свою систему](https://gowebly.org/ru/complete-user-guide/installation)
+2. [Настройте проект](https://gowebly.org/ru/complete-user-guide/configuration)
+3. [Начните создание нового проекта](https://gowebly.org/ru/complete-user-guide/create-new-project)
+4. [Запустите проект локально](https://gowebly.org/ru/complete-user-guide/run-your-project)
+5. [Сборка проекта для продакшена](https://gowebly.org/ru/complete-user-guide/build-project)
 
 Надеемся, что вы найдете ответы на все свои вопросы! 😉
 
@@ -169,8 +172,11 @@ brew install gowebly/tap/gowebly
 <!-- Docs links -->
 
 [docs_url]: https://gowebly.org
-[docs_what_is_gowebly_cli_url]: https://gowebly.org/getting-started
-[docs_how_it_works_url]: https://gowebly.org/getting-started/how-does-it-work
+[docs_ru_url]: https://gowebly.org/ru/
+[docs_zh_hk_url]: https://gowebly.org/zh_HK/
+[docs_es_url]: https://gowebly.org/es/
+[docs_what_is_gowebly_cli_url]: https://gowebly.org/ru/getting-started
+[docs_how_it_works_url]: https://gowebly.org/ru/getting-started/how-does-it-work
 
 <!-- Author links -->
 
