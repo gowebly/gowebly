@@ -213,17 +213,17 @@ func Create(di *injectors.Injector) error {
 
 	// Copy CSS framework specific files from the embed file system.
 	switch di.Config.Frontend.CSSFramework {
-	case "tailwindcss":
+	case "tailwindcss", "daisyui":
 		// Tailwind CSS files.
 		if err := helpers.CopyFilesFromEmbedFS(
 			di.Attachments.Templates,
 			[]helpers.EmbedFile{
 				{
-					EmbedFile:  "templates/frontend/tailwindcss/postcssrc.tmpl",
+					EmbedFile:  fmt.Sprintf("templates/frontend/%s/postcssrc.tmpl", di.Config.Frontend.CSSFramework),
 					OutputFile: ".postcssrc",
 				},
 				{
-					EmbedFile:  "templates/frontend/tailwindcss/tailwind.config.js",
+					EmbedFile:  fmt.Sprintf("templates/frontend/%s/tailwind.config.js", di.Config.Frontend.CSSFramework),
 					OutputFile: "tailwind.config.js",
 				},
 			},

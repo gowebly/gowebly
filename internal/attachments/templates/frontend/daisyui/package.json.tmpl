@@ -1,7 +1,7 @@
 {
   "name": "{{ .PackageName }}",
   "version": "1.0.0",
-  "description": "Frontend part with UnoCSS of the Gowebly project.",
+  "description": "Frontend part with Tailwind CSS over daisyUI plugin of the Gowebly project.",
   "license": "MIT",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "source": [
@@ -18,9 +18,10 @@
     "build:prod": "{{ if eq .RuntimeEnvironment "bun" }}bunx{{ else }}npx --yes{{ end }} parcel build"
   },
   "devDependencies": {
-    "@unocss/cli": "latest",
-    "@unocss/postcss": "latest",
+    "@tailwindcss/typography": "latest",
+    "daisyui": "latest",
+    "parcel": "latest",
     "postcss": "latest",
-    "unocss": "latest"
+    "tailwindcss": "latest"
   }
 }
