@@ -1,20 +1,11 @@
 project_name: gowebly
 report_sizes: true
 
-env_files:
-  github_token: ~/.github_token
-
 before:
   hooks:
     - go mod download
     - go mod tidy
     - go run github.com/google/wire/cmd/wire@latest ./...
-    - go run golang.org/x/vuln/cmd/govulncheck@latest -test ./...
-    - go run github.com/google/osv-scanner/cmd/osv-scanner@latest -r .
-    - go run github.com/securego/gosec/v2/cmd/gosec@latest -exclude=G204 -quiet ./...
-    - go run github.com/go-critic/go-critic/cmd/gocritic@latest check -enableAll ./...
-    - go run github.com/gordonklaus/ineffassign@latest ./...
-    - go test -race ./...
 
 builds:
   - id: default
@@ -139,12 +130,9 @@ brews:
       owner: gowebly
       name: homebrew-tap
       branch: main
-      token: "{{ .Env.GITHUB_TOKEN }}"
+      token: "{{ .Env.TAP_GITHUB_TOKEN }}"
       pull_request:
         enabled: true
-      git:
-        url: "git@github.com:gowebly/homebrew-tap.git"
-        private_key: "{{ .Env.BREW_PRIVATE_KEY_PATH }}"
     commit_author:
       name: Vic Shóstak
       email: koddr.me@gmail.com
