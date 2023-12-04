@@ -15,7 +15,7 @@ COPY . .
 
 # Set necessary environment variables and build your project.
 ENV CGO_ENABLED=0 {{ if eq .GoFramework "gin" }}GIN_MODE=release{{ end }}
-RUN go build -ldflags="-s -w" -o gowebly_{{ .GoFramework }} ./...
+RUN go build -ldflags="-s -w" -o gowebly_{{ .GoFramework }}
 
 FROM scratch
 
