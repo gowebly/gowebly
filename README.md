@@ -1,15 +1,19 @@
+<div align="center">
 <a href="https://gowebly.org" target="_blank" title="Go to the Gowebly's Complete user guide"><img width="256px" alt="gowebly logo" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly-logo.svg"></a>
 
-# The Gowebly CLI – A next-generation CLI tool for building amazing web apps in Go using htmx & hyperscript
+<a name="readme-top"></a>
+
+# The Gowebly CLI
+
+A next-generation CLI tool for easily build amazing web applications with **Go** on the backend, using [**htmx**][htmx_url] & [**hyperscript**][hyperscript_url] and the most popular atomic/utility-first (and not so) **CSS frameworks** on the frontend.
+
+**English** | [Русский][repo_readme_ru_url] | [简体中文][repo_readme_cn_url] | [Español][repo_readme_es_url]
 
 [![Go version][go_version_img]][go_dev_url]
 [![Go report][go_report_img]][go_report_url]
 [![Code coverage][go_code_coverage_img]][go_code_coverage_url]
 [![License][repo_license_img]][repo_license_url]
-
-**English** | [Русский][repo_readme_ru_url] | [简体中文][repo_readme_cn_url] | [Español][repo_readme_es_url]
-
-This CLI tool can easily build amazing web applications with **Go** on the backend, using [**htmx**][htmx_url] & [**hyperscript**][hyperscript_url] and the most popular atomic/utility-first **CSS frameworks** on the frontend.
+</div>
 
 Features:
 
@@ -21,13 +25,13 @@ Features:
 - Helps to get into the **Go** + **htmx** + **hyperscript** technology stack faster;
 - Supports the most popular Go web frameworks out of the box, such as **Fiber**, **Gin**, **Echo**, **Chi** and **HttpRouter**;
 - Supports the way web applications are developed using the **Templ** templating engine with hot-reloading;
-- The possibility of simply adding a ready-to-use and completely customized atomic/utility-first **CSS framework** to your project;
+- The possibility of simply adding a ready-to-use and completely customized **CSS framework** to your project, such as **Tailwind CSS**, **daisyUI**, **UnoCSS** and the latest **Bootstrap**;
 - Ready to install as **PWA** (Progressive Web App) in your browser or mobile device;
 - Supports **live-reloading mode** for your CSS styles;
 - Has a library of **user-friendly** helpers for your Go code;
 - Contains a comprehensive **example** of how to use it out of the box.
 
-> [!NOTE]
+> [!TIP]
 > To give you a full understanding of the project, we have recorded a short 📺 [video][gowebly_youtube_video_url] and prepared an introduction 📝 [article][gowebly_devto_article_url] demonstrating the main features of the **Gowebly** CLI.
 
 ## ⚡️ Quick start
@@ -113,7 +117,7 @@ That's why we created the **Gowebly** CLI and its helpers' library, which helps 
 We are here to save you (_and ourselves_) from this routine pain! ✨
 
 > [!NOTE]
-> Earlier, we have already saved the world once, it was [Create Go App][cgapp_url] (yep, that's our project too). The [GitHub stars][cgapp_stars_url] statistics of this project can't lie: more than **2.2k** developers of any level and different countries start a new project through this CLI tool.
+> Earlier, we have already saved the world once, it was [Create Go App][cgapp_url] (yep, that's our project too). The [GitHub stars][cgapp_stars_url] statistics of this project can't lie: more than **2.3k** developers of any level and different countries start a new project through this CLI tool.
 
 ## 🏆 A win-win cooperation
 

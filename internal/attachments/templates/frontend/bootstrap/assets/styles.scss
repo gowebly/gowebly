@@ -1,0 +1,21 @@
+@import "bootstrap/scss/bootstrap";
+
+/* User styles */
+
+main {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+h1 {
+    color: #2563eb;
+}
+
+div {
+    margin: 1rem 0;
+}
+
+p {
+    margin: 0.4rem 0;
+}
