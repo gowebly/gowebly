@@ -11,7 +11,10 @@
 [![Code coverage][go_code_coverage_img]][go_code_coverage_url]
 [![License][repo_license_img]][repo_license_url]
 
-A next-generation CLI tool for easily build amazing web applications with **Go** on the backend, using [**htmx**][htmx_url] & [**hyperscript**][hyperscript_url] and the most popular atomic/utility-first (and not so) **CSS frameworks** on the frontend.
+[![Share to X][x_share_img]][x_share_url]
+[![Share to Telegram][telegram_share_img]][telegram_share_url]
+
+A next-generation CLI tool for easily build amazing web applications with **Go** on the backend, using [**htmx**][htmx_url] & [**hyperscript**][hyperscript_url] and the most popular **CSS frameworks** on the frontend.
 
 **English** · [Русский][repo_readme_ru_url] · [简体中文][repo_readme_cn_url] · [Español][repo_readme_es_url]
 
@@ -248,3 +251,10 @@ Your PRs, issues & any words are welcome! Thank you 😘
 [hyperscript_url]: https://hyperscript.org
 [brew_url]: https://brew.sh
 [docker_image_url]: https://hub.docker.com/repository/docker/gowebly/gowebly
+
+<!-- Social links -->
+
+[x_share_url]: https://x.com/intent/tweet?hashtags=gowebly%2Cgo%2Chtmx&text=A%20next-generation%20CLI%20tool%20to%20easily%20build%20amazing%20web%20applications%20with%20Go%20on%20the%20backend%2C%20using%20htmx%20%26%20hyperscript%20and%20the%20most%20popular%20CSS%20frameworks%20on%20the%20frontend.&url=https%3A%2F%2Fgowebly.org
+[x_share_img]: https://img.shields.io/badge/share_on_x-black?style=for-the-badge&logo=x
+[telegram_share_url]: https://t.me/share/url%22?text=A%20next-generation%20CLI%20tool%20to%20easily%20build%20amazing%20web%20applications%20with%20Go%20on%20the%20backend%2C%20using%20htmx%20%26%20hyperscript%20and%20the%20most%20popular%20CSS%20frameworks%20on%20the%20frontend.%20https%3A%2F%2Fgowebly.org
+[telegram_share_img]: https://img.shields.io/badge/share_on_telegram-black?style=for-the-badge&logo=telegram
