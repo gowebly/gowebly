@@ -1,18 +1,20 @@
 <div align="center">
+
 <a href="https://gowebly.org" target="_blank" title="Go to the Gowebly's Complete user guide"><img width="256px" alt="gowebly logo" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly-logo.svg"></a>
 
 <a name="readme-top"></a>
 
 # The Gowebly CLI
 
-A next-generation CLI tool for easily build amazing web applications with **Go** on the backend, using [**htmx**][htmx_url] & [**hyperscript**][hyperscript_url] and the most popular atomic/utility-first (and not so) **CSS frameworks** on the frontend.
-
-**English** | [Русский][repo_readme_ru_url] | [简体中文][repo_readme_cn_url] | [Español][repo_readme_es_url]
-
 [![Go version][go_version_img]][go_dev_url]
 [![Go report][go_report_img]][go_report_url]
 [![Code coverage][go_code_coverage_img]][go_code_coverage_url]
 [![License][repo_license_img]][repo_license_url]
+
+A next-generation CLI tool for easily build amazing web applications with **Go** on the backend, using [**htmx**][htmx_url] & [**hyperscript**][hyperscript_url] and the most popular atomic/utility-first (and not so) **CSS frameworks** on the frontend.
+
+**English** · [Русский][repo_readme_ru_url] · [简体中文][repo_readme_cn_url] · [Español][repo_readme_es_url]
+
 </div>
 
 Features:
@@ -48,6 +50,12 @@ That's it! 🔥 A wonderful web application has been created in the current fold
 
 It will use the **net/http** package (as a Go backend) and the **html/template** package (as a template engine). The **htmx** and **hyperscript** libraries are already available in your HTML templates.
 
+<div align="right">
+
+[&nwarr; Back to top](#readme-top)
+
+</div>
+
 ### 🐳 Docker-way to quick start
 
 Feel free to using the **Gowebly** CLI from our [official Docker image][docker_image_url] and run it in the isolated container:
@@ -58,6 +66,12 @@ docker run --rm -it -v ${PWD}:${PWD} -w ${PWD} gowebly/gowebly:latest create
 
 > [!IMPORTANT]
 > This Docker image works **only** on the GNU/Linux systems (`amd64` or `arm64`, including WSL).
+
+<div align="right">
+
+[&nwarr; Back to top](#readme-top)
+
+</div>
 
 ### 🍺 Homebrew-way to quick start
 
@@ -75,9 +89,21 @@ Install:
 brew install gowebly/tap/gowebly
 ```
 
+<div align="right">
+
+[&nwarr; Back to top](#readme-top)
+
+</div>
+
 ### 📦 Other way to quick start
 
 Download ready-made `exe` files for Windows, `deb` (for Debian, Ubuntu), `rpm` (for CentOS, Fedora), `apk` (for Alpine), or Arch Linux packages from the [Releases][repo_releases_url] page.
+
+<div align="right">
+
+[&nwarr; Back to top](#readme-top)
+
+</div>
 
 ## 📖 Complete user guide
 
@@ -89,6 +115,12 @@ We have taken care to make it **as comfortable as possible** for you to learn th
 
 > [!IMPORTANT]
 > Don't forget to switch the documentation to your language to make it even more comfortable to learn new knowledge! Supported languages: [English][docs_url], [Русский][docs_ru_url], [简体中文][docs_zh_hk_url], [Español][docs_es_url].
+
+<div align="right">
+
+[&nwarr; Back to top](#readme-top)
+
+</div>
 
 ### The learning path
 
@@ -104,6 +136,12 @@ Next steps are:
 
 Hope you find answers to all of your questions! 😉
 
+<div align="right">
+
+[&nwarr; Back to top](#readme-top)
+
+</div>
+
 ## 🎯 Motivation to create
 
 Tell us, how often have you had to start a new project from scratch and had to make painful manual configurations? 🤔 Especially, when you are just getting acquainted with a new technology or stack, where everything is new to you.
@@ -118,6 +156,12 @@ We are here to save you (_and ourselves_) from this routine pain! ✨
 
 > [!NOTE]
 > Earlier, we have already saved the world once, it was [Create Go App][cgapp_url] (yep, that's our project too). The [GitHub stars][cgapp_stars_url] statistics of this project can't lie: more than **2.3k** developers of any level and different countries start a new project through this CLI tool.
+
+<div align="right">
+
+[&nwarr; Back to top](#readme-top)
+
+</div>
 
 ## 🏆 A win-win cooperation
 
@@ -135,6 +179,12 @@ And now, I invite you to participate in this project! Let's work **together** to
 - Say a few words about the project on your social networks and blogs (Dev.to, Medium, Хабр, and so on).
 
 Your PRs, issues & any words are welcome! Thank you 😘
+
+<div align="right">
+
+[&nwarr; Back to top](#readme-top)
+
+</div>
 
 ### 🌟 Stargazers
 
