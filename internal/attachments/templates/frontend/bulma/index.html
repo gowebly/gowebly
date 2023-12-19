@@ -7,9 +7,10 @@
 {{/* (Optional) Set a custom styles to this page. */}}
 {{ define "styles" }}{{ end }}{{/* (Optional) Set a custom scripts to this page. */}}{{ define "scripts" }}{{ end }}{{/* Set HTML content to this page. */}}{{ define "content" }}<main>
 <div>
-    <img width="196px" src="/static/images/logo.svg" alt="logo">
+    <p>
+        <img width="196px" src="/static/images/logo.svg" alt="logo"></p>
         <div>
-            <h1>Welcome to example!</h1>
+            <h1 class="title has-text-info">Welcome to example!</h1>
             <p>You're here because it worked out.</p>
             <p>
                 <a href="https://gowebly.org" target="_blank">Documentation</a>,
@@ -18,7 +19,7 @@
         </div>
         <div>
             <p>
-                <button class="btn btn-primary" hx-get="/api/show" hx-target="#htmx-result">Show content</button>
+                <button class="button is-primary" hx-get="/api/show" hx-target="#htmx-result">Show content</button>
             </p>
             <div id="htmx-result"></div>
         </div>

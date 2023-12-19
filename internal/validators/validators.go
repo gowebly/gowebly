@@ -77,7 +77,7 @@ func Validate(cfg *config.Config) error {
 		}
 
 		// Check, if 'css_framework' option in the 'frontend' block has a known value.
-		if !slices.Contains([]string{"default", "tailwindcss", "unocss", "daisyui"}, cfg.Frontend.CSSFramework) {
+		if !slices.Contains([]string{"default", "tailwindcss", "unocss", "daisyui", "bulma", "bootstrap"}, cfg.Frontend.CSSFramework) {
 			return fmt.Errorf(
 				constants.ErrorValidateConfigValueInOptionUnknown,
 				"css_framework", "frontend", cfg.Frontend.CSSFramework,

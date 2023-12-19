@@ -24,7 +24,7 @@ backend:
 frontend:
   # 'package_name' (string) option can be any name of your package.json (for example, 'project')
   package_name: project
-  # 'css_framework' (string) option can be one of the values: 'tailwindcss', 'unocss', 'daisyui' or 'default'
+  # 'css_framework' (string) option can be one of the values: 'tailwindcss', 'unocss', 'daisyui', 'bulma', 'bootstrap' or 'default'
   css_framework: default
   # 'runtime_environment' (string) option can be one of the values: 'bun', or 'default'
   runtime_environment: default

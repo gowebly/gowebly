@@ -139,6 +139,22 @@ func Create(di *injectors.Injector) error {
 		"wait", "",
 	)
 
+	// Set styles file name.
+	var stylesFileName string
+
+	// Check if the CSS framework works with SASS/SCSS.
+	switch di.Config.Frontend.CSSFramework {
+	case "bootstrap":
+		// Bootstrap use SCSS.
+		stylesFileName = "styles.scss"
+	case "bulma":
+		// Bulma use SASS.
+		stylesFileName = "styles.sass"
+	default:
+		// Default use regular CSS.
+		stylesFileName = "styles.css"
+	}
+
 	// Copy frontend files from the embed file system.
 	if err := helpers.CopyFilesFromEmbedFS(
 		di.Attachments.Templates,
@@ -148,8 +164,8 @@ func Create(di *injectors.Injector) error {
 				OutputFile: filepath.Join("static", "manifest.json"),
 			},
 			{
-				EmbedFile:  fmt.Sprintf("templates/frontend/%s/assets/styles.css", di.Config.Frontend.CSSFramework),
-				OutputFile: filepath.Join("assets", "styles.css"),
+				EmbedFile:  fmt.Sprintf("templates/frontend/%s/assets/%s", di.Config.Frontend.CSSFramework, stylesFileName),
+				OutputFile: filepath.Join("assets", stylesFileName),
 			},
 		},
 	); err != nil {
@@ -383,7 +399,7 @@ func Create(di *injectors.Injector) error {
 				State: "info", Style: "margin-left",
 			},
 			{
-				Text:  "Add your CSS styles to the './assets/styles.css' file",
+				Text:  fmt.Sprintf("Add your CSS styles to the './assets/%s' file", stylesFileName),
 				State: "info", Style: "margin-left",
 			},
 			{
