@@ -162,7 +162,7 @@ That's why we created the **Gowebly** CLI and its helpers' library, which helps 
 We are here to save you (_and ourselves_) from this routine pain! ✨
 
 > [!NOTE]
-> Earlier, we have already saved the world once, it was [Create Go App][cgapp_url] (yep, that's our project too). The [GitHub stars][cgapp_stars_url] statistics of this project can't lie: more than **2.3k** developers of any level and different countries start a new project through this CLI tool.
+> Earlier, I have already saved the world once, it was [Create Go App][cgapp_url] (yep, that's my project too). The [GitHub stars][cgapp_stars_url] statistics of this project can't lie: more than **2.3k** developers of any level and different countries start a new project through this CLI tool.
 
 <div align="right">
 
