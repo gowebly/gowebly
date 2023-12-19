@@ -30,7 +30,7 @@ A next-generation CLI tool to easily build amazing web applications with **Go** 
 - For **any** level of developer's knowledge and technical expertise;
 - [**Well-documented**][docs_url], with a lot of tips and assists from the authors;
 - Documentation translated to **multiple languages** ([Русский][docs_ru_url], [简体中文][docs_zh_hk_url], [Español][docs_es_url]);
-- Cross-platform and multi-architecture allows **successful running** on GNU/Linux, MS Windows (including WSL) and Apple macOS;
+- Cross-platform and multi-architecture allows **successful running** on any GNU/Linux distros, Microsoft Windows (including WSL) and Apple macOS;
 - Smart CLI that **does most** of the routine setup and preparation for production;
 - Helps to get into the **Go** + **htmx** + **hyperscript** technology stack faster;
 - Supports the most popular Go web frameworks out of the box, such as **Fiber**, **Gin**, **Echo**, **Chi** and **HttpRouter**;
