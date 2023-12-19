@@ -1,13 +1,17 @@
 <div align="center">
 
-<a href="https://gowebly.org" target="_blank" title="Go to the Gowebly's Complete user guide"><img width="256px" alt="gowebly logo" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly-logo.svg"></a>
+<a href="https://gowebly.org" target="_blank" title="Go to the Gowebly's Complete user guide"><img width="196px" alt="gowebly logo" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly-logo.svg"></a>
 
 <a name="readme-top"></a>
 
 # The Gowebly CLI
 
+A next-generation CLI tool to easily build amazing web applications with **Go** on the backend, using [**htmx**][htmx_url] & [**hyperscript**][hyperscript_url] and the most popular **CSS frameworks** on the frontend.
+
+**English** · [Русский][repo_readme_ru_url] · [简体中文][repo_readme_cn_url] · [Español][repo_readme_es_url]
+
 [![Go version][go_version_img]][go_dev_url]
-[![Go report][go_report_img]][go_report_url]
+[![Go report][go_report_img]][go_report_url]<br/>
 [![Code coverage][go_code_coverage_img]][go_code_coverage_url]
 [![License][repo_license_img]][repo_license_url]
 
@@ -15,10 +19,6 @@
 [![Share to Telegram][telegram_share_img]][telegram_share_url]
 [![Share to WhatsApp][whatsapp_share_img]][whatsapp_share_url]
 [![Share to Reddit][reddit_share_img]][reddit_share_url]
-
-A next-generation CLI tool to easily build amazing web applications with **Go** on the backend, using [**htmx**][htmx_url] & [**hyperscript**][hyperscript_url] and the most popular **CSS frameworks** on the frontend.
-
-**English** · [Русский][repo_readme_ru_url] · [简体中文][repo_readme_cn_url] · [Español][repo_readme_es_url]
 
 </div>
 
@@ -181,7 +181,7 @@ And now, I invite you to participate in this project! Let's work **together** to
 - [Issues][repo_issues_url]: ask questions and submit your features.
 - [Pull requests][repo_pull_request_url]: send your improvements to the current.
 - [Discussions][repo_disscussions_url]: discuss and share your ideas.
-- Share the project link to your friends and family on [X][x_share_url], [Telegram][telegram_share_url], [WhatsApp][whatsapp_share_url].
+- Share the project link to your friends and family on [X (Twitter)][x_share_url], [Telegram][telegram_share_url], [WhatsApp][whatsapp_share_url], [Reddit][reddit_share_url].
 - Say a few words about the project on your social networks and blogs (Dev.to, Medium, Хабр, and so on).
 
 Your PRs, issues & any words are welcome! Thank you 😘
