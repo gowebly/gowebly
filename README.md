@@ -6,7 +6,7 @@
 
 # The Gowebly CLI
 
-A next-generation CLI tool to easily build amazing web applications with **Go** on the backend, using [**htmx**][htmx_url] & [**hyperscript**][hyperscript_url] and the most popular **CSS frameworks** on the frontend.
+A next-generation CLI tool to easily build amazing web applications with **Go** on the backend,<br/>using [**htmx**][htmx_url] & [**hyperscript**][hyperscript_url] and the most popular **CSS frameworks** on the frontend.
 
 **English** · [Русский][docs_ru_url] · [简体中文][docs_zh_hk_url] · [Español][docs_es_url]
 
