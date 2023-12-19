@@ -229,7 +229,7 @@ Your PRs, issues & any words are welcome! Thank you 😘
 [repo_readme_es_url]: https://github.com/gowebly/gowebly/blob/main/README_ES.md
 [repo_stargazers_url]: https://github.com/gowebly/gowebly/stargazers
 [repo_badge_stargazers_img]: https://user-images.githubusercontent.com/11155743/275514241-8ecdf4bd-c35e-4e28-a937-b0a63aa1dbaf.png
-[repo_default_config_url]: https://github.com/koddr/gowebly/blob/main/internal/attachments/configs/default.yml
+[repo_default_config_url]: https://github.com/gowebly/gowebly/blob/main/internal/attachments/configs/default.yml
 
 <!-- Docs links -->
 
