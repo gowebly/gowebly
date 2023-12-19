@@ -183,7 +183,7 @@ And now, I invite you to participate in this project! Let's work **together** to
 
 - [Issues][repo_issues_url]: ask questions and submit your features.
 - [Pull requests][repo_pull_request_url]: send your improvements to the current codebase.
-- [Discussions][repo_disscussions_url]: discuss and share your ideas.
+- [Discussions][repo_discussions_url]: discuss and share your ideas.
 - Share the project link to your friends and family on [X (Twitter)][x_share_url], [Telegram][telegram_share_url], [WhatsApp][whatsapp_share_url], [Reddit][reddit_share_url].
 - Say a few words about the project on your social networks and blogs ([Dev.to][dev_to_url], [Medium][medium_url], [Хабр][habr_url], and so on).
 
@@ -220,7 +220,7 @@ Your PRs, issues & any words are welcome! Thank you 😘
 [repo_url]: https://github.com/gowebly/gowebly
 [repo_issues_url]: https://github.com/gowebly/gowebly/issues
 [repo_pull_request_url]: https://github.com/gowebly/gowebly/pulls
-[repo_disscussions_url]: https://github.com/gowebly/gowebly/discussions
+[repo_discussions_url]: https://github.com/gowebly/gowebly/discussions
 [repo_releases_url]: https://github.com/gowebly/gowebly/releases
 [repo_license_url]: https://github.com/gowebly/gowebly/blob/main/LICENSE
 [repo_license_img]: https://img.shields.io/badge/license-Apache_2.0-red?style=for-the-badge&logo=none

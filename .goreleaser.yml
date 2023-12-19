@@ -78,6 +78,9 @@ release:
 
     <!-- Links -->
 
+    [repo_issues_url]: https://github.com/gowebly/gowebly/issues
+    [repo_pull_request_url]: https://github.com/gowebly/gowebly/pulls
+    [repo_discussions_url]: https://github.com/gowebly/gowebly/discussions
     [brew_url]: https://brew.sh
     [docker_url]: https://www.docker.com
     [gowebly_url]: https://gowebly.org
