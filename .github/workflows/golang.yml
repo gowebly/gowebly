@@ -2,16 +2,16 @@ name: Golang workflow
 
 on:
   push:
-    paths: [ '**.go' ]
+    paths: ["**.go"]
   pull_request:
-    paths: [ '**.go' ]
+    paths: ["**.go"]
 
 jobs:
   build:
     strategy:
       matrix:
-        go: [ 'stable' ]
-        os: [ 'ubuntu-latest' ]
+        go: ["stable"]
+        os: ["ubuntu-latest"]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
@@ -36,6 +36,9 @@ jobs:
 
       - name: Run "gordonklaus/ineffassign" for code checks
         run: go run github.com/gordonklaus/ineffassign@latest ./...
+
+      - name: Run "golang.org/x/tools/cmd/deadcode" for deadcode checks
+        run: go run golang.org/x/tools/cmd/deadcode@latest ./...
 
       - name: Run Go test
         run: go test -race ./...

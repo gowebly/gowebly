@@ -15,14 +15,16 @@ A next-generation CLI tool to easily build amazing web applications with **Go** 
 [![Code coverage][go_code_coverage_img]][go_code_coverage_url]
 [![License][repo_license_img]][repo_license_url]
 
-[![Share to X][x_share_img]][x_share_url]
-[![Share to Telegram][telegram_share_img]][telegram_share_url]
-[![Share to WhatsApp][whatsapp_share_img]][whatsapp_share_url]
-[![Share to Reddit][reddit_share_img]][reddit_share_url]
+**Share the Gowebly CLI repository**
+
+[![Share on X][x_share_img]][x_share_url]
+[![Share on Telegram][telegram_share_img]][telegram_share_url]
+[![Share on WhatsApp][whatsapp_share_img]][whatsapp_share_url]
+[![Share on Reddit][reddit_share_img]][reddit_share_url]
 
 </div>
 
-Features:
+## ✨ Features
 
 - 100% **free** and **open source** under the [Apache 2.0][repo_license_url] license;
 - For **any** level of developer's knowledge and technical expertise;
@@ -32,7 +34,7 @@ Features:
 - Helps to get into the **Go** + **htmx** + **hyperscript** technology stack faster;
 - Supports the most popular Go web frameworks out of the box, such as **Fiber**, **Gin**, **Echo**, **Chi** and **HttpRouter**;
 - Supports the way web applications are developed using the **Templ** templating engine with hot-reloading;
-- The possibility of simply adding a ready-to-use and completely customized **CSS framework** to your project, such as **Tailwind CSS**, **daisyUI**, **UnoCSS** and the latest **Bootstrap**;
+- The possibility of simply adding a ready-to-use and completely customized **CSS framework** to your project, such as **Tailwind CSS**, **daisyUI**, **UnoCSS**, **Bulma** and **Bootstrap**;
 - Ready to install as **PWA** (Progressive Web App) in your browser or mobile device;
 - Supports **live-reloading mode** for your CSS styles;
 - Has a library of **user-friendly** helpers for your Go code;
@@ -155,7 +157,7 @@ For many developers, _including us_, this process is as tedious and even depress
 
 Why not just give all that awful manual work to machines? Let them do all the hard work for us, and we will just create awesome web products and not have to think about build and deploy.
 
-That's why we created the **Gowebly** CLI and its helpers' library, which helps you start an amazing web applications in **Go** using **htmx**, **hyperscript** and popular atomic/utility-first **CSS frameworks**.
+That's why we created the **Gowebly** CLI and its helpers' library, which helps you start an amazing web applications in **Go** using **htmx**, **hyperscript** and popular **CSS frameworks**.
 
 We are here to save you (_and ourselves_) from this routine pain! ✨
 
@@ -179,10 +181,10 @@ It really **motivates** us to make this product **even** better.
 And now, I invite you to participate in this project! Let's work **together** to create and popularize the **most useful** tool for developers on the web today.
 
 - [Issues][repo_issues_url]: ask questions and submit your features.
-- [Pull requests][repo_pull_request_url]: send your improvements to the current.
+- [Pull requests][repo_pull_request_url]: send your improvements to the current codebase.
 - [Discussions][repo_disscussions_url]: discuss and share your ideas.
 - Share the project link to your friends and family on [X (Twitter)][x_share_url], [Telegram][telegram_share_url], [WhatsApp][whatsapp_share_url], [Reddit][reddit_share_url].
-- Say a few words about the project on your social networks and blogs (Dev.to, Medium, Хабр, and so on).
+- Say a few words about the project on your social networks and blogs ([Dev.to][dev_to_url], [Medium][medium_url], [Хабр][habr_url], and so on).
 
 Your PRs, issues & any words are welcome! Thank you 😘
 
@@ -257,11 +259,14 @@ Your PRs, issues & any words are welcome! Thank you 😘
 
 <!-- Social links -->
 
+[dev_to_url]: https://dev.to
+[medium_url]: https://medium.com
+[habr_url]: https://habr.com
 [x_share_url]: https://x.com/intent/tweet?hashtags=gowebly%2Cgo%2Chtmx&text=A%20next-generation%20CLI%20tool%20to%20easily%20build%20amazing%20web%20applications%20with%20Go%20on%20the%20backend%2C%20using%20htmx%20%26%20hyperscript%20and%20the%20most%20popular%20CSS%20frameworks%20on%20the%20frontend.&url=https%3A%2F%2Fgowebly.org
 [telegram_share_url]: https://t.me/share/url?text=A%20next-generation%20CLI%20tool%20to%20easily%20build%20amazing%20web%20applications%20with%20Go%20on%20the%20backend%2C%20using%20htmx%20%26%20hyperscript%20and%20the%20most%20popular%20CSS%20frameworks%20on%20the%20frontend.%20%23gowebly%20%23go%20%23htmx&url=https%3A%2F%2Fgowebly.org
 [whatsapp_share_url]: https://api.whatsapp.com/send?text=A%20next-generation%20CLI%20tool%20to%20easily%20build%20amazing%20web%20applications%20with%20Go%20on%20the%20backend%2C%20using%20htmx%20%26%20hyperscript%20and%20the%20most%20popular%20CSS%20frameworks%20on%20the%20frontend.%20https%3A%2F%2Fgowebly.org
 [reddit_share_url]: https://www.reddit.com/submit?title=A%20next-generation%20CLI%20tool%20to%20easily%20build%20amazing%20web%20applications%20with%20Go%20on%20the%20backend%2C%20using%20htmx%20%26%20hyperscript%20and%20the%20most%20popular%20CSS%20frameworks%20on%20the%20frontend.%20%23gowebly%20%23go%20%23htmx&url=https%3A%2F%2Fgowebly.org
-[x_share_img]: https://img.shields.io/badge/share-black?style=for-the-badge&logo=x
-[telegram_share_img]: https://img.shields.io/badge/share-black?style=for-the-badge&logo=telegram
-[whatsapp_share_img]: https://img.shields.io/badge/share-black?style=for-the-badge&logo=whatsapp
-[reddit_share_img]: https://img.shields.io/badge/share-black?style=for-the-badge&logo=reddit
+[x_share_img]: https://img.shields.io/badge/x_(twitter)-black?style=for-the-badge&logo=x
+[telegram_share_img]: https://img.shields.io/badge/telegram-black?style=for-the-badge&logo=telegram
+[whatsapp_share_img]: https://img.shields.io/badge/whatsapp-black?style=for-the-badge&logo=whatsapp
+[reddit_share_img]: https://img.shields.io/badge/reddit-black?style=for-the-badge&logo=reddit

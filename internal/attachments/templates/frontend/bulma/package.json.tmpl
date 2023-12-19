@@ -1,0 +1,25 @@
+{
+  "name": "{{ .PackageName }}",
+  "version": "1.0.0",
+  "description": "Frontend part with Bulma of the Gowebly project.",
+  "license": "MIT",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "source": [
+    "./assets/styles.sass"
+  ],
+  "targets": {
+    "default": {
+      "distDir": "./static"
+    }
+  },
+  "scripts": {
+    "watch": "{{ if eq .RuntimeEnvironment "bun" }}bunx{{ else }}npx --yes{{ end }} parcel watch",
+    "build:dev": "{{ if eq .RuntimeEnvironment "bun" }}bunx{{ else }}npx --yes{{ end }} parcel build --no-optimize",
+    "build:prod": "{{ if eq .RuntimeEnvironment "bun" }}bunx{{ else }}npx --yes{{ end }} parcel build"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "latest",
+    "bulma": "latest",
+    "parcel": "latest"
+  }
+}

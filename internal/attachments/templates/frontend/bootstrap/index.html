@@ -17,7 +17,7 @@
 {{ define "content" }}
 <main>
     <div>
-        <p><img width="224px" src="/static/images/logo.svg" alt="logo"></p>
+        <p><img width="196px" src="/static/images/logo.svg" alt="logo"></p>
         <div>
             <h1>Welcome to example!</h1>
             <p>You're here because it worked out.</p>
@@ -27,7 +27,7 @@
             </p>
         </div>
         <div>
-            <p><button hx-get="/api/show" hx-target="#htmx-result">Show content</button></p>
+            <p><button class="btn btn-primary" hx-get="/api/show" hx-target="#htmx-result">Show content</button></p>
             <div id="htmx-result"></div>
         </div>
     </div>

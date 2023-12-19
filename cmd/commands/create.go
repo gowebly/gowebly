@@ -140,12 +140,19 @@ func Create(di *injectors.Injector) error {
 	)
 
 	// Set styles file name.
-	stylesFileName := "styles.css"
+	var stylesFileName string
 
-	// Check if the CSS framework works with SCSS.
-	if di.Config.Frontend.CSSFramework == "bootstrap" {
+	// Check if the CSS framework works with SASS/SCSS.
+	switch di.Config.Frontend.CSSFramework {
+	case "bootstrap":
 		// Bootstrap use SCSS.
 		stylesFileName = "styles.scss"
+	case "bulma":
+		// Bulma use SASS.
+		stylesFileName = "styles.sass"
+	default:
+		// Default use regular CSS.
+		stylesFileName = "styles.css"
 	}
 
 	// Copy frontend files from the embed file system.

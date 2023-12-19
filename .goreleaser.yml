@@ -34,7 +34,11 @@ release:
   header: |
     ## ✨ The {{ .ProjectName }} `{{ .Tag }}` release
 
-    <img width="100%" alt="gowebly banner with logo" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly-project-banner.svg">
+    <img width="100%" alt="gowebly banner with logo" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly-project-banner.svg"/>
+
+    A next-generation CLI tool to easily build amazing web applications with **Go** on the backend, using **htmx** & **hyperscript** and the most popular **CSS frameworks** on the frontend.
+
+    ## In this release
   footer: |
     ## How to update?
 
@@ -44,16 +48,16 @@ release:
     go install github.com/gowebly/gowebly@latest
     ```
 
-    For [Homebrew][brew_url] users (GNU/Linux, Apple macOS):
-
-    ```console
-    brew upgrade gowebly/tap/gowebly
-    ```
-
     For [Docker][docker_url] users (GNU/Linux only):
 
     ```console
     docker pull gowebly/gowebly:latest
+    ```
+
+    For [Homebrew][brew_url] users (GNU/Linux, Apple macOS):
+
+    ```console
+    brew upgrade gowebly/tap/gowebly
     ```
 
     For other ways (any platforms): manually download and re-install a ready-made package from the `Assets` section.
@@ -62,20 +66,28 @@ release:
 
     ## Your help to improve project
 
-    We would be truly grateful for any help with:
+    I invite you to participate in this project! Let's work **together** to create and popularize the **most useful** tool for developers on the web today.
 
-    - Creating tests and benchmarks for code;
-    - Improving existing functions, structs, or tests;
-    - Feature requests with interesting functions that would be good to add;
-    - Say a few words about the project on your social networks and blogs (Dev.to, Medium, Хабр, and so on).
+    - Add [Issue][repo_issues_url] to ask questions and submit your features;
+    - Make [Pull request][repo_pull_request_url] to send your improvements to the current codebase;
+    - Create [Discussion][repo_discussions_url] to discuss and share your ideas;
+    - Share the project link to your friends and family on [X (Twitter)][x_share_url], [Telegram][telegram_share_url], [WhatsApp][whatsapp_share_url], [Reddit][reddit_share_url];
+    - Say a few words about the project on your social networks and blogs ([Dev.to][dev_to_url], [Medium][medium_url], [Хабр][habr_url], and so on);
 
-    Your PRs & issues are welcome! Thanks 😉
+    Your PRs, issues & any words are welcome! Thank you 😘
 
     <!-- Links -->
 
     [brew_url]: https://brew.sh
     [docker_url]: https://www.docker.com
     [gowebly_url]: https://gowebly.org
+    [dev_to_url]: https://dev.to
+    [medium_url]: https://medium.com
+    [habr_url]: https://habr.com
+    [x_share_url]: https://x.com/intent/tweet?hashtags=gowebly%2Cgo%2Chtmx&text=A%20next-generation%20CLI%20tool%20to%20easily%20build%20amazing%20web%20applications%20with%20Go%20on%20the%20backend%2C%20using%20htmx%20%26%20hyperscript%20and%20the%20most%20popular%20CSS%20frameworks%20on%20the%20frontend.&url=https%3A%2F%2Fgowebly.org
+    [telegram_share_url]: https://t.me/share/url?text=A%20next-generation%20CLI%20tool%20to%20easily%20build%20amazing%20web%20applications%20with%20Go%20on%20the%20backend%2C%20using%20htmx%20%26%20hyperscript%20and%20the%20most%20popular%20CSS%20frameworks%20on%20the%20frontend.%20%23gowebly%20%23go%20%23htmx&url=https%3A%2F%2Fgowebly.org
+    [whatsapp_share_url]: https://api.whatsapp.com/send?text=A%20next-generation%20CLI%20tool%20to%20easily%20build%20amazing%20web%20applications%20with%20Go%20on%20the%20backend%2C%20using%20htmx%20%26%20hyperscript%20and%20the%20most%20popular%20CSS%20frameworks%20on%20the%20frontend.%20https%3A%2F%2Fgowebly.org
+    [reddit_share_url]: https://www.reddit.com/submit?title=A%20next-generation%20CLI%20tool%20to%20easily%20build%20amazing%20web%20applications%20with%20Go%20on%20the%20backend%2C%20using%20htmx%20%26%20hyperscript%20and%20the%20most%20popular%20CSS%20frameworks%20on%20the%20frontend.%20%23gowebly%20%23go%20%23htmx&url=https%3A%2F%2Fgowebly.org
   disable: false
   skip_upload: false
 
@@ -146,14 +158,14 @@ brews:
       💡 Note: See the Complete user guide (https://gowebly.org/) to get a general information.
     homepage: "https://github.com/gowebly/{{ .ProjectName }}"
     description: |
-      A next-generation CLI tool for building amazing web applications in Go using htmx & hyperscript and the most popular atomic/utility-first CSS frameworks.
+      A next-generation CLI tool for building amazing web applications in Go using htmx & hyperscript and the most popular CSS frameworks.
     license: Apache 2.0
     skip_upload: false
 
 nfpms:
   - maintainer: Vic Shóstak <koddr.me@gmail.com>
     description: |
-      A next-generation CLI tool for building amazing web applications in Go using htmx & hyperscript and the most popular atomic/utility-first CSS frameworks.
+      A next-generation CLI tool for building amazing web applications in Go using htmx & hyperscript and the most popular CSS frameworks.
     homepage: "https://github.com/gowebly/{{ .ProjectName }}"
     license: Apache 2.0
     formats: [deb, rpm, apk, archlinux]
