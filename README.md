@@ -15,7 +15,7 @@ A next-generation CLI tool to easily build amazing web applications with **Go** 
 [![Code coverage][go_code_coverage_img]][go_code_coverage_url]
 [![License][repo_license_img]][repo_license_url]
 
-**Share the Gowebly CLI repository**
+**&searr;&nbsp;&nbsp;Share to your friends and family&nbsp;&nbsp;&swarr;**
 
 [![Share on X][x_share_img]][x_share_url]
 [![Share on Telegram][telegram_share_img]][telegram_share_url]
@@ -196,11 +196,11 @@ Your PRs, issues & any words are welcome! Thank you 😘
 
 ### 🌟 Stargazers
 
-[![gowebly stargazers][repo_badge_stargazers_img]][repo_stargazers_url]
+<img src="https://starchart.cc/gowebly/gowebly.svg" alt="Stargazers over time" style="max-width: 100%"/>
 
 ## ⚠️ License
 
-[`The Gowebly CLI`][repo_url] is free and open-source software licensed under the [Apache 2.0 License][repo_license_url], created and supported by [Vic Shóstak][author_url] and the [True Web Artisans][true_web_artisans_url] team with 🩵 for people and robots. Official logo distributed under the [Creative Commons License][repo_cc_license_url] (CC BY-SA 4.0 International).
+[`The Gowebly CLI`][repo_url] is free and open-source software licensed under the [Apache 2.0 License][repo_license_url], created and supported by [Vic Shóstak][author_url] with 🩵 for people and robots. Official logo distributed under the [Creative Commons License][repo_cc_license_url] (CC BY-SA 4.0 International).
 
 <!-- Go links -->
 
@@ -243,7 +243,6 @@ Your PRs, issues & any words are welcome! Thank you 😘
 <!-- Author links -->
 
 [author_url]: https://github.com/koddr
-[true_web_artisans_url]: https://github.com/truewebartisans
 
 <!-- Readme links -->
 
