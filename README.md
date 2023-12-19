@@ -29,7 +29,6 @@ A next-generation CLI tool to easily build amazing web applications with **Go** 
 - 100% **free** and **open source** under the [Apache 2.0][repo_license_url] license;
 - For **any** level of developer's knowledge and technical expertise;
 - [**Well-documented**][docs_url], with a lot of tips and assists from the authors;
-- Documentation translated to **multiple languages** ([Русский][docs_ru_url], [简体中文][docs_zh_hk_url], [Español][docs_es_url]);
 - Cross-platform and multi-architecture allows **successful running** on any GNU/Linux distros, Microsoft Windows (including WSL) and Apple macOS;
 - Smart CLI that **does most** of the routine setup and preparation for production;
 - Helps to get into the **Go** + **htmx** + **hyperscript** technology stack faster;
@@ -39,6 +38,7 @@ A next-generation CLI tool to easily build amazing web applications with **Go** 
 - Ready to install as **PWA** (Progressive Web App) in your browser or mobile device;
 - Supports **live-reloading mode** for your CSS styles;
 - Has a library of **user-friendly** helpers for your Go code;
+- Documentation translated to **multiple languages** ([Русский][docs_ru_url], [简体中文][docs_zh_hk_url], [Español][docs_es_url]);
 - Contains a comprehensive **example** of how to use it out of the box.
 
 > [!TIP]
