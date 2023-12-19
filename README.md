@@ -47,7 +47,7 @@ A next-generation CLI tool to easily build amazing web applications with **Go** 
 
 First, [download][go_download_url] and install **Go**. Version `1.21` (or higher) is required.
 
-Now, you can use the **Gowebly** CLI without installation. Just run it with [`go run`][go_run_url] to create a new project with a [default][repo_default_config] configuration:
+Now, you can use the **Gowebly** CLI without installation. Just run it with [`go run`][go_run_url] to create a new project with a [default][repo_default_config_url] configuration:
 
 ```console
 go run github.com/gowebly/gowebly@latest create
