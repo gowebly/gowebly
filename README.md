@@ -8,7 +8,7 @@
 
 A next-generation CLI tool to easily build amazing web applications with **Go** on the backend, using [**htmx**][htmx_url] & [**hyperscript**][hyperscript_url] and the most popular **CSS frameworks** on the frontend.
 
-**English** · [Русский][repo_readme_ru_url] · [简体中文][repo_readme_cn_url] · [Español][repo_readme_es_url]
+**English** · [Русский][docs_ru_url] · [简体中文][docs_zh_hk_url] · [Español][docs_es_url]
 
 [![Go version][go_version_img]][go_dev_url]
 [![Go report][go_report_img]][go_report_url]<br/>
@@ -29,6 +29,7 @@ A next-generation CLI tool to easily build amazing web applications with **Go** 
 - 100% **free** and **open source** under the [Apache 2.0][repo_license_url] license;
 - For **any** level of developer's knowledge and technical expertise;
 - [**Well-documented**][docs_url], with a lot of tips and assists from the authors;
+- Documentation translated to **multiple languages** ([Русский][docs_ru_url], [简体中文][docs_zh_hk_url], [Español][docs_es_url]);
 - Cross-platform and multi-architecture allows **successful running** on GNU/Linux, MS Windows (including WSL) and Apple macOS;
 - Smart CLI that **does most** of the routine setup and preparation for production;
 - Helps to get into the **Go** + **htmx** + **hyperscript** technology stack faster;
@@ -224,10 +225,6 @@ Your PRs, issues & any words are welcome! Thank you 😘
 [repo_license_url]: https://github.com/gowebly/gowebly/blob/main/LICENSE
 [repo_license_img]: https://img.shields.io/badge/license-Apache_2.0-red?style=for-the-badge&logo=none
 [repo_cc_license_url]: https://creativecommons.org/licenses/by-sa/4.0/
-[repo_readme_ru_url]: https://github.com/gowebly/gowebly/blob/main/README_RU.md
-[repo_readme_cn_url]: https://github.com/gowebly/gowebly/blob/main/README_CN.md
-[repo_readme_es_url]: https://github.com/gowebly/gowebly/blob/main/README_ES.md
-[repo_stargazers_url]: https://github.com/gowebly/gowebly/stargazers
 [repo_badge_stargazers_img]: https://user-images.githubusercontent.com/11155743/275514241-8ecdf4bd-c35e-4e28-a937-b0a63aa1dbaf.png
 [repo_default_config_url]: https://github.com/gowebly/gowebly/blob/main/internal/attachments/configs/default.yml
 
