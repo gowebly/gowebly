@@ -243,7 +243,6 @@ Your PRs, issues & any words are welcome! Thank you 😘
 
 <!-- Readme links -->
 
-[gowebly_helpers_url]: https://github.com/gowebly/helpers
 [gowebly_youtube_video_url]: https://www.youtube.com/watch?v=qazYscnLku4
 [gowebly_devto_article_url]: https://dev.to/koddr/a-next-generation-cli-tool-for-building-amazing-web-apps-in-go-using-htmx-hyperscript-336d
 [cgapp_url]: https://github.com/create-go-app/cli

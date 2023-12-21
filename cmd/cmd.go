@@ -13,12 +13,12 @@ import (
 // Run runs cmd commands by the given flags and all dependencies.
 func Run(flags []string) error {
 	// Logo message.
-	helpers.PrintStyled("                          _     _       ", "", "")
-	helpers.PrintStyled("   __ _  _____      _____| |__ | |_   _ ", "", "")
-	helpers.PrintStyled("  / _` |/ _ \\ \\ /\\ / / _ \\ '_ \\| | | | |", "", "")
-	helpers.PrintStyled(" | (_| | (_) \\ V  V /  __/ |_) | | |_| |", "", "")
-	helpers.PrintStyled("  \\__, |\\___/ \\_/\\_/ \\___|_.__/|_|\\__, |", "", "")
-	helpers.PrintStyled("  |___/ build amazing Go web apps |___/ ", "", "")
+	helpers.PrintStyled("   ______                       __     __      ", "", "")
+	helpers.PrintStyled("  / ____/____  _      __ ___   / /_   / /__  __", "", "")
+	helpers.PrintStyled(" / / __ / __ \\| | /| / // _ \\ / __ \\ / // / / /", "", "")
+	helpers.PrintStyled("/ /_/ // /_/ /| |/ |/ //  __// /_/ // // /_/ / ", "", "")
+	helpers.PrintStyled("\\____/ \\____/ |__/|__/ \\___//_.___//_/ \\__, /  ", "", "")
+	helpers.PrintStyled("     CLI to build amazing Go web apps /____/   ", "", "")
 
 	// Inject all dependencies (config, embed files).
 	di, err := inject()
