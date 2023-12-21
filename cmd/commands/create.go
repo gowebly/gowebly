@@ -180,6 +180,7 @@ func Create(di *injectors.Injector) error {
 	case "flowbite":
 		// Flowbite has some JS.
 		scriptsFileName = "scripts.js"
+	default:
 	}
 
 	// Copy script files from the embed file system.
@@ -197,6 +198,7 @@ func Create(di *injectors.Injector) error {
 		); err != nil {
 			return err
 		}
+	default:
 	}
 
 	// Copy static files from the embed file system.
