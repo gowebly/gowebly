@@ -16,7 +16,7 @@ func Run(di *injectors.Injector) error {
 	)
 
 	// Remove previously generated style files.
-	_ = helpers.RemoveFiles("static/styles.css")
+	_ = helpers.RemoveFiles("static/styles.css", "static/scripts.js")
 
 	// Print block of messages.
 	helpers.PrintStyledBlock(

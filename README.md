@@ -34,7 +34,7 @@ A next-generation CLI tool to easily build amazing web applications with **Go** 
 - Helps to get into the **Go** + **htmx** + **hyperscript** technology stack faster;
 - Supports the most popular Go web frameworks out of the box, such as **Fiber**, **Gin**, **Echo**, **Chi** and **HttpRouter**;
 - Supports the way web applications are developed using the **Templ** templating engine with hot-reloading;
-- The possibility of simply adding a ready-to-use and completely customized **CSS framework** to your project, such as **Tailwind CSS**, **daisyUI**, **UnoCSS**, **Bulma** and **Bootstrap**;
+- The possibility of simply adding a ready-to-use and completely customized **CSS framework** to your project, such as **Tailwind CSS**, **daisyUI**, **Flowbite**, **UnoCSS**, **Bulma** and **Bootstrap**;
 - Ready to install as **PWA** (Progressive Web App) in your browser or mobile device;
 - Supports **live-reloading mode** for your CSS styles;
 - Has a library of **user-friendly** helpers for your Go code;
