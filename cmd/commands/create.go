@@ -172,6 +172,35 @@ func Create(di *injectors.Injector) error {
 		return err
 	}
 
+	// Set scripty file name.
+	var scriptsFileName string
+
+	// Check if the CSS framework requires a scripts file.
+	switch di.Config.Frontend.CSSFramework {
+	case "flowbite":
+		// Flowbite has some JS.
+		scriptsFileName = "scripts.js"
+	default:
+	}
+
+	// Copy script files from the embed file system.
+	switch di.Config.Frontend.CSSFramework {
+	case "flowbite":
+		// Flowbite JS files.
+		if err := helpers.CopyFilesFromEmbedFS(
+			di.Attachments.Templates,
+			[]helpers.EmbedFile{
+				{
+					EmbedFile:  fmt.Sprintf("templates/frontend/%s/assets/%s", di.Config.Frontend.CSSFramework, scriptsFileName),
+					OutputFile: filepath.Join("assets", scriptsFileName),
+				},
+			},
+		); err != nil {
+			return err
+		}
+	default:
+	}
+
 	// Copy static files from the embed file system.
 	if err := helpers.CopyFilesFromEmbedFS(
 		di.Attachments.Static,
@@ -229,7 +258,7 @@ func Create(di *injectors.Injector) error {
 
 	// Copy CSS framework specific files from the embed file system.
 	switch di.Config.Frontend.CSSFramework {
-	case "tailwindcss", "daisyui":
+	case "tailwindcss", "daisyui", "flowbite":
 		// Tailwind CSS files.
 		if err := helpers.CopyFilesFromEmbedFS(
 			di.Attachments.Templates,

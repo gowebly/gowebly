@@ -12,7 +12,7 @@ import (
 // Build runs the 'build' cmd command.
 func Build(di *injectors.Injector, flag string) error {
 	// Remove previously generated files.
-	_ = helpers.RemoveFiles("static/htmx.min.js", "static/hyperscript.min.js", "static/styles.css")
+	_ = helpers.RemoveFiles("static/htmx.min.js", "static/hyperscript.min.js", "static/styles.css", "static/scripts.js")
 
 	// Check, if the second flag is set.
 	if flag != "" {
