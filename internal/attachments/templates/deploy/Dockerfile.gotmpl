@@ -14,15 +14,15 @@ RUN go mod download
 COPY . .
 
 # Set necessary environment variables and build your project.
-ENV CGO_ENABLED=0 {{ if eq .GoFramework "gin" }}GIN_MODE=release{{ end }}
-RUN go build -ldflags="-s -w" -o gowebly_{{ .GoFramework }}
+ENV CGO_ENABLED=0 {{ if eq .Backend.GoFramework "gin" }}GIN_MODE=release{{ end }}
+RUN go build -ldflags="-s -w" -o gowebly_{{ .Backend.GoFramework }}
 
 FROM scratch
 
 # Copy project's binary and templates from /build to the scratch container.
+COPY --from=builder /build/gowebly_{{ .Backend.GoFramework }} /
 COPY --from=builder /build/static /static
-COPY --from=builder /build/gowebly_{{ .GoFramework }} /
-{{ if eq .TemplateEngine "default" }}COPY --from=builder /build/templates /templates{{ end }}
+{{ if not .Tools.IsUseTempl }}COPY --from=builder /build/templates /templates{{ end }}
 
 # Set entry point.
-ENTRYPOINT ["/gowebly_{{ .GoFramework }}"]
+ENTRYPOINT ["/gowebly_{{ .Backend.GoFramework }}"]

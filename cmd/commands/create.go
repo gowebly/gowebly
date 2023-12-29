@@ -7,6 +7,7 @@ import (
 	"time"
 
 	"github.com/charmbracelet/huh/spinner"
+	"github.com/gowebly/gowebly/internal/actions"
 	"github.com/gowebly/gowebly/internal/forms"
 	"github.com/gowebly/gowebly/internal/helpers"
 	"github.com/gowebly/gowebly/internal/injectors"
@@ -41,11 +42,6 @@ func Create(di *injectors.Injector) error {
 
 	// Check, if HTMX is used.
 	if di.Config.Frontend.IsUseHTMX {
-		// If yes, run Hyperscript form.
-		if err := forms.CreateHyperscriptForm(di); err != nil {
-			return fmt.Errorf(messages.ErrorFormNotRun, "hyperscript", "create", err)
-		}
-
 		// If yes, run Templ form.
 		if err := forms.CreateTemplForm(di); err != nil {
 			return fmt.Errorf(messages.ErrorFormNotRun, "templ", "create", err)
@@ -63,7 +59,24 @@ func Create(di *injectors.Injector) error {
 	}
 
 	// TODO: add function to create new project.
-	action := func() { time.Sleep(5 * time.Second) }
+	action := func() error {
+		// Create a new folder(s).
+		if err := helpers.MakeFolders("assets", "static", "templates/pages"); err != nil {
+			return err
+		}
+
+		// Create backend, deploy and misc files from templates.
+		if err := actions.CreateBackendFiles(di); err != nil {
+			return err
+		}
+
+		// Create frontend files.
+		if err := actions.CreateFrontendFiles(di); err != nil {
+			return err
+		}
+
+		return nil
+	}
 
 	// Create a new context and a cancel function.
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)

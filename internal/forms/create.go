@@ -44,13 +44,6 @@ func CreateTemplForm(di *injectors.Injector) error {
 	).Run()
 }
 
-// CreateHTMXForm runs the HTMX form.
-func CreateHyperscriptForm(di *injectors.Injector) error {
-	return huh.NewForm(
-		huh.NewGroup(fields.IsUseHyperscriptConfirm(di)), // confirm if hyperscript is used
-	).Run()
-}
-
 // CreateReactiveLibraryForm runs the reactive library form.
 func CreateReactiveLibraryForm(di *injectors.Injector) error {
 	return huh.NewForm(

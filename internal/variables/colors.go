@@ -20,5 +20,5 @@ var (
 	ColorRed = lipgloss.AdaptiveColor{Light: "#FF4672", Dark: "#ED567A"}
 
 	// ColorGray represents grey color.
-	ColorGrey = lipgloss.AdaptiveColor{Light: "#FFFDF5", Dark: "#FFFDF5"}
+	ColorGrey = lipgloss.AdaptiveColor{Light: "#FFFDF5", Dark: "#B6B4AD"}
 )

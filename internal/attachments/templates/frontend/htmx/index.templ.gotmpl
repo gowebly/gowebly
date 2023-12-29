@@ -1,0 +1,51 @@
+package pages
+
+// MetaTags defines meta tags.
+
+templ MetaTags(keywords, description string) {
+	<meta name="keywords" content={ keywords }/>
+	<meta name="description" content={ description }/>
+}
+
+// styledTextStyles defines CSS styles for component.
+
+css styledTextStyles() {
+	color: blue;
+	margin: 1rem 0;
+}
+
+// BodyContent defines HTML content.
+
+templ BodyContent(h1, text string) {
+	<div id="app">
+		<div>
+			<a href="https://go.dev" target="_blank">
+				<img src="/static/images/go.svg" class="logo" alt="Go logo"/>
+			</a>
+			<a href="https://htmx.org" target="_blank">
+				<img src="/static/images/htmx.svg" class="logo htmx" alt="htmx logo"/>
+			</a>
+			<a href="https://hyperscript.org" target="_blank">
+				<img src="/static/images/hyperscript.svg" class="logo hyperscript" alt="hyperscript logo"/>
+			</a>
+			<h1>Go + htmx + hyperscript</h1>
+			<div class="card">
+				<button id="counter" type="button">Hello, htmx!</button>
+			</div>
+			<p class="read-the-docs">
+				Click on the Go, htmx and hyperscript logos to learn more
+			</p>
+			<p class="read-the-docs">
+				The Gowebly CLI
+				<a href="https://gowebly.org" target="_blank">Documentation</a> &
+				<a href="https://github.com/gowebly/gowebly" target="_blank">GitHub</a>
+			</p>
+		</div>
+	</div>
+}
+
+// BodyScripts defines JavaScript code.
+
+script BodyScripts() {
+	console.log("Hello from templ!", "Edit this JavaScript code in the './templates/pages/index.templ' file.");
+}

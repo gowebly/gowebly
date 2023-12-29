@@ -1,37 +1,53 @@
-# Binaries for programs and plugins
+# macOS files.
+.DS_Store
+
+# IDE files.
+.idea/
+.vscode/
+
+# Go workflow files.
+go.work
+
+# Environment files.
+.env
+
+# Generated folders.
+bin/
+dist-ssr/
+dist/
+
+# Node modules.
+node_modules/
+
+# Vendor folders.
+vendor/
+
+# Temp folders.
+.parcel-cache/
+tmp/
+
+# Logs.
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Ignore by extensions.
 *.exe
 *.exe~
 *.dll
 *.so
 *.dylib
-
-# Test dir and binary, built with `go test -c`
-tests/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.local
+*.lockb
 *.test
-
-# Output of the go coverage tool.
+*.tmp
 *.out
-
-# Go workspace file.
-go.work
-
-# Apple macOS system files.
-.DS_Store
-
-# Project environment config files.
-.env
-
-# IDE config directories.
-.idea/
-.vscode/
-
-# Dependency directories.
-node_modules/
-vendor/
-
-# Binary directories.
-bin/
-
-# Temp and local cache directories.
-dist/
-tmp/

@@ -14,7 +14,7 @@ type Backend struct {
 
 // Frontend represents struct for a frontend part of the project config.
 type Frontend struct {
-	IsUseHTMX, IsUseHyperscript                bool
+	IsUseHTMX                                  bool
 	PackageName, ReactiveLibrary, CSSFramework string
 }
 

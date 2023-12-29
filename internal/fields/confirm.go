@@ -30,14 +30,6 @@ func IsUseHTMXConfirm(di *injectors.Injector) *huh.Confirm {
 		Value(&di.Config.Frontend.IsUseHTMX)
 }
 
-func IsUseHyperscriptConfirm(di *injectors.Injector) *huh.Confirm {
-	return huh.NewConfirm().
-		Title(messages.FormHyperscriptUsageTitle).
-		Affirmative("Yes").
-		Negative("No").
-		Value(&di.Config.Frontend.IsUseHyperscript)
-}
-
 func IsUseBunConfirm(di *injectors.Injector) *huh.Confirm {
 	return huh.NewConfirm().
 		Title(messages.FormBunUsageTitle).

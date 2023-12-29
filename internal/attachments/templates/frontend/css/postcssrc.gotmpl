@@ -1,0 +1,5 @@
+{
+    "plugins": {
+        {{ if eq .CSSFramework "unocss" }}"@unocss/postcss": {}{{ else }}"tailwindcss": {}{{ end }}
+    }
+}

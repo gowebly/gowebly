@@ -14,16 +14,15 @@ templ Layout(title string, metaTags, bodyContent templ.Component) {
 			<title>{ title }</title>
 			{! metaTags }
 			<link rel="manifest" href="/static/manifest.json"/>
-			<link rel="apple-touch-icon" href="/static/favicons/apple-touch-icon.png"/>
-			<link rel="shortcut icon" href="/static/favicons/favicon.ico" type="image/x-icon"/>
-			<link rel="icon" href="/static/favicons/favicon.svg" type="image/svg+xml"/>
-			<link rel="icon" href="/static/favicons/favicon.png" sizes="any"/>
+			<link rel="apple-touch-icon" href="/static/apple-touch-icon.png"/>
+			<link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon"/>
+			<link rel="icon" href="/static/favicon.svg" type="image/svg+xml"/>
+			<link rel="icon" href="/static/favicon.png" sizes="any"/>
 			<link href="/static/styles.css" rel="stylesheet"/>
 		</head>
 		<body onload={ pages.BodyScripts() }>
 			{! bodyContent }
-			<script src="/static/htmx.min.js"></script>
-			<script src="/static/hyperscript.min.js"></script>
+			<script src="/static/scripts.js"></script>
 		</body>
 	</html>
 }

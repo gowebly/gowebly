@@ -27,6 +27,13 @@ const (
 	ErrorCMDNotExecuteCommand string = "can't execute command '%s' with option '%s': %w"
 
 	/*
+		List of the error messages for HTTP client.
+	*/
+
+	// ErrorHTTPDownloadFile represents error message, when user want to download a file from URL.
+	ErrorHTTPDownloadFile string = "can't download file from URL '%s' (code %d)"
+
+	/*
 		List of the error messages for forms.
 	*/
 

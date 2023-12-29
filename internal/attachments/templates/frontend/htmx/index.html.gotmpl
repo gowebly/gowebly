@@ -1,0 +1,43 @@
+{{/* Set title text to this page. */}}
+{{ define "title" }}Welcome to example!{{ end }}
+
+{{/* (Optional) Set META tags to this page. */}}
+{{ define "meta" }}
+<meta name="keywords" content="gowebly, htmx example page, go with htmx">
+<meta name="description" content="Welcome to example! You're here because it worked out.">
+{{ end }}
+
+{{/* (Optional) Set a custom styles to this page. */}}
+{{ define "styles" }}{{ end }}
+
+{{/* (Optional) Set a custom scripts to this page. */}}
+{{ define "scripts" }}{{ end }}
+
+{{/* Set HTML content to this page. */}}
+{{ define "content" }}
+<div id="app">
+    <div>
+        <a href="https://go.dev" target="_blank">
+            <img src="/static/images/go.svg" class="logo" alt="Go logo"/>
+        </a>
+        <a href="https://htmx.org" target="_blank">
+            <img src="/static/images/htmx.svg" class="logo htmx" alt="htmx logo"/>
+        </a>
+        <a href="https://hyperscript.org" target="_blank">
+            <img src="/static/images/hyperscript.svg" class="logo hyperscript" alt="hyperscript logo"/>
+        </a>
+        <h1>Go + htmx + hyperscript</h1>
+        <div class="card">
+            <button id="counter" type="button">Hello, htmx!</button>
+        </div>
+        <p class="read-the-docs">
+            Click on the Go, htmx and hyperscript logos to learn more
+        </p>
+        <p class="read-the-docs">
+            The Gowebly CLI
+            <a href="https://gowebly.org" target="_blank">Documentation</a> &
+            <a href="https://github.com/gowebly/gowebly" target="_blank">GitHub</a>
+        </p>
+    </div>
+</div>
+{{ end }}
