@@ -51,8 +51,6 @@ go run github.com/gowebly/gowebly@latest create
 
 That's it! 🔥 A wonderful web application has been created in the current folder.
 
-It will use the **net/http** package (as a Go backend) and the **html/template** package (as a template engine). The **htmx** and **hyperscript** libraries are already available in your HTML templates.
-
 <div align="right">
 
 [&nwarr; Back to top](#readme-top)
