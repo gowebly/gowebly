@@ -7,7 +7,7 @@ import (
 	"io"
 	"os"
 
-	"github.com/gowebly/gowebly/internal/constants"
+	"github.com/gowebly/gowebly/internal/messages"
 )
 
 // EmbedFile represent struct for embed file system.
@@ -59,7 +59,7 @@ func GenerateFilesByTemplateFromEmbedFS(efs embed.FS, templates []EmbedTemplate)
 	for _, t := range templates {
 		// Check if file exists.
 		if IsExistInFolder(t.OutputFile, false) {
-			return fmt.Errorf(constants.ErrorOSFileIsExists, t.OutputFile)
+			return fmt.Errorf(messages.ErrorOSFileIsExists, t.OutputFile)
 		}
 
 		// Parse template from embed file system.

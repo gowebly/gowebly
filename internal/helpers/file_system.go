@@ -5,7 +5,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/gowebly/gowebly/internal/constants"
+	"github.com/gowebly/gowebly/internal/messages"
 )
 
 // File represent a struct to a file.
@@ -30,7 +30,7 @@ func IsExistInFolder(name string, isFolder bool) bool {
 func MakeFile(file File) error {
 	// Check, if file is existing.
 	if IsExistInFolder(file.Name, false) {
-		return fmt.Errorf(constants.ErrorOSFileIsExists, file.Name)
+		return fmt.Errorf(messages.ErrorOSFileIsExists, file.Name)
 	}
 
 	return os.WriteFile(file.Name, file.Data, 0o600)
@@ -53,7 +53,7 @@ func MakeFolders(names ...string) error {
 	for _, name := range names {
 		// Check, if folder is existing.
 		if IsExistInFolder(name, true) {
-			return fmt.Errorf(constants.ErrorOSFolderIsExists, name)
+			return fmt.Errorf(messages.ErrorOSFolderIsExists, name)
 		}
 
 		// Create a new folder.
@@ -70,7 +70,7 @@ func RemoveFiles(names ...string) error {
 	for _, name := range names {
 		// Remove file by name.
 		if err := os.Remove(name); err != nil {
-			return fmt.Errorf(constants.ErrorOSRemoveFile, name)
+			return fmt.Errorf(messages.ErrorOSRemoveFile, name, err)
 		}
 	}
 

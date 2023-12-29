@@ -1,41 +1,43 @@
 package config
 
-import (
-	"github.com/gowebly/gowebly/internal/helpers"
-)
-
 // Config represents struct for an app configuration.
 type Config struct {
-	Backend  *Backend  `koanf:"backend"`
-	Frontend *Frontend `koanf:"frontend"`
+	Backend  *Backend
+	Frontend *Frontend
+	Tools    *Tools
 }
 
-// Backend represents struct for a backend part of the config file.
+// Backend represents struct for a backend part of the project config.
 type Backend struct {
-	ModuleName     string   `koanf:"module_name"`
-	GoFramework    string   `koanf:"go_framework"`
-	TemplateEngine string   `koanf:"template_engine"`
-	Port           int      `koanf:"port"`
-	Timeout        *Timeout `koanf:"timeout"`
+	ModuleName, GoFramework, Port string
 }
 
-// Timeout represents struct for a 'timeout' block in the backend part of the config file.
-type Timeout struct {
-	Read  int `koanf:"read"`
-	Write int `koanf:"write"`
-}
-
-// Frontend represents struct for a frontend part of the config file.
+// Frontend represents struct for a frontend part of the project config.
 type Frontend struct {
-	PackageName        string `koanf:"package_name"`
-	CSSFramework       string `koanf:"css_framework"`
-	RuntimeEnvironment string `koanf:"runtime_environment"`
-	HTMX               string `koanf:"htmx"`
-	Hyperscript        string `koanf:"hyperscript"`
+	IsUseHTMX, IsUseHyperscript                bool
+	PackageName, ReactiveLibrary, CSSFramework string
+}
+
+// Tools represents struct for a tools part of the project config.
+type Tools struct {
+	IsUseAir, IsUseBun, IsUseTempl bool
 }
 
 // New creates a new config.
-func New() (*Config, error) {
-	// Parse a default YAML config file to a struct.
-	return helpers.ParseYAMLToStruct(&Config{})
+func New() *Config {
+	return &Config{
+		Backend: &Backend{
+			ModuleName: "github.com/user/project",
+			Port:       "7000",
+		},
+		Frontend: &Frontend{
+			IsUseHTMX:       true,
+			ReactiveLibrary: "htmx",
+			PackageName:     "project",
+		},
+		Tools: &Tools{
+			IsUseAir: true,
+			IsUseBun: true,
+		},
+	}
 }
