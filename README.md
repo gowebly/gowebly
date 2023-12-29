@@ -110,7 +110,11 @@ Download ready-made `exe` files for Windows, `deb` (for Debian, Ubuntu), `rpm` (
 
 I always treasure your time and want you to start building really great web products on this awesome technology stack as soon as possible! Therefore, to get a complete guide to use and understand the basic principles of the **Gowebly** CLI, we have prepared a comprehensive explanation of the project in this 📖 [**Complete user guide**][docs_url].
 
-<a href="https://gowebly.org" target="_blank" title="Go to the Gowebly's Complete user guide"><img width="360px" alt="gowebly docs banner" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly-docs-banner.svg"></a>
+<div align="center">
+
+<a href="https://gowebly.org" target="_blank" title="Go to the Gowebly's Complete user guide"><img width="480px" alt="gowebly docs banner" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly-docs-banner.svg"></a>
+
+</div>
 
 I have taken care to make it **as comfortable as possible** for you to learn this wonderful tool, so each CLI command has a sufficient textual description, as well as a visual diagram of how it works.
 
