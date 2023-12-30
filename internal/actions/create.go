@@ -47,9 +47,9 @@ func CreateProjectAction(ctx context.Context, di *injectors.Injector, errCh chan
 func createProjectFolders() error {
 	// Define a slice of folder paths.
 	folders := []string{
-		"web/static",          // folder for static files
-		"web/templates/pages", // folder for page templates
-		"web/src",             // folder for SCSS and JavaScript files
+		"static",          // folder for static files
+		"templates/pages", // folder for page templates
+		"web/src",         // folder for SCSS and JavaScript files
 	}
 
 	return helpers.MakeFolders(folders...)
@@ -61,31 +61,31 @@ func copyStaticFiles(di *injectors.Injector) error {
 	files := []helpers.EmbedFile{
 		{
 			EmbedFile:  "static/favicon.ico",
-			OutputFile: "web/static/favicon.ico",
+			OutputFile: "static/favicon.ico",
 		},
 		{
 			EmbedFile:  "static/favicon.png",
-			OutputFile: "web/static/favicon.png",
+			OutputFile: "static/favicon.png",
 		},
 		{
 			EmbedFile:  "static/favicon.svg",
-			OutputFile: "web/static/favicon.svg",
+			OutputFile: "static/favicon.svg",
 		},
 		{
 			EmbedFile:  "static/logo.svg",
-			OutputFile: "web/static/logo.svg",
+			OutputFile: "static/logo.svg",
 		},
 		{
 			EmbedFile:  "static/manifest-desktop-screenshot.jpeg",
-			OutputFile: "web/static/manifest-desktop-screenshot.jpeg",
+			OutputFile: "static/manifest-desktop-screenshot.jpeg",
 		},
 		{
 			EmbedFile:  "static/manifest-mobile-screenshot.jpeg",
-			OutputFile: "web/static/manifest-mobile-screenshot.jpeg",
+			OutputFile: "static/manifest-mobile-screenshot.jpeg",
 		},
 		{
 			EmbedFile:  "static/manifest.json",
-			OutputFile: "web/static/manifest.json",
+			OutputFile: "static/manifest.json",
 		},
 	}
 
@@ -207,12 +207,12 @@ func generateHTMXFiles(di *injectors.Injector) error {
 		generateFiles = append(generateFiles,
 			helpers.EmbedTemplate{
 				EmbedFile:  "templates/frontend/htmx/main.templ.gotmpl",
-				OutputFile: "web/templates/main.templ",
+				OutputFile: "templates/main.templ",
 				Data:       di.Config,
 			},
 			helpers.EmbedTemplate{
 				EmbedFile:  "templates/frontend/htmx/index.templ.gotmpl",
-				OutputFile: "web/templates/pages/index.templ",
+				OutputFile: "templates/pages/index.templ",
 				Data:       nil,
 			},
 		)
@@ -221,11 +221,11 @@ func generateHTMXFiles(di *injectors.Injector) error {
 		copyFiles := []helpers.EmbedFile{
 			{
 				EmbedFile:  "templates/frontend/htmx/main.html",
-				OutputFile: "web/templates/main.html",
+				OutputFile: "templates/main.html",
 			},
 			{
 				EmbedFile:  "templates/frontend/htmx/index.html",
-				OutputFile: "web/templates/pages/index.html",
+				OutputFile: "templates/pages/index.html",
 			},
 		}
 

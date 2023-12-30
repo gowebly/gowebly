@@ -18,7 +18,7 @@ func runServer() error {
 	}
 
 	// Handle static files (with a custom handler).
-	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./web/static"))))
+	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./static"))))
 
 	// Handle index page view.
 	http.HandleFunc("/", indexViewHandler)

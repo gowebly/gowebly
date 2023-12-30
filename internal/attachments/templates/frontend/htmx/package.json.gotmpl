@@ -10,7 +10,7 @@
   ],
   "targets": {
     "default": {
-      "distDir": "./web/static"
+      "distDir": "./static"
     }
   },
   "scripts": {
@@ -23,30 +23,46 @@
     "@tailwindcss/typography": "latest",
     "tailwindcss": "latest",
     "daisyui": "latest",
+    "htmx.org": "latest",
+    "hyperscript.org": "latest"
     {{- else if eq .CSSFramework "flowbite" -}}
     "@tailwindcss/typography": "latest",
     "tailwindcss": "latest",
     "flowbite": "latest",
-    {{- else if eq .CSSFramework "unocss" -}}
-    "unocss": "latest",
-    {{- else if eq .CSSFramework "bootstrap" -}}
-    "bootstrap": "latest",
-    {{- else if eq .CSSFramework "bulma" -}}
-    "bulma": "latest",
-    {{- end }}
     "htmx.org": "latest",
     "hyperscript.org": "latest"
+    {{- else if eq .CSSFramework "unocss" -}}
+    "htmx.org": "latest",
+    "hyperscript.org": "latest",
+    "unocss": "latest"
+    {{- else if eq .CSSFramework "bootstrap" -}}
+    "@popperjs/core": "latest",
+    "bootstrap": "latest",
+    "htmx.org": "latest",
+    "hyperscript.org": "latest"
+    {{- else if eq .CSSFramework "bulma" -}}
+    "bulma": "latest",
+    "htmx.org": "latest",
+    "hyperscript.org": "latest"
+    {{- else -}}
+    "htmx.org": "latest",
+    "hyperscript.org": "latest"
+    {{- end }}
   },
   "devDependencies": {
     {{ if or (eq .CSSFramework "daisyui") (eq .CSSFramework "flowbite") (eq .CSSFramework "tailwindcss") -}}
-    "postcss": "latest",
+    "@parcel/transformer-sass": "latest",
+    "parcel": "latest",
+    "postcss": "latest"
     {{- else if eq .CSSFramework "unocss" -}}
+    "@parcel/transformer-sass": "latest",
     "@unocss/cli": "latest",
     "@unocss/postcss": "latest",
-    {{- else if eq .CSSFramework "bootstrap" -}}
-    "@popperjs/core": "latest",
-    {{- end }}
+    "postcss": "latest",
+    "parcel": "latest"
+    {{- else -}}
     "@parcel/transformer-sass": "latest",
     "parcel": "latest"
+    {{- end }}
   }
 }

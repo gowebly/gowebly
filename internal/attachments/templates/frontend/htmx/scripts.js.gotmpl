@@ -1,7 +1,12 @@
+{{ if eq .CSSFramework "bootstrap" -}}
 import 'htmx.org';
 import 'hyperscript.org';
-{{ if eq .CSSFramework "bootstrap" -}}
 import * as bootstrap from 'bootstrap';
 {{- else if eq .CSSFramework "flowbite" -}}
+import 'htmx.org';
+import 'hyperscript.org';
 import 'flowbite';
+{{- else -}}
+import 'htmx.org';
+import 'hyperscript.org';
 {{- end}}
