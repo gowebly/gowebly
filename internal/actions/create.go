@@ -17,6 +17,12 @@ func CreateProjectAction(ctx context.Context, di *injectors.Injector, errCh chan
 		return
 	}
 
+	// Copy static files from embed FS.
+	if err := copyStaticFiles(di); err != nil {
+		errCh <- fmt.Errorf(messages.ErrorGoroutineActionNotSuccess, "copy static files", err)
+		return
+	}
+
 	// Create backend files.
 	if err := createBackendFiles(di); err != nil {
 		errCh <- fmt.Errorf(messages.ErrorGoroutineActionNotSuccess, "generate backend files", err)
@@ -47,9 +53,44 @@ func createProjectFolders() error {
 		"web/src/js",          // folder for JavaScript files
 	}
 
-	// Call the MakeFolders function from the helpers package.
-	// Pass the folders slice as variadic arguments.
 	return helpers.MakeFolders(folders...)
+}
+
+// copyStaticFiles copies static files.
+func copyStaticFiles(di *injectors.Injector) error {
+	// Define the files to be copied.
+	files := []helpers.EmbedFile{
+		{
+			EmbedFile:  "static/favicon.ico",
+			OutputFile: "web/static/favicon.ico",
+		},
+		{
+			EmbedFile:  "static/favicon.png",
+			OutputFile: "web/static/favicon.png",
+		},
+		{
+			EmbedFile:  "static/favicon.svg",
+			OutputFile: "web/static/favicon.svg",
+		},
+		{
+			EmbedFile:  "static/logo.svg",
+			OutputFile: "web/static/logo.svg",
+		},
+		{
+			EmbedFile:  "static/manifest-desktop-screenshot.jpeg",
+			OutputFile: "web/static/manifest-desktop-screenshot.jpeg",
+		},
+		{
+			EmbedFile:  "static/manifest-mobile-screenshot.jpeg",
+			OutputFile: "web/static/manifest-mobile-screenshot.jpeg",
+		},
+		{
+			EmbedFile:  "static/manifest.json",
+			OutputFile: "web/static/manifest.json",
+		},
+	}
+
+	return helpers.CopyFilesFromEmbedFS(di.Attachments.Static, files)
 }
 
 // createBackendFiles creates backend files.
@@ -139,19 +180,19 @@ func createFrontendFiles(di *injectors.Injector) error {
 // generateHTMXFiles generates HTMX files.
 func generateHTMXFiles(di *injectors.Injector) error {
 	// Define the files to be generated.
-	files := []helpers.EmbedTemplate{
+	generateFiles := []helpers.EmbedTemplate{
 		{
-			EmbedFile:  "templates/htmx/styles.scss.gotmpl",
+			EmbedFile:  "templates/frontend/htmx/styles.scss.gotmpl",
 			OutputFile: "web/src/scss/styles.scss",
 			Data:       di.Config.Frontend,
 		},
 		{
-			EmbedFile:  "templates/htmx/scripts.js.gotmpl",
+			EmbedFile:  "templates/frontend/htmx/scripts.js.gotmpl",
 			OutputFile: "web/src/js/scripts.js",
 			Data:       di.Config.Frontend,
 		},
 		{
-			EmbedFile:  "templates/htmx/package.json.gotmpl",
+			EmbedFile:  "templates/frontend/htmx/package.json.gotmpl",
 			OutputFile: "package.json",
 			Data:       di.Config.Frontend,
 		},
@@ -159,34 +200,38 @@ func generateHTMXFiles(di *injectors.Injector) error {
 
 	// Check if Templ is used.
 	if di.Config.Tools.IsUseTempl {
-		files = append(files,
+		generateFiles = append(generateFiles,
 			helpers.EmbedTemplate{
-				EmbedFile:  "templates/htmx/main.templ.gotmpl",
+				EmbedFile:  "templates/frontend/htmx/main.templ.gotmpl",
 				OutputFile: "web/templates/main.templ",
-				Data:       di.Config.Frontend,
+				Data:       di.Config,
 			},
 			helpers.EmbedTemplate{
-				EmbedFile:  "templates/htmx/index.templ.gotmpl",
+				EmbedFile:  "templates/frontend/htmx/index.templ.gotmpl",
 				OutputFile: "web/templates/pages/index.templ",
-				Data:       di.Config.Frontend,
+				Data:       nil,
 			},
 		)
 	} else {
-		files = append(files,
-			helpers.EmbedTemplate{
-				EmbedFile:  "templates/htmx/main.html.gotmpl",
+		// Define the files to be copied.
+		copyFiles := []helpers.EmbedFile{
+			{
+				EmbedFile:  "templates/frontend/htmx/main.html",
 				OutputFile: "web/templates/main.html",
-				Data:       di.Config.Frontend,
 			},
-			helpers.EmbedTemplate{
-				EmbedFile:  "templates/htmx/index.html.gotmpl",
+			{
+				EmbedFile:  "templates/frontend/htmx/index.html",
 				OutputFile: "web/templates/pages/index.html",
-				Data:       di.Config.Frontend,
 			},
-		)
+		}
+
+		// Copy files from the embed file system.
+		if err := helpers.CopyFilesFromEmbedFS(di.Attachments.Templates, copyFiles); err != nil {
+			return err
+		}
 	}
 
-	return helpers.GenerateFilesByTemplateFromEmbedFS(di.Attachments.Templates, files)
+	return helpers.GenerateFilesByTemplateFromEmbedFS(di.Attachments.Templates, generateFiles)
 }
 
 // generateTailwindCSSFiles generates Tailwind CSS files.
@@ -194,13 +239,13 @@ func generateTailwindCSSFiles(di *injectors.Injector) error {
 	// Define the files to be generated.
 	files := []helpers.EmbedTemplate{
 		{
-			EmbedFile:  "templates/css/tailwind.config.js.gotmpl",
-			OutputFile: "tailwind.config.js",
+			EmbedFile:  "templates/frontend/css/postcssrc.gotmpl",
+			OutputFile: ".postcssrc",
 			Data:       di.Config.Frontend,
 		},
 		{
-			EmbedFile:  "templates/css/postcssrc.gotmpl",
-			OutputFile: ".postcssrc",
+			EmbedFile:  "templates/frontend/css/tailwind.config.js.gotmpl",
+			OutputFile: "tailwind.config.js",
 			Data:       di.Config.Frontend,
 		},
 	}
@@ -213,13 +258,13 @@ func generateUnoCSSFiles(di *injectors.Injector) error {
 	// Define the files to be generated.
 	files := []helpers.EmbedTemplate{
 		{
-			EmbedFile:  "templates/css/uno.config.ts.gotmpl",
-			OutputFile: "uno.config.ts",
+			EmbedFile:  "templates/frontend/css/postcssrc.gotmpl",
+			OutputFile: ".postcssrc",
 			Data:       di.Config.Frontend,
 		},
 		{
-			EmbedFile:  "templates/css/postcssrc.gotmpl",
-			OutputFile: ".postcssrc",
+			EmbedFile:  "templates/frontend/css/uno.config.ts.gotmpl",
+			OutputFile: "uno.config.ts",
 			Data:       di.Config.Frontend,
 		},
 	}

@@ -19,31 +19,31 @@
     "build": "parcel build"
   },
   "dependencies": {
-    {{ if or .CSSFramework "daisyui" "flowbite" "tailwindcss" }}
+    {{- if or (eq .CSSFramework "daisyui") (eq .CSSFramework "flowbite") (eq .CSSFramework "tailwindcss") -}}
     "@tailwindcss/typography": "latest",
     "tailwindcss": "latest",
-    {{ end }}
-    {{ if eq .CSSFramework "bootstrap" }}
+    {{- end -}}
+    {{- if eq .CSSFramework "bootstrap" -}}
     "bootstrap": "latest",
-    {{ else if eq .CSSFramework "bulma" }}
+    {{- else if eq .CSSFramework "bulma" -}}
     "bulma": "latest",
-    {{ else if eq .CSSFramework "daisyui" }}
+    {{- else if eq .CSSFramework "daisyui" -}}
     "daisyui": "latest",
-    {{ else if eq .CSSFramework "flowbite" }}
+    {{- else if eq .CSSFramework "flowbite" -}}
     "flowbite": "latest",
-    {{ else if eq .CSSFramework "unocss" }}
+    {{- else if eq .CSSFramework "unocss" -}}
     "unocss": "latest",
-    {{ end }}
+    {{- end -}}
     "htmx.org": "latest",
     "hyperscript.org": "latest"
   },
   "devDependencies": {
-    {{ if eq .CSSFramework "bootstrap" }}
+    {{- if eq .CSSFramework "bootstrap" -}}
     "@popperjs/core": "latest",
-    {{ else if eq .CSSFramework "unocss" }}
+    {{- else if eq .CSSFramework "unocss" -}}
     "@unocss/cli": "latest",
     "@unocss/postcss": "latest",
-    {{ end }}
+    {{- end -}}
     "postcss": "latest",
     "parcel": "latest"
   }

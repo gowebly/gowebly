@@ -3,6 +3,6 @@ module {{ .Backend.ModuleName }}
 go 1.21
 
 require (
-    {{ if .Tools.IsUseTempl }}github.com/a-h/templ latest{{ end }}
+    {{- if .Tools.IsUseTempl -}}github.com/a-h/templ latest{{- end -}}
     github.com/gowebly/helpers latest
 )

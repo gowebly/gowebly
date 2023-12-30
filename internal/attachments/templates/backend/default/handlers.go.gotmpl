@@ -4,14 +4,14 @@ import (
 	"fmt"
 	"log/slog"
 	"net/http"
-	{{ if not .Tools.IsUseTempl }}"path/filepath"{{ end }}
+	{{- if not .Tools.IsUseTempl -}}"path/filepath"{{- end -}}
 
-	{{ if .Tools.IsUseTempl }}
+	{{- if .Tools.IsUseTempl -}}
 	"{{ .Backend.ModuleName }}/templates"
 	"{{ .Backend.ModuleName }}/templates/pages"
-	{{ else }}
+	{{- else -}}
 	gowebly "github.com/gowebly/helpers"
-	{{ end }}
+	{{- end -}}
 )
 
 // indexViewHandler handles a view for the index page.
@@ -24,7 +24,7 @@ func indexViewHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	{{ if .Tools.IsUseTempl }}
+	{{- if .Tools.IsUseTempl -}}
 	// Define template functions.
 	metaTags := pages.MetaTags(
 		"gowebly, htmx example page, go with htmx",               // define meta keywords
@@ -45,7 +45,7 @@ func indexViewHandler(w http.ResponseWriter, r *http.Request) {
 		slog.Error("render template", "method", r.Method, "status", http.StatusInternalServerError, "path", r.URL.Path)
 		return
 	}
-	{{ else }}
+	{{- else -}}
 	// Define paths to the user templates.
 	indexPage := filepath.Join("templates", "pages", "index.html")
 
@@ -63,7 +63,7 @@ func indexViewHandler(w http.ResponseWriter, r *http.Request) {
 		slog.Error(err.Error(), "method", r.Method, "status", http.StatusInternalServerError, "path", r.URL.Path)
 		return
 	}
-	{{ end }}
+	{{- end -}}
 
 	// Send log message.
 	slog.Info("render page", "method", r.Method, "status", http.StatusOK, "path", r.URL.Path)
