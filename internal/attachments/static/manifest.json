@@ -9,21 +9,21 @@
     "start_url": ".",
     "icons": [
         {
-            "src": "favicons/manifest-touch-icon.svg",
+            "src": "manifest-touch-icon.svg",
             "type": "image/svg+xml",
             "sizes": "any"
         }
     ],
     "screenshots": [
         {
-            "src": "favicons/manifest-desktop-screenshot.jpeg",
+            "src": "manifest-desktop-screenshot.jpeg",
             "sizes": "1280x720",
             "type": "image/jpeg",
             "form_factor": "wide",
             "label": "Desktop homescreen of My PWA Project"
         },
         {
-            "src": "favicons/manifest-mobile-screenshot.jpeg",
+            "src": "manifest-mobile-screenshot.jpeg",
             "sizes": "720x1280",
             "type": "image/jpeg",
             "form_factor": "narrow",

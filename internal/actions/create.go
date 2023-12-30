@@ -49,8 +49,7 @@ func createProjectFolders() error {
 	folders := []string{
 		"web/static",          // folder for static files
 		"web/templates/pages", // folder for page templates
-		"web/src/scss",        // folder for SCSS files
-		"web/src/js",          // folder for JavaScript files
+		"web/src",             // folder for SCSS and JavaScript files
 	}
 
 	return helpers.MakeFolders(folders...)
@@ -136,15 +135,20 @@ func createBackendFiles(di *injectors.Injector) error {
 		},
 		// Misc files.
 		{
-			EmbedFile:  "templates/misc/air.toml.gotmpl",
-			OutputFile: "air.toml",
-			Data:       di.Config.Tools,
-		},
-		{
 			EmbedFile:  "templates/misc/gitignore.gotmpl",
 			OutputFile: ".gitignore",
 			Data:       nil,
 		},
+	}
+
+	// Check if Air tool is used.
+	if di.Config.Tools.IsUseAir {
+		// Add Air template to the list.
+		templates = append(templates, helpers.EmbedTemplate{
+			EmbedFile:  "templates/misc/air.toml.gotmpl",
+			OutputFile: ".air.toml",
+			Data:       nil,
+		})
 	}
 
 	return helpers.GenerateFilesByTemplateFromEmbedFS(di.Attachments.Templates, templates)
@@ -183,12 +187,12 @@ func generateHTMXFiles(di *injectors.Injector) error {
 	generateFiles := []helpers.EmbedTemplate{
 		{
 			EmbedFile:  "templates/frontend/htmx/styles.scss.gotmpl",
-			OutputFile: "web/src/scss/styles.scss",
+			OutputFile: "web/src/styles.scss",
 			Data:       di.Config.Frontend,
 		},
 		{
 			EmbedFile:  "templates/frontend/htmx/scripts.js.gotmpl",
-			OutputFile: "web/src/js/scripts.js",
+			OutputFile: "web/src/scripts.js",
 			Data:       di.Config.Frontend,
 		},
 		{
@@ -239,12 +243,12 @@ func generateTailwindCSSFiles(di *injectors.Injector) error {
 	// Define the files to be generated.
 	files := []helpers.EmbedTemplate{
 		{
-			EmbedFile:  "templates/frontend/css/postcssrc.gotmpl",
+			EmbedFile:  "templates/frontend/postcssrc.gotmpl",
 			OutputFile: ".postcssrc",
 			Data:       di.Config.Frontend,
 		},
 		{
-			EmbedFile:  "templates/frontend/css/tailwind.config.js.gotmpl",
+			EmbedFile:  "templates/frontend/tailwind.config.js.gotmpl",
 			OutputFile: "tailwind.config.js",
 			Data:       di.Config.Frontend,
 		},
@@ -258,12 +262,12 @@ func generateUnoCSSFiles(di *injectors.Injector) error {
 	// Define the files to be generated.
 	files := []helpers.EmbedTemplate{
 		{
-			EmbedFile:  "templates/frontend/css/postcssrc.gotmpl",
+			EmbedFile:  "templates/frontend/postcssrc.gotmpl",
 			OutputFile: ".postcssrc",
 			Data:       di.Config.Frontend,
 		},
 		{
-			EmbedFile:  "templates/frontend/css/uno.config.ts.gotmpl",
+			EmbedFile:  "templates/frontend/uno.config.ts.gotmpl",
 			OutputFile: "uno.config.ts",
 			Data:       di.Config.Frontend,
 		},

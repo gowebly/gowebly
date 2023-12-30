@@ -5,8 +5,8 @@
   "license": "MIT",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "source": [
-    "./web/src/js/scripts.js",
-    "./web/src/scss/styles.scss"
+    "./web/src/scripts.js",
+    "./web/src/styles.scss"
   ],
   "targets": {
     "default": {
@@ -19,32 +19,34 @@
     "build": "parcel build"
   },
   "dependencies": {
-    {{- if or (eq .CSSFramework "daisyui") (eq .CSSFramework "flowbite") (eq .CSSFramework "tailwindcss") -}}
+    {{ if eq .CSSFramework "daisyui" -}}
     "@tailwindcss/typography": "latest",
     "tailwindcss": "latest",
-    {{- end -}}
-    {{- if eq .CSSFramework "bootstrap" -}}
-    "bootstrap": "latest",
-    {{- else if eq .CSSFramework "bulma" -}}
-    "bulma": "latest",
-    {{- else if eq .CSSFramework "daisyui" -}}
     "daisyui": "latest",
     {{- else if eq .CSSFramework "flowbite" -}}
+    "@tailwindcss/typography": "latest",
+    "tailwindcss": "latest",
     "flowbite": "latest",
     {{- else if eq .CSSFramework "unocss" -}}
     "unocss": "latest",
-    {{- end -}}
+    {{- else if eq .CSSFramework "bootstrap" -}}
+    "bootstrap": "latest",
+    {{- else if eq .CSSFramework "bulma" -}}
+    "bulma": "latest",
+    {{- end }}
     "htmx.org": "latest",
     "hyperscript.org": "latest"
   },
   "devDependencies": {
-    {{- if eq .CSSFramework "bootstrap" -}}
-    "@popperjs/core": "latest",
+    {{ if or (eq .CSSFramework "daisyui") (eq .CSSFramework "flowbite") (eq .CSSFramework "tailwindcss") -}}
+    "postcss": "latest",
     {{- else if eq .CSSFramework "unocss" -}}
     "@unocss/cli": "latest",
     "@unocss/postcss": "latest",
-    {{- end -}}
-    "postcss": "latest",
+    {{- else if eq .CSSFramework "bootstrap" -}}
+    "@popperjs/core": "latest",
+    {{- end }}
+    "@parcel/transformer-sass": "latest",
     "parcel": "latest"
   }
 }
