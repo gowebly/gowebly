@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"log/slog"
 	"net/http"
-	{{ if eq .TemplateEngine "default" }}"path/filepath"{{ end }}
+	{{ if not .Tools.IsUseTempl }}"path/filepath"{{ end }}
 
-	{{ if eq .TemplateEngine "templ" }}
-	"{{ .ModuleName }}/templates"
-	"{{ .ModuleName }}/templates/pages"
+	{{ if .Tools.IsUseTempl }}
+	"{{ .Backend.ModuleName }}/templates"
+	"{{ .Backend.ModuleName }}/templates/pages"
 	{{ else }}
 	gowebly "github.com/gowebly/helpers"
 	{{ end }}
@@ -24,7 +24,7 @@ func indexViewHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	{{ if eq .TemplateEngine "templ" }}
+	{{ if .Tools.IsUseTempl }}
 	// Define template functions.
 	metaTags := pages.MetaTags(
 		"gowebly, htmx example page, go with htmx",               // define meta keywords

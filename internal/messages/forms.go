@@ -42,52 +42,88 @@ const (
 	FormGoFrameworkTitle string = "Select the Go web framework or router\n"
 	// FormGoFrameworkDescription represents the description for the Go framework select.
 	FormGoFrameworkDescription string = "This framework (or router) will be used to build the backend part\nof your application.\n"
-	// FormGoFrameworkFiberTitle represents the title for the built-in net/http package select.
-	FormGoFrameworkDefaultTitle string = "Built-in net/http"
-	// FormGoFrameworkFiberTitle represents the title for the Fiber framework select.
-	FormGoFrameworkFiberTitle string = "Fiber"
-	// FormGoFrameworkGinTitle represents the title for the Gin framework select.
-	FormGoFrameworkGinTitle string = "Gin"
-	// FormGoFrameworkEchoTitle represents the title for the Echo framework select.
-	FormGoFrameworkEchoTitle string = "Echo"
-	// FormGoFrameworkHttpRouterTitle represents the title for the HttpRouter framework select.
-	FormGoFrameworkHttpRouterTitle string = "HttpRouter"
+	// FormGoFrameworkDefaultKey represents the key for the built-in net/http package select.
+	FormGoFrameworkDefaultKey string = "Built-in net/http"
+	// FormGoFrameworkDefaultKey represents the value for the built-in net/http package select.
+	FormGoFrameworkDefaultValue string = "default"
+	// FormGoFrameworkFiberKey represents the key for the Fiber framework select.
+	FormGoFrameworkFiberKey string = "Fiber"
+	// FormGoFrameworkFiberValue represents the value for the Fiber framework select.
+	FormGoFrameworkFiberValue string = "fiber"
+	// FormGoFrameworkGinKey represents the key for the Gin framework select.
+	FormGoFrameworkGinKey string = "Gin"
+	// FormGoFrameworkGinValue represents the value for the Gin framework select.
+	FormGoFrameworkGinValue string = "gin"
+	// FormGoFrameworkEchoKey represents the key for the Echo framework select.
+	FormGoFrameworkEchoKey string = "Echo"
+	// FormGoFrameworkEchoValue represents the value for the Echo framework select.
+	FormGoFrameworkEchoValue string = "echo"
+	// FormGoFrameworkHttpRouterKey represents the key for the HttpRouter framework select.
+	FormGoFrameworkHttpRouterKey string = "HttpRouter"
+	// FormGoFrameworkHttpRouterValue represents the value for the HttpRouter framework select.
+	FormGoFrameworkHttpRouterValue string = "httprouter"
 
 	// FormReactiveLibraryTitle represents the title for the frontend reactive library select.
 	FormReactiveLibraryTitle string = "Select a reactivity framework or library\n"
 	// FormReactiveLibraryDescription represents the description for the frontend reactive library select.
 	FormReactiveLibraryDescription string = "This framework (or library) will be used to build the frontend part\nof your application.\n"
-	// FormReactiveLibraryVanillaTitle represents the title for the pure (vanilla) TypeScript select.
-	FormReactiveLibraryVanillaTitle string = "Pure (vanilla) TypeScript"
-	// FormReactiveLibraryVueTitle represents the title for the Vue select.
-	FormReactiveLibraryVueTitle string = "Vue"
-	// FormReactiveLibraryNuxtTitle represents the title for the Nuxt select.
-	FormReactiveLibraryNuxtTitle string = "Nuxt"
-	// FormReactiveLibraryReactTitle represents the title for the React select.
-	FormReactiveLibraryReactTitle string = "React"
-	// FormReactiveLibraryNextTitle represents the title for the Next select.
-	FormReactiveLibraryNextTitle string = "Next"
-	// FormReactiveLibrarySvelteTitle represents the title for the Svelte select.
-	FormReactiveLibrarySvelteTitle string = "Svelte"
-	// FormReactiveLibrarySvelteKitTitle represents the title for the SvelteKit select.
-	FormReactiveLibrarySvelteKitTitle string = "SvelteKit"
+	// FormReactiveLibraryVanillaKey represents the key for the pure (vanilla) TypeScript select.
+	FormReactiveLibraryVanillaKey string = "Pure (vanilla) TypeScript"
+	// FormReactiveLibraryVanillaValue represents the value for the pure (vanilla) TypeScript select.
+	FormReactiveLibraryVanillaValue string = "vanilla"
+	// FormReactiveLibraryVueKey represents the key for the Vue select.
+	FormReactiveLibraryVueKey string = "Vue"
+	// FormReactiveLibraryVueValue represents the value for the Vue select.
+	FormReactiveLibraryVueValue string = "vue"
+	// FormReactiveLibraryNuxtKey represents the key for the Nuxt select.
+	FormReactiveLibraryNuxtKey string = "Nuxt"
+	// FormReactiveLibraryNuxtValue represents the value for the Nuxt select.
+	FormReactiveLibraryNuxtValue string = "nuxt"
+	// FormReactiveLibraryReactKey represents the key for the React select.
+	FormReactiveLibraryReactKey string = "React"
+	// FormReactiveLibraryReactValue represents the value for the React select.
+	FormReactiveLibraryReactValue string = "react"
+	// FormReactiveLibraryNextKey represents the key for the Next select.
+	FormReactiveLibraryNextKey string = "Next"
+	// FormReactiveLibraryNextValue represents the value for the Next select.
+	FormReactiveLibraryNextValue string = "next"
+	// FormReactiveLibrarySvelteKey represents the key for the Svelte select.
+	FormReactiveLibrarySvelteKey string = "Svelte"
+	// FormReactiveLibrarySvelteValue represents the value for the Svelte select.
+	FormReactiveLibrarySvelteValue string = "svelte"
+	// FormReactiveLibrarySvelteKitKey represents the key for the SvelteKit select.
+	FormReactiveLibrarySvelteKitKey string = "SvelteKit"
+	// FormReactiveLibrarySvelteKitValue represents the value for the SvelteKit select.
+	FormReactiveLibrarySvelteKitValue string = "sveltekit"
 
 	// FormCSSFrameworkTitle represents the title for the frontend CSS framework select.
 	FormCSSFrameworkTitle string = "Select a CSS framework or components library\n"
 	// FormCSSFrameworkDescription represents the description for the frontend CSS framework select.
 	FormCSSFrameworkDescription string = "This framework (or components library) will be used to build the UI part\nof your application.\n"
-	// FormCSSFrameworkTailwindTitle represents the title for the default styles select.
-	FormCSSFrameworkDefaultTitle string = "Default styles"
-	// FormCSSFrameworkTailwindCSSTitle represents the title for the Tailwind CSS framework select.
-	FormCSSFrameworkTailwindCSSTitle string = "Tailwind CSS"
-	// FormCSSFrameworkDaisyUITitle represents the title for the Tailwind CSS with daisyUI components select.
-	FormCSSFrameworkDaisyUITitle string = "Tailwind CSS with daisyUI components"
-	// FormCSSFrameworkFlowbiteTitle represents the title for the Tailwind CSS with Flowbite components select.
-	FormCSSFrameworkFlowbiteTitle string = "Tailwind CSS with Flowbite components"
-	// FormCSSFrameworkBootstrapTitle represents the title for the Bootstrap framework select.
-	FormCSSFrameworkBootstrapTitle string = "Bootstrap"
-	// FormCSSFrameworkBulmaTitle represents the title for the Bulma framework select.
-	FormCSSFrameworkBulmaTitle string = "Bulma"
+	// FormCSSFrameworkDefaultKey represents the key for the default styles select.
+	FormCSSFrameworkDefaultKey string = "Default styles"
+	// FormCSSFrameworkDefaultValue represents the value for the default styles select.
+	FormCSSFrameworkDefaultValue string = "default"
+	// FormCSSFrameworkTailwindCSSKey represents the key for the Tailwind CSS framework select.
+	FormCSSFrameworkTailwindCSSKey string = "Tailwind CSS"
+	// FormCSSFrameworkTailwindCSSValue represents the value for the Tailwind CSS framework select.
+	FormCSSFrameworkTailwindCSSValue string = "tailwindcss"
+	// FormCSSFrameworkDaisyUIKey represents the key for the Tailwind CSS with daisyUI components select.
+	FormCSSFrameworkDaisyUIKey string = "Tailwind CSS with daisyUI components"
+	// FormCSSFrameworkDaisyUIValue represents the value for the Tailwind CSS with daisyUI components select.
+	FormCSSFrameworkDaisyUIValue string = "daisyui"
+	// FormCSSFrameworkFlowbiteKey represents the key for the Tailwind CSS with Flowbite components select.
+	FormCSSFrameworkFlowbiteKey string = "Tailwind CSS with Flowbite components"
+	// FormCSSFrameworkFlowbiteValue represents the value for the Tailwind CSS with Flowbite components select.
+	FormCSSFrameworkFlowbiteValue string = "flowbite"
+	// FormCSSFrameworkBootstrapKey represents the key for the Bootstrap framework select.
+	FormCSSFrameworkBootstrapKey string = "Bootstrap"
+	// FormCSSFrameworkBootstrapValue represents the value for the Bootstrap framework select.
+	FormCSSFrameworkBootstrapValue string = "bootstrap"
+	// FormCSSFrameworkBulmaKey represents the key for the Bulma framework select.
+	FormCSSFrameworkBulmaKey string = "Bulma"
+	// FormCSSFrameworkBulmaValue represents the value for the Bulma framework select.
+	FormCSSFrameworkBulmaValue string = "bulma"
 
 	/*
 		Form elements: confirm fields.

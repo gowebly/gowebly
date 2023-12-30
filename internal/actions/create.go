@@ -60,48 +60,48 @@ func createBackendFiles(di *injectors.Injector) error {
 		{
 			EmbedFile:  fmt.Sprintf("templates/backend/%s/go.mod.gotmpl", di.Config.Backend.GoFramework),
 			OutputFile: "go.mod",
-			Data:       di.Config.Backend,
-		},
-		{
-			EmbedFile:  fmt.Sprintf("templates/backend/%s/server.go.gotmpl", di.Config.Backend.GoFramework),
-			OutputFile: "server.go",
-			Data:       di.Config.Backend,
+			Data:       di.Config,
 		},
 		{
 			EmbedFile:  fmt.Sprintf("templates/backend/%s/handlers.go.gotmpl", di.Config.Backend.GoFramework),
 			OutputFile: "handlers.go",
-			Data:       di.Config.Backend,
+			Data:       di.Config,
 		},
 		{
 			EmbedFile:  fmt.Sprintf("templates/backend/%s/main.go.gotmpl", di.Config.Backend.GoFramework),
 			OutputFile: "main.go",
 			Data:       nil,
 		},
+		{
+			EmbedFile:  fmt.Sprintf("templates/backend/%s/server.go.gotmpl", di.Config.Backend.GoFramework),
+			OutputFile: "server.go",
+			Data:       di.Config.Backend,
+		},
 		// Deploy files.
-		{
-			EmbedFile:  "templates/deploy/dockerignore.gotmpl",
-			OutputFile: ".dockerignore",
-			Data:       di.Config.Backend,
-		},
-		{
-			EmbedFile:  "templates/deploy/Dockerfile.gotmpl",
-			OutputFile: "Dockerfile",
-			Data:       di.Config.Backend,
-		},
 		{
 			EmbedFile:  "templates/deploy/docker-compose.yml.gotmpl",
 			OutputFile: "docker-compose.yml",
 			Data:       di.Config.Backend,
 		},
-		// Misc files.
 		{
-			EmbedFile:  "templates/misc/gitignore.gotmpl",
-			OutputFile: ".gitignore",
+			EmbedFile:  "templates/deploy/Dockerfile.gotmpl",
+			OutputFile: "Dockerfile",
+			Data:       di.Config,
+		},
+		{
+			EmbedFile:  "templates/deploy/dockerignore.gotmpl",
+			OutputFile: ".dockerignore",
 			Data:       nil,
 		},
+		// Misc files.
 		{
 			EmbedFile:  "templates/misc/air.toml.gotmpl",
 			OutputFile: "air.toml",
+			Data:       di.Config.Tools,
+		},
+		{
+			EmbedFile:  "templates/misc/gitignore.gotmpl",
+			OutputFile: ".gitignore",
 			Data:       nil,
 		},
 	}

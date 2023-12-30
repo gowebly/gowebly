@@ -16,14 +16,6 @@ func runServer() error {
 	if err != nil {
 		return err
 	}
-	readTimeout, err := strconv.Atoi(gowebly.Getenv("BACKEND_READ_TIMEOUT", "{{ .Timeout.Read }}"))
-	if err != nil {
-		return err
-	}
-	writeTimeout, err := strconv.Atoi(gowebly.Getenv("BACKEND_WRITE_TIMEOUT", "{{ .Timeout.Write }}"))
-	if err != nil {
-		return err
-	}
 
 	// Handle static files (with a custom handler).
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./static"))))
@@ -32,14 +24,14 @@ func runServer() error {
 	http.HandleFunc("/", indexViewHandler)
 
 	// Handle API endpoints.
-	http.HandleFunc("/api/show", showContentAPIHandler)
+	http.HandleFunc("/api/hello-world", showContentAPIHandler)
 
 	// Create a new server instance with options from environment variables.
 	// For more information, see https://blog.cloudflare.com/the-complete-guide-to-golang-net-http-timeouts/
 	server := &http.Server{
 		Addr:         fmt.Sprintf(":%d", port),
-		ReadTimeout:  time.Duration(readTimeout) * time.Second,
-		WriteTimeout: time.Duration(writeTimeout) * time.Second,
+		ReadTimeout:  5 * time.Second,
+		WriteTimeout: 10 * time.Second,
 	}
 
 	return server.ListenAndServe()
