@@ -9,10 +9,10 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestCreateHTMXForm(t *testing.T) {
+func Test_htmxForm(t *testing.T) {
 	di := &injectors.Injector{
 		Config:      &config.Config{Backend: &config.Backend{}, Frontend: &config.Frontend{}},
 		Attachments: &attachments.Attachments{},
 	}
-	assert.Error(t, CreateHTMXForm(di))
+	assert.Error(t, htmxForm(di))
 }

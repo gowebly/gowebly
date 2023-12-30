@@ -1,22 +1,14 @@
-{{ if eq .CSSFramework "bootstrap" }}
-@import "bootstrap/scss/bootstrap";
-{{ else if eq .CSSFramework "bulma" }}
-@import "node_modules/bulma/sass/utilities/initial-variables";
-@import "node_modules/bulma/bulma";
-{{ else if eq .CSSFramework "daisyui" }}
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-{{ else if eq .CSSFramework "flowbite" }}
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-{{ else if eq .CSSFramework "tailwindcss" }}
+{{ if or .CSSFramework "daisyui" "flowbite" "tailwindcss" }}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 {{ else if eq .CSSFramework "unocss" }}
 @unocss;
+{{ else if eq .CSSFramework "bootstrap" }}
+@import "bootstrap/scss/bootstrap";
+{{ else if eq .CSSFramework "bulma" }}
+@import "node_modules/bulma/sass/utilities/initial-variables";
+@import "node_modules/bulma/bulma";
 {{ end }}
 
 /* User styles */
@@ -81,7 +73,7 @@ h1 {
     filter: drop-shadow(0 0 2em #3178c6aa);
 }
 
-.logo.hyperscript:hover {
+.logo.templ:hover {
     filter: drop-shadow(0 0 2em #3178c6aa);
 }
 

@@ -23,15 +23,13 @@
         <a href="https://htmx.org" target="_blank">
             <img src="/static/images/htmx.svg" class="logo htmx" alt="htmx logo"/>
         </a>
-        <a href="https://hyperscript.org" target="_blank">
-            <img src="/static/images/hyperscript.svg" class="logo hyperscript" alt="hyperscript logo"/>
-        </a>
-        <h1>Go + htmx + hyperscript</h1>
+        <h1>Go + htmx</h1>
         <div class="card">
-            <button id="counter" type="button">Hello, htmx!</button>
+            <button hx-get="/api/hello-world" hx-target="#htmx-result" type="button">Hello, World!</button>
+            <div id="htmx-result"></div>
         </div>
         <p class="read-the-docs">
-            Click on the Go, htmx and hyperscript logos to learn more
+            Click on the Go and htmx logos to learn more!
         </p>
         <p class="read-the-docs">
             The Gowebly CLI

@@ -17,77 +17,32 @@ import (
 
 // Create creates a new project with the given configuration.
 func Create(di *injectors.Injector) error {
-	// Add technical space for 'create' co.
+	// Add technical space for the 'create' command.
 	fmt.Println()
 
-	// Run welcome note form.
-	if err := forms.CreateWelcomeForm(di); err != nil {
-		return fmt.Errorf(messages.ErrorFormNotRun, "welcome", "create", err)
-	}
-
-	// Run project settings form.
-	if err := forms.CreateProjectSettingsForm(di); err != nil {
-		return fmt.Errorf(messages.ErrorFormNotRun, "project settings", "create", err)
-	}
-
-	// Run Go framework form.
-	if err := forms.CreateGoFrameworkForm(di); err != nil {
-		return fmt.Errorf(messages.ErrorFormNotRun, "go framework", "create", err)
-	}
-
-	// Run HTMX form.
-	if err := forms.CreateHTMXForm(di); err != nil {
-		return fmt.Errorf(messages.ErrorFormNotRun, "htmx", "create", err)
-	}
-
-	// Check, if HTMX is used.
-	if di.Config.Frontend.IsUseHTMX {
-		// If yes, run Templ form.
-		if err := forms.CreateTemplForm(di); err != nil {
-			return fmt.Errorf(messages.ErrorFormNotRun, "templ", "create", err)
-		}
-	} else {
-		// If not, run reactive library form.
-		if err := forms.CreateReactiveLibraryForm(di); err != nil {
-			return fmt.Errorf(messages.ErrorFormNotRun, "reactive library", "create", err)
-		}
-	}
-
-	// Run CSS framework form.
-	if err := forms.CreateCSSFrameworkForm(di); err != nil {
-		return fmt.Errorf(messages.ErrorFormNotRun, "css framework", "create", err)
-	}
-
-	// TODO: add function to create new project.
-	action := func() error {
-		// Create a new folder(s).
-		if err := helpers.MakeFolders("assets", "static", "templates/pages"); err != nil {
-			return err
-		}
-
-		// Create backend, deploy and misc files from templates.
-		if err := actions.CreateBackendFiles(di); err != nil {
-			return err
-		}
-
-		// Create frontend files.
-		if err := actions.CreateFrontendFiles(di); err != nil {
-			return err
-		}
-
-		return nil
+	// Run create form.
+	if err := forms.RunCreateForm(di); err != nil {
+		return err
 	}
 
 	// Create a new context and a cancel function.
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
 
-	// Create a new action to create a new project.
-	go action()
+	// Create buffered channel for one error value.
+	errCh := make(chan error, 1)
 
-	// Show spinner.
+	// Run action that creates project in a goroutine.
+	go actions.CreateProjectAction(ctx, di, errCh)
+
+	// Run spinner.
 	if err := helpers.RunSpinnerWithContext(ctx, messages.CommandCreateSpinnerTitle, spinner.Line); err != nil {
 		return fmt.Errorf(messages.ErrorSpinnerNotRun, "create", err)
+	}
+
+	// Handle potential error from action.
+	if err := <-errCh; err != nil {
+		return err
 	}
 
 	// Generate content body.

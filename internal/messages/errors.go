@@ -41,6 +41,13 @@ const (
 	ErrorFormNotRun string = "failed to run '%s' form in the '%s' command: %w"
 
 	/*
+		List of the error messages for goroutine actions.
+	*/
+
+	// ErrorGoroutineActionNotSuccess represents error message, when a goroutine action was not success.
+	ErrorGoroutineActionNotSuccess string = "failed to run action '%s' in goroutine: %w"
+
+	/*
 		List of the error messages for spinner.
 	*/
 

@@ -10,8 +10,7 @@ templ MetaTags(keywords, description string) {
 // styledTextStyles defines CSS styles for component.
 
 css styledTextStyles() {
-	color: blue;
-	margin: 1rem 0;
+	color: #02BF87;
 }
 
 // BodyContent defines HTML content.
@@ -22,18 +21,23 @@ templ BodyContent(h1, text string) {
 			<a href="https://go.dev" target="_blank">
 				<img src="/static/images/go.svg" class="logo" alt="Go logo"/>
 			</a>
+			<a href="https://templ.guide" target="_blank">
+				<img src="/static/images/templ.svg" class="logo templ" alt="templ logo"/>
+			</a>
 			<a href="https://htmx.org" target="_blank">
 				<img src="/static/images/htmx.svg" class="logo htmx" alt="htmx logo"/>
 			</a>
-			<a href="https://hyperscript.org" target="_blank">
-				<img src="/static/images/hyperscript.svg" class="logo hyperscript" alt="hyperscript logo"/>
-			</a>
-			<h1>Go + htmx + hyperscript</h1>
+			<h1>Go + Templ + htmx</h1>
+			<p class={ styledTextStyles() }>
+				You're using <strong>Templ</strong> package to generate HTML content!<br/>
+				Edit this styled text in the <code>./templates/pages/index.templ</code> file.
+			</p>
 			<div class="card">
-				<button id="counter" type="button">Hello, htmx!</button>
+				<button hx-get="/api/hello-world" hx-target="#htmx-result" type="button">Hello, World!</button>
+				<div id="htmx-result"></div>
 			</div>
 			<p class="read-the-docs">
-				Click on the Go, htmx and hyperscript logos to learn more
+				Click on the Go, Templ and htmx logos to learn more!
 			</p>
 			<p class="read-the-docs">
 				The Gowebly CLI
@@ -47,5 +51,8 @@ templ BodyContent(h1, text string) {
 // BodyScripts defines JavaScript code.
 
 script BodyScripts() {
-	console.log("Hello from templ!", "Edit this JavaScript code in the './templates/pages/index.templ' file.");
+	console.log(
+		"You're using Templ package to generate HTML content!",
+		"Edit this JavaScript code in the `./templates/pages/index.templ` file.",
+	);
 }
