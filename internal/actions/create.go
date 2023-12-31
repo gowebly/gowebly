@@ -9,15 +9,13 @@ import (
 	"github.com/gowebly/gowebly/internal/messages"
 )
 
-type action struct {
-	name string
-	fn   func(*injectors.Injector) error
-}
-
 // CreateProjectAction creates a new project.
 func CreateProjectAction(ctx context.Context, cancel context.CancelFunc, di *injectors.Injector, errCh chan<- error) {
-	// Define the list of actions to perform
-	actions := []action{
+	// Define the list of actions to execute.
+	actions := []struct {
+		op string
+		fn func(*injectors.Injector) error
+	}{
 		{"create project folders", createProjectFolders},
 		{"copy static files", copyStaticFiles},
 		{"generate backend files", createBackendFiles},
@@ -27,9 +25,10 @@ func CreateProjectAction(ctx context.Context, cancel context.CancelFunc, di *inj
 
 	// Execute each action in the list
 	for _, action := range actions {
+		// Run action.
 		if err := action.fn(di); err != nil {
 			cancel()
-			errCh <- fmt.Errorf(messages.ErrorGoroutineActionNotSuccess, action.name, err)
+			errCh <- fmt.Errorf(messages.ErrorGoroutineActionNotSuccess, action.op, err)
 			return
 		}
 	}
@@ -48,12 +47,12 @@ func CreateProjectAction(ctx context.Context, cancel context.CancelFunc, di *inj
 // createProjectFolders creates project folders.
 func createProjectFolders(di *injectors.Injector) error {
 	// Define a slice of folder paths.
-	folders := []string{"static", "web/src"}
+	folders := []string{"web/src"}
 
 	// Check if HTMX is used.
 	if di.Config.Frontend.IsUseHTMX {
 		// Add templates folders.
-		folders = append(folders, "templates/pages")
+		folders = append(folders, "static", "templates/pages")
 	}
 
 	return helpers.MakeFolders(folders...)
@@ -290,11 +289,11 @@ func generateUnoCSSFiles(di *injectors.Injector) error {
 // installDependencies installs dependencies.
 func installDependencies(di *injectors.Injector) error {
 	// Define the commands to be executed.
-	commands := []helpers.Command{}
+	commands := make([]helpers.Command, 0, 4)
 
 	// Check if Templ is used.
 	if di.Config.Tools.IsUseTempl {
-		// Add Templ generate command.
+		// Generate templates.
 		commands = append(commands, helpers.Command{
 			Name:       "templ",
 			Options:    []string{"generate"},
@@ -302,29 +301,34 @@ func installDependencies(di *injectors.Injector) error {
 		})
 	}
 
-	// Add Go mod tidy command.
+	// Install Go dependencies.
 	commands = append(commands, helpers.Command{
 		Name:       "go",
 		Options:    []string{"mod", "tidy"},
 		SkipOutput: true,
 	})
 
+	// Define the frontend runtime environment.
+	frontendRuntimeEnv := "npm"
+
 	// Check if Bun is used.
 	if di.Config.Tools.IsUseBun {
-		// Add Bun install command.
-		commands = append(commands, helpers.Command{
-			Name:       "bun",
-			Options:    []string{"install"},
-			SkipOutput: true,
-		})
-	} else {
-		// Add NPM install command.
-		commands = append(commands, helpers.Command{
-			Name:       "npm",
-			Options:    []string{"install"},
-			SkipOutput: true,
-		})
+		// Set the frontend runtime environment to Bun.
+		frontendRuntimeEnv = "bun"
 	}
+
+	// Install frontend dependencies.
+	commands = append(commands,
+		helpers.Command{
+			Name:       frontendRuntimeEnv,
+			Options:    []string{"install"},
+			SkipOutput: true,
+		}, helpers.Command{
+			Name:       frontendRuntimeEnv,
+			Options:    []string{"run", "build"},
+			SkipOutput: true,
+		},
+	)
 
 	return helpers.Execute(commands)
 }
