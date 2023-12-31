@@ -2,15 +2,19 @@ TEMP_DIR=./tmp
 BINARY_NAME=gowebly_{{ .Backend.GoFramework }}
 
 clean:
+	@echo "\n> Cleaning project...\n"
 	go clean
 	rm -rf ${TEMP_DIR}
 
 test:
+	@echo "\n> Run tests...\n"
 	go test -v ./...
 
 build: clean test
+	@echo "\n> Building project...\n"
 	{{ if .Tools.IsUseTempl }}templ generate && {{ end }}{{ if .Tools.IsUseBun }}bun{{ else }}npm{{ end }} run build
-	go build -o ${TEMP_DIR}/${BINARY_NAME} ./...
+	go build -o ${TEMP_DIR}/${BINARY_NAME} .
 
 run: build
+	@echo "\n> Running project on http://localhost:{{ .Backend.Port }}...\n"
 	${TEMP_DIR}/${BINARY_NAME}
