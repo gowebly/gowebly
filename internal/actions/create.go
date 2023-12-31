@@ -25,6 +25,13 @@ func CreateProjectAction(ctx context.Context, cancel context.CancelFunc, di *inj
 
 	// Execute each action in the list
 	for _, action := range actions {
+		// Check context.
+		if ctx.Err() != nil {
+			cancel()
+			errCh <- ctx.Err()
+			return
+		}
+
 		// Run action.
 		if err := action.fn(di); err != nil {
 			cancel()
@@ -150,7 +157,7 @@ func createBackendFiles(di *injectors.Injector) error {
 		templates = append(templates, helpers.EmbedTemplate{
 			EmbedFile:  "templates/misc/air.toml.gotmpl",
 			OutputFile: ".air.toml",
-			Data:       di.Config.Tools,
+			Data:       di.Config,
 		})
 	} else {
 		// Add Makefile to the list.
@@ -302,11 +309,18 @@ func installDependencies(di *injectors.Injector) error {
 	}
 
 	// Install Go dependencies.
-	commands = append(commands, helpers.Command{
-		Name:       "go",
-		Options:    []string{"mod", "tidy"},
-		SkipOutput: true,
-	})
+	commands = append(commands,
+		helpers.Command{
+			Name:       "go",
+			Options:    []string{"mod", "tidy"},
+			SkipOutput: true,
+		},
+		helpers.Command{
+			Name:       "go",
+			Options:    []string{"fmt"},
+			SkipOutput: true,
+		},
+	)
 
 	// Define the frontend runtime environment.
 	frontendRuntimeEnv := "npm"

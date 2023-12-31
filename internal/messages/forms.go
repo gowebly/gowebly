@@ -130,7 +130,7 @@ const (
 	*/
 
 	// FormAirUsageTitle represents the title for the Air tool switch.
-	FormAirUsageTitle string = "Use the Air tool to enable hot-reloading in the application?"
+	FormAirUsageTitle string = "Use the Air tool to enable live-reloading for your application?"
 
 	// FormTempleUsageTitle represents the title for the Templ package switch.
 	FormTemplUsageTitle string = "Use the Templ package to build HTML templates with Go?"
@@ -138,9 +138,6 @@ const (
 	// FormHTMXUsageTitle represents the title for the htmx as reactive library switch.
 	FormHTMXUsageTitle string = "Use the htmx as a reactive frontend library?"
 
-	// FormHyperscriptUsageTitle represents the title for the hyperscript library switch.
-	FormHyperscriptUsageTitle string = "Add the hyperscript library to the frontend?"
-
-	// FormRuntimeUsageTitle represents the title for the Bun JavaScript runtime environment switch.
-	FormBunUsageTitle string = "Use the Bun as a JavaScript/TypeScript runtime environment?"
+	// FormRuntimeUsageTitle represents the title for the Bun runtime environment switch.
+	FormBunUsageTitle string = "Use the Bun as a TypeScript runtime environment?"
 )

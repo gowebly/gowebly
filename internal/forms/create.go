@@ -62,10 +62,11 @@ func welcomeForm() error {
 // projectSettingsForm runs the project settings form.
 func projectSettingsForm(di *injectors.Injector) error {
 	return huh.NewForm(
-		huh.NewGroup(fields.GoModuleNameInput(di)), // input Go module name in go.mod
 		huh.NewGroup(fields.IsUseAirConfirm(di)),   // confirm if Air is used
-		huh.NewGroup(fields.PackageNameInput(di)),  // input package name in package.json
+		huh.NewGroup(fields.GoModuleNameInput(di)), // input Go module name in go.mod
+		huh.NewGroup(fields.PortInput(di)),         // input port number
 		huh.NewGroup(fields.IsUseBunConfirm(di)),   // confirm if Bun is used
+		huh.NewGroup(fields.PackageNameInput(di)),  // input package name in package.json
 	).Run()
 }
 

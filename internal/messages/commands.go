@@ -27,14 +27,14 @@ const (
 	// CommandCreateSummaryHeadingTools represents the heading of the tools summary.
 	CommandCreateSummaryHeadingTools string = "Tools ↘"
 	// CommandCreateSummaryDescription represents the description of the project summary.
-	CommandCreateSummaryDescription string = "%s\n\nGo web framework/router: %s\nPort: %s\n\n%s\n\nReactive framework/library: %s\nCSS framework: %s\n\n%s\n\nIs use Air to live-reload? %s\nIs use Bun as JS/TS runtime? %s\nIs use Templ to generate HTML? %s"
+	CommandCreateSummaryDescription string = "%s\n\nGo web framework/router: %s\nPort: %s\n\n%s\n\nReactive framework/library: %s\nCSS framework: %s\n\n%s\n\nIs use Air tool to live-reloading? %s\nIs use Bun as a TypeScript runtime? %s\nIs use Templ to generate HTML? %s"
 
 	// CommandDoctorSummaryTitle represents the title of the system summary.
 	CommandDoctorSummaryTitle string = "✓ Your system information has been collected successfully!\n"
 	// CommandDoctorSummarySubTitle represents the subtitle of the system summary.
 	CommandDoctorSummarySubTitle string = "Copy this information to paste into an issue ↘"
 	// CommandDoctorSummaryDescription represents the description of the system summary.
-	CommandDoctorSummaryDescription string = "%s\n\nGowebly CLI: %s (build with %s on %s/%s)\n\nGo: %s\nNode.js version: %s (npm %s)\nBun version: %s\n\nIs Air live-reload tool installed? %s\nIs Templ package installed? %s"
+	CommandDoctorSummaryDescription string = "%s\n\nGowebly CLI: %s (build with %s on %s/%s)\n\nGo: %s\nNode.js version: %s (npm %s)\nBun version: %s\n\nIs Air tool installed? %s\nIs Templ package installed? %s"
 
 	// CommandUnknownSummaryTitle represents the title of the unknown summary.
 	CommandUnknownSummaryTitle string = "~ This command doesn't exist...\n"

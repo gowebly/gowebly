@@ -26,7 +26,6 @@ func Create(di *injectors.Injector) error {
 
 	// Create a new context and a cancel function.
 	ctx, cancel := context.WithCancel(context.Background())
-	defer cancel()
 
 	// Create buffered channel for one error value.
 	errCh := make(chan error, 1)

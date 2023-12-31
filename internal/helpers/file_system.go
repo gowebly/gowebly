@@ -64,15 +64,3 @@ func MakeFolders(names ...string) error {
 
 	return nil
 }
-
-// RemoveFiles removes files by names.
-func RemoveFiles(names ...string) error {
-	for _, name := range names {
-		// Remove file by name.
-		if err := os.Remove(name); err != nil {
-			return fmt.Errorf(messages.ErrorOSRemoveFile, name, err)
-		}
-	}
-
-	return nil
-}
