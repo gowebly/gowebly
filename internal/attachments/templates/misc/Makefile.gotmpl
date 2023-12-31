@@ -8,11 +8,12 @@ clean:
 
 test:
 	@echo "\n> Run tests...\n"
-	go test -v ./...
+	go test -v -cover -race ./...
 
 build: clean test
-	@echo "\n> Building project...\n"
+	@echo "\n> Building project frontend...\n"
 	{{ if .Tools.IsUseTempl }}templ generate && {{ end }}{{ if .Tools.IsUseBun }}bun{{ else }}npm{{ end }} run build
+	@echo "\n> Building project backend...\n"
 	go build -o ${TEMP_DIR}/${BINARY_NAME} .
 
 run: build
