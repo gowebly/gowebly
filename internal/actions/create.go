@@ -147,7 +147,14 @@ func createBackendFiles(di *injectors.Injector) error {
 		templates = append(templates, helpers.EmbedTemplate{
 			EmbedFile:  "templates/misc/air.toml.gotmpl",
 			OutputFile: ".air.toml",
-			Data:       nil,
+			Data:       di.Config.Tools,
+		})
+	} else {
+		// Add Makefile to the list.
+		templates = append(templates, helpers.EmbedTemplate{
+			EmbedFile:  "templates/misc/Makefile.gotmpl",
+			OutputFile: "Makefile",
+			Data:       di.Config,
 		})
 	}
 

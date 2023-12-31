@@ -1,0 +1,16 @@
+TEMP_DIR=./tmp
+BINARY_NAME=gowebly_{{ .Backend.GoFramework }}
+
+clean:
+	go clean
+	rm -rf ${TEMP_DIR}
+
+test:
+	go test -v ./...
+
+build: clean test
+	{{ if .Tools.IsUseTempl }}templ generate && {{ end }}{{ if .Tools.IsUseBun }}bun{{ else }}npm{{ end }} run build
+	go build -o ${TEMP_DIR}/${BINARY_NAME} ./...
+
+run: build
+	${TEMP_DIR}/${BINARY_NAME}

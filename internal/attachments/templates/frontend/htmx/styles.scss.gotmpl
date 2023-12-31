@@ -1,15 +1,15 @@
-{{ if or (eq .CSSFramework "daisyui") (eq .CSSFramework "flowbite") (eq .CSSFramework "tailwindcss") -}}
+{{ if or (eq .CSSFramework "daisyui") (eq .CSSFramework "flowbite") (eq .CSSFramework "tailwindcss") }}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-{{- else if eq .CSSFramework "unocss" -}}
+{{ else if eq .CSSFramework "unocss" }}
 @unocss;
-{{- else if eq .CSSFramework "bootstrap" -}}
+{{ else if eq .CSSFramework "bootstrap" }}
 @import "bootstrap/scss/bootstrap";
-{{- else if eq .CSSFramework "bulma" -}}
+{{ else if eq .CSSFramework "bulma" }}
 @import "node_modules/bulma/sass/utilities/initial-variables";
 @import "node_modules/bulma/bulma";
-{{- end }}
+{{ end }}
 
 /* User styles */
 

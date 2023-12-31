@@ -19,50 +19,55 @@
     "build": "parcel build"
   },
   "dependencies": {
-    {{ if eq .CSSFramework "daisyui" -}}
+    {{ if eq .CSSFramework "daisyui" }}
     "@tailwindcss/typography": "latest",
     "tailwindcss": "latest",
     "daisyui": "latest",
     "htmx.org": "latest",
     "hyperscript.org": "latest"
-    {{- else if eq .CSSFramework "flowbite" -}}
+    {{ else if eq .CSSFramework "flowbite" }}
     "@tailwindcss/typography": "latest",
     "tailwindcss": "latest",
     "flowbite": "latest",
     "htmx.org": "latest",
     "hyperscript.org": "latest"
-    {{- else if eq .CSSFramework "unocss" -}}
+    {{ else if eq .CSSFramework "tailwindcss" }}
+    "@tailwindcss/typography": "latest",
+    "tailwindcss": "latest",
+    "htmx.org": "latest",
+    "hyperscript.org": "latest"
+    {{ else if eq .CSSFramework "unocss" }}
     "htmx.org": "latest",
     "hyperscript.org": "latest",
     "unocss": "latest"
-    {{- else if eq .CSSFramework "bootstrap" -}}
+    {{ else if eq .CSSFramework "bootstrap" }}
     "@popperjs/core": "latest",
     "bootstrap": "latest",
     "htmx.org": "latest",
     "hyperscript.org": "latest"
-    {{- else if eq .CSSFramework "bulma" -}}
+    {{ else if eq .CSSFramework "bulma" }}
     "bulma": "latest",
     "htmx.org": "latest",
     "hyperscript.org": "latest"
-    {{- else -}}
+    {{ else }}
     "htmx.org": "latest",
     "hyperscript.org": "latest"
-    {{- end }}
+    {{ end }}
   },
   "devDependencies": {
-    {{ if or (eq .CSSFramework "daisyui") (eq .CSSFramework "flowbite") (eq .CSSFramework "tailwindcss") -}}
+    {{ if or (eq .CSSFramework "daisyui") (eq .CSSFramework "flowbite") (eq .CSSFramework "tailwindcss") }}
     "@parcel/transformer-sass": "latest",
     "parcel": "latest",
     "postcss": "latest"
-    {{- else if eq .CSSFramework "unocss" -}}
+    {{ else if eq .CSSFramework "unocss" }}
     "@parcel/transformer-sass": "latest",
     "@unocss/cli": "latest",
     "@unocss/postcss": "latest",
     "postcss": "latest",
     "parcel": "latest"
-    {{- else -}}
+    {{ else }}
     "@parcel/transformer-sass": "latest",
     "parcel": "latest"
-    {{- end }}
+    {{ end }}
   }
 }
