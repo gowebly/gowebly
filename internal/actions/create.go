@@ -9,47 +9,51 @@ import (
 	"github.com/gowebly/gowebly/internal/messages"
 )
 
+type action struct {
+	name string
+	fn   func(*injectors.Injector) error
+}
+
 // CreateProjectAction creates a new project.
-func CreateProjectAction(ctx context.Context, di *injectors.Injector, errCh chan<- error) {
-	// Create project folders.
-	if err := createProjectFolders(); err != nil {
-		errCh <- fmt.Errorf(messages.ErrorGoroutineActionNotSuccess, "create project folders", err)
-		return
+func CreateProjectAction(ctx context.Context, cancel context.CancelFunc, di *injectors.Injector, errCh chan<- error) {
+	// Define the list of actions to perform
+	actions := []action{
+		{"create project folders", createProjectFolders},
+		{"copy static files", copyStaticFiles},
+		{"generate backend files", createBackendFiles},
+		{"generate frontend files", createFrontendFiles},
+		{"install project dependencies", installDependencies},
 	}
 
-	// Copy static files from embed FS.
-	if err := copyStaticFiles(di); err != nil {
-		errCh <- fmt.Errorf(messages.ErrorGoroutineActionNotSuccess, "copy static files", err)
-		return
+	// Execute each action in the list
+	for _, action := range actions {
+		if err := action.fn(di); err != nil {
+			cancel()
+			errCh <- fmt.Errorf(messages.ErrorGoroutineActionNotSuccess, action.name, err)
+			return
+		}
 	}
 
-	// Create backend files.
-	if err := createBackendFiles(di); err != nil {
-		errCh <- fmt.Errorf(messages.ErrorGoroutineActionNotSuccess, "generate backend files", err)
-		return
-	}
-
-	// Create frontend files.
-	if err := createFrontendFiles(di); err != nil {
-		errCh <- fmt.Errorf(messages.ErrorGoroutineActionNotSuccess, "generate frontend files", err)
-		return
-	}
-
-	select {
-	case <-ctx.Done():
+	// Check context.
+	if ctx.Err() != nil {
+		cancel()
 		errCh <- ctx.Err()
-	default:
-		errCh <- nil
+		return
 	}
+
+	cancel()
+	errCh <- nil
 }
 
 // createProjectFolders creates project folders.
-func createProjectFolders() error {
+func createProjectFolders(di *injectors.Injector) error {
 	// Define a slice of folder paths.
-	folders := []string{
-		"static",          // folder for static files
-		"templates/pages", // folder for page templates
-		"web/src",         // folder for SCSS and JavaScript files
+	folders := []string{"static", "web/src"}
+
+	// Check if HTMX is used.
+	if di.Config.Frontend.IsUseHTMX {
+		// Add templates folders.
+		folders = append(folders, "templates/pages")
 	}
 
 	return helpers.MakeFolders(folders...)
@@ -281,4 +285,46 @@ func generateUnoCSSFiles(di *injectors.Injector) error {
 	}
 
 	return helpers.GenerateFilesByTemplateFromEmbedFS(di.Attachments.Templates, files)
+}
+
+// installDependencies installs dependencies.
+func installDependencies(di *injectors.Injector) error {
+	// Define the commands to be executed.
+	commands := []helpers.Command{}
+
+	// Check if Templ is used.
+	if di.Config.Tools.IsUseTempl {
+		// Add Templ generate command.
+		commands = append(commands, helpers.Command{
+			Name:       "templ",
+			Options:    []string{"generate"},
+			SkipOutput: true,
+		})
+	}
+
+	// Add Go mod tidy command.
+	commands = append(commands, helpers.Command{
+		Name:       "go",
+		Options:    []string{"mod", "tidy"},
+		SkipOutput: true,
+	})
+
+	// Check if Bun is used.
+	if di.Config.Tools.IsUseBun {
+		// Add Bun install command.
+		commands = append(commands, helpers.Command{
+			Name:       "bun",
+			Options:    []string{"install"},
+			SkipOutput: true,
+		})
+	} else {
+		// Add NPM install command.
+		commands = append(commands, helpers.Command{
+			Name:       "npm",
+			Options:    []string{"install"},
+			SkipOutput: true,
+		})
+	}
+
+	return helpers.Execute(commands)
 }

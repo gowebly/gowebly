@@ -4,7 +4,6 @@ import (
 	"context"
 	"fmt"
 	"strconv"
-	"time"
 
 	"github.com/charmbracelet/huh/spinner"
 	"github.com/gowebly/gowebly/internal/actions"
@@ -26,14 +25,15 @@ func Create(di *injectors.Injector) error {
 	}
 
 	// Create a new context and a cancel function.
-	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
+	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
 
 	// Create buffered channel for one error value.
 	errCh := make(chan error, 1)
+	defer close(errCh)
 
 	// Run action that creates project in a goroutine.
-	go actions.CreateProjectAction(ctx, di, errCh)
+	go actions.CreateProjectAction(ctx, cancel, di, errCh)
 
 	// Run spinner.
 	if err := helpers.RunSpinnerWithContext(ctx, messages.CommandCreateSpinnerTitle, spinner.Line); err != nil {
