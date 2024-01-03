@@ -1,9 +1,9 @@
 {
     "plugins": {
-        {{ if or (eq .CSSFramework "daisyui") (eq .CSSFramework "flowbite") (eq .CSSFramework "tailwindcss") -}}
+        {{ if or (eq .CSSFramework "daisyui") (eq .CSSFramework "flowbite") (eq .CSSFramework "tailwindcss") }}
         "tailwindcss": {}
-        {{- else if eq .CSSFramework "unocss" -}}
+        {{ else if eq .CSSFramework "unocss" }}
         "@unocss/postcss": {}
-        {{- end }}
+        {{ end }}
     }
 }

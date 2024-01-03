@@ -13,7 +13,6 @@ func TestNew(t *testing.T) {
 	assert.Equal(t, "7000", c.Backend.Port)
 	assert.Equal(t, false, c.Tools.IsUseTempl)
 	assert.Equal(t, "project", c.Frontend.PackageName)
-	assert.Equal(t, "htmx", c.Frontend.ReactiveLibrary)
 	assert.Equal(t, "", c.Frontend.CSSFramework)
 	assert.Equal(t, true, c.Tools.IsUseBun)
 }

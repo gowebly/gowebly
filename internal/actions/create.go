@@ -54,13 +54,7 @@ func CreateProjectAction(ctx context.Context, cancel context.CancelFunc, di *inj
 // createProjectFolders creates project folders.
 func createProjectFolders(di *injectors.Injector) error {
 	// Define a slice of folder paths.
-	folders := []string{"web/src"}
-
-	// Check if HTMX is used.
-	if di.Config.Frontend.IsUseHTMX {
-		// Add templates folders.
-		folders = append(folders, "static", "templates/pages")
-	}
+	folders := []string{"assets", "static", "templates/pages"}
 
 	return helpers.MakeFolders(folders...)
 }
@@ -173,12 +167,9 @@ func createBackendFiles(di *injectors.Injector) error {
 
 // createFrontendFiles creates frontend files.
 func createFrontendFiles(di *injectors.Injector) error {
-	// Check if the frontend is configured to use HTMX.
-	if di.Config.Frontend.IsUseHTMX {
-		// Generate HTMX files.
-		if err := generateHTMXFiles(di); err != nil {
-			return err
-		}
+	// Generate HTMX files.
+	if err := generateHTMXFiles(di); err != nil {
+		return err
 	}
 
 	// Check which CSS framework is configured for the frontend.
@@ -203,17 +194,17 @@ func generateHTMXFiles(di *injectors.Injector) error {
 	// Define the files to be generated.
 	generateFiles := []helpers.EmbedTemplate{
 		{
-			EmbedFile:  "templates/frontend/htmx/styles.scss.gotmpl",
-			OutputFile: "web/src/styles.scss",
+			EmbedFile:  "templates/frontend/styles.scss.gotmpl",
+			OutputFile: "assets/styles.scss",
 			Data:       di.Config.Frontend,
 		},
 		{
-			EmbedFile:  "templates/frontend/htmx/scripts.js.gotmpl",
-			OutputFile: "web/src/scripts.js",
+			EmbedFile:  "templates/frontend/scripts.js.gotmpl",
+			OutputFile: "assets/scripts.js",
 			Data:       di.Config.Frontend,
 		},
 		{
-			EmbedFile:  "templates/frontend/htmx/package.json.gotmpl",
+			EmbedFile:  "templates/frontend/package.json.gotmpl",
 			OutputFile: "package.json",
 			Data:       di.Config.Frontend,
 		},
@@ -223,12 +214,12 @@ func generateHTMXFiles(di *injectors.Injector) error {
 	if di.Config.Tools.IsUseTempl {
 		generateFiles = append(generateFiles,
 			helpers.EmbedTemplate{
-				EmbedFile:  "templates/frontend/htmx/main.templ.gotmpl",
+				EmbedFile:  "templates/frontend/main.templ.gotmpl",
 				OutputFile: "templates/main.templ",
 				Data:       di.Config,
 			},
 			helpers.EmbedTemplate{
-				EmbedFile:  "templates/frontend/htmx/index.templ.gotmpl",
+				EmbedFile:  "templates/frontend/index.templ.gotmpl",
 				OutputFile: "templates/pages/index.templ",
 				Data:       nil,
 			},
@@ -237,11 +228,11 @@ func generateHTMXFiles(di *injectors.Injector) error {
 		// Define the files to be copied.
 		copyFiles := []helpers.EmbedFile{
 			{
-				EmbedFile:  "templates/frontend/htmx/main.html",
+				EmbedFile:  "templates/frontend/main.html",
 				OutputFile: "templates/main.html",
 			},
 			{
-				EmbedFile:  "templates/frontend/htmx/index.html",
+				EmbedFile:  "templates/frontend/index.html",
 				OutputFile: "templates/pages/index.html",
 			},
 		}

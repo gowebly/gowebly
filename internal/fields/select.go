@@ -20,22 +20,6 @@ func GoFrameworkSelect(di *injectors.Injector) *huh.Select[string] {
 		Value(&di.Config.Backend.GoFramework)
 }
 
-func ReactiveLibrarySelect(di *injectors.Injector) *huh.Select[string] {
-	return huh.NewSelect[string]().
-		Title(messages.FormReactiveLibraryTitle).
-		Description(messages.FormReactiveLibraryDescription).
-		Options(
-			huh.NewOption(messages.FormReactiveLibraryVanillaKey, messages.FormReactiveLibraryVanillaValue),
-			huh.NewOption(messages.FormReactiveLibraryVueKey, messages.FormReactiveLibraryVueValue),
-			huh.NewOption(messages.FormReactiveLibraryNuxtKey, messages.FormReactiveLibraryNuxtValue),
-			huh.NewOption(messages.FormReactiveLibraryReactKey, messages.FormReactiveLibraryReactValue),
-			huh.NewOption(messages.FormReactiveLibraryNextKey, messages.FormReactiveLibraryNextValue),
-			huh.NewOption(messages.FormReactiveLibrarySvelteKey, messages.FormReactiveLibrarySvelteValue),
-			huh.NewOption(messages.FormReactiveLibrarySvelteKitKey, messages.FormReactiveLibrarySvelteKitValue),
-		).
-		Value(&di.Config.Frontend.ReactiveLibrary)
-}
-
 func CSSFrameworkSelect(di *injectors.Injector) *huh.Select[string] {
 	return huh.NewSelect[string]().
 		Title(messages.FormCSSFrameworkTitle).

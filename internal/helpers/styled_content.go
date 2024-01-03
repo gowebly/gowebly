@@ -25,6 +25,7 @@ func MakeStyled(s string, style *StringStyle) string {
 	return lipgloss.NewStyle().Foreground(style.Color).Bold(style.IsBold).Render(s)
 }
 
+// MakeStyledFrame returns a styled frame.
 func MakeStyledFrame(s string, style *FrameStyle) string {
 	if style == nil {
 		return s // no style provided, return the original string

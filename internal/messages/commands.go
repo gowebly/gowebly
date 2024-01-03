@@ -8,9 +8,6 @@ const (
 	// CommandCreateSpinnerTitle represents the title for the command create spinner.
 	CommandCreateSpinnerTitle string = " Gowebly CLI is creating your project. Please wait..."
 
-	// CommandDoctorSpinnerTitle represents the title for the command doctor spinner.
-	CommandDoctorSpinnerTitle string = " Gowebly CLI is collecting information about your current system. Please wait..."
-
 	/*
 		Summary constants.
 	*/
@@ -27,7 +24,7 @@ const (
 	// CommandCreateSummaryHeadingTools represents the heading of the tools summary.
 	CommandCreateSummaryHeadingTools string = "Tools ↘"
 	// CommandCreateSummaryDescription represents the description of the project summary.
-	CommandCreateSummaryDescription string = "%s\n\nGo web framework/router: %s\nPort: %s\n\n%s\n\nReactive framework/library: %s\nCSS framework: %s\n\n%s\n\nIs use Air tool to live-reloading? %s\nIs use Bun as a TypeScript runtime? %s\nIs use Templ to generate HTML? %s"
+	CommandCreateSummaryDescription string = "%s\n\nGo web framework/router: %s\nPort: %s\n\n%s\n\nReactivity library: %s\nIs use hyperscript? %s\nCSS framework: %s\n\n%s\n\nIs use Air tool to live-reloading? %s\nIs use Bun as a frontend runtime? %s\nIs use Templ to generate HTML? %s"
 
 	// CommandDoctorSummaryTitle represents the title of the system summary.
 	CommandDoctorSummaryTitle string = "✓ Your system information has been collected successfully!\n"

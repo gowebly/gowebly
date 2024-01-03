@@ -14,8 +14,8 @@ type Backend struct {
 
 // Frontend represents struct for a frontend part of the project config.
 type Frontend struct {
-	IsUseHTMX                                  bool
-	PackageName, ReactiveLibrary, CSSFramework string
+	IsUseHyperscript          bool
+	PackageName, CSSFramework string
 }
 
 // Tools represents struct for a tools part of the project config.
@@ -27,17 +27,18 @@ type Tools struct {
 func New() *Config {
 	return &Config{
 		Backend: &Backend{
-			ModuleName: "github.com/user/project",
-			Port:       "7000",
+			ModuleName:  "github.com/user/project",
+			GoFramework: "default",
+			Port:        "7000",
 		},
 		Frontend: &Frontend{
-			IsUseHTMX:       true,
-			ReactiveLibrary: "htmx",
-			PackageName:     "project",
+			PackageName:  "project",
+			CSSFramework: "default",
 		},
 		Tools: &Tools{
-			IsUseAir: true,
-			IsUseBun: true,
+			IsUseAir:   true,
+			IsUseBun:   true,
+			IsUseTempl: true,
 		},
 	}
 }

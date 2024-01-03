@@ -6,7 +6,7 @@
 
 # The Gowebly CLI
 
-A next-generation CLI tool that makes it easy to create amazing web applications<br/>with **Go** on the backend, using **htmx** & **hyperscript** and the most popular<br/>**TypeScript** and **CSS** frameworks on the frontend.
+A next-generation CLI tool that makes it easy to create amazing web applications<br/>with **Go** on the backend, using **htmx** & **hyperscript** and the most popular<br/>**CSS** frameworks on the frontend.
 
 **English** · [Русский][docs_ru_url] · [简体中文][docs_zh_hk_url] · [Español][docs_es_url]
 
@@ -30,12 +30,11 @@ A next-generation CLI tool that makes it easy to create amazing web applications
 - For **any** developer's level of knowledge and technical expertise, as the intelligent CLI does most of the routine project setup for you, creates an understandable structure, and prepares code for use and deployment in production;
 - Cross-platform and multi-architecture allows **successful running** on any GNU/Linux distros, Microsoft Windows (including WSL) and Apple macOS;
 - [**Well-documented**][docs_url], includes translations in **many other languages** ([Русский][docs_ru_url], [简体中文][docs_zh_hk_url], [Español][docs_es_url]);
-- Enables you to start a new project faster with **Go** and **htmx** (with **hyperscript**), or a modern **TypeScript** framework;
+- Enables you to start a new project faster with **Go**, **htmx** & **hyperscript** libraries;
 - Supports the built-in **net/http** package and the most popular Go web frameworks and routers out of the box, such as **Fiber**, **Gin**, **Echo**, **Chi** and **HttpRouter**;
-- Supports the most popular TypeScript frameworks out of the box, such as **Vue** (including **Nuxt**), **React** (including **Next**), **Svelte** (including **SvelteKit**);
 - Supports the most popular CSS frameworks out of the box, such as **Tailwind CSS**, **daisyUI**, **Flowbite**, **UnoCSS**, **Bootstrap** and **Bulma**;
 - Supports a way to build HTML for the htmx projects with Go using the **Templ** package;
-- Supports a **live-reload** for your Go code and frontend files using **Air** tool;
+- Supports a **live-reload** mode for your Go code and frontend files using **Air** tool;
 - Ready to install as **PWA** (Progressive Web App) in your browser or mobile device;
 - Has a library of **user-friendly** helpers for your Go code.
 

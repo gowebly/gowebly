@@ -1,0 +1,51 @@
+{
+  "name": "{{ .PackageName }}",
+  "version": "0.0.0",
+  "description": "Frontend part of the Gowebly project.",
+  "license": "MIT",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "source": [
+    "./assets/scripts.js",
+    "./assets/styles.scss"
+  ],
+  "targets": {
+    "default": {
+      "distDir": "./static"
+    }
+  },
+  "scripts": {
+    "watch": "parcel watch",
+    "dev": "parcel build --no-optimize",
+    "build": "parcel build"
+  },
+  "dependencies": {
+    {{ if or (eq .CSSFramework "daisyui") (eq .CSSFramework "flowbite") (eq .CSSFramework "tailwindcss") }}
+    "@tailwindcss/typography": "latest",
+    "tailwindcss": "latest",
+    {{ end }}
+    {{ if eq .CSSFramework "daisyui" }}
+    "daisyui": "latest",
+    {{ else if eq .CSSFramework "flowbite" }}
+    "flowbite": "latest",
+    {{ else if eq .CSSFramework "unocss" }}
+    "unocss": "latest"
+    {{ else if eq .CSSFramework "bootstrap" }}
+    "@popperjs/core": "latest",
+    "bootstrap": "latest",
+    {{ else if eq .CSSFramework "bulma" }}
+    "bulma": "latest",
+    {{ end }}
+    {{ if .IsUseHyperscript }}
+    "hyperscript.org": "latest",
+    {{ end }}
+    "htmx.org": "latest"
+  },
+  "devDependencies": {
+    {{ if eq .CSSFramework "unocss" }}
+    "@unocss/cli": "latest",
+    "@unocss/postcss": "latest",
+    {{ end }}
+    "@parcel/transformer-sass": "latest",
+    "parcel": "latest"
+  }
+}

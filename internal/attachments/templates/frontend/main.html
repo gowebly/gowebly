@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; connect-src 'self' ws://localhost:*; img-src 'self' data: https://cdn.tailwindcss.com;" />
+    <meta name="theme-color" content="#FEFEF5" />
+    <title>{{ block "title" . }}{{ end }}</title>
+    {{ block "meta" . }}{{ end }}
+    <link rel="manifest" href="/static/manifest.json" />
+    <link rel="apple-touch-icon" href="/static/apple-touch-icon.png" />
+    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/static/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/static/favicon.png" sizes="any" />
+    <link href="/static/styles.css" rel="stylesheet" />
+    {{ block "styles" .}}{{ end }}
+</head>
+
+<body>
+    {{ block "content" . }}{{ end }}
+    <script src="/static/scripts.js"></script>
+    {{ block "scripts" .}}{{ end }}
+</body>
+
+</html>

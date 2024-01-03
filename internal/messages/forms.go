@@ -135,9 +135,9 @@ const (
 	// FormTempleUsageTitle represents the title for the Templ package switch.
 	FormTemplUsageTitle string = "Use the Templ package to build HTML templates with Go?"
 
-	// FormHTMXUsageTitle represents the title for the htmx as reactive library switch.
-	FormHTMXUsageTitle string = "Use the htmx as a reactive frontend library?"
+	// FormHyperscriptUsageTitle represents the title for the hyperscript switch.
+	FormHyperscriptUsageTitle string = "Use the Hyperscript library on the frontend?"
 
 	// FormRuntimeUsageTitle represents the title for the Bun runtime environment switch.
-	FormBunUsageTitle string = "Use the Bun as a TypeScript runtime environment?"
+	FormBunUsageTitle string = "Use the Bun as a frontend runtime environment?"
 )

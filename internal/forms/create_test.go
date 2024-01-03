@@ -14,5 +14,5 @@ func Test_htmxForm(t *testing.T) {
 		Config:      &config.Config{Backend: &config.Backend{}, Frontend: &config.Frontend{}},
 		Attachments: &attachments.Attachments{},
 	}
-	assert.Error(t, htmxForm(di))
+	assert.Error(t, projectSettingsForm(di))
 }
