@@ -54,7 +54,7 @@ func CreateProjectAction(ctx context.Context, cancel context.CancelFunc, di *inj
 // createProjectFolders creates project folders.
 func createProjectFolders(di *injectors.Injector) error {
 	// Define a slice of folder paths.
-	folders := []string{"assets", "static", "templates/pages"}
+	folders := []string{"assets", "static/images", "templates/pages"}
 
 	return helpers.MakeFolders(folders...)
 }
@@ -76,8 +76,8 @@ func copyStaticFiles(di *injectors.Injector) error {
 			OutputFile: "static/favicon.svg",
 		},
 		{
-			EmbedFile:  "static/logo.svg",
-			OutputFile: "static/logo.svg",
+			EmbedFile:  "static/gowebly.svg",
+			OutputFile: "static/images/gowebly.svg",
 		},
 		{
 			EmbedFile:  "static/manifest-desktop-screenshot.jpeg",
