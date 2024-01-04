@@ -40,6 +40,9 @@ A next-generation CLI tool that makes it easy to create amazing web applications
 
 ## ⚡️ Quick start
 
+> [!NOTE]
+> If you are looking for a version of the **Gowebly** CLI below `v2.0.0`, it's in [this][repo_branch_v1_url] branch.
+
 First, [download][go_download_url] and install **Go**. Version `1.21` (or higher) is required.
 
 Now, you can use the **Gowebly** CLI without installation. Just run it with [`go run`][go_run_url] to create a new project with a [default][repo_default_config_url] configuration:
@@ -207,6 +210,7 @@ Your PRs, issues & any words are welcome! Thank you 😘
 <!-- Repository links -->
 
 [repo_url]: https://github.com/gowebly/gowebly
+[repo_branch_v1_url]: https://github.com/gowebly/gowebly/tree/v1
 [repo_issues_url]: https://github.com/gowebly/gowebly/issues
 [repo_pull_request_url]: https://github.com/gowebly/gowebly/pulls
 [repo_discussions_url]: https://github.com/gowebly/gowebly/discussions
@@ -214,7 +218,6 @@ Your PRs, issues & any words are welcome! Thank you 😘
 [repo_license_url]: https://github.com/gowebly/gowebly/blob/main/LICENSE
 [repo_license_img]: https://img.shields.io/badge/license-Apache_2.0-red?style=for-the-badge&logo=none
 [repo_cc_license_url]: https://creativecommons.org/licenses/by-sa/4.0/
-[repo_badge_stargazers_img]: https://user-images.githubusercontent.com/11155743/275514241-8ecdf4bd-c35e-4e28-a937-b0a63aa1dbaf.png
 [repo_default_config_url]: https://github.com/gowebly/gowebly/blob/main/internal/attachments/configs/default.yml
 
 <!-- Docs links -->
