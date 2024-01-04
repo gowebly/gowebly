@@ -72,8 +72,16 @@ func copyStaticFiles(di *injectors.Injector) error {
 			OutputFile: "static/favicon.png",
 		},
 		{
+			EmbedFile:  "static/favicon.png",
+			OutputFile: "static/apple-touch-icon.png",
+		},
+		{
 			EmbedFile:  "static/favicon.svg",
 			OutputFile: "static/favicon.svg",
+		},
+		{
+			EmbedFile:  "static/favicon.svg",
+			OutputFile: "static/manifest-touch-icon.svg",
 		},
 		{
 			EmbedFile:  "static/gowebly.svg",
@@ -132,15 +140,25 @@ func createBackendFiles(di *injectors.Injector) error {
 			OutputFile: "Dockerfile",
 			Data:       di.Config,
 		},
+		// Misc files.
 		{
-			EmbedFile:  "templates/deploy/dockerignore.gotmpl",
+			EmbedFile:  "templates/misc/prettier.config.js.gotmpl",
+			OutputFile: "prettier.config.js",
+			Data:       di.Config.Frontend,
+		},
+		{
+			EmbedFile:  "templates/misc/dockerignore.gotmpl",
 			OutputFile: ".dockerignore",
 			Data:       nil,
 		},
-		// Misc files.
 		{
 			EmbedFile:  "templates/misc/gitignore.gotmpl",
 			OutputFile: ".gitignore",
+			Data:       nil,
+		},
+		{
+			EmbedFile:  "templates/misc/prettierignore.gotmpl",
+			OutputFile: ".prettierignore",
 			Data:       nil,
 		},
 	}
@@ -228,11 +246,11 @@ func generateHTMXFiles(di *injectors.Injector) error {
 		// Define the files to be copied.
 		copyFiles := []helpers.EmbedFile{
 			{
-				EmbedFile:  "templates/frontend/main.html",
+				EmbedFile:  "templates/frontend/main.html.gotmpl",
 				OutputFile: "templates/main.html",
 			},
 			{
-				EmbedFile:  "templates/frontend/index.html",
+				EmbedFile:  "templates/frontend/index.html.gotmpl",
 				OutputFile: "templates/pages/index.html",
 			},
 		}
@@ -251,7 +269,7 @@ func generateTailwindCSSFiles(di *injectors.Injector) error {
 	// Define the files to be generated.
 	files := []helpers.EmbedTemplate{
 		{
-			EmbedFile:  "templates/frontend/postcssrc.gotmpl",
+			EmbedFile:  "templates/misc/postcssrc.gotmpl",
 			OutputFile: ".postcssrc",
 			Data:       di.Config.Frontend,
 		},
@@ -270,7 +288,7 @@ func generateUnoCSSFiles(di *injectors.Injector) error {
 	// Define the files to be generated.
 	files := []helpers.EmbedTemplate{
 		{
-			EmbedFile:  "templates/frontend/postcssrc.gotmpl",
+			EmbedFile:  "templates/misc/postcssrc.gotmpl",
 			OutputFile: ".postcssrc",
 			Data:       di.Config.Frontend,
 		},
@@ -327,6 +345,10 @@ func installDependencies(di *injectors.Injector) error {
 		helpers.Command{
 			Name:       frontendRuntimeEnv,
 			Options:    []string{"install"},
+			SkipOutput: true,
+		}, helpers.Command{
+			Name:       frontendRuntimeEnv,
+			Options:    []string{"run", "fmt"},
 			SkipOutput: true,
 		}, helpers.Command{
 			Name:       frontendRuntimeEnv,

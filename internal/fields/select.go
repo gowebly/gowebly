@@ -29,6 +29,7 @@ func CSSFrameworkSelect(di *injectors.Injector) *huh.Select[string] {
 			huh.NewOption(messages.FormCSSFrameworkTailwindCSSKey, messages.FormCSSFrameworkTailwindCSSValue),
 			huh.NewOption(messages.FormCSSFrameworkDaisyUIKey, messages.FormCSSFrameworkDaisyUIValue),
 			huh.NewOption(messages.FormCSSFrameworkFlowbiteKey, messages.FormCSSFrameworkFlowbiteValue),
+			huh.NewOption(messages.FormCSSFrameworkUnoCSSKey, messages.FormCSSFrameworkUnoCSSValue),
 			huh.NewOption(messages.FormCSSFrameworkBootstrapKey, messages.FormCSSFrameworkBootstrapValue),
 			huh.NewOption(messages.FormCSSFrameworkBulmaKey, messages.FormCSSFrameworkBulmaValue),
 		).

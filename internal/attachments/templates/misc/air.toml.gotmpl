@@ -5,41 +5,41 @@ root = "."
 tmp_dir = "tmp"
 
 [build]
-    pre_cmd = ["{{ if .Tools.IsUseBun }}bun{{ else }}npm{{ end }} run build"]
-    cmd = "{{ if .Tools.IsUseTempl }}templ generate && {{ end }}go build -o ./tmp/gowebly_{{ .Backend.GoFramework }} ."
-    bin = "tmp/gowebly_{{ .Backend.GoFramework }}"
-    include_ext = ["go", "templ", "html", "js", "ts", "css", "scss"]
-    exclude_dir = ["bin", "tmp", "tests", "vendor", "node_modules"]
-    include_dir = []
-    include_file = []
-    exclude_file = []
-    exclude_regex = ["_test\\.go", "_templ\\.go"]
-    exclude_unchanged = false
-    follow_symlink = false
-    log = "build-errors-air.log"
-    poll = false
-    poll_interval = 500
-    delay = 1000
-    stop_on_error = true
-    send_interrupt = false
-    kill_delay = 500
-    rerun = false
-    rerun_delay = 500
-    args_bin = []
+pre_cmd = ["{{ if .Tools.IsUseBun }}bun{{ else }}npm{{ end }} run build"]
+cmd = "{{ if .Tools.IsUseTempl }}templ generate && {{ end }}go build -o ./tmp/gowebly_{{ .Backend.GoFramework }} ."
+bin = "tmp/gowebly_{{ .Backend.GoFramework }}"
+include_ext = ["go", "templ", "html", "js", "ts", "css", "scss"]
+exclude_dir = ["bin", "tmp", "tests", "vendor", "node_modules"]
+include_dir = []
+include_file = []
+exclude_file = []
+exclude_regex = ["_test\\.go", "_templ\\.go"]
+exclude_unchanged = false
+follow_symlink = false
+log = "build-errors-air.log"
+poll = false
+poll_interval = 500
+delay = 1000
+stop_on_error = true
+send_interrupt = false
+kill_delay = 500
+rerun = false
+rerun_delay = 500
+args_bin = []
 
 [log]
-    time = false
-    main_only = false
+time = false
+main_only = false
 
 [color]
-    main = "magenta"
-    watcher = "cyan"
-    build = "yellow"
-    runner = "green"
+main = "magenta"
+watcher = "cyan"
+build = "yellow"
+runner = "green"
 
 [misc]
-    clean_on_exit = true
+clean_on_exit = true
 
 [screen]
-    clear_on_rebuild = true
-    keep_scroll = true
+clear_on_rebuild = true
+keep_scroll = true

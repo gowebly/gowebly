@@ -1,0 +1,15 @@
+/** @type {import('prettier').Config} */
+module.exports = {
+    trailingComma: 'es5',
+    tabWidth: 2,
+    semi: false,
+    singleQuote: true,
+    {{ if or (eq .CSSFramework "daisyui") (eq .CSSFramework "flowbite") (eq .CSSFramework "tailwindcss") (eq .CSSFramework "unocss") }}
+    overrides: [
+        {
+            files: '.postcssrc',
+            options: { parser: 'json' },
+        },
+    ],
+    {{ end }}
+}

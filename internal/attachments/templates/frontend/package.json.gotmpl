@@ -15,6 +15,7 @@
   },
   "scripts": {
     "watch": "parcel watch",
+    "fmt": "prettier --write .",
     "dev": "parcel build --no-optimize",
     "build": "parcel build"
   },
@@ -28,7 +29,7 @@
     {{ else if eq .CSSFramework "flowbite" }}
     "flowbite": "latest",
     {{ else if eq .CSSFramework "unocss" }}
-    "unocss": "latest"
+    "unocss": "latest",
     {{ else if eq .CSSFramework "bootstrap" }}
     "@popperjs/core": "latest",
     "bootstrap": "latest",
@@ -46,6 +47,7 @@
     "@unocss/postcss": "latest",
     {{ end }}
     "@parcel/transformer-sass": "latest",
-    "parcel": "latest"
+    "parcel": "latest",
+    "prettier": "latest"
   }
 }

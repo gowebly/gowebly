@@ -116,6 +116,10 @@ const (
 	FormCSSFrameworkFlowbiteKey string = "Tailwind CSS with Flowbite components"
 	// FormCSSFrameworkFlowbiteValue represents the value for the Tailwind CSS with Flowbite components select.
 	FormCSSFrameworkFlowbiteValue string = "flowbite"
+	// FormCSSFrameworkUnoCSSKey represents the key for the UnoCSS select.
+	FormCSSFrameworkUnoCSSKey string = "UnoCSS"
+	// FormCSSFrameworkUnoCSSValue represents the value for the UnoCSS select.
+	FormCSSFrameworkUnoCSSValue string = "unocss"
 	// FormCSSFrameworkBootstrapKey represents the key for the Bootstrap framework select.
 	FormCSSFrameworkBootstrapKey string = "Bootstrap"
 	// FormCSSFrameworkBootstrapValue represents the value for the Bootstrap framework select.

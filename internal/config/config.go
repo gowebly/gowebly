@@ -36,9 +36,8 @@ func New() *Config {
 			CSSFramework: "default",
 		},
 		Tools: &Tools{
-			IsUseAir:   true,
-			IsUseBun:   true,
-			IsUseTempl: true,
+			IsUseAir: true,
+			IsUseBun: true,
 		},
 	}
 }
