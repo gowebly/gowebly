@@ -17,11 +17,8 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: #ffffff;
-  background-color: #242424;
-
+  color: #242424;
+  background-color: #FEFEF5;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -44,16 +41,13 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  color: #ffffff;
+  color: #242424;
+  background-color: #FEFEF5;
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-}
-
-strong {
-  color: #ffffff;
 }
 
 #app {
@@ -63,12 +57,17 @@ strong {
   text-align: center;
 }
 
+#htmx-result {
+  padding: 2rem 0;
+}
+
 .logo {
-  height: 8em;
-  padding: 1.5em;
+  height: 12em;
+  padding: 2em;
+  display: inline;
   will-change: filter;
   transition: filter 300ms;
-  filter: drop-shadow(0 0 2em #f3c077aa) drop-shadow(0 0 2em #f3c077aa);
+  filter: drop-shadow(0 0 2em #f3c077aa);
 }
 
 .content {
@@ -86,6 +85,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
+  color: #FEFEF5;
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
@@ -98,27 +98,4 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-
-  body {
-    color: #213547;
-  }
-
-  strong {
-    color: #213547;
-  }
-
-  a:hover {
-    color: #747bff;
-  }
-
-  button {
-    background-color: #f9f9f9;
-  }
 }

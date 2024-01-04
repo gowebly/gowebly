@@ -7,3 +7,10 @@ import * as bootstrap from 'bootstrap';
 {{ else if eq .CSSFramework "flowbite" }}
 import 'flowbite';
 {{ end }}
+import WebFont from 'webfontloader'
+
+WebFont.load({
+  google: {
+    families: ['Inter'],
+  },
+})
