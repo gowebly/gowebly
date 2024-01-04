@@ -1,13 +1,14 @@
 package main
 
 import (
-	{{ if eq .TemplateEngine "templ" }}"context"{{ end }}
+	{{ if .Tools.IsUseTempl }}"context"{{ end }}
 	"fmt"
+	"log/slog"
 	"net/http"
 	"strconv"
 	"time"
 
-	{{ if eq .TemplateEngine "templ" }}
+	{{ if .Tools.IsUseTempl }}
 	"github.com/a-h/templ"
 	"github.com/gin-gonic/gin/render"
 	{{ end }}
@@ -16,7 +17,7 @@ import (
 	gowebly "github.com/gowebly/helpers"
 )
 
-{{ if eq .TemplateEngine "templ" }}
+{{ if .Tools.IsUseTempl }}
 // TemplRender implements the render.Render interface.
 type TemplRender struct {
 	Code int
@@ -53,15 +54,7 @@ func (t *TemplRender) Instance(name string, data interface{}) render.Render {
 // runServer runs a new HTTP server with the loaded environment variables.
 func runServer() error {
 	// Validate environment variables.
-	port, err := strconv.Atoi(gowebly.Getenv("BACKEND_PORT", "{{ .Port }}"))
-	if err != nil {
-		return err
-	}
-	readTimeout, err := strconv.Atoi(gowebly.Getenv("BACKEND_READ_TIMEOUT", "{{ .Timeout.Read }}"))
-	if err != nil {
-		return err
-	}
-	writeTimeout, err := strconv.Atoi(gowebly.Getenv("BACKEND_WRITE_TIMEOUT", "{{ .Timeout.Write }}"))
+	port, err := strconv.Atoi(gowebly.Getenv("BACKEND_PORT", "{{ .Backend.Port }}"))
 	if err != nil {
 		return err
 	}
@@ -69,7 +62,7 @@ func runServer() error {
 	// Create a new Fiber server.
 	router := gin.Default()
 
-	{{ if eq .TemplateEngine "templ" }}
+	{{ if .Tools.IsUseTempl }}
 	// Define HTML renderer for template engine.
 	router.HTMLRender = &TemplRender{}
 	{{ end }}
@@ -81,16 +74,19 @@ func runServer() error {
 	router.GET("/", indexViewHandler)
 
 	// Handle API endpoints.
-	router.GET("/api/show", showContentAPIHandler)
+	router.GET("/api/hello-world", showContentAPIHandler)
 
 	// Create a new server instance with options from environment variables.
 	// For more information, see https://blog.cloudflare.com/the-complete-guide-to-golang-net-http-timeouts/
 	server := &http.Server{
 		Addr:         fmt.Sprintf(":%d", port),
-		ReadTimeout:  time.Duration(readTimeout) * time.Second,
-		WriteTimeout: time.Duration(writeTimeout) * time.Second,
+		ReadTimeout:  5 * time.Second,
+		WriteTimeout: 10 * time.Second,
 		Handler:      router,
 	}
+
+	// Send log message.
+	slog.Info("Starting server...", "port", port)
 
 	return server.ListenAndServe()
 }

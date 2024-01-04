@@ -127,7 +127,7 @@ func createBackendFiles(di *injectors.Injector) error {
 		{
 			EmbedFile:  fmt.Sprintf("templates/backend/%s/server.go.gotmpl", di.Config.Backend.GoFramework),
 			OutputFile: "server.go",
-			Data:       di.Config.Backend,
+			Data:       di.Config,
 		},
 		// Deploy files.
 		{

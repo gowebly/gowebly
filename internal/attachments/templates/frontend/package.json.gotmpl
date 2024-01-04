@@ -36,9 +36,7 @@
     {{ else if eq .CSSFramework "bulma" }}
     "bulma": "latest",
     {{ end }}
-    {{ if .IsUseHyperscript }}
-    "hyperscript.org": "latest",
-    {{ end }}
+    {{ if .IsUseHyperscript }}"hyperscript.org": "latest",{{ end }}
     "htmx.org": "latest"
   },
   "devDependencies": {
@@ -48,7 +46,6 @@
     {{ end }}
     "@parcel/transformer-sass": "latest",
     "parcel": "latest",
-    "prettier": "latest",
-    "webfontloader": "latest"
+    "prettier": "latest"
   }
 }

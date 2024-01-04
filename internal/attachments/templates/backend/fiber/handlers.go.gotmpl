@@ -1,10 +1,10 @@
 package main
 
 import (
-	{{ if eq .TemplateEngine "templ" }}
+	{{ if .Tools.IsUseTempl }}
 	"github.com/a-h/templ"
-	"{{ .ModuleName }}/templates"
-	"{{ .ModuleName }}/templates/pages"
+	"{{ .Backend.ModuleName }}/templates"
+	"{{ .Backend.ModuleName }}/templates/pages"
 	"github.com/gofiber/fiber/v2/middleware/adaptor"
 	{{ end }}
 	"github.com/gofiber/fiber/v2"
@@ -12,7 +12,7 @@ import (
 
 // indexViewHandler handles a view for the index page.
 func indexViewHandler(c *fiber.Ctx) error {
-	{{ if eq .TemplateEngine "templ" }}
+	{{ if .Tools.IsUseTempl }}
 	// Define template functions.
 	metaTags := pages.MetaTags(
 		"gowebly, htmx example page, go with htmx",               // define meta keywords
@@ -47,5 +47,5 @@ func showContentAPIHandler(c *fiber.Ctx) error {
 		return fiber.NewError(fiber.StatusBadRequest, "non-htmx request")
 	}
 
-	return c.SendString("<p>🎉 Hello from <strong>htmx</strong>!<br>(<code>GET /api/show</code>)</p>")
+	return c.SendString("<p>🎉 Yes, <strong>htmx</strong> is ready to use! (<code>GET /api/hello-world</code>)</p>")
 }

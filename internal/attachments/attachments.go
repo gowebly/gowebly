@@ -5,10 +5,10 @@ import (
 )
 
 var (
-	//go:embed templates/*
+	//go:embed all:templates
 	TemplatesFiles embed.FS
 
-	//go:embed static/*
+	//go:embed all:static
 	StaticFiles embed.FS
 )
 

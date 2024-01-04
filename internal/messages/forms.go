@@ -50,6 +50,10 @@ const (
 	FormGoFrameworkFiberKey string = "Fiber"
 	// FormGoFrameworkFiberValue represents the value for the Fiber framework select.
 	FormGoFrameworkFiberValue string = "fiber"
+	// FormGoFrameworkChiKey represents the key for the Chi framework select.
+	FormGoFrameworkChiKey string = "Chi"
+	// FormGoFrameworkChiValue represents the value for the Chi framework select.
+	FormGoFrameworkChiValue string = "chi"
 	// FormGoFrameworkGinKey represents the key for the Gin framework select.
 	FormGoFrameworkGinKey string = "Gin"
 	// FormGoFrameworkGinValue represents the value for the Gin framework select.

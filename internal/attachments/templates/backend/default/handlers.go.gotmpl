@@ -49,7 +49,7 @@ func indexViewHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Render index page template.
 	if err := htmx.NewResponse().RenderTempl(r.Context(), w, indexTemplate); err != nil {
-		// Send HTTP 500 error with log.
+		// If not, return HTTP 400 error.
 		w.WriteHeader(http.StatusInternalServerError)
 		slog.Error("render template", "method", r.Method, "status", http.StatusInternalServerError, "path", r.URL.Path)
 		return
@@ -61,6 +61,7 @@ func indexViewHandler(w http.ResponseWriter, r *http.Request) {
 	// Parse user templates or return error.
 	tmpl, err := gowebly.ParseTemplates(indexPage) // gowebly helper for parse user templates
 	if err != nil {
+		// If not, return HTTP 500 error.
 		w.WriteHeader(http.StatusInternalServerError)
 		slog.Error(err.Error(), "method", r.Method, "status", http.StatusInternalServerError, "path", r.URL.Path)
 		return
@@ -68,6 +69,7 @@ func indexViewHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Execute (render) all templates or return error.
 	if err := tmpl.Execute(w, nil); err != nil {
+		// If not, return HTTP 500 error.
 		w.WriteHeader(http.StatusInternalServerError)
 		slog.Error(err.Error(), "method", r.Method, "status", http.StatusInternalServerError, "path", r.URL.Path)
 		return

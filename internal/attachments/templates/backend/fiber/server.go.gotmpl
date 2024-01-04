@@ -16,15 +16,7 @@ import (
 // runServer runs a new HTTP server with the loaded environment variables.
 func runServer() error {
 	// Validate environment variables.
-	port, err := strconv.Atoi(gowebly.Getenv("BACKEND_PORT", "{{ .Port }}"))
-	if err != nil {
-		return err
-	}
-	readTimeout, err := strconv.Atoi(gowebly.Getenv("BACKEND_READ_TIMEOUT", "{{ .Timeout.Read }}"))
-	if err != nil {
-		return err
-	}
-	writeTimeout, err := strconv.Atoi(gowebly.Getenv("BACKEND_WRITE_TIMEOUT", "{{ .Timeout.Write }}"))
+	port, err := strconv.Atoi(gowebly.Getenv("BACKEND_PORT", "{{ .Backend.Port }}"))
 	if err != nil {
 		return err
 	}
@@ -34,8 +26,8 @@ func runServer() error {
 	config := fiber.Config{
 		Views:        html.NewFileSystem(http.Dir("./templates"), ".html"),
 		ViewsLayout:  "main",
-		ReadTimeout:  time.Duration(readTimeout) * time.Second,
-		WriteTimeout: time.Duration(writeTimeout) * time.Second,
+		ReadTimeout:  5 * time.Second,
+		WriteTimeout: 10 * time.Second,
 	}
 
 	// Create a new Fiber server.
@@ -51,7 +43,7 @@ func runServer() error {
 	server.Get("/", indexViewHandler)
 
 	// Handle API endpoints.
-	server.Get("/api/show", showContentAPIHandler)
+	server.Get("/api/hello-world", showContentAPIHandler)
 
 	return server.Listen(fmt.Sprintf(":%d", port))
 }

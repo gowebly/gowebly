@@ -15,6 +15,7 @@ func GoFrameworkSelect(di *injectors.Injector) *huh.Select[string] {
 			huh.NewOption(messages.FormGoFrameworkFiberKey, messages.FormGoFrameworkFiberValue),
 			huh.NewOption(messages.FormGoFrameworkGinKey, messages.FormGoFrameworkGinValue),
 			huh.NewOption(messages.FormGoFrameworkEchoKey, messages.FormGoFrameworkEchoValue),
+			huh.NewOption(messages.FormGoFrameworkChiKey, messages.FormGoFrameworkChiValue),
 			huh.NewOption(messages.FormGoFrameworkHttpRouterKey, messages.FormGoFrameworkHttpRouterValue),
 		).
 		Value(&di.Config.Backend.GoFramework)
