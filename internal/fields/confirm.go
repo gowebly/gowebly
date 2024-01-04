@@ -6,6 +6,7 @@ import (
 	"github.com/gowebly/gowebly/internal/messages"
 )
 
+// IsUseAirConfirm runs the confirm if Air is used.
 func IsUseAirConfirm(di *injectors.Injector) *huh.Confirm {
 	return huh.NewConfirm().
 		Title(messages.FormAirUsageTitle).
@@ -14,6 +15,7 @@ func IsUseAirConfirm(di *injectors.Injector) *huh.Confirm {
 		Value(&di.Config.Tools.IsUseAir)
 }
 
+// IsUseTempleConfirm runs the confirm if Templ is used.
 func IsUseTempleConfirm(di *injectors.Injector) *huh.Confirm {
 	return huh.NewConfirm().
 		Title(messages.FormTemplUsageTitle).
@@ -22,6 +24,7 @@ func IsUseTempleConfirm(di *injectors.Injector) *huh.Confirm {
 		Value(&di.Config.Tools.IsUseTempl)
 }
 
+// IsUseHyperscriptConfirm runs the confirm if Hyperscript is used.
 func IsUseHyperscriptConfirm(di *injectors.Injector) *huh.Confirm {
 	return huh.NewConfirm().
 		Title(messages.FormHyperscriptUsageTitle).
@@ -30,6 +33,7 @@ func IsUseHyperscriptConfirm(di *injectors.Injector) *huh.Confirm {
 		Value(&di.Config.Frontend.IsUseHyperscript)
 }
 
+// IsUseBunConfirm runs the confirm if Bun is used.
 func IsUseBunConfirm(di *injectors.Injector) *huh.Confirm {
 	return huh.NewConfirm().
 		Title(messages.FormBunUsageTitle).

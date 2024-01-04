@@ -26,6 +26,9 @@ func Run(flags []string) error {
 
 		// Run 'create' command.
 		return commands.Create(di)
+	case "run":
+		// Run 'run' command.
+		return commands.Run()
 	case "doctor":
 		// Run 'doctor' command.
 		return commands.Doctor()
