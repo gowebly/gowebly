@@ -21,7 +21,7 @@ FROM scratch
 
 # Copy project's binary and templates from /build to the scratch container.
 COPY --from=builder /build/gowebly_{{ .Backend.GoFramework }} /
-{{ if or (eq .Backend.GoFramework "fiber") (eq .Backend.GoFramework "gin") (eq .Backend.GoFramework "echo") }}COPY --from=builder /build/static /static{{ end }}
+{{ if or (eq .Backend.GoFramework "echo") (eq .Backend.GoFramework "fiber") (eq .Backend.GoFramework "gin") }}COPY --from=builder /build/static /static{{ end }}
 {{ if not .Tools.IsUseTempl }}COPY --from=builder /build/templates /templates{{ end }}
 
 # Set entry point.

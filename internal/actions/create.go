@@ -88,12 +88,12 @@ func copyStaticFiles(di *injectors.Injector) error {
 			OutputFile: "static/images/gowebly.svg",
 		},
 		{
-			EmbedFile:  "static/manifest-desktop-screenshot.jpeg",
-			OutputFile: "static/manifest-desktop-screenshot.jpeg",
+			EmbedFile:  "static/manifest-desktop-screenshot.jpg",
+			OutputFile: "static/manifest-desktop-screenshot.jpg",
 		},
 		{
-			EmbedFile:  "static/manifest-mobile-screenshot.jpeg",
-			OutputFile: "static/manifest-mobile-screenshot.jpeg",
+			EmbedFile:  "static/manifest-mobile-screenshot.jpg",
+			OutputFile: "static/manifest-mobile-screenshot.jpg",
 		},
 		{
 			EmbedFile:  "static/manifest.json",
