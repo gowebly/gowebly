@@ -1,0 +1,56 @@
+package pages
+
+// MetaTags defines meta tags.
+
+templ MetaTags(keywords, description string) {
+	<meta name="keywords" content={ keywords }/>
+	<meta name="description" content={ description }/>
+}
+
+// styledTextStyles defines CSS styles for component.
+
+css styledTextStyles() {
+	color: #02BF87;
+}
+
+// BodyContent defines HTML content.
+
+templ BodyContent(h1, text string) {
+	<div id="app">
+		<div>
+			<a href="https://gowebly.org" target="_blank">
+				<img src="/static/images/gowebly.svg" class="gowebly logo" alt="Gowebly logo"/>
+			</a>
+			<h1>Go + Templ + htmx</h1>
+			<p class={ styledTextStyles() }>
+				You're using <strong>Templ</strong> package to generate HTML content!
+				<br/>
+				Edit this styled text in the <code>./templates/pages/index.templ</code> file.
+			</p>
+			<div class="content">
+				<button hx-get="/api/hello-world" hx-target="#htmx-result">Hello, World!</button>
+				<div id="htmx-result"></div>
+			</div>
+			<p class="read-the-docs">
+				The Gowebly project is a next-generation CLI tool that makes it easy to create
+				<br/>
+				amazing web applications with Go on the backend, using htmx & hyperscript
+				<br/>
+				and the most popular CSS frameworks on the frontend.
+			</p>
+			<p class="read-the-docs">
+				<a href="https://gowebly.org" target="_blank">Documentation</a> &sdot;
+				<a href="https://github.com/gowebly/gowebly" target="_blank">GitHub</a>
+			</p>
+		</div>
+	</div>
+}
+
+// BodyScripts defines JavaScript code.
+
+script BodyScripts() {
+	console.log(
+		"You're using Templ package to generate HTML content!",
+		"Edit this JavaScript code in the `./templates/pages/index.templ` file.",
+	);
+}

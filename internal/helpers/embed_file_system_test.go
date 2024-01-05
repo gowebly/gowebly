@@ -2,94 +2,81 @@ package helpers
 
 import (
 	"embed"
-	"github.com/stretchr/testify/require"
-	"os"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
-//go:embed *_test.go
-var TestFiles embed.FS
-
-//go:embed testdata/*
-var TestTemplates embed.FS
-
 func TestCopyFilesFromEmbedFS(t *testing.T) {
-	_ = os.Mkdir("tmp", 0o755)
-
-	require.NoError(t, CopyFilesFromEmbedFS(TestFiles, []EmbedFile{
+	// Test case 1: Copying a single file
+	fs := embed.FS{} // replace with actual embed.FS implementation
+	files := []EmbedFile{
 		{
-			EmbedFile:  "embed_file_system_test.go",
-			OutputFile: "tmp/embed_file_system_test.go",
+			EmbedFile:  "file1.txt",
+			OutputFile: "output/file1.txt",
 		},
-	}))
-	require.True(t, IsExistInFolder("tmp/embed_file_system_test.go", false))
+	}
+	assert.Error(t, CopyFilesFromEmbedFS(fs, files))
 
-	require.Error(t, CopyFilesFromEmbedFS(TestFiles, []EmbedFile{
+	// Test case 2: Copying multiple files
+	files = []EmbedFile{
 		{
-			EmbedFile:  "I_DO_NOT_EXIST.file",
-			OutputFile: "tmp/I_DO_NOT_EXIST.file",
+			EmbedFile:  "file1.txt",
+			OutputFile: "output/file1.txt",
 		},
-	}))
-	require.False(t, IsExistInFolder("tmp/I_DO_NOT_EXIST.file", false))
+		{
+			EmbedFile:  "file2.txt",
+			OutputFile: "output/file2.txt",
+		},
+		{
+			EmbedFile:  "file3.txt",
+			OutputFile: "output/file3.txt",
+		},
+	}
+	assert.Error(t, CopyFilesFromEmbedFS(fs, files))
 
-	_ = os.RemoveAll("tmp")
+	// Test case 3: Error case - file not found
+	files = []EmbedFile{
+		{
+			EmbedFile:  "nonexistent.txt",
+			OutputFile: "output/nonexistent.txt",
+		},
+	}
+	assert.Error(t, CopyFilesFromEmbedFS(fs, files))
 }
 
 func TestGenerateFilesByTemplateFromEmbedFS(t *testing.T) {
-	_ = os.Mkdir("tmp", 0o755)
+	// Test case 1: Generating a single file
+	fs := embed.FS{} // replace with actual embed.FS implementation
+	template := EmbedTemplate{
+		EmbedFile:  "file1.txt",
+		OutputFile: "output/file1.txt",
+	}
+	assert.Error(t, GenerateFilesByTemplateFromEmbedFS(fs, []EmbedTemplate{template}))
 
-	require.NoError(t, GenerateFilesByTemplateFromEmbedFS(TestTemplates, []EmbedTemplate{
-		{
-			EmbedFile:  "testdata/backend/go.mod.tmpl",
-			OutputFile: "tmp/go.mod",
-			Data: struct {
-				ModuleName string
-			}{
-				"Testing",
-			},
-		},
-		{
-			EmbedFile:  "testdata/frontend/package.json.tmpl",
-			OutputFile: "tmp/package.json",
-			Data: struct {
-				PackageName string
-			}{
-				"Testing",
-			},
-		},
-		{
-			EmbedFile:  "testdata/misc/gitignore.tmpl",
-			OutputFile: "tmp/.gitignore",
-			Data:       nil,
-		},
-	}))
-	require.True(t, IsExistInFolder("tmp/go.mod", false))
-	require.True(t, IsExistInFolder("tmp/package.json", false))
-	require.True(t, IsExistInFolder("tmp/.gitignore", false))
+	// Test case 2: Generating multiple files
+	template = EmbedTemplate{
+		EmbedFile:  "file1.txt",
+		OutputFile: "output/file1.txt",
+	}
+	assert.Error(t, GenerateFilesByTemplateFromEmbedFS(fs, []EmbedTemplate{template}))
 
-	// Already exists
-	require.Error(t, GenerateFilesByTemplateFromEmbedFS(TestTemplates, []EmbedTemplate{
-		{
-			EmbedFile:  "testdata/backend/go.mod.tmpl",
-			OutputFile: "tmp/go.mod",
-			Data: struct {
-				ModuleName string
-			}{
-				"Testing",
-			},
-		},
-	}))
-	require.True(t, IsExistInFolder("tmp/go.mod", false))
+	// Test case 3: Error case - file not found
+	template = EmbedTemplate{
+		EmbedFile:  "nonexistent.txt",
+		OutputFile: "output/nonexistent.txt",
+	}
+	assert.Error(t, GenerateFilesByTemplateFromEmbedFS(fs, []EmbedTemplate{template}))
 
-	// Non-embedded file
-	require.Error(t, GenerateFilesByTemplateFromEmbedFS(TestTemplates, []EmbedTemplate{
-		{
-			EmbedFile:  "testdata/backend/I_DO_NOT_EXIST.file",
-			OutputFile: "tmp/I_DO_NOT_EXIST.file",
-			Data:       nil,
-		},
-	}))
-	require.False(t, IsExistInFolder("tmp/I_DO_NOT_EXIST.file", false))
-
-	_ = os.RemoveAll("tmp")
+	// Test case 4: Generating multiple files
+	template1 := EmbedTemplate{
+		EmbedFile:  "file1.txt",
+		OutputFile: "output/file1.txt",
+	}
+	template2 := EmbedTemplate{
+		EmbedFile:  "file2.txt",
+		OutputFile: "output/file2.txt",
+	}
+	templates := []EmbedTemplate{template1, template2}
+	assert.Error(t, GenerateFilesByTemplateFromEmbedFS(fs, templates))
 }

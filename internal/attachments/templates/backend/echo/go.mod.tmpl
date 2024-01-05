@@ -1,9 +1,0 @@
-module {{ .ModuleName }}
-
-go 1.21
-
-require (
-    {{ if eq .TemplateEngine "templ" }}github.com/a-h/templ latest{{ end }}
-    github.com/labstack/echo/v4 latest
-    github.com/gowebly/helpers latest
-)

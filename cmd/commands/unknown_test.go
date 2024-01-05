@@ -3,9 +3,9 @@ package commands
 import (
 	"testing"
 
-	"github.com/stretchr/testify/require"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestUnknown(t *testing.T) {
-	require.NoError(t, Unknown())
+	assert.Nil(t, Unknown(), nil)
 }

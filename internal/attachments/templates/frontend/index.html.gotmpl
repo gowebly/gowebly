@@ -1,0 +1,39 @@
+{{/* Set title text to this page. */}}
+{{ define "title" }}Welcome to example!{{ end }}
+
+{{/* (Optional) Set META tags to this page. */}}
+{{ define "meta" }}
+<meta name="keywords" content="gowebly, htmx example page, go with htmx">
+<meta name="description" content="Welcome to example! You're here because it worked out.">
+{{ end }}
+
+{{/* (Optional) Set a custom styles to this page. */}}
+{{ define "styles" }}{{ end }}
+
+{{/* (Optional) Set a custom scripts to this page. */}}
+{{ define "scripts" }}{{ end }}
+
+{{/* Set HTML content to this page. */}}
+{{ define "content" }}
+<div id="app">
+    <div>
+        <a href="https://gowebly.org" target="_blank">
+            <img src="/static/images/gowebly.svg" class="gowebly logo" alt="Gowebly logo" />
+        </a>
+        <h1>Go + htmx</h1>
+        <div class="content">
+            <button hx-get="/api/hello-world" hx-target="#htmx-result">Hello, World!</button>
+            <div id="htmx-result"></div>
+        </div>
+        <p class="read-the-docs">
+            The Gowebly project is a next-generation CLI tool that makes it easy to create<br/>
+            amazing web applications with Go on the backend, using htmx & hyperscript<br/>
+            and the most popular CSS frameworks on the frontend.
+        </p>
+        <p class="read-the-docs">
+            <a href="https://gowebly.org" target="_blank">Documentation</a> &sdot;
+            <a href="https://github.com/gowebly/gowebly" target="_blank">GitHub</a>
+        </p>
+    </div>
+</div>
+{{ end }}

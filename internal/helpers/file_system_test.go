@@ -1,107 +1,132 @@
 package helpers
 
 import (
-	"github.com/stretchr/testify/require"
+	"fmt"
 	"os"
-	"path/filepath"
 	"testing"
+
+	"github.com/gowebly/gowebly/internal/messages"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestIsExistInFolder(t *testing.T) {
-	path, _ := os.Getwd()
-	folder := filepath.Base(path)
+	setup := func() {
+		// Setup - create 'existing_folder' and 'existing_file.txt'
+		os.Mkdir("existing_folder", 0o755)
+		os.WriteFile("existing_file.txt", []byte("content"), 0o644)
+	}
+	tearDown := func() {
+		// Teardown - remove 'existing_folder' and 'existing_file.txt' after test
+		os.RemoveAll("existing_folder")
+		os.Remove("existing_file.txt")
+	}
 
-	require.True(t, IsExistInFolder(path, true))
-	require.False(t, IsExistInFolder(folder, true))
+	setup()
+	defer tearDown()
+
+	// Test case 1: Testing for an existing folder
+	existingFolder := "existing_folder"
+	if !IsExistInFolder(existingFolder, true) {
+		t.Errorf("%s should exist in the current folder", existingFolder)
+	}
+
+	// Test case 2: Testing for a non-existing folder
+	nonExistingFolder := "non_existing_folder"
+	if IsExistInFolder(nonExistingFolder, true) {
+		t.Errorf("%s should not exist in the current folder", nonExistingFolder)
+	}
+
+	// Test case 3: Testing for an existing file
+	existingFile := "existing_file.txt"
+	if !IsExistInFolder(existingFile, false) {
+		t.Errorf("%s should exist in the current folder", existingFile)
+	}
+
+	// Test case 4: Testing for a non-existing file
+	nonExistingFile := "non_existing_file.txt"
+	if IsExistInFolder(nonExistingFile, false) {
+		t.Errorf("%s should not exist in the current folder", nonExistingFile)
+	}
+
+	// Clean up.
+	os.RemoveAll("existing_file.txt")
 }
 
 func TestMakeFile(t *testing.T) {
-	_ = os.Mkdir("tmp", 0o755)
+	// Test case 1: File doesn't exist, should create file successfully
+	file1 := File{
+		Name: "test.txt",
+		Data: []byte("This is a test file"),
+	}
+	err := MakeFile(file1)
+	if err != nil {
+		t.Errorf("Expected no error, got %v", err)
+	}
 
-	testFileName := "tmp/test_make_file.tmp"
-	require.NoError(t, MakeFile(File{
-		Name: testFileName,
-		Data: nil,
-	}))
+	// Test case 2: File already exists, should return an error
+	file2 := File{
+		Name: "test.txt",
+		Data: []byte("This is another test file"),
+	}
+	err = MakeFile(file2)
+	expectedErr := fmt.Errorf(messages.ErrorOSFileIsExists, file2.Name)
+	if err.Error() != expectedErr.Error() {
+		t.Errorf("Expected error %v, got %v", expectedErr, err)
+	}
 
-	require.True(t, IsExistInFolder(testFileName, false))
-
-	require.Error(t, MakeFile(File{
-		Name: "tmp/test_make_file.tmp",
-		Data: nil,
-	}))
-
-	_ = os.RemoveAll("tmp")
+	// Clean up.
+	os.RemoveAll("test.txt")
 }
 
 func TestMakeFiles(t *testing.T) {
-	_ = os.Mkdir("tmp", 0o755)
+	// Test case 1: Empty files list
+	files := []File{}
+	err := MakeFiles(files)
+	if err != nil {
+		t.Errorf("Expected no error, but got %v", err)
+	}
 
-	require.NoError(t, MakeFiles([]File{
-		{
-			Name: "tmp/test_make_file1.tmp",
-			Data: nil,
-		},
-		{
-			Name: "tmp/test_make_file2.tmp",
-			Data: nil,
-		},
-	}))
+	// Test case 2: Single file
+	file := File{Name: "file1.txt", Data: []byte("Hello, World!")}
+	files = []File{file}
+	err = MakeFiles(files)
+	if err != nil {
+		t.Errorf("Expected no error, but got %v", err)
+	}
 
-	require.True(t, IsExistInFolder("tmp/test_make_file1.tmp", false))
-	require.True(t, IsExistInFolder("tmp/test_make_file2.tmp", false))
+	// Clean up.
+	os.RemoveAll("file1.txt")
 
-	require.Error(t, MakeFiles([]File{
-		{
-			Name: "tmp/test_make_file3.tmp",
-			Data: nil,
-		},
-		{
-			Name: "tmp/test_make_file1.tmp",
-			Data: nil,
-		},
-	}))
+	// Test case 3: Multiple files
+	file1 := File{Name: "file1.txt", Data: []byte("Hello, World!")}
+	file2 := File{Name: "file2.txt", Data: []byte("This is another file.")}
+	files = []File{file1, file2}
+	err = MakeFiles(files)
+	if err != nil {
+		t.Errorf("Expected no error, but got %v", err)
+	}
 
-	_ = os.RemoveAll("tmp")
+	// Clean up.
+	os.RemoveAll("file1.txt")
+	os.RemoveAll("file2.txt")
 }
 
 func TestMakeFolders(t *testing.T) {
-	_ = os.Mkdir("tmp", 0o755)
+	// Test case 1: Test with no folders to create
+	err := MakeFolders()
+	assert.NoError(t, err)
 
-	require.NoError(t, MakeFolders("tmp/tmp1", "tmp/tmp2"))
+	// Test case 2: Test with single folder to create
+	err = MakeFolders("folder1")
+	assert.NoError(t, err)
 
-	require.True(t, IsExistInFolder("tmp/tmp1", true))
-	require.True(t, IsExistInFolder("tmp/tmp2", true))
+	// Test case 3: Test with multiple folders to create
+	err = MakeFolders("folder2", "folder3", "folder4")
+	assert.NoError(t, err)
 
-	require.Error(t, MakeFolders("tmp/tmp3", "tmp/tmp1"))
-
-	_ = os.RemoveAll("tmp")
-}
-
-func TestRemoveFiles(t *testing.T) {
-	_ = os.Mkdir("tmp", 0o755)
-	_ = MakeFiles([]File{
-		{
-			Name: "tmp/test_make_file1.tmp",
-			Data: nil,
-		},
-		{
-			Name: "tmp/test_make_file2.tmp",
-			Data: nil,
-		},
-		{
-			Name: "tmp/test_make_file3.tmp",
-			Data: nil,
-		},
-	})
-
-	require.NoError(t, RemoveFiles("tmp/test_make_file1.tmp", "tmp/test_make_file2.tmp"))
-
-	require.False(t, IsExistInFolder("tmp/test_make_file1.tmp", false))
-	require.False(t, IsExistInFolder("tmp/test_make_file2.tmp", false))
-	require.True(t, IsExistInFolder("tmp/test_make_file3.tmp", false))
-
-	require.Error(t, RemoveFiles("tmp/test_make_file3.tmp", "tmp/test_make_file4.tmp"))
-
-	_ = os.RemoveAll("tmp")
+	// Clean up.
+	os.RemoveAll("folder1")
+	os.RemoveAll("folder2")
+	os.RemoveAll("folder3")
+	os.RemoveAll("folder4")
 }

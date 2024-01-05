@@ -5,41 +5,41 @@ import (
 	"os/exec"
 	"strings"
 
-	"github.com/gowebly/gowebly/internal/constants"
+	"github.com/gowebly/gowebly/internal/messages"
 )
 
-// Tool represents a struct for a tool.
-type Tool struct {
-	Name, VersionCommand string
-}
+// GetToolVersion gets the version of a tool by executing a command.
+//
+// It takes the name of the tool and the command to retrieve the version as input.
+// It returns the version as a string and any error encountered.
+func GetToolVersion(name, versionCommand string) (string, error) {
+	// Create a new command with the given tool name and version command.
+	cmd := exec.Command(name, versionCommand)
 
-// resultsOutput represents a (private) struct for results output.
-type resultsOutput struct {
-	Status, Output string
-}
-
-// CheckTools checks a list with tools and collect its versions.
-func CheckTools(tools []Tool) []resultsOutput {
-	// Create a new slice for results.
-	results := make([]resultsOutput, 0)
-
-	for _, t := range tools {
-		// Create a new cmd execution with output.
-		output, err := exec.Command(t.Name, t.VersionCommand).Output()
-		if err != nil {
-			// If the current tool is not exists, save error message to the map.
-			results = append(results, resultsOutput{
-				Status: "error",
-				Output: fmt.Sprintf(constants.ErrorHelperToolNotInstalled, t.Name),
-			})
-		} else {
-			// Else, save the current tool version to the map.
-			results = append(results, resultsOutput{
-				Status: "success",
-				Output: strings.ToLower(strings.Trim(string(output), "\n")),
-			})
-		}
+	// Execute the command and retrieve the output.
+	output, err := cmd.Output()
+	if err != nil {
+		return "", fmt.Errorf(messages.ErrorCMDNotExecuteCommand, name, versionCommand, err)
 	}
 
-	return results
+	// Return the output as a string and nil error.
+	return strings.TrimSpace(string(output)), nil
+}
+
+// CheckToolIsInstalled checks if a tool is installed by executing a command.
+//
+// It takes the name of the tool and the command to retrieve the version as input.
+// It returns the bool indicating if the tool is installed and any error encountered.
+func CheckToolIsInstalled(name, versionCommand string) (bool, error) {
+	// Create a new command with the given tool name and version command.
+	cmd := exec.Command(name, versionCommand)
+
+	// Execute the command and retrieve the output.
+	_, err := cmd.Output()
+	if err != nil {
+		return false, fmt.Errorf(messages.ErrorCMDNotExecuteCommand, name, versionCommand, err)
+	}
+
+	// Return the output as a string and nil error.
+	return true, nil
 }

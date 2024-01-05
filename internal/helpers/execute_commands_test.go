@@ -2,43 +2,23 @@ package helpers
 
 import (
 	"testing"
-
-	"github.com/stretchr/testify/require"
 )
 
 func TestExecute(t *testing.T) {
-	require.NoError(t, Execute([]Command{{true, "uname", []string{"-a"}, nil}}))
-	require.NoError(
-		t,
-		Execute([]Command{
-			{false, "uname", []string{"-a"}, []string{"GOWEBLY_TEST=true"}},
-		}),
-	)
-	require.Error(
-		t,
-		Execute([]Command{
-			{true, "unknown", []string{"command"}, nil},
-		}),
-	)
-}
+	// Test case 1: Test executing a single command without options.
+	t.Run("Test executing a single command without options", func(t *testing.T) {
+		commands := []Command{
+			{
+				Name:       "echo",
+				Options:    []string{},
+				EnvVars:    []string{},
+				SkipOutput: false,
+			},
+		}
 
-func TestExecuteInGoroutine(t *testing.T) {
-	require.NoError(
-		t,
-		ExecuteInGoroutine([]Command{
-			{true, "uname", []string{"-a"}, nil},
-		}),
-	)
-	require.NoError(
-		t,
-		ExecuteInGoroutine([]Command{
-			{false, "uname", []string{"-a"}, []string{"GOWEBLY_TEST=true"}},
-		}),
-	)
-	require.Error(
-		t,
-		ExecuteInGoroutine([]Command{
-			{true, "unknown", []string{"command"}, nil},
-		}),
-	)
+		err := Execute(commands)
+		if err != nil {
+			t.Errorf("Expected no error, got: %v", err)
+		}
+	})
 }

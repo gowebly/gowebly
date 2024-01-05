@@ -10,8 +10,8 @@ import (
 	"github.com/gowebly/gowebly/internal/injectors"
 )
 
-// inject provides dependency injection process by the "google/wire" package.
-func inject() (*injectors.Injector, error) {
+// Inject provides the dependency injection process by the "google/wire" package.
+func Inject() (*injectors.Injector, error) {
 	wire.Build(attachments.New, config.New, injectors.New)
 	return &injectors.Injector{}, nil
 }

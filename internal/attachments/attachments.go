@@ -5,26 +5,22 @@ import (
 )
 
 var (
-	//go:embed configs/*
-	ConfigsFiles embed.FS
-
-	//go:embed templates/*
-	TemplatesFiles embed.FS
-
-	//go:embed static/*
+	//go:embed all:static
 	StaticFiles embed.FS
+
+	//go:embed all:templates
+	TemplatesFiles embed.FS
 )
 
-// Files represents struct for embed files.
-type Files struct {
-	Configs, Templates, Static embed.FS
+// Attachments represents struct for embed files.
+type Attachments struct {
+	Static, Templates embed.FS
 }
 
-// New creates a new collection with embed files by Files struct.
-func New() *Files {
-	return &Files{
-		Configs:   ConfigsFiles,
-		Templates: TemplatesFiles,
+// New creates a new collection with embed files by Attachments struct.
+func New() *Attachments {
+	return &Attachments{
 		Static:    StaticFiles,
+		Templates: TemplatesFiles,
 	}
 }

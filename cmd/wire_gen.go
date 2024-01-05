@@ -14,14 +14,11 @@ import (
 
 // Injectors from wire.go:
 
-// inject provides dependency injection process by the "google/wire" package.
-func inject() (*injectors.Injector, error) {
-	configConfig, err := config.New()
-	if err != nil {
-		return nil, err
-	}
-	files := attachments.New()
-	injector, err := injectors.New(configConfig, files)
+// Inject provides the dependency injection process by the "google/wire" package.
+func Inject() (*injectors.Injector, error) {
+	configConfig := config.New()
+	attachmentsAttachments := attachments.New()
+	injector, err := injectors.New(configConfig, attachmentsAttachments)
 	if err != nil {
 		return nil, err
 	}

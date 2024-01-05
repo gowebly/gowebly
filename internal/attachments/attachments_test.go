@@ -2,14 +2,20 @@ package attachments
 
 import (
 	"testing"
-
-	"github.com/stretchr/testify/require"
 )
 
 func TestNew(t *testing.T) {
-	require.EqualValues(
-		t,
-		New(),
-		&Files{Configs: ConfigsFiles, Templates: TemplatesFiles, Static: StaticFiles},
-	)
+	attachments := New()
+
+	// Test that Static field is set correctly
+	expectedStatic := StaticFiles
+	if attachments.Static != expectedStatic {
+		t.Errorf("Expected Static field to be %v, but got %v", expectedStatic, attachments.Static)
+	}
+
+	// Test that Templates field is set correctly
+	expectedTemplates := TemplatesFiles
+	if attachments.Templates != expectedTemplates {
+		t.Errorf("Expected Templates field to be %v, but got %v", expectedTemplates, attachments.Templates)
+	}
 }

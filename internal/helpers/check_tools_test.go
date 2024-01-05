@@ -1,27 +1,38 @@
 package helpers
 
 import (
-	"fmt"
-	"os/exec"
-	"strings"
 	"testing"
 
-	"github.com/stretchr/testify/require"
-
-	"github.com/gowebly/gowebly/internal/constants"
+	"github.com/stretchr/testify/assert"
 )
 
-func TestCheckTools(t *testing.T) {
-	output1, _ := exec.Command("go", "version").Output()
+func TestGetToolVersion(t *testing.T) {
+	// Test case 1: Test getting the version of a tool that is not installed.
+	toolName := "tool"
+	versionCommand := "--version"
+	version, err := GetToolVersion(toolName, versionCommand)
+	assert.Error(t, err)
+	assert.EqualValues(t, "", version)
 
-	require.EqualValues(
-		t,
-		CheckTools([]Tool{{"go", "version"}})[0].Output,
-		strings.Trim(string(output1), "\n"),
-	)
-	require.EqualValues(
-		t,
-		CheckTools([]Tool{{"unknown", "version"}})[0].Output,
-		fmt.Sprintf(constants.ErrorHelperToolNotInstalled, "unknown"),
-	)
+	// Test case 2: Test getting the version of a tool that is installed.
+	toolName = "go"
+	versionCommand = "version"
+	_, err = GetToolVersion(toolName, versionCommand)
+	assert.NoError(t, err)
+}
+
+func TestCheckToolIsInstalled(t *testing.T) {
+	// Test case 1: Test checking if a tool is installed.
+	toolName := "tool"
+	versionCommand := "--version"
+	isInstalled, err := CheckToolIsInstalled(toolName, versionCommand)
+	assert.Error(t, err)
+	assert.EqualValues(t, false, isInstalled)
+
+	// Test case 2: Test checking if a tool is installed.
+	toolName = "go"
+	versionCommand = "version"
+	isInstalled, err = CheckToolIsInstalled(toolName, versionCommand)
+	assert.NoError(t, err)
+	assert.EqualValues(t, true, isInstalled)
 }
