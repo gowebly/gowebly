@@ -7,9 +7,9 @@
 package cmd
 
 import (
-	"github.com/gowebly/gowebly/internal/attachments"
-	"github.com/gowebly/gowebly/internal/config"
-	"github.com/gowebly/gowebly/internal/injectors"
+	"github.com/gowebly/gowebly/v2/internal/attachments"
+	"github.com/gowebly/gowebly/v2/internal/config"
+	"github.com/gowebly/gowebly/v2/internal/injectors"
 )
 
 // Injectors from wire.go:

@@ -2,9 +2,9 @@ package fields
 
 import (
 	"github.com/charmbracelet/huh"
-	"github.com/gowebly/gowebly/internal/injectors"
-	"github.com/gowebly/gowebly/internal/messages"
-	"github.com/gowebly/gowebly/internal/variables"
+	"github.com/gowebly/gowebly/v2/internal/injectors"
+	"github.com/gowebly/gowebly/v2/internal/messages"
+	"github.com/gowebly/gowebly/v2/internal/variables"
 )
 
 // GoFrameworkSelect runs the Go framework select.

@@ -1,8 +1,8 @@
 package injectors
 
 import (
-	"github.com/gowebly/gowebly/internal/attachments"
-	"github.com/gowebly/gowebly/internal/config"
+	"github.com/gowebly/gowebly/v2/internal/attachments"
+	"github.com/gowebly/gowebly/v2/internal/config"
 )
 
 // Injector represents a struct for the dependency injection.

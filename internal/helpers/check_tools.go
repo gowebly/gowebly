@@ -5,7 +5,7 @@ import (
 	"os/exec"
 	"strings"
 
-	"github.com/gowebly/gowebly/internal/messages"
+	"github.com/gowebly/gowebly/v2/internal/messages"
 )
 
 // GetToolVersion gets the version of a tool by executing a command.

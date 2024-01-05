@@ -1,4 +1,4 @@
-module github.com/gowebly/gowebly
+module github.com/gowebly/gowebly/v2
 
 go 1.21
 

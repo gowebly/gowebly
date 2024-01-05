@@ -4,8 +4,8 @@ import (
 	"fmt"
 
 	"github.com/charmbracelet/huh"
-	"github.com/gowebly/gowebly/internal/messages"
-	"github.com/gowebly/gowebly/internal/variables"
+	"github.com/gowebly/gowebly/v2/internal/messages"
+	"github.com/gowebly/gowebly/v2/internal/variables"
 )
 
 // WelcomeNote runs the welcome note.

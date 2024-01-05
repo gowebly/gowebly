@@ -6,12 +6,12 @@ import (
 	"strconv"
 
 	"github.com/charmbracelet/huh/spinner"
-	"github.com/gowebly/gowebly/internal/actions"
-	"github.com/gowebly/gowebly/internal/forms"
-	"github.com/gowebly/gowebly/internal/helpers"
-	"github.com/gowebly/gowebly/internal/injectors"
-	"github.com/gowebly/gowebly/internal/messages"
-	"github.com/gowebly/gowebly/internal/variables"
+	"github.com/gowebly/gowebly/v2/internal/actions"
+	"github.com/gowebly/gowebly/v2/internal/forms"
+	"github.com/gowebly/gowebly/v2/internal/helpers"
+	"github.com/gowebly/gowebly/v2/internal/injectors"
+	"github.com/gowebly/gowebly/v2/internal/messages"
+	"github.com/gowebly/gowebly/v2/internal/variables"
 )
 
 // Create creates a new project with the given configuration.

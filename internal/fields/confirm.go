@@ -2,8 +2,8 @@ package fields
 
 import (
 	"github.com/charmbracelet/huh"
-	"github.com/gowebly/gowebly/internal/injectors"
-	"github.com/gowebly/gowebly/internal/messages"
+	"github.com/gowebly/gowebly/v2/internal/injectors"
+	"github.com/gowebly/gowebly/v2/internal/messages"
 )
 
 // IsUseAirConfirm runs the confirm if Air is used.

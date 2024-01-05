@@ -1,6 +1,6 @@
 package commands
 
-import "github.com/gowebly/gowebly/internal/helpers"
+import "github.com/gowebly/gowebly/v2/internal/helpers"
 
 // Run runs the 'run' cmd command.
 func Run() error {
