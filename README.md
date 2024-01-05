@@ -22,7 +22,7 @@ A next-generation CLI tool that makes it easy to create amazing web applications
 [![Share on WhatsApp][whatsapp_share_img]][whatsapp_share_url]
 [![Share on Reddit][reddit_share_img]][reddit_share_url]
 
-<a href="https://gowebly.org" target="_blank"><img width="99%" alt="gowebly create command" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly_create.gif"></a>
+<a href="https://gowebly.org" target="_blank" title="Go to the Gowebly CLI website"><img width="90%" alt="gowebly create command" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly_create.gif"></a>
 
 </div>
 
