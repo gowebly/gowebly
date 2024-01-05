@@ -24,6 +24,8 @@ A next-generation CLI tool that makes it easy to create amazing web applications
 
 </div>
 
+<a href="https://gowebly.org" target="_blank"><img width="99%" alt="gowebly create command" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly_create.gif"></a>
+
 ## ✨ Features
 
 - 100% **free** and **open source** under the [Apache 2.0][repo_license_url] license;
