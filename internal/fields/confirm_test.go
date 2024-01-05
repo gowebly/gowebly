@@ -43,15 +43,3 @@ func TestIsUseBunConfirm(t *testing.T) {
 
 	require.NoError(t, IsUseBunConfirm(di).Error())
 }
-
-func TestIsUseHyperscriptConfirm(t *testing.T) {
-	di := &injectors.Injector{
-		Config: &config.Config{
-			Frontend: &config.Frontend{
-				IsUseHyperscript: true,
-			},
-		},
-	}
-
-	require.NoError(t, IsUseHyperscriptConfirm(di).Error())
-}

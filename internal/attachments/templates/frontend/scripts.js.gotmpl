@@ -1,3 +1,3 @@
 import 'htmx.org';
-{{ if .IsUseHyperscript }}import 'hyperscript.org';{{ end }}
+{{ if eq .ReactivityLibrary "htmx_hyperscript" }}import 'hyperscript.org';{{ end }}
 {{ if eq .CSSFramework "bootstrap" }}import * as bootstrap from 'bootstrap';{{ else if eq .CSSFramework "flowbite" }}import 'flowbite';{{ end }}

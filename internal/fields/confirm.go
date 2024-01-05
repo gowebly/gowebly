@@ -24,15 +24,6 @@ func IsUseTempleConfirm(di *injectors.Injector) *huh.Confirm {
 		Value(&di.Config.Tools.IsUseTempl)
 }
 
-// IsUseHyperscriptConfirm runs the confirm if Hyperscript is used.
-func IsUseHyperscriptConfirm(di *injectors.Injector) *huh.Confirm {
-	return huh.NewConfirm().
-		Title(messages.FormHyperscriptUsageTitle).
-		Affirmative("Yes").
-		Negative("No").
-		Value(&di.Config.Frontend.IsUseHyperscript)
-}
-
 // IsUseBunConfirm runs the confirm if Bun is used.
 func IsUseBunConfirm(di *injectors.Injector) *huh.Confirm {
 	return huh.NewConfirm().

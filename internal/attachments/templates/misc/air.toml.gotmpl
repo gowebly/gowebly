@@ -8,11 +8,8 @@ tmp_dir = "tmp"
 pre_cmd = ["{{ if .Tools.IsUseBun }}bun{{ else }}npm{{ end }} run build"]
 cmd = "{{ if .Tools.IsUseTempl }}templ generate && {{ end }}go build -o ./tmp/gowebly_{{ .Backend.GoFramework }} ."
 bin = "tmp/gowebly_{{ .Backend.GoFramework }}"
-include_ext = ["go", "templ", "html", "js", "ts", "css", "scss"]
-exclude_dir = ["bin", "tmp", "tests", "vendor", "node_modules"]
-include_dir = []
-include_file = []
-exclude_file = []
+include_ext = ["go", "templ", "html", "json", "js", "ts", "css", "scss"]
+exclude_dir = [".parcel-cache", "bin", "dist", "node_modules", "static", "tmp", "tests", "vendor"]
 exclude_regex = ["_test\\.go", "_templ\\.go"]
 exclude_unchanged = false
 follow_symlink = false
@@ -25,7 +22,6 @@ send_interrupt = false
 kill_delay = 500
 rerun = false
 rerun_delay = 500
-args_bin = []
 
 [log]
 time = false

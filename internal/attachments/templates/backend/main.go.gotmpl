@@ -1,12 +1,14 @@
 package main
 
 import (
-	"log"
+	"os"
+	"log/slog"
 )
 
 func main() {
 	// Run your server.
 	if err := runServer(); err != nil {
-		log.Fatal(err)
+		slog.Error("Failed to start server!", "details", err.Error())
+		os.Exit(1)
 	}
 }

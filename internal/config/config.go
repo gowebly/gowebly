@@ -14,8 +14,7 @@ type Backend struct {
 
 // Frontend represents struct for a frontend part of the project config.
 type Frontend struct {
-	IsUseHyperscript          bool
-	PackageName, CSSFramework string
+	PackageName, ReactivityLibrary, CSSFramework string
 }
 
 // Tools represents struct for a tools part of the project config.
@@ -32,8 +31,9 @@ func New() *Config {
 			Port:        "7000",
 		},
 		Frontend: &Frontend{
-			PackageName:  "project",
-			CSSFramework: "default",
+			PackageName:       "project",
+			ReactivityLibrary: "htmx",
+			CSSFramework:      "default",
 		},
 		Tools: &Tools{
 			IsUseAir:   true,

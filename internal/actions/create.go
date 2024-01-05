@@ -108,21 +108,22 @@ func copyStaticFiles(di *injectors.Injector) error {
 func createBackendFiles(di *injectors.Injector) error {
 	// Define embed templates.
 	templates := []helpers.EmbedTemplate{
-		// Backend files.
+		// Common backend files.
 		{
-			EmbedFile:  fmt.Sprintf("templates/backend/%s/go.mod.gotmpl", di.Config.Backend.GoFramework),
+			EmbedFile:  "templates/backend/go.mod.gotmpl",
 			OutputFile: "go.mod",
 			Data:       di.Config,
 		},
 		{
+			EmbedFile:  "templates/backend/main.go.gotmpl",
+			OutputFile: "main.go",
+			Data:       nil,
+		},
+		// Go framework specified files.
+		{
 			EmbedFile:  fmt.Sprintf("templates/backend/%s/handlers.go.gotmpl", di.Config.Backend.GoFramework),
 			OutputFile: "handlers.go",
 			Data:       di.Config,
-		},
-		{
-			EmbedFile:  fmt.Sprintf("templates/backend/%s/main.go.gotmpl", di.Config.Backend.GoFramework),
-			OutputFile: "main.go",
-			Data:       nil,
 		},
 		{
 			EmbedFile:  fmt.Sprintf("templates/backend/%s/server.go.gotmpl", di.Config.Backend.GoFramework),

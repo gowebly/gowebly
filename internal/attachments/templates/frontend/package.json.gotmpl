@@ -36,7 +36,7 @@
     {{ else if eq .CSSFramework "bulma" }}
     "bulma": "latest",
     {{ end }}
-    {{ if .IsUseHyperscript }}"hyperscript.org": "latest",{{ end }}
+    {{ if eq .ReactivityLibrary "htmx_hyperscript" }}"hyperscript.org": "latest",{{ end }}
     "htmx.org": "latest"
   },
   "devDependencies": {
