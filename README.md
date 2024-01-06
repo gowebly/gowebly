@@ -8,7 +8,7 @@
 
 A next-generation CLI tool that makes it easy to create amazing web applications<br/>with **Go** on the backend, using **htmx** & **hyperscript** and the most popular<br/>**CSS** frameworks on the frontend.
 
-**English** · [Русский][docs_ru_url] · [简体中文][docs_zh_hk_url] · [Español][docs_es_url]
+[English][docs_url] · [Русский][docs_ru_url] · [简体中文][docs_zh_hk_url] · [Español][docs_es_url]
 
 [![Go version][go_version_img]][go_dev_url]
 [![Go report][go_report_img]][go_report_url]<br/>
