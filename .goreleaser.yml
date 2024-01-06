@@ -48,12 +48,6 @@ release:
     go install github.com/gowebly/gowebly@latest
     ```
 
-    For [Docker][docker_url] users (GNU/Linux only):
-
-    ```console
-    docker pull gowebly/gowebly:latest
-    ```
-
     For [Homebrew][brew_url] users (GNU/Linux, Apple macOS):
 
     ```console
@@ -82,7 +76,6 @@ release:
     [repo_pull_request_url]: https://github.com/gowebly/gowebly/pulls
     [repo_discussions_url]: https://github.com/gowebly/gowebly/discussions
     [brew_url]: https://brew.sh
-    [docker_url]: https://www.docker.com
     [gowebly_url]: https://gowebly.org
     [dev_to_url]: https://dev.to
     [medium_url]: https://medium.com
@@ -108,7 +101,7 @@ brews:
     commit_msg_template: "Brew formula update for {{ .ProjectName }} version {{ .Tag }}"
     folder: Formula
     caveats: |
-      After install, create a new project (with a default configuration):
+      After install the Gowebly CLI, create a new project:
 
       $ gowebly create
 
