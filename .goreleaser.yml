@@ -10,7 +10,7 @@ before:
 builds:
   - id: default
     ldflags:
-      - -s -w -X "github.com/gowebly/gowebly/internal/variables.GoweblyVersion={{ .Tag }}"
+      - -s -w
     env: [CGO_ENABLED=0]
     goos: [linux, windows, darwin]
     goarch: [amd64, arm64]
@@ -93,52 +93,6 @@ release:
     [reddit_share_url]: https://www.reddit.com/submit?title=A%20next-generation%20CLI%20tool%20to%20easily%20build%20amazing%20web%20applications%20with%20Go%20on%20the%20backend%2C%20using%20htmx%20%26%20hyperscript%20and%20the%20most%20popular%20CSS%20frameworks%20on%20the%20frontend.%20%23gowebly%20%23go%20%23htmx&url=https%3A%2F%2Fgowebly.org
   disable: false
   skip_upload: false
-
-dockers:
-  - id: "{{ .ProjectName }}_linux_amd64" # For GNU/Linux x86_64
-    ids: [default]
-    use: buildx
-    skip_push: auto
-    image_templates:
-      - "gowebly/{{ .ProjectName }}:latest-linux-amd64"
-      - "gowebly/{{ .ProjectName }}:{{ .Tag }}-linux-amd64"
-    build_flag_templates:
-      - "--pull"
-      - "--label=org.opencontainers.image.created={{ .Date }}"
-      - "--label=org.opencontainers.image.title={{ .ProjectName }}"
-      - "--label=org.opencontainers.image.revision={{ .FullCommit }}"
-      - "--label=org.opencontainers.image.version={{ .Version }}"
-      - "--platform=linux/amd64"
-    push_flags:
-      - "--tls-verify=false"
-  - id: "{{ .ProjectName }}_linux_arm64" # For GNU/Linux ARM
-    ids: [default]
-    use: buildx
-    skip_push: auto
-    image_templates:
-      - "gowebly/{{ .ProjectName }}:latest-linux-arm64"
-      - "gowebly/{{ .ProjectName }}:{{ .Tag }}-linux-arm64"
-    build_flag_templates:
-      - "--pull"
-      - "--label=org.opencontainers.image.created={{ .Date }}"
-      - "--label=org.opencontainers.image.title={{ .ProjectName }}"
-      - "--label=org.opencontainers.image.revision={{ .FullCommit }}"
-      - "--label=org.opencontainers.image.version={{ .Version }}"
-      - "--platform=linux/arm64"
-    push_flags:
-      - "--tls-verify=false"
-
-docker_manifests:
-  - name_template: "gowebly/{{ .ProjectName }}:latest"
-    skip_push: auto
-    image_templates:
-      - "gowebly/{{ .ProjectName }}:latest-linux-amd64"
-      - "gowebly/{{ .ProjectName }}:latest-linux-arm64"
-  - name_template: "gowebly/{{ .ProjectName }}:{{ .Tag }}"
-    skip_push: auto
-    image_templates:
-      - "gowebly/{{ .ProjectName }}:{{ .Tag }}-linux-amd64"
-      - "gowebly/{{ .ProjectName }}:{{ .Tag }}-linux-arm64"
 
 brews:
   - repository:

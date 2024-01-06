@@ -19,6 +19,7 @@ func Unknown() error {
 		helpers.MakeStyled(messages.CommandUnknownSummarySubTitle, &helpers.StringStyle{Color: variables.ColorGrey}),
 		helpers.MakeStyled("create", &helpers.StringStyle{Color: variables.ColorBlue}),
 		helpers.MakeStyled("doctor", &helpers.StringStyle{Color: variables.ColorBlue}),
+		helpers.MakeStyled("run", &helpers.StringStyle{Color: variables.ColorBlue}),
 	)
 
 	// Show created project info.

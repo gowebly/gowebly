@@ -61,23 +61,6 @@ That's it! 🔥 A wonderful web application has been created in the current fold
 
 </div>
 
-### 🐳 Docker-way to quick start
-
-Feel free to using the **Gowebly** CLI from our [official Docker image][docker_image_url] and run it in the isolated container:
-
-```console
-docker run --rm -it -v ${PWD}:${PWD} -w ${PWD} gowebly/gowebly:latest create
-```
-
-> [!IMPORTANT]
-> This Docker image works **only** on the GNU/Linux systems (`amd64` or `arm64`, including WSL).
-
-<div align="right">
-
-[&nwarr; Back to top](#readme-top)
-
-</div>
-
 ### 🍺 Homebrew-way to quick start
 
 GNU/Linux and Apple macOS users available way to install **Gowebly** CLI via [Homebrew][brew_url].

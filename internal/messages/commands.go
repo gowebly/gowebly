@@ -38,7 +38,7 @@ const (
 	// CommandUnknownSummarySubTitle represents the subtitle of the unknown summary.
 	CommandUnknownSummarySubTitle string = "List of the available commands ↘"
 	// CommandUnknownSummaryDescription represents the description of the unknown summary.
-	CommandUnknownSummaryDescription string = "%s\n\n`%s` to start creating a new project\n`%s` to collecting info about your system"
+	CommandUnknownSummaryDescription string = "%s\n\n`%s` to start creating a new project\n`%s` to collecting info about your system\n`%s`    to running your project"
 
 	/*
 		List of the information constants.
