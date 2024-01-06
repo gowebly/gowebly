@@ -4,17 +4,19 @@ go 1.21
 
 require (
     {{ if .Tools.IsUseTempl }}github.com/a-h/templ latest{{ end }}
-    {{ if eq .Backend.GoFramework "chi" }}
-    github.com/go-chi/chi/v5 latest
-    github.com/angelofallars/htmx-go latest
-    {{ else if eq .Backend.GoFramework "echo" }}
-    github.com/labstack/echo/v4 latest
+    {{ if eq .Backend.GoFramework "default" }}
     github.com/angelofallars/htmx-go latest
     {{ else if eq .Backend.GoFramework "fiber" }}
     github.com/gofiber/fiber/v2 latest
     github.com/gofiber/template/html/v2 latest
     {{ else if eq .Backend.GoFramework "gin" }}
     github.com/gin-gonic/gin latest
+    github.com/angelofallars/htmx-go latest
+    {{ else if eq .Backend.GoFramework "echo" }}
+    github.com/labstack/echo/v4 latest
+    github.com/angelofallars/htmx-go latest
+    {{ else if eq .Backend.GoFramework "chi" }}
+    github.com/go-chi/chi/v5 latest
     github.com/angelofallars/htmx-go latest
     {{ else if eq .Backend.GoFramework "httprouter" }}
     github.com/julienschmidt/httprouter latest
