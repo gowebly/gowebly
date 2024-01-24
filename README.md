@@ -33,7 +33,7 @@ A next-generation CLI tool that makes it easy to create amazing web applications
 - For **any** developer's level of knowledge and technical expertise, as the intelligent CLI does most of the routine project setup for you, creates an understandable structure, and prepares code for use and deployment in production;
 - Cross-platform and multi-architecture allows **successful running** on any GNU/Linux distros, Microsoft Windows (including WSL) and Apple macOS;
 - [**Well-documented**][docs_url], includes translations in **many other languages** ([Русский][docs_ru_url], [简体中文][docs_zh_hk_url], [Español][docs_es_url]);
-- Enables you to **start a new project faster** with [Go][go_url], [htmx][htmx_url], [hyperscript][hyperscript_url] and [Alpine.js][alpinejs_url] libraries;
+- Enables you to **start a new project faster** with [Go][go_url], [htmx][htmx_url], [hyperscript][hyperscript_url] or [Alpine.js][alpinejs_url] libraries;
 - Supports the built-in **net/http** package and the most popular Go web frameworks and routers out of the box, such as **Fiber**, **Gin**, **Echo**, **Chi** and **HttpRouter**;
 - Supports the most popular CSS frameworks out of the box, such as **Tailwind CSS**, **daisyUI**, **Flowbite**, **UnoCSS**, **Bootstrap** and **Bulma**;
 - Supports a way to build HTML for the htmx projects with Go using the **Templ** package;
