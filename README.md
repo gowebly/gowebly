@@ -51,7 +51,7 @@ First, [download][go_download_url] and install **Go**. Version `1.21` (or higher
 Now, you can use the **Gowebly** CLI without installation. Just run it with [`go run`][go_run_url] to create a new project:
 
 ```console
-go run github.com/gowebly/gowebly@latest create
+go run github.com/gowebly/gowebly/v2@latest create
 ```
 
 That's it! 🔥 A wonderful web application has been created in the current folder.
