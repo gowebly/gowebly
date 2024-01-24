@@ -32,7 +32,7 @@ release:
   prerelease: auto
   mode: replace
   header: |
-    ## ✨ The {{ .ProjectName }} `{{ .Tag }}` release
+    ## ✨ The Gowebly CLI `{{ .Tag }}` release
 
     <img width="100%" alt="gowebly banner with logo" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly-project-banner.svg"/>
 
