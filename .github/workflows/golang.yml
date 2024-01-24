@@ -37,6 +37,9 @@ jobs:
       - name: Run "gordonklaus/ineffassign" for code checks
         run: go run github.com/gordonklaus/ineffassign@latest ./...
 
+      - name: Run "go.uber.org/nilaway" for nil checks in code
+        run: go run go.uber.org/nilaway/cmd/nilaway@latest -exclude-pkgs="github.com/gowebly/gowebly/v2/internal/fields,github.com/gowebly/gowebly/v2/cmd/commands" ./...
+
       - name: Run "golang.org/x/tools/cmd/deadcode" for deadcode checks
         run: go run golang.org/x/tools/cmd/deadcode@latest ./...
 
