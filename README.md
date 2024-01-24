@@ -6,14 +6,15 @@
 
 # The Gowebly CLI
 
-A next-generation CLI tool that makes it easy to create amazing web applications<br/>with **Go** on the backend, using **htmx** & **hyperscript** and the most popular<br/>**CSS** frameworks on the frontend.
-
-[English][docs_url] · [Русский][docs_ru_url] · [简体中文][docs_zh_hk_url] · [Español][docs_es_url]
+A next-generation CLI tool that makes it easy to create amazing web applications<br/>with **Go** on the backend, using **htmx**, **hyperscript** or **Alpine.js**<br/>and the most popular **CSS** frameworks on the frontend.
 
 [![Go version][go_version_img]][go_dev_url]
-[![Go report][go_report_img]][go_report_url]<br/>
-[![Code coverage][go_code_coverage_img]][go_code_coverage_url]
+[![Go report][go_report_img]][go_report_url]
 [![License][repo_license_img]][repo_license_url]
+
+**&searr;&nbsp;&nbsp;Go to the official Gowebly CLI documentation&nbsp;&nbsp;&swarr;**
+
+[English][docs_url] · [Русский][docs_ru_url] · [简体中文][docs_zh_hk_url] · [Español][docs_es_url]
 
 **&searr;&nbsp;&nbsp;Share the project's link to your friends&nbsp;&nbsp;&swarr;**
 
@@ -32,7 +33,7 @@ A next-generation CLI tool that makes it easy to create amazing web applications
 - For **any** developer's level of knowledge and technical expertise, as the intelligent CLI does most of the routine project setup for you, creates an understandable structure, and prepares code for use and deployment in production;
 - Cross-platform and multi-architecture allows **successful running** on any GNU/Linux distros, Microsoft Windows (including WSL) and Apple macOS;
 - [**Well-documented**][docs_url], includes translations in **many other languages** ([Русский][docs_ru_url], [简体中文][docs_zh_hk_url], [Español][docs_es_url]);
-- Enables you to start a new project faster with **Go**, **htmx** & **hyperscript** libraries;
+- Enables you to **start a new project faster** with [Go][go_url], [htmx][htmx_url], [hyperscript][hyperscript_url] and [Alpine.js][alpinejs_url] libraries;
 - Supports the built-in **net/http** package and the most popular Go web frameworks and routers out of the box, such as **Fiber**, **Gin**, **Echo**, **Chi** and **HttpRouter**;
 - Supports the most popular CSS frameworks out of the box, such as **Tailwind CSS**, **daisyUI**, **Flowbite**, **UnoCSS**, **Bootstrap** and **Bulma**;
 - Supports a way to build HTML for the htmx projects with Go using the **Templ** package;
@@ -136,7 +137,7 @@ For many developers, _including me_, this process is as tedious and even depress
 
 Why not just give all that awful manual work to machines? Let them do all the hard work for us, and we will just create awesome web products and not have to think about build and deploy.
 
-That's why the **Gowebly** CLI was born. It allows you to start a new project faster with **Go**, **htmx** & **hyperscript**, **Templ** and the most popular **CSS** frameworks.
+That's why the **Gowebly** CLI was born. It allows you to start a new project faster with **Go**, **htmx**, **hyperscript** or **Alpine.js**, **Templ** and the most popular **CSS** frameworks.
 
 I am here to save you from this routine pain! ✨
 
@@ -180,6 +181,7 @@ Your PRs, issues & any words are welcome! Thank you 😘
 
 <!-- Go links -->
 
+[go_url]: https://go.dev
 [go_download_url]: https://golang.org/dl/
 [go_run_url]: https://pkg.go.dev/cmd/go#hdr-Compile_and_run_Go_program
 [go_install_url]: https://golang.org/cmd/go/#hdr-Compile_and_install_packages_and_dependencies
@@ -187,8 +189,6 @@ Your PRs, issues & any words are welcome! Thank you 😘
 [go_report_img]: https://img.shields.io/badge/Go_report-A+-success?style=for-the-badge&logo=none
 [go_dev_url]: https://pkg.go.dev/github.com/gowebly/gowebly/v2
 [go_version_img]: https://img.shields.io/badge/Go-1.21+-00ADD8?style=for-the-badge&logo=go
-[go_code_coverage_url]: https://codecov.io/gh/gowebly/gowebly/v2
-[go_code_coverage_img]: https://img.shields.io/codecov/c/gh/gowebly/gowebly.svg?logo=codecov&style=for-the-badge
 
 <!-- Repository links -->
 
@@ -217,8 +217,8 @@ Your PRs, issues & any words are welcome! Thank you 😘
 
 [htmx_url]: https://htmx.org
 [hyperscript_url]: https://hyperscript.org
+[alpinejs_url]: https://alpinejs.dev
 [brew_url]: https://brew.sh
-[docker_image_url]: https://hub.docker.com/repository/docker/gowebly/gowebly
 
 <!-- Social links -->
 

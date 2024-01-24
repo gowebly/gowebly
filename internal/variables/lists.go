@@ -19,6 +19,7 @@ var (
 	ListReactivityLibraries map[string][]string = map[string][]string{
 		"htmx":             {"htmx", "htmx"},
 		"htmx_hyperscript": {"htmx_hyperscript", "htmx with hyperscript"},
+		"htmx_alpinejs":    {"htmx_alpinejs", "htmx with Alpine.js"},
 	}
 
 	// ListCSSFrameworks represents the list of CSS frameworks.
