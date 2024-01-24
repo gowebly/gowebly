@@ -19,7 +19,7 @@ type File struct {
 func IsExistInFolder(name string, isFolder bool) bool {
 	// Check, if file or folder is existing.
 	info, err := os.Stat(filepath.Clean(name))
-	if err == nil || !os.IsNotExist(err) {
+	if err == nil && info != nil {
 		return info.IsDir() == isFolder
 	}
 

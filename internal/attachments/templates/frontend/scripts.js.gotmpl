@@ -1,3 +1,12 @@
 import 'htmx.org';
-{{ if eq .ReactivityLibrary "htmx_hyperscript" }}import 'hyperscript.org';{{ end }}
 {{ if eq .CSSFramework "bootstrap" }}import * as bootstrap from 'bootstrap';{{ else if eq .CSSFramework "flowbite" }}import 'flowbite';{{ end }}
+{{ if eq .ReactivityLibrary "htmx_hyperscript" }}import 'hyperscript.org';{{ end }}
+{{ if eq .ReactivityLibrary "htmx_alpinejs" }}
+import Alpine from 'alpinejs';
+
+// Add Alpine instance to window object.
+window.Alpine = Alpine;
+
+// Start Alpine.
+Alpine.start();
+{{ end }}

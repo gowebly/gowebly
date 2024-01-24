@@ -4,7 +4,7 @@ go 1.21
 
 require (
 	github.com/charmbracelet/huh v0.2.3
-	github.com/charmbracelet/huh/spinner v0.0.0-20240104183627-a92fbe913dd7
+	github.com/charmbracelet/huh/spinner v0.0.0-20240124001018-1818e8444715
 	github.com/charmbracelet/lipgloss v0.9.1
 	github.com/google/wire v0.5.0
 	github.com/stretchr/testify v1.8.4
@@ -37,7 +37,7 @@ require (
 	github.com/rivo/uniseg v0.4.4 // indirect
 	github.com/yuin/goldmark v1.6.0 // indirect
 	github.com/yuin/goldmark-emoji v1.0.2 // indirect
-	golang.org/x/net v0.19.0 // indirect
+	golang.org/x/net v0.20.0 // indirect
 	golang.org/x/sync v0.6.0 // indirect
 	golang.org/x/sys v0.16.0 // indirect
 	golang.org/x/term v0.16.0 // indirect

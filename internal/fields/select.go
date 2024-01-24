@@ -31,6 +31,7 @@ func ReactivityLibrarySelect(di *injectors.Injector) *huh.Select[string] {
 		Options(
 			huh.NewOption(variables.ListReactivityLibraries["htmx"][1], variables.ListReactivityLibraries["htmx"][0]),
 			huh.NewOption(variables.ListReactivityLibraries["htmx_hyperscript"][1], variables.ListReactivityLibraries["htmx_hyperscript"][0]),
+			huh.NewOption(variables.ListReactivityLibraries["htmx_alpinejs"][1], variables.ListReactivityLibraries["htmx_alpinejs"][0]),
 		).
 		Value(&di.Config.Frontend.ReactivityLibrary)
 }

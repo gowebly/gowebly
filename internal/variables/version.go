@@ -1,4 +1,4 @@
 package variables
 
 // GoweblyVersion represents the current Gowebly CLI version.
-var GoweblyVersion string = "v2.0.2"
+var GoweblyVersion string = "v2.1.0"
