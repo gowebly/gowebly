@@ -12,7 +12,7 @@ A next-generation CLI tool that makes it easy to create amazing web applications
 [![Go report][go_report_img]][go_report_url]
 [![License][repo_license_img]][repo_license_url]
 
-**&searr;&nbsp;&nbsp;Go to the official Gowebly CLI documentation&nbsp;&nbsp;&swarr;**
+**&searr;&nbsp;&nbsp;The official Gowebly CLI documentation&nbsp;&nbsp;&swarr;**
 
 [English][docs_url] · [Русский][docs_ru_url] · [简体中文][docs_zh_hk_url] · [Español][docs_es_url]
 
@@ -34,12 +34,12 @@ A next-generation CLI tool that makes it easy to create amazing web applications
 - Cross-platform and multi-architecture allows **successful running** on any GNU/Linux distros, Microsoft Windows (including WSL) and Apple macOS;
 - [**Well-documented**][docs_url], includes translations in **many other languages** ([Русский][docs_ru_url], [简体中文][docs_zh_hk_url], [Español][docs_es_url]);
 - Enables you to **start a new project faster** with [Go][go_url], [htmx][htmx_url], [hyperscript][hyperscript_url] or [Alpine.js][alpinejs_url] libraries;
-- Supports the built-in **net/http** package and the most popular Go web frameworks and routers out of the box, such as **Fiber**, **Gin**, **Echo**, **Chi** and **HttpRouter**;
-- Supports the most popular CSS frameworks out of the box, such as **Tailwind CSS**, **daisyUI**, **Flowbite**, **UnoCSS**, **Bootstrap** and **Bulma**;
-- Supports a way to build HTML for the htmx projects with Go using the **Templ** package;
-- Supports a **live-reload** mode for your Go code and frontend files using **Air** tool;
+- Supports the built-in [net/http][go_net_http_url] package and the most popular **Go web frameworks and routers** out of the box, such as [Fiber][fiber_url], [Gin][gin_url], [Echo][echo_url], [Chi][chi_url] and [HttpRouter][httprouter_url];
+- Supports the most popular **CSS frameworks** out of the box, such as [Tailwind CSS][tailwindcss_url], [daisyUI][daisyui_url], [Flowbite][flowbite_url], [UnoCSS][unocss_url], [Bootstrap][bootstrap_url] and [Bulma][bulma_url];
+- Supports a way to build HTML for the htmx projects with Go using the [Templ][templ_url] package;
+- Supports a **live-reload** mode for your Go code and frontend files using [Air][air_url] tool;
 - Ready to install as **PWA** (Progressive Web App) in your browser or mobile device;
-- Has a library of **user-friendly** helpers for your Go code.
+- Has a library of **user-friendly** [helpers][gowebly_helpers_url] for your Go code.
 
 ## ⚡️ Quick start
 
@@ -215,9 +215,24 @@ Your PRs, issues & any words are welcome! Thank you 😘
 
 <!-- Readme links -->
 
+[go_net_http_url]: https://pkg.go.dev/net/http
+[fiber_url]: https://github.com/gofiber/fiber
+[gin_url]: https://github.com/gin-gonic/gin
+[echo_url]: https://github.com/labstack/echo
+[chi_url]: https://github.com/go-chi/chi
+[httprouter_url]: https://github.com/julienschmidt/httprouter
 [htmx_url]: https://htmx.org
 [hyperscript_url]: https://hyperscript.org
 [alpinejs_url]: https://alpinejs.dev
+[tailwindcss_url]: https://github.com/tailwindlabs/tailwindcss
+[daisyui_url]: https://github.com/saadeghi/daisyui
+[flowbite_url]: https://github.com/themesberg/flowbite
+[unocss_url]: https://github.com/unocss/unocss
+[bootstrap_url]: https://github.com/twbs/bootstrap
+[bulma_url]: https://github.com/jgthms/bulma
+[templ_url]: https://github.com/a-h/templ
+[air_url]: https://github.com/cosmtrek/air
+[gowebly_helpers_url]: https://github.com/gowebly/helpers
 [brew_url]: https://brew.sh
 
 <!-- Social links -->
