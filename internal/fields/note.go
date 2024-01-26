@@ -12,6 +12,5 @@ import (
 func WelcomeNote() *huh.Note {
 	return huh.NewNote().
 		Title(fmt.Sprintf("The Gowebly CLI (%s)", variables.GoweblyVersion)).
-		Description(messages.FormWelcomeDescription).
-		Next(true)
+		Description(messages.FormWelcomeDescription)
 }
