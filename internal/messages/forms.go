@@ -58,14 +58,17 @@ const (
 	*/
 
 	// FormAirUsageTitle represents the title for the Air tool switch.
-	FormAirUsageTitle string = "Use the Air tool to enable live-reloading for your application?"
+	FormAirUsageTitle string = "Use the Air tool to enable live-reloading for your application?\n"
+	// FormAirUsageDescription represents the description for the Air tool switch.
+	FormAirUsageDescription string = "This tool will enable live-reloading mode for your backend\nand frontend code of your application.\n\nFor more info → https://github.com/cosmtrek/air"
 
 	// FormRuntimeUsageTitle represents the title for the Bun runtime environment switch.
-	FormBunUsageTitle string = "Use the Bun as a frontend runtime environment?"
+	FormBunUsageTitle string = "Use the Bun as a frontend runtime environment?\n"
+	// FormRuntimeUsageDescription represents the description for the Bun runtime environment switch.
+	FormBunUsageDescription string = "This environment will be used to build the frontend\npart of your application.\n\nFor more info → https://github.com/oven-sh/bun"
 
 	// FormTempleUsageTitle represents the title for the Templ package switch.
-	FormTemplUsageTitle string = "Use the Templ package to build HTML templates with Go?"
-
-	// FormHyperscriptUsageTitle represents the title for the hyperscript switch.
-	FormHyperscriptUsageTitle string = "Use the Hyperscript library on the frontend?"
+	FormTemplUsageTitle string = "Use the Templ package to build HTML templates with Go?\n"
+	// FormTempleUsageDescription represents the description for the Templ package switch.
+	FormTemplUsageDescription string = "This package will be used to generate HTML templates\nby Go for your application.\n\nFor more info → https://github.com/a-h/templ"
 )

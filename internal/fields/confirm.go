@@ -10,6 +10,7 @@ import (
 func IsUseAirConfirm(di *injectors.Injector) *huh.Confirm {
 	return huh.NewConfirm().
 		Title(messages.FormAirUsageTitle).
+		Description(messages.FormAirUsageDescription).
 		Affirmative("Yes").
 		Negative("No").
 		Value(&di.Config.Tools.IsUseAir)
@@ -19,6 +20,7 @@ func IsUseAirConfirm(di *injectors.Injector) *huh.Confirm {
 func IsUseTempleConfirm(di *injectors.Injector) *huh.Confirm {
 	return huh.NewConfirm().
 		Title(messages.FormTemplUsageTitle).
+		Description(messages.FormTemplUsageDescription).
 		Affirmative("Yes").
 		Negative("No").
 		Value(&di.Config.Tools.IsUseTempl)
@@ -28,6 +30,7 @@ func IsUseTempleConfirm(di *injectors.Injector) *huh.Confirm {
 func IsUseBunConfirm(di *injectors.Injector) *huh.Confirm {
 	return huh.NewConfirm().
 		Title(messages.FormBunUsageTitle).
+		Description(messages.FormBunUsageDescription).
 		Affirmative("Yes").
 		Negative("No").
 		Value(&di.Config.Tools.IsUseBun)
