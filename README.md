@@ -173,7 +173,11 @@ Your PRs, issues & any words are welcome! Thank you 😘
 
 ### 🌟 Stargazers
 
-<img src="https://starchart.cc/gowebly/gowebly.svg" alt="Stargazers over time" style="max-width: 100%"/>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=gowebly/gowebly&type=Date&theme=dark"/>
+  <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=gowebly/gowebly&type=Date"/>
+  <img style="max-width: 100%" alt="Star History Chart" src="https://api.star-history.com/svg?repos=gowebly/gowebly&type=Date"/>
+</picture>
 
 ## ⚠️ License
 
