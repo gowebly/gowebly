@@ -176,7 +176,7 @@ Your PRs, issues & any words are welcome! Thank you 😘
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=gowebly/gowebly&type=Date&theme=dark"/>
   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=gowebly/gowebly&type=Date"/>
-  <img style="max-width: 100%" alt="Star History Chart" src="https://api.star-history.com/svg?repos=gowebly/gowebly&type=Date"/>
+  <img width="100%" alt="The Gowebly CLI star history chart" src="https://api.star-history.com/svg?repos=gowebly/gowebly&type=Date"/>
 </picture>
 
 ## ⚠️ License
