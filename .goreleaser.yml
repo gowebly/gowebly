@@ -5,7 +5,6 @@ before:
   hooks:
     - go mod download
     - go mod tidy
-    - go run github.com/google/wire/cmd/wire@latest ./...
 
 builds:
   - id: default
