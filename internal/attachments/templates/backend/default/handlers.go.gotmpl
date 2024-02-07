@@ -19,14 +19,6 @@ import (
 
 // indexViewHandler handles a view for the index page.
 func indexViewHandler(w http.ResponseWriter, r *http.Request) {
-	// Check, if the current URL is '/'.
-	if r.URL.Path != "/" {
-		// If not, return HTTP 404 error.
-		http.NotFound(w, r)
-		slog.Error("render page", "method", r.Method, "status", http.StatusNotFound, "path", r.URL.Path)
-		return
-	}
-
 	{{ if .Tools.IsUseTempl }}
 	// Define template meta tags.
 	metaTags := pages.MetaTags(
@@ -50,8 +42,8 @@ func indexViewHandler(w http.ResponseWriter, r *http.Request) {
 	// Render index page template.
 	if err := htmx.NewResponse().RenderTempl(r.Context(), w, indexTemplate); err != nil {
 		// If not, return HTTP 400 error.
-		w.WriteHeader(http.StatusInternalServerError)
 		slog.Error("render template", "method", r.Method, "status", http.StatusInternalServerError, "path", r.URL.Path)
+		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
 	{{ else }}
@@ -62,16 +54,16 @@ func indexViewHandler(w http.ResponseWriter, r *http.Request) {
 	tmpl, err := gowebly.ParseTemplates(indexPage) // gowebly helper for parse user templates
 	if err != nil {
 		// If not, return HTTP 500 error.
-		w.WriteHeader(http.StatusInternalServerError)
 		slog.Error(err.Error(), "method", r.Method, "status", http.StatusInternalServerError, "path", r.URL.Path)
+		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
 
 	// Execute (render) all templates or return error.
 	if err := tmpl.Execute(w, nil); err != nil {
 		// If not, return HTTP 500 error.
-		w.WriteHeader(http.StatusInternalServerError)
 		slog.Error(err.Error(), "method", r.Method, "status", http.StatusInternalServerError, "path", r.URL.Path)
+		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
 	{{ end }}
@@ -82,20 +74,12 @@ func indexViewHandler(w http.ResponseWriter, r *http.Request) {
 
 // showContentAPIHandler handles an API endpoint to show content.
 func showContentAPIHandler(w http.ResponseWriter, r *http.Request) {
-	// Check, if the current request method is GET.
-	if r.Method != http.MethodGet {
-		// If not, return HTTP 405 error.
-		w.WriteHeader(http.StatusMethodNotAllowed)
-		slog.Error("request API", "method", r.Method, "status", http.StatusMethodNotAllowed, "path", r.URL.Path)
-		return
-	}
-
 	// Check, if the current request has a 'HX-Request' header.
 	// For more information, see https://htmx.org/docs/#request-headers
 	if !htmx.IsHTMX(r) {
 		// If not, return HTTP 400 error.
-		w.WriteHeader(http.StatusBadRequest)
 		slog.Error("request API", "method", r.Method, "status", http.StatusBadRequest, "path", r.URL.Path)
+		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
 
