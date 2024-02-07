@@ -19,9 +19,6 @@ jobs:
         with:
           go-version: ${{ matrix.go }}
 
-      - name: Run "google/wire" for dependency injection
-        run: go run github.com/google/wire/cmd/wire@latest ./...
-
       - name: Run "govulncheck" for scanning code for known vulnerabilities in dependencies
         run: go run golang.org/x/vuln/cmd/govulncheck@latest -test ./...
 
