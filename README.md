@@ -36,7 +36,8 @@ A next-generation CLI tool that makes it easy to create amazing web applications
 - Enables you to **start a new project faster** with [Go][go_url], [htmx][htmx_url], [hyperscript][hyperscript_url] or [Alpine.js][alpinejs_url] libraries;
 - Supports the built-in [net/http][go_net_http_url] package and the most popular **Go web frameworks and routers** out of the box, such as [Fiber][fiber_url], [Gin][gin_url], [Echo][echo_url], [Chi][chi_url] and [HttpRouter][httprouter_url];
 - Supports the most popular **CSS frameworks** out of the box, such as [Tailwind CSS][tailwindcss_url], [daisyUI][daisyui_url], [Flowbite][flowbite_url], [UnoCSS][unocss_url], [Bootstrap][bootstrap_url] and [Bulma][bulma_url];
-- Supports a way to build HTML for the htmx projects with Go using the [Templ][templ_url] package;
+- Supports a new **JavaScript runtime environment** called [Bun][bun_url] for a frontend;
+- Supports a way to **build HTML with Go** using the [Templ][templ_url] package;
 - Supports a **live-reload** mode for your Go code and frontend files using [Air][air_url] tool;
 - Ready to install as **PWA** (Progressive Web App) in your browser or mobile device;
 - Has a library of **user-friendly** [helpers][gowebly_helpers_url] for your Go code.
@@ -234,6 +235,7 @@ Your PRs, issues & any words are welcome! Thank you 😘
 [unocss_url]: https://github.com/unocss/unocss
 [bootstrap_url]: https://github.com/twbs/bootstrap
 [bulma_url]: https://github.com/jgthms/bulma
+[bun_url]: https://github.com/oven-sh/bun
 [templ_url]: https://github.com/a-h/templ
 [air_url]: https://github.com/cosmtrek/air
 [gowebly_helpers_url]: https://github.com/gowebly/helpers
