@@ -1,0 +1,130 @@
+# Auto-generated .golangci.yml file.
+# See https://gowebly.org for more information.
+
+# Linters settings.
+linters-settings:
+  tagalign:
+    order:
+      - json
+      - db
+      - validate
+    strict: true
+
+  funlen:
+    lines: 120
+    ignore-comments: true
+
+  goconst:
+    min-len: 3
+    min-occurrences: 3
+
+  gocritic:
+    enabled-tags:
+      - diagnostic
+      - experimental
+      - opinionated
+      - performance
+      - style
+
+  gocyclo:
+    min-complexity: 15
+
+  gofmt:
+    rewrite-rules:
+      - pattern: 'interface{}'
+        replacement: 'any'
+
+  gomnd:
+    checks:
+      - argument
+      - case
+      - condition
+      - return
+    ignored-functions:
+      - byte
+
+  gosec:
+    exclude-generated: true
+    excludes:
+      - G101
+
+  govet:
+    check-shadowing: true
+
+  errorlint:
+    asserts: false
+
+  lll:
+    line-length: 300
+
+  misspell:
+    locale: US
+
+  nolintlint:
+    allow-unused: false # report any unused nolint directives
+    require-explanation: false # don't require an explanation for nolint directives
+    require-specific: false # don't require nolint directives to be specific about which linter is being skipped
+
+  revive:
+    rules:
+      - name: unexported-return
+        disabled: true
+      - name: unused-parameter
+
+# Linters to enable.
+linters:
+  disable-all: true
+
+  enable:
+    - bodyclose
+    - dogsled
+    - dupl
+    - errcheck
+    - errorlint
+    - exportloopref
+    - funlen
+    - gocheckcompilerdirectives
+    - gochecknoinits
+    - goconst
+    - gocritic
+    - gocyclo
+    - gofmt
+    - goimports
+    - gomnd
+    - goprintffuncname
+    - gosec
+    - gosimple
+    - govet
+    - ineffassign
+    - lll
+    - misspell
+    - nakedret
+    - noctx
+    - nolintlint
+    - nilerr
+    - nilnil
+    - revive
+    - staticcheck
+    - stylecheck
+    - typecheck
+    - tagalign
+    - unconvert
+    - unparam
+    - unused
+    - whitespace
+
+# Issues configuration.
+issues:
+  exclude-rules:
+    - path: _test\.go
+      linters:
+        - gomnd
+
+# Run configuration.
+run:
+  timeout: 5m
+  tests: false
+  {{ if .Tools.IsUseGolangCILint }}
+  skip-files:
+    - '.*_templ\\.go$'
+  {{ end }}

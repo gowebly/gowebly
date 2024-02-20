@@ -181,6 +181,16 @@ func createBackendFiles(di *injectors.Injector) error {
 		})
 	}
 
+	// Check if Golang CI Lint tool is used.
+	if di.Config.Tools.IsUseGolangCILint {
+		// Add golangci-lint template to the list.
+		templates = append(templates, helpers.EmbedTemplate{
+			EmbedFile:  "templates/misc/golangci.yml.gotmpl",
+			OutputFile: ".golangci.yml",
+			Data:       di.Config,
+		})
+	}
+
 	return helpers.GenerateFilesByTemplateFromEmbedFS(di.Attachments.Templates, templates)
 }
 

@@ -57,6 +57,7 @@ func Create(di *injectors.Injector) error {
 		helpers.MakeStyled(strconv.FormatBool(di.Config.Tools.IsUseAir), &helpers.StringStyle{Color: variables.ColorBlue}),
 		helpers.MakeStyled(strconv.FormatBool(di.Config.Tools.IsUseBun), &helpers.StringStyle{Color: variables.ColorBlue}),
 		helpers.MakeStyled(strconv.FormatBool(di.Config.Tools.IsUseTempl), &helpers.StringStyle{Color: variables.ColorBlue}),
+		helpers.MakeStyled(strconv.FormatBool(di.Config.Tools.IsUseGolangCILint), &helpers.StringStyle{Color: variables.ColorBlue}),
 	)
 
 	// Show created project info.
