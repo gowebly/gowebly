@@ -19,3 +19,9 @@ build: clean test
 run: build
 	@echo "\n> Running project on http://localhost:{{ .Backend.Port }}...\n"
 	${TEMP_DIR}/${BINARY_NAME}
+
+{{ if .Tools.IsUseGolangCILint }}
+lint:
+	@echo "\n> Run linter...\n"
+	go run github.com/golangci/golangci-lint/cmd/golangci-lint@latest run
+{{ end }}

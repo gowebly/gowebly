@@ -35,3 +35,13 @@ func IsUseBunConfirm(di *injectors.Injector) *huh.Confirm {
 		Negative("No").
 		Value(&di.Config.Tools.IsUseBun)
 }
+
+// IsUseGolangCILintConfirm runs the confirm if Golang CI Lint is used.
+func IsUseGolangCILintConfirm(di *injectors.Injector) *huh.Confirm {
+	return huh.NewConfirm().
+		Title(messages.FormGolangCILintUsageTitle).
+		Description(messages.FormGolangCILintUsageDescription).
+		Affirmative("Yes").
+		Negative("No").
+		Value(&di.Config.Tools.IsUseGolangCILint)
+}

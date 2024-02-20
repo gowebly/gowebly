@@ -71,4 +71,9 @@ const (
 	FormTemplUsageTitle string = "Use the Templ package to build HTML templates with Go?\n"
 	// FormTempleUsageDescription represents the description for the Templ package switch.
 	FormTemplUsageDescription string = "This package will be used to generate HTML templates\nby Go for your application.\n\nFor more info → https://github.com/a-h/templ"
+
+	// FormGolangCILintUsageTitle represents the title for the Golang CI Lint switch.
+	FormGolangCILintUsageTitle string = "Use the Golang CI Lint to lint your Go code?\n"
+	// FormGolangCILintUsageDescription represents the description for the Golang CI Lint switch.
+	FormGolangCILintUsageDescription string = "This tool will be used to lint your Go code.\n\nFor more info → https://github.com/golangci/golangci-lint"
 )

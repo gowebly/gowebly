@@ -34,14 +34,15 @@ func welcomeForm() error {
 // projectSettingsForm runs the project settings form.
 func projectSettingsForm(di *injectors.Injector) error {
 	return huh.NewForm(
-		huh.NewGroup(fields.IsUseAirConfirm(di)),         // confirm if Air is used
-		huh.NewGroup(fields.IsUseBunConfirm(di)),         // confirm if Bun is used
-		huh.NewGroup(fields.IsUseTempleConfirm(di)),      // confirm if Templ is used
-		huh.NewGroup(fields.GoFrameworkSelect(di)),       // select Go framework
-		huh.NewGroup(fields.ReactivityLibrarySelect(di)), // select reactivity library
-		huh.NewGroup(fields.CSSFrameworkSelect(di)),      // select CSS framework
-		huh.NewGroup(fields.GoModuleNameInput(di)),       // input Go module name in go.mod
-		huh.NewGroup(fields.PackageNameInput(di)),        // input package name in package.json
-		huh.NewGroup(fields.PortInput(di)),               // input port number
+		huh.NewGroup(fields.IsUseAirConfirm(di)),          // confirm if Air is used
+		huh.NewGroup(fields.IsUseBunConfirm(di)),          // confirm if Bun is used
+		huh.NewGroup(fields.IsUseTempleConfirm(di)),       // confirm if Templ is used
+		huh.NewGroup(fields.IsUseGolangCILintConfirm(di)), // confirm if Golang CI Lint is used
+		huh.NewGroup(fields.GoFrameworkSelect(di)),        // select Go framework
+		huh.NewGroup(fields.ReactivityLibrarySelect(di)),  // select reactivity library
+		huh.NewGroup(fields.CSSFrameworkSelect(di)),       // select CSS framework
+		huh.NewGroup(fields.GoModuleNameInput(di)),        // input Go module name in go.mod
+		huh.NewGroup(fields.PackageNameInput(di)),         // input package name in package.json
+		huh.NewGroup(fields.PortInput(di)),                // input port number
 	).Run()
 }
