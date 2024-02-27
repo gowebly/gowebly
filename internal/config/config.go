@@ -19,7 +19,7 @@ type Frontend struct {
 
 // Tools represents struct for a tools part of the project config.
 type Tools struct {
-	IsUseAir, IsUseBun, IsUseTempl, IsUseGolangCILint bool
+	IsUseAir, IsUseBun, IsUseTempl, IsUseGolangCILint, IsUseWindows bool
 }
 
 // New creates a new config.
@@ -40,6 +40,7 @@ func New() *Config {
 			IsUseBun:          true,
 			IsUseTempl:        true,
 			IsUseGolangCILint: true,
+			IsUseWindows:      false,
 		},
 	}
 }

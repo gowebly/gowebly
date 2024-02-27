@@ -24,6 +24,9 @@ func Create(di *injectors.Injector) error {
 		return err
 	}
 
+	// Set the OS type
+	di.Config.Tools.IsUseWindows = helpers.IsWindows()
+
 	// Create a new context and a cancel function.
 	ctx, cancel := context.WithCancel(context.Background())
 

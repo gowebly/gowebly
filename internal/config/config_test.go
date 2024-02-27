@@ -15,4 +15,5 @@ func TestNew(t *testing.T) {
 	assert.Equal(t, "project", c.Frontend.PackageName)
 	assert.Equal(t, "default", c.Frontend.CSSFramework)
 	assert.Equal(t, true, c.Tools.IsUseBun)
+	assert.Equal(t, false, c.Tools.IsUseWindows)
 }
