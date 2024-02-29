@@ -10,8 +10,8 @@ github.com/charmbracelet/bubbletea v0.25.0 h1:bAfwk7jRz7FKFl9RzlIULPkStffg5k6pNt
 github.com/charmbracelet/bubbletea v0.25.0/go.mod h1:EN3QDR1T5ZdWmdfDzYcqOCAps45+QIJbLOBxmVNWNNg=
 github.com/charmbracelet/huh v0.3.0 h1:CxPplWkgW2yUTDDG0Z4S5HH8SJOosWHd4LxCvi0XsKE=
 github.com/charmbracelet/huh v0.3.0/go.mod h1:fujUdKX8tC45CCSaRQdw789O6uaCRwx8l2NDyKfC4jA=
-github.com/charmbracelet/huh/spinner v0.0.0-20240209193029-45947515c4cf h1:hzfl5rHblaVR/8zfAoCBuqsTcEp/Zvy1IVZBIebZelM=
-github.com/charmbracelet/huh/spinner v0.0.0-20240209193029-45947515c4cf/go.mod h1:2l0nupcBRhdSZQqIiaV2hKwctrYbBbOr9Dn6Smox3f4=
+github.com/charmbracelet/huh/spinner v0.0.0-20240229015932-3b6ef873f164 h1:Z/oFjdYETlSZC/Mp4ISlwobAPeXLpek3UNILyr4Rnyc=
+github.com/charmbracelet/huh/spinner v0.0.0-20240229015932-3b6ef873f164/go.mod h1:nrBG0YEHaxdbqHXW1xvG1hPqkuac9Eg7RTMvogiXuz0=
 github.com/charmbracelet/lipgloss v0.9.1 h1:PNyd3jvaJbg4jRHKWXnCj1akQm4rh8dbEzN1p/u1KWg=
 github.com/charmbracelet/lipgloss v0.9.1/go.mod h1:1mPmG4cxScwUQALAAnacHaigiiHB9Pmr+v1VEawJl6I=
 github.com/containerd/console v1.0.4 h1:F2g4+oChYvBTsASRTz8NP6iIAi97J3TtSAsLbIFn4ro=

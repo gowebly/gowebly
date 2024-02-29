@@ -1,5 +1,5 @@
 TEMP_DIR=./tmp
-BINARY_NAME=gowebly_{{ .Backend.GoFramework }}
+BINARY_NAME=gowebly_{{ .Backend.GoFramework }}{{ if .SystemInfo.IsWindows }}.exe{{ end }}
 
 clean:
 	@echo "\n> Cleaning project...\n"
@@ -12,7 +12,7 @@ test:
 
 build: clean test
 	@echo "\n> Building project frontend...\n"
-	{{ if .Tools.IsUseTempl }}templ generate && {{ end }}{{ if .Tools.IsUseBun }}bun{{ else }}npm{{ end }} run build
+	{{ if .Tools.IsUseBun }}bun{{ else }}npm{{ end }} run build{{ if .Tools.IsUseTempl }} && go run github.com/a-h/templ/cmd/templ@latest generate{{ end }}
 	@echo "\n> Building project backend...\n"
 	go build -o ${TEMP_DIR}/${BINARY_NAME} .
 
