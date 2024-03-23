@@ -47,7 +47,7 @@ A next-generation CLI tool that makes it easy to create amazing web applications
 ## ⚡️ Quick start
 
 > [!NOTE]
-> If you are looking for a version of the **Gowebly** CLI below `v2.0.0`, it's in [this][repo_branch_v1_url] branch.
+> Looking for the **Gowebly** CLI `v1`? It's located in [this][repo_branch_v1_url] branch.
 
 First, [download][go_download_url] and install **Go**. Version `1.22.0` (or higher) is required.
 
