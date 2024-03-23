@@ -1,10 +1,10 @@
 module github.com/gowebly/gowebly/v2
 
-go 1.22.0
+go 1.22
 
 require (
 	github.com/charmbracelet/huh v0.3.0
-	github.com/charmbracelet/huh/spinner v0.0.0-20240229215634-51377e67546c
+	github.com/charmbracelet/huh/spinner v0.0.0-20240321161533-278656239a9d
 	github.com/charmbracelet/lipgloss v0.10.0
 	github.com/google/wire v0.6.0
 	github.com/stretchr/testify v1.9.0
@@ -29,8 +29,8 @@ require (
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/rivo/uniseg v0.4.7 // indirect
 	golang.org/x/sync v0.6.0 // indirect
-	golang.org/x/sys v0.17.0 // indirect
-	golang.org/x/term v0.17.0 // indirect
+	golang.org/x/sys v0.18.0 // indirect
+	golang.org/x/term v0.18.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )

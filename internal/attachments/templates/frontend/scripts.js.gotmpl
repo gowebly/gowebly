@@ -1,6 +1,11 @@
 import 'htmx.org';
 {{ if eq .CSSFramework "bootstrap" }}import * as bootstrap from 'bootstrap';{{ else if eq .CSSFramework "flowbite" }}import 'flowbite';{{ end }}
-{{ if eq .ReactivityLibrary "htmx_hyperscript" }}import 'hyperscript.org';{{ end }}
+{{ if eq .ReactivityLibrary "htmx_hyperscript" }}
+import * as hyperscript from 'hyperscript.org';
+
+// Initialize hyperscript.
+hyperscript.browserInit();
+{{ end }}
 {{ if eq .ReactivityLibrary "htmx_alpinejs" }}
 import Alpine from 'alpinejs';
 
