@@ -4,7 +4,7 @@ go 1.22
 
 require (
 	github.com/charmbracelet/huh v0.3.0
-	github.com/charmbracelet/huh/spinner v0.0.0-20240404200615-66118a2cb3cf
+	github.com/charmbracelet/huh/spinner v0.0.0-20240417163504-acfe24c3f5b5
 	github.com/charmbracelet/lipgloss v0.10.0
 	github.com/google/wire v0.6.0
 	github.com/stretchr/testify v1.9.0
