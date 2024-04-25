@@ -35,7 +35,7 @@ A next-generation CLI tool that makes it easy to create amazing web applications
 - [**Well-documented**][docs_url], includes translations in **many other languages** ([Русский][docs_ru_url], [简体中文][docs_zh_hk_url], [Español][docs_es_url]).
 - Enables you to **start a new project faster** with [Go][go_url], [htmx][htmx_url], [hyperscript][hyperscript_url] or [Alpine.js][alpinejs_url] libraries.
 - Supports the built-in [net/http][go_net_http_url] package and the most popular **Go web frameworks and routers** out of the box, such as [Fiber][fiber_url], [Gin][gin_url], [Echo][echo_url], [Chi][chi_url] and [HttpRouter][httprouter_url].
-- Supports the most popular **CSS frameworks** out of the box, such as [Tailwind CSS][tailwindcss_url], [daisyUI][daisyui_url], [Flowbite][flowbite_url], [UnoCSS][unocss_url], [Bootstrap][bootstrap_url] and [Bulma][bulma_url].
+- Supports the most popular **CSS frameworks** out of the box, such as [Tailwind CSS][tailwindcss_url], [daisyUI][daisyui_url], [Flowbite][flowbite_url], [Preline UI][prelineui_url], [UnoCSS][unocss_url], [Bootstrap][bootstrap_url] and [Bulma][bulma_url].
 - Supports a new **JavaScript runtime environment** called [Bun][bun_url] for the frontend.
 - Supports a way to **build HTML with Go** using the [Templ][templ_url] package.
 - Supports a **live-reload** mode for your Go code and frontend files using [Air][air_url] tool.
@@ -234,6 +234,7 @@ Your PRs, issues & any words are welcome! Thank you 😘
 [tailwindcss_url]: https://github.com/tailwindlabs/tailwindcss
 [daisyui_url]: https://github.com/saadeghi/daisyui
 [flowbite_url]: https://github.com/themesberg/flowbite
+[prelineui_url]: https://github.com/htmlstreamofficial/preline
 [unocss_url]: https://github.com/unocss/unocss
 [bootstrap_url]: https://github.com/twbs/bootstrap
 [bulma_url]: https://github.com/jgthms/bulma
