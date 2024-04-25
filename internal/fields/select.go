@@ -46,6 +46,7 @@ func CSSFrameworkSelect(di *injectors.Injector) *huh.Select[string] {
 			huh.NewOption(variables.ListCSSFrameworks["tailwindcss"][1], variables.ListCSSFrameworks["tailwindcss"][0]),
 			huh.NewOption(variables.ListCSSFrameworks["daisyui"][1], variables.ListCSSFrameworks["daisyui"][0]),
 			huh.NewOption(variables.ListCSSFrameworks["flowbite"][1], variables.ListCSSFrameworks["flowbite"][0]),
+			huh.NewOption(variables.ListCSSFrameworks["prelineui"][1], variables.ListCSSFrameworks["prelineui"][0]),
 			huh.NewOption(variables.ListCSSFrameworks["unocss"][1], variables.ListCSSFrameworks["unocss"][0]),
 			huh.NewOption(variables.ListCSSFrameworks["bootstrap"][1], variables.ListCSSFrameworks["bootstrap"][0]),
 			huh.NewOption(variables.ListCSSFrameworks["bulma"][1], variables.ListCSSFrameworks["bulma"][0]),
