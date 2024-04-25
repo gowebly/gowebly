@@ -20,7 +20,8 @@
     "build": "parcel build"
   },
   "dependencies": {
-    {{ if or (eq .CSSFramework "daisyui") (eq .CSSFramework "flowbite") (eq .CSSFramework "tailwindcss") }}
+    {{ if or (eq .CSSFramework "daisyui") (eq .CSSFramework "flowbite") (eq .CSSFramework "prelineui") (eq .CSSFramework "tailwindcss") }}
+    "@tailwindcss/forms": "latest",
     "@tailwindcss/typography": "latest",
     "tailwindcss": "latest",
     {{ end }}
@@ -28,6 +29,8 @@
     "daisyui": "latest",
     {{ else if eq .CSSFramework "flowbite" }}
     "flowbite": "latest",
+    {{ else if eq .CSSFramework "prelineui" }}
+    "preline": "latest",
     {{ else if eq .CSSFramework "unocss" }}
     "unocss": "latest",
     {{ else if eq .CSSFramework "bootstrap" }}

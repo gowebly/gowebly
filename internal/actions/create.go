@@ -203,7 +203,7 @@ func createFrontendFiles(di *injectors.Injector) error {
 
 	// Check which CSS framework is configured for the frontend.
 	switch di.Config.Frontend.CSSFramework {
-	case "daisyui", "flowbite", "tailwindcss":
+	case "daisyui", "flowbite", "prelineui", "tailwindcss":
 		// Generate Tailwind CSS files for supported frameworks.
 		if err := generateTailwindCSSFiles(di); err != nil {
 			return err

@@ -2,17 +2,24 @@
 module.exports = {
     content: [
         '**/*.{html,templ}',
-        {{ if eq .CSSFramework "flowbite" }}'./node_modules/flowbite/**/*.js',{{ end }}
+        {{ if eq .CSSFramework "flowbite" }}
+        './node_modules/flowbite/**/*.js',
+        {{ else if eq .CSSFramework "prelineui" }}
+        './node_modules/preline/dist/*.js',
+        {{ end }}
     ],
     theme: {
         extend: {},
     },
     plugins: [
+        require('@tailwindcss/forms'),
         require('@tailwindcss/typography'),
         {{ if eq .CSSFramework "daisyui" }}
         require('daisyui'),
         {{ else if eq .CSSFramework "flowbite" }}
         require('flowbite/plugin'),
+        {{ else if eq .CSSFramework "prelineui" }}
+        require('preline/plugin'),
         {{ end }}
     ],
 }

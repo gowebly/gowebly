@@ -28,6 +28,7 @@ var (
 		"tailwindcss": {"tailwindcss", "Tailwind CSS"},
 		"daisyui":     {"daisyui", "Tailwind CSS with daisyUI components"},
 		"flowbite":    {"flowbite", "Tailwind CSS with Flowbite components"},
+		"prelineui":   {"prelineui", "Tailwind CSS with Preline UI components"},
 		"unocss":      {"unocss", "UnoCSS"},
 		"bootstrap":   {"bootstrap", "Bootstrap"},
 		"bulma":       {"bulma", "Bulma"},

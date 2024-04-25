@@ -1,6 +1,6 @@
 {
     "plugins": {
-        {{ if or (eq .CSSFramework "daisyui") (eq .CSSFramework "flowbite") (eq .CSSFramework "tailwindcss") }}
+        {{ if or (eq .CSSFramework "daisyui") (eq .CSSFramework "flowbite") (eq .CSSFramework "prelineui") (eq .CSSFramework "tailwindcss") }}
         "tailwindcss": {}
         {{ else if eq .CSSFramework "unocss" }}
         "@unocss/postcss": {}

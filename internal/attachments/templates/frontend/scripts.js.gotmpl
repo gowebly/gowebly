@@ -1,5 +1,11 @@
 import 'htmx.org';
-{{ if eq .CSSFramework "bootstrap" }}import * as bootstrap from 'bootstrap';{{ else if eq .CSSFramework "flowbite" }}import 'flowbite';{{ end }}
+{{ if eq .CSSFramework "bootstrap" }}
+import * as bootstrap from 'bootstrap';
+{{ else if eq .CSSFramework "flowbite" }}
+import 'flowbite';
+{{ else if eq .CSSFramework "prelineui" }}
+import 'preline';
+{{ end }}
 {{ if eq .ReactivityLibrary "htmx_hyperscript" }}
 import * as hyperscript from 'hyperscript.org';
 
@@ -14,4 +20,7 @@ window.Alpine = Alpine;
 
 // Start Alpine.
 Alpine.start();
+{{ end }}
+{{ if eq .CSSFramework "prelineui" }}
+window.HSStaticMethods.autoInit();
 {{ end }}
