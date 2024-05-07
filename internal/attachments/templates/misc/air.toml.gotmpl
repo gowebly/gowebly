@@ -7,7 +7,7 @@ tmp_dir = "tmp"
 [build]
 pre_cmd = ["{{ if .Tools.IsUseBun }}bun{{ else }}npm{{ end }} run build"]
 cmd = "{{ if .Tools.IsUseTempl }}go run github.com/a-h/templ/cmd/templ@latest generate && {{ end }}go build -o ./tmp/gowebly_{{ .Backend.GoFramework }}{{ if .SystemInfo.IsWindows }}.exe{{ end }} ."
-bin = "tmp/gowebly_{{ .Backend.GoFramework }}{{ if .SystemInfo.IsWindows }}.exe{{ end }}{{ if eq .Backend.GoFramework "pocketbase"}} serve{{end}}"
+bin = "tmp/gowebly_{{ .Backend.GoFramework }}{{ if .SystemInfo.IsWindows }}.exe{{ end }}{{ if eq .Backend.GoFramework "pocketbase"}} --dir=pb_data serve{{end}}"
 include_ext = ["go", "templ", "html", "json", "js", "ts", "css", "scss"]
 exclude_dir = [".parcel-cache", "bin", "dist", "node_modules", "static", "tmp", "tests", "vendor"]
 exclude_regex = ["_test\\.go", "_templ\\.go"]

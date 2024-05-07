@@ -11,9 +11,8 @@ import (
 	"time"
 
 	"github.com/labstack/echo/v5/middleware"
-  
-  "github.com/pocketbase/pocketbase"
-  "github.com/pocketbase/pocketbase/core"
+	"github.com/pocketbase/pocketbase"
+	"github.com/pocketbase/pocketbase/core"
 
 	gowebly "github.com/gowebly/helpers"
 )
@@ -46,35 +45,35 @@ func runServer() error {
 	// Create a new PocketBase server.
 	app := pocketbase.New()
 
-  app.OnBeforeServe().Add(func(e *core.ServeEvent) error {
-	  {{ if not .Tools.IsUseTempl }}
-	  // Create a new Echo renderer for templates.
-	  e.Router.Renderer = &Template{
-		  templates: template.Must(template.ParseGlob("templates/**/*.html")),
-	  }
-	  {{ end }}
+	// Add PocketBase onBeforeServe middleware.
+	app.OnBeforeServe().Add(func(e *core.ServeEvent) error {
+		{{ if not .Tools.IsUseTempl }}
+		// Create a new Echo renderer for templates.
+		e.Router.Renderer = &Template{
+			templates: template.Must(template.ParseGlob("templates/**/*.html")),
+		}
+		{{ end }}
 
-	  // Add Echo middlewares.
-	  e.Router.Use(middleware.Logger())
+		// Add Echo middlewares.
+		e.Router.Use(middleware.Logger())
 
-	  // Handle static files.
-	  e.Router.Static("/static", "./static")
+		// Handle static files.
+		e.Router.Static("/static", "./static")
 
-	  // Handle index page view.
-	  e.Router.GET("/", indexViewHandler)
+		// Handle index page view.
+		e.Router.GET("/", indexViewHandler)
 
-	  // Handle API endpoints.
-	  e.Router.GET("/api/hello-world", showContentAPIHandler)
+		// Handle API endpoints.
+		e.Router.GET("/api/hello-world", showContentAPIHandler)
 
+		// Set server options from environment variables.
+		// For more information, see https://blog.cloudflare.com/the-complete-guide-to-golang-net-http-timeouts/
+		e.Server.Addr = fmt.Sprintf(":%d", port)
+		e.Server.ReadTimeout = 5 * time.Second
+		e.Server.WriteTimeout = 10 * time.Second
 
-    // Set server options from environment variables.
-	  // For more information, see https://blog.cloudflare.com/the-complete-guide-to-golang-net-http-timeouts/
-    e.Server.Addr = fmt.Sprintf(":%d", port)
-    e.Server.ReadTimeout = 5 * time.Second
-    e.Server.WriteTimeout = 10 * time.Second
-
-    return nil
-  })
+		return nil
+	})
 
 	return app.Start()
 }
