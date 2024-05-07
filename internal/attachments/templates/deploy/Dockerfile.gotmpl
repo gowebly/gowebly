@@ -25,4 +25,4 @@ COPY --from=builder /build/gowebly_{{ .Backend.GoFramework }} /
 {{ if not .Tools.IsUseTempl }}COPY --from=builder /build/templates /templates{{ end }}
 
 # Set entry point.
-ENTRYPOINT ["/gowebly_{{ .Backend.GoFramework }}"]
+ENTRYPOINT ["/gowebly_{{ .Backend.GoFramework }}"{{ if eq .Backend.GoFramework "pocketbase" }}, "serve"{{ end }}]

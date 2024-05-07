@@ -13,6 +13,7 @@ var (
 		"echo":       {"echo", "Echo"},
 		"chi":        {"chi", "Chi"},
 		"httprouter": {"httprouter", "HttpRouter"},
+		"pocketbase": {"pocketbase", "PocketBase"},
 	}
 
 	// ListReactivityLibraries represents the list of reactivity libraries.
