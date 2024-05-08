@@ -14,8 +14,8 @@ github.com/charmbracelet/huh/spinner v0.0.0-20240506212404-0a3504046bcb h1:stie/
 github.com/charmbracelet/huh/spinner v0.0.0-20240506212404-0a3504046bcb/go.mod h1:Zxt9FH6togK9kY71pRJGtmyNkJ1eIWdK1gRaXrS/FKA=
 github.com/charmbracelet/lipgloss v0.10.1-0.20240506202754-3ee5dcab73cb h1:Hs3xzxHuruNT2Iuo87iS40c0PhLqpnUKBI6Xw6Ad3wQ=
 github.com/charmbracelet/lipgloss v0.10.1-0.20240506202754-3ee5dcab73cb/go.mod h1:EPP2QJ0ectp3zo6gx9f8oJGq8keirqPJ3XpYEI8wrrs=
-github.com/charmbracelet/x/exp/term v0.0.0-20240507030338-defd02928fc0 h1:pbIvEOJPtuCD4Em/OU/UBTAWctLRK8I2x0XLrPHQlqg=
-github.com/charmbracelet/x/exp/term v0.0.0-20240507030338-defd02928fc0/go.mod h1:qeR6w1zITbkF7vEhcx0CqX5GfnIiQloJWQghN6HfP+c=
+github.com/charmbracelet/x/exp/term v0.0.0-20240507171223-71e9351b56e7 h1:ATeHxDzJnkCWPCNhTPZUMxyD7AE94ATJDKHN3wZNRUY=
+github.com/charmbracelet/x/exp/term v0.0.0-20240507171223-71e9351b56e7/go.mod h1:qeR6w1zITbkF7vEhcx0CqX5GfnIiQloJWQghN6HfP+c=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/erikgeiser/coninput v0.0.0-20211004153227-1c3628e74d0f h1:Y/CXytFA4m6baUTXGLOoWe4PQhGxaX0KpnayAqC48p4=
