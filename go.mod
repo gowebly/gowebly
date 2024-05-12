@@ -4,7 +4,7 @@ go 1.22
 
 require (
 	github.com/charmbracelet/huh v0.3.0
-	github.com/charmbracelet/huh/spinner v0.0.0-20240506212404-0a3504046bcb
+	github.com/charmbracelet/huh/spinner v0.0.0-20240508140610-13957916abf0
 	github.com/charmbracelet/lipgloss v0.10.1-0.20240506202754-3ee5dcab73cb
 	github.com/google/wire v0.6.0
 	github.com/stretchr/testify v1.9.0
@@ -15,8 +15,8 @@ require (
 	github.com/aymanbagabas/go-osc52/v2 v2.0.1 // indirect
 	github.com/catppuccin/go v0.2.0 // indirect
 	github.com/charmbracelet/bubbles v0.18.0 // indirect
-	github.com/charmbracelet/bubbletea v0.26.1 // indirect
-	github.com/charmbracelet/x/exp/term v0.0.0-20240507171223-71e9351b56e7 // indirect
+	github.com/charmbracelet/bubbletea v0.26.2 // indirect
+	github.com/charmbracelet/x/exp/term v0.0.0-20240510181320-e66de7a51531 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/erikgeiser/coninput v0.0.0-20211004153227-1c3628e74d0f // indirect
 	github.com/lucasb-eyer/go-colorful v1.2.0 // indirect
