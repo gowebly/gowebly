@@ -38,7 +38,7 @@ func (t *Template) Render(w io.Writer, name string, data interface{}, c echo.Con
 // runServer runs a new HTTP server with the loaded environment variables.
 func runServer() error {
 	// Validate environment variables.
-	port, err := strconv.Atoi(gowebly.Getenv("BACKEND_PORT", "{{ .Backend.Port }}"))
+	port, err := strconv.Atoi(gowebly.Getenv("BACKEND_PORT", "{{ trim .Backend.Port }}"))
 	if err != nil {
 		return err
 	}
