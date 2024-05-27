@@ -5,8 +5,8 @@ import (
 	"net/http"
 
 	{{ if .Tools.IsUseTempl }}
-	"{{ .Backend.ModuleName }}/templates"
-	"{{ .Backend.ModuleName }}/templates/pages"
+	"{{ trim .Backend.ModuleName }}/templates"
+	"{{ trim .Backend.ModuleName }}/templates/pages"
 	{{ end }}
 	"github.com/angelofallars/htmx-go"
 	"github.com/labstack/echo/v4"

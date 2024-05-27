@@ -17,7 +17,7 @@ build: clean test
 	go build -o ${TEMP_DIR}/${BINARY_NAME} .
 
 run: build
-	@echo "\n> Running project on http://localhost:{{ .Backend.Port }}...\n"
+	@echo "\n> Running project on http://localhost:{{ trim .Backend.Port }}...\n"
 	${TEMP_DIR}/${BINARY_NAME}{{ if eq .Backend.GoFramework "pocketbase"}} --dir=pb_data serve{{end}}
 
 {{ if .Tools.IsUseGolangCILint }}

@@ -17,7 +17,7 @@ var static embed.FS
 // runServer runs a new HTTP server with the loaded environment variables.
 func runServer() error {
 	// Validate environment variables.
-	port, err := strconv.Atoi(gowebly.Getenv("BACKEND_PORT", "{{ .Backend.Port }}"))
+	port, err := strconv.Atoi(gowebly.Getenv("BACKEND_PORT", "{{ trim .Backend.Port }}"))
 	if err != nil {
 		return err
 	}

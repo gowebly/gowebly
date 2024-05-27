@@ -6,6 +6,8 @@ import (
 	"html/template"
 	"io"
 	"os"
+	"path/filepath"
+	"strings"
 
 	"github.com/gowebly/gowebly/v2/internal/messages"
 )
@@ -63,7 +65,11 @@ func GenerateFilesByTemplateFromEmbedFS(efs embed.FS, templates []EmbedTemplate)
 		}
 
 		// Parse template from embed file system.
-		tmpl, err := template.ParseFS(efs, t.EmbedFile)
+		tmpl, err := template.New(filepath.Base(t.EmbedFile)).
+			Funcs(template.FuncMap{
+				"trim": strings.TrimSpace,
+			}).
+			ParseFS(efs, t.EmbedFile)
 		if err != nil {
 			return err
 		}

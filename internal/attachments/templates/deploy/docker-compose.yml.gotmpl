@@ -14,12 +14,12 @@ services:
       dockerfile: Dockerfile
     # Set restart rules for the container.
     restart: unless-stopped
-    # Forward the exposed port {{ .Port }} on the container to port {{ .Port }} on the host machine.
+    # Forward the exposed port {{ trim .Port }} on the container to port {{ trim .Port }} on the host machine.
     ports:
-      - '{{ .Port }}:{{ .Port }}'
+      - '{{ trim .Port }}:{{ trim .Port }}'
     # Set needed environment variables for the Go backend.
     environment:
-      BACKEND_PORT: {{ .Port }} # same as the exposed container port
+      BACKEND_PORT: {{ trim .Port }} # same as the exposed container port
     # Networks to join.
     # Services on the same network can communicate with each other using their name.
     networks:
