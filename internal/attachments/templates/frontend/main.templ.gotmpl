@@ -1,6 +1,6 @@
 package templates
 
-import "{{ .Backend.ModuleName }}/templates/pages"
+import "{{ trim .Backend.ModuleName }}/templates/pages"
 
 templ Layout(title string, metaTags, bodyContent templ.Component) {
 	<!DOCTYPE html>

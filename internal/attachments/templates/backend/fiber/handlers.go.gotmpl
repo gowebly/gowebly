@@ -3,8 +3,8 @@ package main
 import (
 	{{ if .Tools.IsUseTempl }}
 	"github.com/a-h/templ"
-	"{{ .Backend.ModuleName }}/templates"
-	"{{ .Backend.ModuleName }}/templates/pages"
+	"{{ trim .Backend.ModuleName }}/templates"
+	"{{ trim .Backend.ModuleName }}/templates/pages"
 	"github.com/gofiber/fiber/v2/middleware/adaptor"
 	{{ end }}
 	"github.com/gofiber/fiber/v2"
