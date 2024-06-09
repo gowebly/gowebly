@@ -26,7 +26,7 @@ type Template struct {
 
 // Render renders all templates, using gowebly helper.
 func (t *Template) Render(w io.Writer, name string, data interface{}, c echo.Context) error {
-	tmpl, err := gowebly.ParseTemplates(filepath.Join("templates", "pages", t.templates.Name()))
+	tmpl, err := gowebly.ParseTemplates(filepath.Join("templates", "pages", name))
 	if err != nil {
 		return err
 	}
