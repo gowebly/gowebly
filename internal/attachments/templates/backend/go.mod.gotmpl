@@ -21,6 +21,9 @@ require (
     {{ else if eq .Backend.GoFramework "httprouter" }}
     github.com/julienschmidt/httprouter latest
     github.com/angelofallars/htmx-go latest
+    {{ else if eq .Backend.GoFramework "gorilla" }}
+    github.com/gorilla/mux latest
+    github.com/angelofallars/htmx-go latest
     {{ end }}
     github.com/gowebly/helpers latest
 )

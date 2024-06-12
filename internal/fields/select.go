@@ -19,6 +19,7 @@ func GoFrameworkSelect(di *injectors.Injector) *huh.Select[string] {
 			huh.NewOption(variables.ListGoFrameworks["echo"][1], variables.ListGoFrameworks["echo"][0]),
 			huh.NewOption(variables.ListGoFrameworks["chi"][1], variables.ListGoFrameworks["chi"][0]),
 			huh.NewOption(variables.ListGoFrameworks["httprouter"][1], variables.ListGoFrameworks["httprouter"][0]),
+			huh.NewOption(variables.ListGoFrameworks["gorilla"][1], variables.ListGoFrameworks["gorilla"][0]),
 			huh.NewOption(variables.ListGoFrameworks["pocketbase"][1], variables.ListGoFrameworks["pocketbase"][0]),
 		).
 		Value(&di.Config.Backend.GoFramework)

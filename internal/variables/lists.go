@@ -13,6 +13,7 @@ var (
 		"echo":       {"echo", "Echo"},
 		"chi":        {"chi", "Chi"},
 		"httprouter": {"httprouter", "HttpRouter"},
+		"gorilla":    {"gorilla", "Gorilla/Mux"},
 		"pocketbase": {"pocketbase", "PocketBase"},
 	}
 
