@@ -44,32 +44,32 @@ func runServer() error {
 	}
 
 	// Create a new Echo server.
-	echo := echo.New()
+	router := echo.New()
 
 	{{ if not .Tools.IsUseTempl }}
 	// Create a new Echo renderer for templates.
-	echo.Renderer = &Template{
+	router.Renderer = &Template{
 		templates: template.Must(template.ParseGlob("templates/**/*.html")),
 	}
 	{{ end }}
 
 	// Add Echo middlewares.
-	echo.Use(middleware.Logger())
+	router.Use(middleware.Logger())
 
 	// Handle static files.
-	echo.Static("/static", "./static")
+	router.Static("/static", "./static")
 
 	// Handle index page view.
-	echo.GET("/", indexViewHandler)
+	router.GET("/", indexViewHandler)
 
 	// Handle API endpoints.
-	echo.GET("/api/hello-world", showContentAPIHandler)
+	router.GET("/api/hello-world", showContentAPIHandler)
 
 	// Create a new server instance with options from environment variables.
 	// For more information, see https://blog.cloudflare.com/the-complete-guide-to-golang-net-http-timeouts/
 	server := http.Server{
 		Addr:         fmt.Sprintf(":%d", port),
-		Handler:      echo, // handle all Echo routes
+		Handler:      router, // handle all Echo routes
 		ReadTimeout:  5 * time.Second,
 		WriteTimeout: 10 * time.Second,
 	}
