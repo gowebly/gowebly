@@ -16,8 +16,8 @@ func GoModuleNameInput(di *injectors.Injector) *huh.Input {
 		Description(messages.FormGoModuleNameDescription).
 		Prompt(messages.FormPromptSignature).
 		Validate(func(s string) error {
-			if !regexp.MustCompile(`^[a-zA-Z0-9\.\/_-]+$`).MatchString(s) {
-				return errors.New("enter correct Go module name: special characters or/and spaces are not allowed")
+			if !regexp.MustCompile(`^[a-zA-Z0-9./_-]+$`).MatchString(s) {
+				return errors.New("enter correct Go module name in the go.mod file: special characters or/and spaces are not allowed")
 			}
 			return nil
 		}).
@@ -31,7 +31,7 @@ func PortInput(di *injectors.Injector) *huh.Input {
 		Description(messages.FormPortDescription).
 		Prompt(messages.FormPromptSignature).
 		Validate(func(s string) error {
-			if !regexp.MustCompile(`^[0-9]+$`).MatchString(s) {
+			if !regexp.MustCompile(`^\d+$`).MatchString(s) {
 				return errors.New("enter correct port number: only digits allowed")
 			}
 			return nil
@@ -46,7 +46,7 @@ func PackageNameInput(di *injectors.Injector) *huh.Input {
 		Description(messages.FormPackageNameDescription).
 		Prompt(messages.FormPromptSignature).
 		Validate(func(s string) error {
-			if !regexp.MustCompile(`^[a-zA-Z0-9\.\/_-]+$`).MatchString(s) {
+			if !regexp.MustCompile(`^[a-zA-Z0-9./_-]+$`).MatchString(s) {
 				return errors.New("enter correct project name in the package.json file: special characters or/and spaces are not allowed")
 			}
 			return nil
