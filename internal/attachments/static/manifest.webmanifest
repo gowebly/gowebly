@@ -1,0 +1,33 @@
+{
+  "name": "My PWA Project",
+  "short_name": "My PWA Project",
+  "description": "The PWA (Progressive Web App) part of the Gowebly project.",
+  "background_color": "#FEFEF5",
+  "theme_color": "#FEFEF5",
+  "display": "standalone",
+  "orientation": "portrait",
+  "start_url": ".",
+  "icons": [
+    {
+      "src": "manifest-touch-icon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "manifest-desktop-screenshot.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "Desktop homescreen of My PWA Project"
+    },
+    {
+      "src": "manifest-mobile-screenshot.jpg",
+      "sizes": "720x1280",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Mobile homescreen of My PWA Project"
+    }
+  ]
+}

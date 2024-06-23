@@ -11,6 +11,9 @@ import (
 
 // CreateProjectAction creates a new project.
 func CreateProjectAction(ctx context.Context, cancel context.CancelFunc, di *injectors.Injector, errCh chan<- error) {
+	// Defer the cancel function.
+	defer cancel()
+
 	// Define the list of actions to execute.
 	actions := []struct {
 		op string
@@ -27,14 +30,12 @@ func CreateProjectAction(ctx context.Context, cancel context.CancelFunc, di *inj
 	for _, action := range actions {
 		// Check context.
 		if ctx.Err() != nil {
-			cancel()
 			errCh <- ctx.Err()
 			return
 		}
 
 		// Run action.
 		if err := action.fn(di); err != nil {
-			cancel()
 			errCh <- fmt.Errorf(messages.ErrorGoroutineActionNotSuccess, action.op, err)
 			return
 		}
@@ -42,12 +43,10 @@ func CreateProjectAction(ctx context.Context, cancel context.CancelFunc, di *inj
 
 	// Check context.
 	if ctx.Err() != nil {
-		cancel()
 		errCh <- ctx.Err()
 		return
 	}
 
-	cancel()
 	errCh <- nil
 }
 
@@ -96,8 +95,8 @@ func copyStaticFiles(di *injectors.Injector) error {
 			OutputFile: "static/manifest-mobile-screenshot.jpg",
 		},
 		{
-			EmbedFile:  "static/manifest.json",
-			OutputFile: "static/manifest.json",
+			EmbedFile:  "static/manifest.webmanifest",
+			OutputFile: "static/manifest.webmanifest",
 		},
 	}
 
@@ -142,6 +141,11 @@ func createBackendFiles(di *injectors.Injector) error {
 			Data:       di.Config,
 		},
 		// Misc files.
+		{
+			EmbedFile:  "templates/misc/README.md.gotmpl",
+			OutputFile: "README.md",
+			Data:       di.Config,
+		},
 		{
 			EmbedFile:  "templates/misc/prettier.config.js.gotmpl",
 			OutputFile: "prettier.config.js",
