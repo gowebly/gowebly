@@ -13,7 +13,7 @@ const (
 	*/
 
 	// FormWelcomeDescription represents the description of the welcome message.
-	FormWelcomeDescription string = "A next-generation CLI tool that makes it easy to create\namazing web applications with Go on the backend,\nusing htmx & hyperscript and the most popular\nCSS frameworks on the frontend."
+	FormWelcomeDescription string = "A next-generation CLI tool that makes it easy to create\namazing web applications with Go on the backend, using\nhtmx, hyperscript or Alpine.js, and the most popular\nCSS frameworks on the frontend."
 
 	/*
 		Form elements: input fields.
