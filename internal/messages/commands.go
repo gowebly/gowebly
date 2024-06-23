@@ -24,7 +24,7 @@ const (
 	// CommandCreateSummaryHeadingTools represents the heading of the tools summary.
 	CommandCreateSummaryHeadingTools string = "Tools ↘"
 	// CommandCreateSummaryDescription represents the description of the project summary.
-	CommandCreateSummaryDescription string = "%s\n\nGo web framework/router: %s\nServer port: %s\n\n%s\n\nReactivity library: %s\nCSS framework: %s\n\n%s\n\nIs use Air tool to live-reloading? %s\nIs use Bun as a frontend runtime? %s\nIs use Templ to generate HTML? %s\nIs use golangci-lint to lint your Go code? %s"
+	CommandCreateSummaryDescription string = "%s\n\nModule name in the go.mod file: %s\nGo web framework/router: %s\nServer port: %s\n\n%s\n\nPackage name in the package.json file: %s\nReactivity library: %s\nCSS framework: %s\n\n%s\n\nIs use Air tool to live-reloading? %s\nIs use Bun as a frontend runtime? %s\nIs use Templ to generate HTML? %s\nIs use golangci-lint to lint your Go code? %s"
 
 	// CommandDoctorSummaryTitle represents the title of the system summary.
 	CommandDoctorSummaryTitle string = "✓ Your system information has been collected successfully!\n"

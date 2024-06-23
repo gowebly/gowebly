@@ -48,9 +48,11 @@ func Create(di *injectors.Injector) error {
 	contentBody := fmt.Sprintf(
 		messages.CommandCreateSummaryDescription,
 		helpers.MakeStyled(messages.CommandCreateSummaryHeadingBackend, &helpers.StringStyle{Color: variables.ColorGrey}),
+		helpers.MakeStyled(di.Config.Backend.ModuleName, &helpers.StringStyle{Color: variables.ColorBlue}),
 		helpers.MakeStyled(variables.ListGoFrameworks[di.Config.Backend.GoFramework][1], &helpers.StringStyle{Color: variables.ColorBlue}),
 		helpers.MakeStyled(di.Config.Backend.Port, &helpers.StringStyle{Color: variables.ColorBlue}),
 		helpers.MakeStyled(messages.CommandCreateSummaryHeadingFrontend, &helpers.StringStyle{Color: variables.ColorGrey}),
+		helpers.MakeStyled(di.Config.Frontend.PackageName, &helpers.StringStyle{Color: variables.ColorBlue}),
 		helpers.MakeStyled(variables.ListReactivityLibraries[di.Config.Frontend.ReactivityLibrary][1], &helpers.StringStyle{Color: variables.ColorBlue}),
 		helpers.MakeStyled(variables.ListCSSFrameworks[di.Config.Frontend.CSSFramework][1], &helpers.StringStyle{Color: variables.ColorBlue}),
 		helpers.MakeStyled(messages.CommandCreateSummaryHeadingTools, &helpers.StringStyle{Color: variables.ColorGrey}),
