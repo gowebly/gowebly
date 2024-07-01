@@ -100,7 +100,7 @@ brews:
       name: Vic Shóstak
       email: koddr.me@gmail.com
     commit_msg_template: "Brew formula update for {{ .ProjectName }} version {{ .Tag }}"
-    folder: Formula
+    directory: Formula
     caveats: |
       After install the Gowebly CLI, create a new project:
 
