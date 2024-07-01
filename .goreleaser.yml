@@ -137,7 +137,7 @@ changelog:
     exclude: ["^*.md", "^*.ya?ml"]
   groups:
     - title: New features
-      regexp: ^.*?((A|a)dd)|(N|n)ew)|((F|f)eature).*?$
+      regexp: ^.*?((A|a)dd)|((N|n)ew)|((F|f)eature).*?$
       order: 0
     - title: Bug fixes
       regexp: ^.*?((B|b)ug)|((F|f)ix).*?$
