@@ -74,6 +74,12 @@ Tools:
 
 ## Starting your project
 
+{{- if .Tools.IsUseAir or .Tools.IsUseBun or .Tools.IsUseTempl or .Tools.IsUseGolangCILint }}> ❗️ Please make sure that you have installed the executable files for all the necessary tools before starting your project. Exactly:
+{{- if .Tools.IsUseAir }}> - `Air`: [https://github.com/air-verse/air](https://github.com/air-verse/air){{ end }}
+{{- if .Tools.IsUseBun }}> - `Bun`: [https://github.com/oven-sh/bun](https://github.com/oven-sh/bun){{ end }}
+{{- if .Tools.IsUseTempl }}> - `Templ`: [https://github.com/a-h/templ](https://github.com/a-h/templ){{ end }}
+{{- if .Tools.IsUseGolangCILint }}> - `golangci-lint`: [https://github.com/golangci/golangci-lint](https://github.com/golangci/golangci-lint){{ end }}{{ end }}
+
 To start your project, run the **Gowebly** CLI command in your terminal:
 
 ```console
