@@ -31,13 +31,15 @@ release:
   prerelease: auto
   mode: replace
   header: |
-    ## ✨ The Gowebly CLI `{{ .Tag }}` release
+    ## {{ if eq .Patch "0" }}✨{{ else }}⚙️{{ end }} The Gowebly CLI `{{ .Tag }}` {{ if eq .Patch "0" }}release{{ else }}patch{{ end }}
 
-    <img width="100%" alt="gowebly banner with logo" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly-project-banner.svg"/>
+    {{- if eq .Patch "0" }}<img width="100%" alt="gowebly banner with logo" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly-project-banner.svg"/>
 
     A next-generation CLI tool to easily build amazing web applications with **Go** on the backend, using **htmx**, **hyperscript** or **Alpine.js** and the most popular **CSS frameworks** on the frontend.
 
     ## In this release
+
+    ...{{ end }}
   footer: |
     ## How to update?
 
@@ -135,7 +137,7 @@ changelog:
     exclude: ["^*.md", "^*.ya?ml"]
   groups:
     - title: New features
-      regexp: ^.*?((A|a)dd)|((F|f)eature).*?$
+      regexp: ^.*?((A|a)dd)|(N|n)ew)|((F|f)eature).*?$
       order: 0
     - title: Bug fixes
       regexp: ^.*?((B|b)ug)|((F|f)ix).*?$
