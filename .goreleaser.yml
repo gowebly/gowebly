@@ -31,9 +31,9 @@ release:
   prerelease: auto
   mode: replace
   header: |
-    ## {{ if eq .Patch "0" }}✨{{ else }}⚙️{{ end }} The Gowebly CLI `{{ .Tag }}` {{ if eq .Patch "0" }}release{{ else }}patch{{ end }}
+    ## {{ if eq .Patch 0 }}✨{{ else }}⚙️{{ end }} The Gowebly CLI `{{ .Tag }}` {{ if eq .Patch 0 }}release{{ else }}patch{{ end }}
 
-    {{- if eq .Patch "0" }}<img width="100%" alt="gowebly banner with logo" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly-project-banner.svg"/>
+    {{ if eq .Patch 0 }}<img width="100%" alt="gowebly banner with logo" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly-project-banner.svg"/>
 
     A next-generation CLI tool to easily build amazing web applications with **Go** on the backend, using **htmx**, **hyperscript** or **Alpine.js** and the most popular **CSS frameworks** on the frontend.
 
