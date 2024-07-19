@@ -69,6 +69,8 @@ release:
     - Share the project link to your friends and family on [X (Twitter)][x_share_url], [Telegram][telegram_share_url], [WhatsApp][whatsapp_share_url], [Reddit][reddit_share_url];
     - Say a few words about the project on your social networks and blogs ([Dev.to][dev_to_url], [Medium][medium_url], [Хабр][habr_url], and so on);
 
+    <a href="https://www.producthunt.com/posts/gowebly?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-gowebly" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=471907&theme=light" alt="Gowebly - A next-generation CLI tool that makes it easy to create amazing web applications with Go on the backend, using htmx, hyperscript or Alpine.js, and the most popular CSS frameworks on the frontend | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+
     Your PRs, issues & any words are welcome! Thank you 😘
 
     <!-- Links -->
