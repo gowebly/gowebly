@@ -60,7 +60,7 @@ const (
 	// FormAirUsageTitle represents the title for the Air tool switch.
 	FormAirUsageTitle string = "Use the Air tool to enable live-reloading for your application?\n"
 	// FormAirUsageDescription represents the description for the Air tool switch.
-	FormAirUsageDescription string = "This tool will enable live-reloading mode for your backend\nand frontend code of your application.\n\nFor more info → https://github.com/cosmtrek/air"
+	FormAirUsageDescription string = "This tool will enable live-reloading mode for your backend\nand frontend code of your application.\n\nFor more info → https://github.com/air-verse/air"
 
 	// FormRuntimeUsageTitle represents the title for the Bun runtime environment switch.
 	FormBunUsageTitle string = "Use the Bun as a frontend runtime environment?\n"
