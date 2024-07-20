@@ -107,6 +107,24 @@ func copyStaticFiles(di *injectors.Injector) error {
 
 // createBackendFiles creates backend files.
 func createBackendFiles(di *injectors.Injector) error {
+	// Define variables.
+	var goFramework, reactivityLibrary, cssFramework string
+
+	// Check if the specified Go framework is valid.
+	if _, ok := variables.ListGoFrameworks[di.Config.Backend.GoFramework]; ok {
+		goFramework = variables.ListGoFrameworks[di.Config.Backend.GoFramework][1]
+	}
+
+	// Check if the specified frontend reactivity library is valid.
+	if _, ok := variables.ListReactivityLibraries[di.Config.Frontend.ReactivityLibrary]; ok {
+		reactivityLibrary = variables.ListReactivityLibraries[di.Config.Frontend.ReactivityLibrary][1]
+	}
+
+	// Check if the specified frontend CSS framework is valid.
+	if _, ok := variables.ListCSSFrameworks[di.Config.Frontend.CSSFramework]; ok {
+		cssFramework = variables.ListCSSFrameworks[di.Config.Frontend.CSSFramework][1]
+	}
+
 	// Define embed templates.
 	templates := []helpers.EmbedTemplate{
 		// Common backend files.
@@ -155,9 +173,9 @@ func createBackendFiles(di *injectors.Injector) error {
 				Backend:           di.Config.Backend,
 				Frontend:          di.Config.Frontend,
 				Tools:             di.Config.Tools,
-				GoFramework:       variables.ListGoFrameworks[di.Config.Backend.GoFramework][1],
-				ReactivityLibrary: variables.ListReactivityLibraries[di.Config.Frontend.ReactivityLibrary][1],
-				CSSFramework:      variables.ListCSSFrameworks[di.Config.Frontend.CSSFramework][1],
+				GoFramework:       goFramework,
+				ReactivityLibrary: reactivityLibrary,
+				CSSFramework:      cssFramework,
 			},
 		},
 		{

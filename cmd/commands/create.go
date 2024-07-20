@@ -26,6 +26,7 @@ func Create(di *injectors.Injector) error {
 
 	// Create a new context and a cancel function.
 	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
 
 	// Create buffered channel for one error value.
 	errCh := make(chan error, 1)
@@ -44,17 +45,35 @@ func Create(di *injectors.Injector) error {
 		return err
 	}
 
+	// Define variables.
+	var goFramework, reactivityLibrary, cssFramework string
+
+	// Check if the specified Go framework is valid.
+	if _, ok := variables.ListGoFrameworks[di.Config.Backend.GoFramework]; ok {
+		goFramework = variables.ListGoFrameworks[di.Config.Backend.GoFramework][1]
+	}
+
+	// Check if the specified frontend reactivity library is valid.
+	if _, ok := variables.ListReactivityLibraries[di.Config.Frontend.ReactivityLibrary]; ok {
+		reactivityLibrary = variables.ListReactivityLibraries[di.Config.Frontend.ReactivityLibrary][1]
+	}
+
+	// Check if the specified frontend CSS framework is valid.
+	if _, ok := variables.ListCSSFrameworks[di.Config.Frontend.CSSFramework]; ok {
+		cssFramework = variables.ListCSSFrameworks[di.Config.Frontend.CSSFramework][1]
+	}
+
 	// Generate content body.
 	contentBody := fmt.Sprintf(
 		messages.CommandCreateSummaryDescription,
 		helpers.MakeStyled(messages.CommandCreateSummaryHeadingBackend, &helpers.StringStyle{Color: variables.ColorGrey}),
 		helpers.MakeStyled(di.Config.Backend.ModuleName, &helpers.StringStyle{Color: variables.ColorBlue}),
-		helpers.MakeStyled(variables.ListGoFrameworks[di.Config.Backend.GoFramework][1], &helpers.StringStyle{Color: variables.ColorBlue}),
+		helpers.MakeStyled(goFramework, &helpers.StringStyle{Color: variables.ColorBlue}),
 		helpers.MakeStyled(di.Config.Backend.Port, &helpers.StringStyle{Color: variables.ColorBlue}),
 		helpers.MakeStyled(messages.CommandCreateSummaryHeadingFrontend, &helpers.StringStyle{Color: variables.ColorGrey}),
 		helpers.MakeStyled(di.Config.Frontend.PackageName, &helpers.StringStyle{Color: variables.ColorBlue}),
-		helpers.MakeStyled(variables.ListReactivityLibraries[di.Config.Frontend.ReactivityLibrary][1], &helpers.StringStyle{Color: variables.ColorBlue}),
-		helpers.MakeStyled(variables.ListCSSFrameworks[di.Config.Frontend.CSSFramework][1], &helpers.StringStyle{Color: variables.ColorBlue}),
+		helpers.MakeStyled(reactivityLibrary, &helpers.StringStyle{Color: variables.ColorBlue}),
+		helpers.MakeStyled(cssFramework, &helpers.StringStyle{Color: variables.ColorBlue}),
 		helpers.MakeStyled(messages.CommandCreateSummaryHeadingTools, &helpers.StringStyle{Color: variables.ColorGrey}),
 		helpers.MakeStyled(strconv.FormatBool(di.Config.Tools.IsUseAir), &helpers.StringStyle{Color: variables.ColorBlue}),
 		helpers.MakeStyled(strconv.FormatBool(di.Config.Tools.IsUseBun), &helpers.StringStyle{Color: variables.ColorBlue}),

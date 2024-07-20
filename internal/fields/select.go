@@ -9,49 +9,51 @@ import (
 
 // GoFrameworkSelect runs the Go framework select.
 func GoFrameworkSelect(di *injectors.Injector) *huh.Select[string] {
+	// Define options for the select.
+	options := make([]huh.Option[string], 0, len(variables.ListGoFrameworks))
+
+	// Add options to the select.
+	for _, framework := range variables.ListGoFrameworks {
+		options = append(options, huh.NewOption(framework[1], framework[0]))
+	}
+
 	return huh.NewSelect[string]().
 		Title(messages.FormGoFrameworkTitle).
 		Description(messages.FormGoFrameworkDescription).
-		Options(
-			huh.NewOption(variables.ListGoFrameworks["default"][1], variables.ListGoFrameworks["default"][0]),
-			huh.NewOption(variables.ListGoFrameworks["fiber"][1], variables.ListGoFrameworks["fiber"][0]),
-			huh.NewOption(variables.ListGoFrameworks["gin"][1], variables.ListGoFrameworks["gin"][0]),
-			huh.NewOption(variables.ListGoFrameworks["echo"][1], variables.ListGoFrameworks["echo"][0]),
-			huh.NewOption(variables.ListGoFrameworks["chi"][1], variables.ListGoFrameworks["chi"][0]),
-			huh.NewOption(variables.ListGoFrameworks["httprouter"][1], variables.ListGoFrameworks["httprouter"][0]),
-			huh.NewOption(variables.ListGoFrameworks["gorilla"][1], variables.ListGoFrameworks["gorilla"][0]),
-			huh.NewOption(variables.ListGoFrameworks["pocketbase"][1], variables.ListGoFrameworks["pocketbase"][0]),
-		).
+		Options(options...).
 		Value(&di.Config.Backend.GoFramework)
 }
 
 // ReactivityLibrarySelect runs the reactivity library select.
 func ReactivityLibrarySelect(di *injectors.Injector) *huh.Select[string] {
+	// Define options for the select.
+	options := make([]huh.Option[string], 0, len(variables.ListReactivityLibraries))
+
+	// Add options to the select.
+	for _, library := range variables.ListReactivityLibraries {
+		options = append(options, huh.NewOption(library[1], library[0]))
+	}
+
 	return huh.NewSelect[string]().
 		Title(messages.FormReactivityLibraryTitle).
 		Description(messages.FormReactivityLibraryDescription).
-		Options(
-			huh.NewOption(variables.ListReactivityLibraries["htmx"][1], variables.ListReactivityLibraries["htmx"][0]),
-			huh.NewOption(variables.ListReactivityLibraries["htmx_hyperscript"][1], variables.ListReactivityLibraries["htmx_hyperscript"][0]),
-			huh.NewOption(variables.ListReactivityLibraries["htmx_alpinejs"][1], variables.ListReactivityLibraries["htmx_alpinejs"][0]),
-		).
+		Options(options...).
 		Value(&di.Config.Frontend.ReactivityLibrary)
 }
 
 // CSSFrameworkSelect runs the CSS framework select.
 func CSSFrameworkSelect(di *injectors.Injector) *huh.Select[string] {
+	// Define options for the select.
+	options := make([]huh.Option[string], 0, len(variables.ListCSSFrameworks))
+
+	// Add options to the select.
+	for _, framework := range variables.ListCSSFrameworks {
+		options = append(options, huh.NewOption(framework[1], framework[0]))
+	}
+
 	return huh.NewSelect[string]().
 		Title(messages.FormCSSFrameworkTitle).
 		Description(messages.FormCSSFrameworkDescription).
-		Options(
-			huh.NewOption(variables.ListCSSFrameworks["default"][1], variables.ListCSSFrameworks["default"][0]),
-			huh.NewOption(variables.ListCSSFrameworks["tailwindcss"][1], variables.ListCSSFrameworks["tailwindcss"][0]),
-			huh.NewOption(variables.ListCSSFrameworks["daisyui"][1], variables.ListCSSFrameworks["daisyui"][0]),
-			huh.NewOption(variables.ListCSSFrameworks["flowbite"][1], variables.ListCSSFrameworks["flowbite"][0]),
-			huh.NewOption(variables.ListCSSFrameworks["prelineui"][1], variables.ListCSSFrameworks["prelineui"][0]),
-			huh.NewOption(variables.ListCSSFrameworks["unocss"][1], variables.ListCSSFrameworks["unocss"][0]),
-			huh.NewOption(variables.ListCSSFrameworks["bootstrap"][1], variables.ListCSSFrameworks["bootstrap"][0]),
-			huh.NewOption(variables.ListCSSFrameworks["bulma"][1], variables.ListCSSFrameworks["bulma"][0]),
-		).
+		Options(options...).
 		Value(&di.Config.Frontend.CSSFramework)
 }
