@@ -17,14 +17,14 @@ And some words [about the Gowebly CLI](#about-the-gowebly-cli).
 Backend:
 
 - Module name in the go.mod file: `{{ .Backend.ModuleName }}`
-- Go web framework/router: `{{ .Backend.GoFramework }}`
+- Go web framework/router: `{{ .GoFramework }}`
 - Server port: `{{ .Backend.Port }}`
 
 Frontend:
 
 - Package name in the package.json file: `{{ .Frontend.PackageName }}`
-- Reactivity library: `{{ .Frontend.ReactivityLibrary }}`
-- CSS framework: `{{ .Frontend.CSSFramework }}`
+- Reactivity library: `{{ .ReactivityLibrary }}`
+- CSS framework: `{{ .CSSFramework }}`
 
 Tools:
 
@@ -59,11 +59,11 @@ Tools:
 ├── .dockerignore
 ├── .prettierignore
 ├── {{ if .Tools.IsUseAir }}.air.toml{{ else }}Makefile{{ end }}
+├── {{ if .Tools.IsUseGolangCILint }}golangci.yml{{ else }}...{{ end }}
 ├── Dockerfile
 ├── docker-compose.yml
 ├── prettier.config.js
 ├── package.json
-{{- if .Tools.IsUseGolangCILint }}├── golangci.yml{{ end }}
 ├── go.mod
 ├── go.sum
 ├── handlers.go
@@ -105,7 +105,7 @@ To deploy your project to a remote server, follow these steps:
 3. Use `git clone` command to clone the repository with your project to the server and navigate to its folder.
 4. Run the `docker-compose up` command to start your project on your server.
 
-{{- if .Tools.IsUseTempl }}> ❗️ Don't forget to generate Go files from `*.templ` templates before run the `docker-compose up` command.{{ end }}
+{{ if .Tools.IsUseTempl }}> ❗️ Don't forget to generate Go files from `*.templ` templates before run the `docker-compose up` command.{{ end }}
 
 ## About the Gowebly CLI
 

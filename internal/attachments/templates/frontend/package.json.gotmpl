@@ -4,20 +4,11 @@
   "description": "Frontend part of the Gowebly project.",
   "license": "MIT",
   "browserslist": "> 0.5%, last 2 versions, not dead",
-  "source": [
-    "./assets/scripts.js",
-    "./assets/styles.scss"
-  ],
-  "targets": {
-    "default": {
-      "distDir": "./static"
-    }
-  },
   "scripts": {
-    "watch": "parcel watch",
     "fmt": "prettier --write .",
-    "dev": "parcel build --no-optimize",
-    "build": "parcel build"
+    "build": "parcel build ./assets/scripts.js ./assets/styles.scss --dist-dir ./static",
+    "dev": "parcel build ./assets/scripts.js ./assets/styles.scss --dist-dir ./static --no-optimize",
+    "watch": "parcel watch ./assets/scripts.js ./assets/styles.scss --dist-dir ./static --no-optimize"
   },
   "dependencies": {
     {{ if or (eq .CSSFramework "daisyui") (eq .CSSFramework "flowbite") (eq .CSSFramework "prelineui") (eq .CSSFramework "tailwindcss") }}
@@ -49,7 +40,9 @@
     "@unocss/postcss": "latest",
     {{ end }}
     "@parcel/transformer-sass": "latest",
+    "autoprefixer": "latest",
     "parcel": "latest",
+    "postcss": "latest",
     "prettier": "latest"
   }
 }

@@ -4,9 +4,11 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/gowebly/gowebly/v2/internal/config"
 	"github.com/gowebly/gowebly/v2/internal/helpers"
 	"github.com/gowebly/gowebly/v2/internal/injectors"
 	"github.com/gowebly/gowebly/v2/internal/messages"
+	"github.com/gowebly/gowebly/v2/internal/variables"
 )
 
 // CreateProjectAction creates a new project.
@@ -144,7 +146,19 @@ func createBackendFiles(di *injectors.Injector) error {
 		{
 			EmbedFile:  "templates/misc/README.md.gotmpl",
 			OutputFile: "README.md",
-			Data:       di.Config,
+			Data: struct {
+				Backend                                      *config.Backend
+				Frontend                                     *config.Frontend
+				Tools                                        *config.Tools
+				GoFramework, ReactivityLibrary, CSSFramework string
+			}{
+				Backend:           di.Config.Backend,
+				Frontend:          di.Config.Frontend,
+				Tools:             di.Config.Tools,
+				GoFramework:       variables.ListGoFrameworks[di.Config.Backend.GoFramework][1],
+				ReactivityLibrary: variables.ListReactivityLibraries[di.Config.Frontend.ReactivityLibrary][1],
+				CSSFramework:      variables.ListCSSFrameworks[di.Config.Frontend.CSSFramework][1],
+			},
 		},
 		{
 			EmbedFile:  "templates/misc/prettier.config.js.gotmpl",
