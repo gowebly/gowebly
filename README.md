@@ -160,9 +160,9 @@ It really **motivates** me to make this product **even** better.
 
 And now, I invite you to participate in this project! Let's work **together** to create and popularize the **most useful** tool for developers on the web today.
 
-- [Issues][repo_issues_url]: ask questions and submit your features.
+- [Issues][repo_issues_url]: report bugs and submit your features.
 - [Pull requests][repo_pull_request_url]: send your improvements to the current codebase.
-- [Discussions][repo_discussions_url]: discuss and share your ideas.
+- [Discussions][repo_discussions_url]: ask questions, discuss and share your ideas.
 - Share the project's link to your friends on [X (Twitter)][x_share_url], [Telegram][telegram_share_url], [WhatsApp][whatsapp_share_url], [Reddit][reddit_share_url].
 - Say a few words about the project on your social networks and blogs ([Dev.to][dev_to_url], [Medium][medium_url], [Хабр][habr_url], and so on).
 
@@ -170,11 +170,9 @@ And now, I invite you to participate in this project! Let's work **together** to
 
 Your PRs, issues & any words are welcome! Thank you 😘
 
-<div align="right">
+### 👩‍💻👨‍💻 Contribute to the project
 
-[&nwarr; Back to top](#readme-top)
-
-</div>
+If you want to contribute to the project, please read the [contributing guide](https://github.com/gowebly/gowebly/blob/main/CONTRIBUTING.md) first.
 
 ### 🌟 Stargazers
 
@@ -183,6 +181,12 @@ Your PRs, issues & any words are welcome! Thank you 😘
   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=gowebly/gowebly&type=Date"/>
   <img width="100%" alt="The Gowebly CLI star history chart" src="https://api.star-history.com/svg?repos=gowebly/gowebly&type=Date"/>
 </picture>
+
+<div align="right">
+
+[&nwarr; Back to top](#readme-top)
+
+</div>
 
 ## ⚠️ License
 
