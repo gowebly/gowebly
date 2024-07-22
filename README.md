@@ -170,9 +170,21 @@ And now, I invite you to participate in this project! Let's work **together** to
 
 Your PRs, issues & any words are welcome! Thank you 😘
 
+<div align="right">
+
+[&nwarr; Back to top](#readme-top)
+
+</div>
+
 ### 👩‍💻👨‍💻 Contribute to the project
 
 If you want to contribute to the project, please read the [contributing guide](https://github.com/gowebly/gowebly/blob/main/CONTRIBUTING.md) first.
+
+<div align="right">
+
+[&nwarr; Back to top](#readme-top)
+
+</div>
 
 ### 🌟 Stargazers
 
