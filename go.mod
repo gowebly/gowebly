@@ -4,7 +4,7 @@ go 1.22
 
 require (
 	github.com/charmbracelet/huh v0.5.2
-	github.com/charmbracelet/huh/spinner v0.0.0-20240716200945-b98d891ceab3
+	github.com/charmbracelet/huh/spinner v0.0.0-20240725212135-67d4a4354ed1
 	github.com/charmbracelet/lipgloss v0.12.1
 	github.com/google/wire v0.6.0
 	github.com/stretchr/testify v1.9.0
@@ -17,7 +17,7 @@ require (
 	github.com/charmbracelet/bubbles v0.18.0 // indirect
 	github.com/charmbracelet/bubbletea v0.26.6 // indirect
 	github.com/charmbracelet/x/ansi v0.1.4 // indirect
-	github.com/charmbracelet/x/exp/strings v0.0.0-20240722160745-212f7b056ed0 // indirect
+	github.com/charmbracelet/x/exp/strings v0.0.0-20240725160154-f9f6568126ec // indirect
 	github.com/charmbracelet/x/input v0.1.3 // indirect
 	github.com/charmbracelet/x/term v0.1.1 // indirect
 	github.com/charmbracelet/x/windows v0.1.2 // indirect
