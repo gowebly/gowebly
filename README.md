@@ -165,10 +165,23 @@ And now, I invite you to participate in this project! Let's work **together** to
 - [Discussions][repo_discussions_url]: ask questions, discuss and share your ideas.
 - Share the project's link to your friends on [X (Twitter)][x_share_url], [Telegram][telegram_share_url], [WhatsApp][whatsapp_share_url], [Reddit][reddit_share_url].
 - Say a few words about the project on your social networks and blogs ([Dev.to][dev_to_url], [Medium][medium_url], [Хабр][habr_url], and so on).
-
-<a href="https://www.producthunt.com/posts/gowebly?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-gowebly" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=471907&theme=light" alt="Gowebly - A next-generation CLI tool that makes it easy to create amazing web applications with Go on the backend, using htmx, hyperscript or Alpine.js, and the most popular CSS frameworks on the frontend | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+- Send your review about project to the [ProductHunt][producthunt_url] page.
 
 Your PRs, issues & any words are welcome! Thank you 😘
+
+<div align="right">
+
+[&nwarr; Back to top](#readme-top)
+
+</div>
+
+### ❤️ Support the author
+
+You can support the author of the **Gowebly** project on the [Boosty][boosty_url] platform. 
+
+Each of your donation will be aimed at **supporting** servers with official documentation, **improving** the quality of the CLI and **implementing** new features.
+
+<a href="https://boosty.to/koddr/donate" target="_blank"><img width="356" alt="support me on Boosty" src="https://github.com/user-attachments/assets/335c3f7f-2cd3-44e8-92eb-882d8e2de6ba"/></a>
 
 <div align="right">
 
@@ -267,9 +280,11 @@ If you want to contribute to the project, please read the [contributing guide](h
 
 <!-- Social links -->
 
+[boosty_url]: https://boosty.to/koddr/donate
 [dev_to_url]: https://dev.to
 [medium_url]: https://medium.com
 [habr_url]: https://habr.com
+[producthunt_url]: https://www.producthunt.com/posts/gowebly
 [x_share_url]: https://x.com/intent/tweet?hashtags=gowebly%2Cgo%2Chtmx&text=A%20next-generation%20CLI%20tool%20to%20easily%20build%20amazing%20web%20applications%20with%20Go%20on%20the%20backend%2C%20using%20htmx%20%26%20hyperscript%20and%20the%20most%20popular%20CSS%20frameworks%20on%20the%20frontend.&url=https%3A%2F%2Fgowebly.org
 [telegram_share_url]: https://t.me/share/url?text=A%20next-generation%20CLI%20tool%20to%20easily%20build%20amazing%20web%20applications%20with%20Go%20on%20the%20backend%2C%20using%20htmx%20%26%20hyperscript%20and%20the%20most%20popular%20CSS%20frameworks%20on%20the%20frontend.%20%23gowebly%20%23go%20%23htmx&url=https%3A%2F%2Fgowebly.org
 [whatsapp_share_url]: https://api.whatsapp.com/send?text=A%20next-generation%20CLI%20tool%20to%20easily%20build%20amazing%20web%20applications%20with%20Go%20on%20the%20backend%2C%20using%20htmx%20%26%20hyperscript%20and%20the%20most%20popular%20CSS%20frameworks%20on%20the%20frontend.%20https%3A%2F%2Fgowebly.org
