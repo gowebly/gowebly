@@ -23,7 +23,7 @@ A next-generation CLI tool that makes it easy to create amazing web applications
 [![Share on WhatsApp][whatsapp_share_img]][whatsapp_share_url]
 [![Share on Reddit][reddit_share_img]][reddit_share_url]
 
-<a href="https://gowebly.org" target="_blank" title="Go to the Gowebly CLI website"><img width="90%" alt="gowebly create command" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly_create.gif"></a>
+<a href="https://gowebly.org" target="_blank" title="Go to the Gowebly CLI website"><img width="99%" alt="gowebly create command" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly_create.gif"></a>
 
 </div>
 
@@ -177,11 +177,11 @@ Your PRs, issues & any words are welcome! Thank you 😘
 
 ### ❤️ Support the author
 
-You can support the author of the **Gowebly** project on the [Boosty][boosty_url] platform. 
+You can support the author of the **Gowebly** project on the [Boosty][boosty_url] platform.
 
 Each of your donation will be aimed at **supporting** servers with official documentation, **improving** the quality of the CLI and **implementing** new features.
 
-<a href="https://boosty.to/koddr/donate" target="_blank"><img width="356" alt="support me on Boosty" src="https://github.com/user-attachments/assets/335c3f7f-2cd3-44e8-92eb-882d8e2de6ba"/></a>
+<a href="https://boosty.to/koddr/donate" target="_blank"><img width="300" alt="support the author on Boosty" src="https://raw.githubusercontent.com/koddr/.github/main/images/boosty-badge-support-author.svg"/></a>
 
 <div align="right">
 
