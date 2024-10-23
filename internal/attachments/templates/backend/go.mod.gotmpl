@@ -1,6 +1,6 @@
 module {{ trim .Backend.ModuleName }}
 
-go 1.22.0
+go 1.23
 
 require (
     {{ if .Tools.IsUseTempl }}github.com/a-h/templ latest{{ end }}
@@ -24,6 +24,8 @@ require (
     {{ else if eq .Backend.GoFramework "gorilla" }}
     github.com/gorilla/mux latest
     github.com/angelofallars/htmx-go latest
+    {{ else if eq .Backend.GoFramework "pocketbase" }}
+    github.com/pocketbase/pocketbase latest
     {{ end }}
     github.com/gowebly/helpers latest
 )
