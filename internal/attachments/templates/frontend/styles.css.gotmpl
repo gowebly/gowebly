@@ -1,14 +1,22 @@
-{{ if or (eq .CSSFramework "tailwindcss") (eq .CSSFramework "daisyui") (eq .CSSFramework "flowbite") (eq .CSSFramework "prelineui") }}
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+{{ if or (eq .CSSFramework "daisyui") (eq .CSSFramework "flowbite") (eq .CSSFramework "prelineui") (eq .CSSFramework "tailwindcss") }}
+@import 'tailwindcss' source('../templates');
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+{{end}}
+{{ if eq .CSSFramework "daisyui" }}
+@plugin 'daisyui';
+{{ else if eq .CSSFramework "flowbite" }}
+@plugin 'flowbite/plugin';
+@source '../node_modules/flowbite';
+{{ else if eq .CSSFramework "prelineui" }}
+@import "../node_modules/preline/variants.css";
 {{ else if eq .CSSFramework "unocss" }}
 @unocss;
 {{ else if eq .CSSFramework "bootstrap" }}
-@import "bootstrap/scss/bootstrap";
+@import 'bootstrap/scss/bootstrap';
 {{ else if eq .CSSFramework "bulma" }}
-@import "node_modules/bulma/sass/utilities/initial-variables";
-@import "node_modules/bulma/bulma";
+@import '../node_modules/bulma/sass/utilities/initial-variables';
+@import '../node_modules/bulma/bulma';
 {{ end }}
 
 /* User styles */

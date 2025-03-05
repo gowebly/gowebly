@@ -47,14 +47,14 @@ A next-generation CLI tool that makes it easy to create amazing web applications
 ## ⚡️ Quick start
 
 > [!NOTE]
-> Looking for the **Gowebly** CLI `v1`? It's located in [this][repo_branch_v1_url] branch.
+> Looking for the other versions of the **Gowebly** CLI? It's located in these branches: [v1][repo_branch_v1_url], [v2][repo_branch_v2_url].
 
-First, [download][go_download_url] and install **Go**. Version `1.23.0` (or higher) is required.
+First, [download][go_download_url] and install **Go**. Version `1.24.0` (or higher) is required.
 
 Now, you can use the **Gowebly** CLI without installation. Just run it with [`go run`][go_run_url] to create a new project:
 
 ```console
-go run github.com/gowebly/gowebly/v2@latest create
+go run github.com/gowebly/gowebly/v3@latest create
 ```
 
 That's it! 🔥 A wonderful web application has been created in the current folder.
@@ -223,15 +223,16 @@ If you want to contribute to the project, please read the [contributing guide](h
 [go_download_url]: https://golang.org/dl/
 [go_run_url]: https://pkg.go.dev/cmd/go#hdr-Compile_and_run_Go_program
 [go_install_url]: https://golang.org/cmd/go/#hdr-Compile_and_install_packages_and_dependencies
-[go_report_url]: https://goreportcard.com/report/github.com/gowebly/gowebly/v2
+[go_report_url]: https://goreportcard.com/report/github.com/gowebly/gowebly/v3
 [go_report_img]: https://img.shields.io/badge/Go_report-A+-success?style=for-the-badge&logo=none
-[go_dev_url]: https://pkg.go.dev/github.com/gowebly/gowebly/v2
-[go_version_img]: https://img.shields.io/badge/Go-1.23+-00ADD8?style=for-the-badge&logo=go
+[go_dev_url]: https://pkg.go.dev/github.com/gowebly/gowebly/v3
+[go_version_img]: https://img.shields.io/badge/Go-1.24+-00ADD8?style=for-the-badge&logo=go
 
 <!-- Repository links -->
 
 [repo_url]: https://github.com/gowebly/gowebly
 [repo_branch_v1_url]: https://github.com/gowebly/gowebly/tree/v1
+[repo_branch_v2_url]: https://github.com/gowebly/gowebly/tree/v2
 [repo_issues_url]: https://github.com/gowebly/gowebly/issues
 [repo_pull_request_url]: https://github.com/gowebly/gowebly/pulls
 [repo_discussions_url]: https://github.com/gowebly/gowebly/discussions

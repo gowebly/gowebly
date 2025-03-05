@@ -3,8 +3,8 @@ package cmd
 import (
 	"fmt"
 
-	"github.com/gowebly/gowebly/v2/cmd/commands"
-	"github.com/gowebly/gowebly/v2/internal/messages"
+	"github.com/gowebly/gowebly/v3/cmd/commands"
+	"github.com/gowebly/gowebly/v3/internal/messages"
 )
 
 // Run runs cmd commands by the given flags and all dependencies.

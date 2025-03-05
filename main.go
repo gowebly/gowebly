@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/gowebly/gowebly/v2/cmd"
-	"github.com/gowebly/gowebly/v2/internal/helpers"
-	"github.com/gowebly/gowebly/v2/internal/messages"
-	"github.com/gowebly/gowebly/v2/internal/variables"
+	"github.com/gowebly/gowebly/v3/cmd"
+	"github.com/gowebly/gowebly/v3/internal/helpers"
+	"github.com/gowebly/gowebly/v3/internal/messages"
+	"github.com/gowebly/gowebly/v3/internal/variables"
 )
 
 func main() {

@@ -4,11 +4,11 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/gowebly/gowebly/v2/internal/config"
-	"github.com/gowebly/gowebly/v2/internal/helpers"
-	"github.com/gowebly/gowebly/v2/internal/injectors"
-	"github.com/gowebly/gowebly/v2/internal/messages"
-	"github.com/gowebly/gowebly/v2/internal/variables"
+	"github.com/gowebly/gowebly/v3/internal/config"
+	"github.com/gowebly/gowebly/v3/internal/helpers"
+	"github.com/gowebly/gowebly/v3/internal/injectors"
+	"github.com/gowebly/gowebly/v3/internal/messages"
+	"github.com/gowebly/gowebly/v3/internal/variables"
 )
 
 // CreateProjectAction creates a new project.
@@ -259,8 +259,8 @@ func generateHTMXFiles(di *injectors.Injector) error {
 	// Define the files to be generated.
 	generateFiles := []helpers.EmbedTemplate{
 		{
-			EmbedFile:  "templates/frontend/styles.scss.gotmpl",
-			OutputFile: "assets/styles.scss",
+			EmbedFile:  "templates/frontend/styles.css.gotmpl",
+			OutputFile: "assets/styles.css",
 			Data:       di.Config.Frontend,
 		},
 		{
@@ -318,11 +318,6 @@ func generateTailwindCSSFiles(di *injectors.Injector) error {
 		{
 			EmbedFile:  "templates/misc/postcssrc.gotmpl",
 			OutputFile: ".postcssrc",
-			Data:       di.Config.Frontend,
-		},
-		{
-			EmbedFile:  "templates/frontend/tailwind.config.js.gotmpl",
-			OutputFile: "tailwind.config.js",
 			Data:       di.Config.Frontend,
 		},
 	}

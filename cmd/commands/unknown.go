@@ -3,9 +3,9 @@ package commands
 import (
 	"fmt"
 
-	"github.com/gowebly/gowebly/v2/internal/helpers"
-	"github.com/gowebly/gowebly/v2/internal/messages"
-	"github.com/gowebly/gowebly/v2/internal/variables"
+	"github.com/gowebly/gowebly/v3/internal/helpers"
+	"github.com/gowebly/gowebly/v3/internal/messages"
+	"github.com/gowebly/gowebly/v3/internal/variables"
 )
 
 // Unknown runs an unknown cmd command or nothing.

@@ -20,7 +20,7 @@ upx:
     compress: best
     lzma: true
     brute: true
-    goos: [linux, windows] # skip darwin (macOS 13.x Ventura is not supported now)
+    goos: [linux, windows, darwin]
     goarch: [amd64, arm64]
 
 release:
@@ -46,7 +46,7 @@ release:
     For native Go installation (any platforms):
 
     ```console
-    go install github.com/gowebly/gowebly/v2@latest
+    go install github.com/gowebly/gowebly/v3@latest
     ```
 
     For [Homebrew][brew_url] users (GNU/Linux, Apple macOS):
@@ -110,7 +110,8 @@ brews:
 
       $ gowebly create
 
-      💡 Note: See the Complete user guide (https://gowebly.org/) to get a general information.
+      💡 See the Complete user guide (https://gowebly.org/) to get a general information.
+      ✨ Also, you can support the author on Boosty: https://boosty.to/koddr
     homepage: "https://github.com/gowebly/{{ .ProjectName }}"
     description: |
       A next-generation CLI tool that makes it easy to create amazing web applications with Go on the backend, using htmx, hyperscript or Alpine.js and the most popular CSS frameworks on the frontend.

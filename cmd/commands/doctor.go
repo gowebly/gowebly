@@ -6,9 +6,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/gowebly/gowebly/v2/internal/helpers"
-	"github.com/gowebly/gowebly/v2/internal/messages"
-	"github.com/gowebly/gowebly/v2/internal/variables"
+	"github.com/gowebly/gowebly/v3/internal/helpers"
+	"github.com/gowebly/gowebly/v3/internal/messages"
+	"github.com/gowebly/gowebly/v3/internal/variables"
 )
 
 // Doctor runs the 'doctor' cmd command.

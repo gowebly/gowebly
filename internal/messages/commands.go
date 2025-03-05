@@ -2,11 +2,11 @@ package messages
 
 const (
 	/*
-		List of the spinner constants.
+		List of the waiting constants.
 	*/
 
-	// CommandCreateSpinnerTitle represents the title for the command create spinner.
-	CommandCreateSpinnerTitle string = " Gowebly CLI is creating your project. Please wait..."
+	// CommandCreateWaitingTitle represents the title of the project creation waiting.
+	CommandCreateWaitingTitle string = "> Gowebly CLI is creating your project. Please wait...\n"
 
 	/*
 		List of the summary constants.

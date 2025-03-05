@@ -5,7 +5,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/gowebly/gowebly/v2/internal/messages"
+	"github.com/gowebly/gowebly/v3/internal/messages"
 )
 
 // File represent a struct to a file.

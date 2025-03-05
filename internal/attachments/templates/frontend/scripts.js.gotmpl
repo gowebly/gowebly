@@ -4,7 +4,7 @@ import * as bootstrap from 'bootstrap';
 {{ else if eq .CSSFramework "flowbite" }}
 import 'flowbite';
 {{ else if eq .CSSFramework "prelineui" }}
-import 'preline';
+import 'preline/preline';
 {{ end }}
 {{ if eq .ReactivityLibrary "htmx_hyperscript" }}
 import * as hyperscript from 'hyperscript.org';

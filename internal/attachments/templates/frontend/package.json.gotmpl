@@ -1,19 +1,17 @@
 {
   "name": "{{ trim .PackageName }}",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Frontend part of the Gowebly project.",
   "license": "MIT",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
     "fmt": "prettier --write .",
-    "build": "parcel build ./assets/scripts.js ./assets/styles.scss --dist-dir ./static",
-    "dev": "parcel build ./assets/scripts.js ./assets/styles.scss --dist-dir ./static --no-optimize",
-    "watch": "parcel watch ./assets/scripts.js ./assets/styles.scss --dist-dir ./static --no-optimize"
+    "build": "parcel build ./assets/scripts.js ./assets/styles.css --dist-dir ./static",
+    "dev": "parcel build ./assets/scripts.js ./assets/styles.css --dist-dir ./static --no-optimize",
+    "watch": "parcel watch ./assets/scripts.js ./assets/styles.css --dist-dir ./static --no-optimize"
   },
   "dependencies": {
     {{ if or (eq .CSSFramework "daisyui") (eq .CSSFramework "flowbite") (eq .CSSFramework "prelineui") (eq .CSSFramework "tailwindcss") }}
-    "@tailwindcss/forms": "latest",
-    "@tailwindcss/typography": "latest",
     "tailwindcss": "latest",
     {{ end }}
     {{ if eq .CSSFramework "daisyui" }}
@@ -30,17 +28,24 @@
     {{ else if eq .CSSFramework "bulma" }}
     "bulma": "latest",
     {{ end }}
-    {{ if eq .ReactivityLibrary "htmx_hyperscript" }}"hyperscript.org": "latest",{{ end }}
-    {{ if eq .ReactivityLibrary "htmx_alpinejs" }}"alpinejs": "latest",{{ end }}
+    {{ if eq .ReactivityLibrary "htmx_hyperscript" }}
+    "hyperscript.org": "latest",
+    {{ end }}
+    {{ if eq .ReactivityLibrary "htmx_alpinejs" }}
+    "alpinejs": "latest",
+    {{ end }}
     "htmx.org": "latest"
   },
   "devDependencies": {
     {{ if eq .CSSFramework "unocss" }}
     "@unocss/cli": "latest",
     "@unocss/postcss": "latest",
+    {{ else if or (eq .CSSFramework "daisyui") (eq .CSSFramework "flowbite") (eq .CSSFramework "prelineui") (eq .CSSFramework "tailwindcss") }}
+    "@tailwindcss/forms": "latest",
+    "@tailwindcss/typography": "latest",
+    "@tailwindcss/postcss": "latest",
     {{ end }}
-    "@parcel/transformer-sass": "latest",
-    "autoprefixer": "latest",
+    "@parcel/transformer-css": "latest",
     "parcel": "latest",
     "postcss": "latest",
     "prettier": "latest"

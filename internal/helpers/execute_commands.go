@@ -5,7 +5,7 @@ import (
 	"os"
 	"os/exec"
 
-	"github.com/gowebly/gowebly/v2/internal/messages"
+	"github.com/gowebly/gowebly/v3/internal/messages"
 )
 
 // Command represents a struct for cmd commands.

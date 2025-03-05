@@ -5,13 +5,12 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/charmbracelet/huh/spinner"
-	"github.com/gowebly/gowebly/v2/internal/actions"
-	"github.com/gowebly/gowebly/v2/internal/forms"
-	"github.com/gowebly/gowebly/v2/internal/helpers"
-	"github.com/gowebly/gowebly/v2/internal/injectors"
-	"github.com/gowebly/gowebly/v2/internal/messages"
-	"github.com/gowebly/gowebly/v2/internal/variables"
+	"github.com/gowebly/gowebly/v3/internal/actions"
+	"github.com/gowebly/gowebly/v3/internal/forms"
+	"github.com/gowebly/gowebly/v3/internal/helpers"
+	"github.com/gowebly/gowebly/v3/internal/injectors"
+	"github.com/gowebly/gowebly/v3/internal/messages"
+	"github.com/gowebly/gowebly/v3/internal/variables"
 )
 
 // Create creates a new project with the given configuration.
@@ -35,10 +34,8 @@ func Create(di *injectors.Injector) error {
 	// Run action that creates project in a goroutine.
 	go actions.CreateProjectAction(ctx, cancel, di, errCh)
 
-	// Run spinner.
-	if err := helpers.RunSpinnerWithContext(ctx, messages.CommandCreateSpinnerTitle, spinner.Line); err != nil {
-		return fmt.Errorf(messages.ErrorSpinnerNotRun, "create", err)
-	}
+	// Add waiting text for the 'create' command.
+	fmt.Println(helpers.MakeStyled(messages.CommandCreateWaitingTitle, &helpers.StringStyle{Color: variables.ColorYellow}))
 
 	// Handle potential error from action.
 	if err := <-errCh; err != nil {

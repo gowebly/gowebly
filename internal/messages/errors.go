@@ -46,11 +46,4 @@ const (
 
 	// ErrorGoroutineActionNotSuccess represents error message, when a goroutine action was not success.
 	ErrorGoroutineActionNotSuccess string = "failed to run action '%s' in goroutine: %w"
-
-	/*
-		List of the error messages for spinner.
-	*/
-
-	// ErrorSpinnerNotRun represents error message, when a spinner was not run.
-	ErrorSpinnerNotRun string = "failed to run spinner for the '%s': %w"
 )

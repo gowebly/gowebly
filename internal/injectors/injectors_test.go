@@ -3,8 +3,8 @@ package injectors
 import (
 	"testing"
 
-	"github.com/gowebly/gowebly/v2/internal/attachments"
-	"github.com/gowebly/gowebly/v2/internal/config"
+	"github.com/gowebly/gowebly/v3/internal/attachments"
+	"github.com/gowebly/gowebly/v3/internal/config"
 	"github.com/stretchr/testify/require"
 )
 

@@ -5,7 +5,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/gowebly/gowebly/v2/internal/messages"
+	"github.com/gowebly/gowebly/v3/internal/messages"
 	"github.com/stretchr/testify/assert"
 )
 

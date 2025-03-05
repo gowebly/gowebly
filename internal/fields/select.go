@@ -4,9 +4,9 @@ import (
 	"sort"
 
 	"github.com/charmbracelet/huh"
-	"github.com/gowebly/gowebly/v2/internal/injectors"
-	"github.com/gowebly/gowebly/v2/internal/messages"
-	"github.com/gowebly/gowebly/v2/internal/variables"
+	"github.com/gowebly/gowebly/v3/internal/injectors"
+	"github.com/gowebly/gowebly/v3/internal/messages"
+	"github.com/gowebly/gowebly/v3/internal/variables"
 )
 
 // sortMapByKey sorts the map by the keys.

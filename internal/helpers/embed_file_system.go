@@ -9,7 +9,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/gowebly/gowebly/v2/internal/messages"
+	"github.com/gowebly/gowebly/v3/internal/messages"
 )
 
 // EmbedFile represent struct for embed file system.
