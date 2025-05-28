@@ -201,11 +201,7 @@ If you want to contribute to the project, please read the [contributing guide](h
 
 ### 🌟 Stargazers
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=gowebly/gowebly&type=Date&theme=dark"/>
-  <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=gowebly/gowebly&type=Date"/>
-  <img width="100%" alt="The Gowebly CLI star history chart" src="https://api.star-history.com/svg?repos=gowebly/gowebly&type=Date"/>
-</picture>
+[![Stargazers over time](https://starchart.cc/gowebly/gowebly.svg?variant=adaptive)](https://starchart.cc/gowebly/gowebly)
 
 <div align="right">
 
