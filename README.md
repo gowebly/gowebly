@@ -49,7 +49,7 @@ A next-generation CLI tool that makes it easy to create amazing web applications
 > [!NOTE]
 > Looking for other versions of the **Gowebly** CLI? They're located in these branches: [v1][repo_branch_v1_url], [v2][repo_branch_v2_url].
 
-First, [download][go_download_url] and install **Go**. Version `1.24.0` (or higher) is required.
+First, [download][go_download_url] and install **Go**. Version `1.25.0` (or higher) is required.
 
 Now, you can use the **Gowebly** CLI without installation. Just run it with [`go run`][go_run_url] to create a new project:
 
