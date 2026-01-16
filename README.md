@@ -49,7 +49,7 @@ A next-generation CLI tool that makes it easy to create amazing web applications
 > [!NOTE]
 > Looking for other versions of the **Gowebly** CLI? They're located in these branches: [v1][repo_branch_v1_url], [v2][repo_branch_v2_url].
 
-First, [download][go_download_url] and install **Go**. Version `1.25.0` (or higher) is required.
+First, [download][go_download_url] and install **Go**. Version `1.25` (or higher) is required.
 
 Now, you can use the **Gowebly** CLI without installation. Just run it with [`go run`][go_run_url] to create a new project:
 
@@ -222,7 +222,7 @@ If you want to contribute to the project, please read the [contributing guide](h
 [go_report_url]: https://goreportcard.com/report/github.com/gowebly/gowebly/v3
 [go_report_img]: https://img.shields.io/badge/Go_report-A+-success?style=for-the-badge&logo=none
 [go_dev_url]: https://pkg.go.dev/github.com/gowebly/gowebly/v3
-[go_version_img]: https://img.shields.io/badge/Go-1.24+-00ADD8?style=for-the-badge&logo=go
+[go_version_img]: https://img.shields.io/badge/Go-1.25+-00ADD8?style=for-the-badge&logo=go
 
 <!-- Repository links -->
 
