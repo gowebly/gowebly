@@ -1,6 +1,6 @@
 module {{ trim .Backend.ModuleName }}
 
-go 1.25
+go 1.26.1
 
 require (
     {{ if .Tools.IsUseTempl }}github.com/a-h/templ latest{{ end }}
