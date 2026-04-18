@@ -9,14 +9,20 @@ import (
 	"github.com/gowebly/gowebly/v3/internal/messages"
 )
 
-// GoModuleNameInput runs the go module name input.
+// Pre-compiled regex patterns for input validation.
+var (
+	moduleNameRegex = regexp.MustCompile(`^[a-zA-Z0-9./_-]+$`)
+	portRegex       = regexp.MustCompile(`^\d+$`)
+)
+
+// GoModuleNameInput prompts for the Go module path (e.g., github.com/user/project).
 func GoModuleNameInput(di *injectors.Injector) *huh.Input {
 	return huh.NewInput().
 		Title(messages.FormGoModuleNameTitle).
 		Description(messages.FormGoModuleNameDescription).
 		Prompt(messages.FormPromptSignature).
 		Validate(func(s string) error {
-			if !regexp.MustCompile(`^[a-zA-Z0-9./_-]+$`).MatchString(s) {
+			if !moduleNameRegex.MatchString(s) {
 				return errors.New("enter correct Go module name in the go.mod file: special characters or/and spaces are not allowed")
 			}
 			return nil
@@ -24,14 +30,14 @@ func GoModuleNameInput(di *injectors.Injector) *huh.Input {
 		Value(&di.Config.Backend.ModuleName)
 }
 
-// PortInput runs the port input.
+// PortInput prompts for the backend server port number.
 func PortInput(di *injectors.Injector) *huh.Input {
 	return huh.NewInput().
 		Title(messages.FormPortTitle).
 		Description(messages.FormPortDescription).
 		Prompt(messages.FormPromptSignature).
 		Validate(func(s string) error {
-			if !regexp.MustCompile(`^\d+$`).MatchString(s) {
+			if !portRegex.MatchString(s) {
 				return errors.New("enter correct port number: only digits allowed")
 			}
 			return nil
@@ -39,14 +45,14 @@ func PortInput(di *injectors.Injector) *huh.Input {
 		Value(&di.Config.Backend.Port)
 }
 
-// PackageNameInput runs the package name input.
+// PackageNameInput prompts for the npm package name.
 func PackageNameInput(di *injectors.Injector) *huh.Input {
 	return huh.NewInput().
 		Title(messages.FormPackageNameTitle).
 		Description(messages.FormPackageNameDescription).
 		Prompt(messages.FormPromptSignature).
 		Validate(func(s string) error {
-			if !regexp.MustCompile(`^[a-zA-Z0-9./_-]+$`).MatchString(s) {
+			if !moduleNameRegex.MatchString(s) {
 				return errors.New("enter correct project name in the package.json file: special characters or/and spaces are not allowed")
 			}
 			return nil

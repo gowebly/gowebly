@@ -4,31 +4,31 @@ import (
 	"github.com/charmbracelet/lipgloss"
 )
 
-// StringStyle represents a styled string.
+// StringStyle configures text styling options (color and bold).
 type StringStyle struct {
 	IsBold bool
 	Color  lipgloss.AdaptiveColor
 }
 
-// FrameStyle represents a styled frame.
+// FrameStyle configures frame styling options (padding and border color).
 type FrameStyle struct {
 	Padding []int
 	Color   lipgloss.AdaptiveColor
 }
 
-// MakeStyled returns a styled string.
+// MakeStyled applies the given style to a string using lipgloss.
 func MakeStyled(s string, style *StringStyle) string {
 	if style == nil {
-		return s // no style provided, return the original string
+		return s
 	}
 
 	return lipgloss.NewStyle().Foreground(style.Color).Bold(style.IsBold).Render(s)
 }
 
-// MakeStyledFrame returns a styled frame.
+// MakeStyledFrame renders text with a left border frame using lipgloss.
 func MakeStyledFrame(s string, style *FrameStyle) string {
 	if style == nil {
-		return s // no style provided, return the original string
+		return s
 	}
 
 	return lipgloss.NewStyle().

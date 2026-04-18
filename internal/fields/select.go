@@ -9,17 +9,13 @@ import (
 	"github.com/gowebly/gowebly/v3/internal/variables"
 )
 
-// sortMapByKey sorts the map by the keys.
 func sortMapByKey(inputs map[string][]string) []huh.Option[string] {
-	// Define options for the select.
 	options := make([]huh.Option[string], 0, len(inputs))
 
-	// Add options to the select.
 	for _, input := range inputs {
 		options = append(options, huh.NewOption(input[1], input[0]))
 	}
 
-	// Sort the options slice by the keys.
 	sort.Slice(options, func(i, j int) bool {
 		return options[i].Key < options[j].Key
 	})
@@ -27,7 +23,7 @@ func sortMapByKey(inputs map[string][]string) []huh.Option[string] {
 	return options
 }
 
-// GoFrameworkSelect runs the Go framework select.
+// GoFrameworkSelect prompts for the Go web framework or router selection.
 func GoFrameworkSelect(di *injectors.Injector) *huh.Select[string] {
 	return huh.NewSelect[string]().
 		Title(messages.FormGoFrameworkTitle).
@@ -36,7 +32,7 @@ func GoFrameworkSelect(di *injectors.Injector) *huh.Select[string] {
 		Value(&di.Config.Backend.GoFramework)
 }
 
-// ReactivityLibrarySelect runs the reactivity library select.
+// ReactivityLibrarySelect prompts for the frontend reactivity library (htmx, Alpine.js, etc.).
 func ReactivityLibrarySelect(di *injectors.Injector) *huh.Select[string] {
 	return huh.NewSelect[string]().
 		Title(messages.FormReactivityLibraryTitle).
@@ -45,7 +41,7 @@ func ReactivityLibrarySelect(di *injectors.Injector) *huh.Select[string] {
 		Value(&di.Config.Frontend.ReactivityLibrary)
 }
 
-// CSSFrameworkSelect runs the CSS framework select.
+// CSSFrameworkSelect prompts for the CSS framework (Tailwind, Bootstrap, etc.).
 func CSSFrameworkSelect(di *injectors.Injector) *huh.Select[string] {
 	return huh.NewSelect[string]().
 		Title(messages.FormCSSFrameworkTitle).

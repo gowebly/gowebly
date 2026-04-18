@@ -2,7 +2,7 @@ package config
 
 import "runtime"
 
-// Config represents struct for an app configuration.
+// Config holds the complete project configuration.
 type Config struct {
 	Backend    *Backend
 	Frontend   *Frontend
@@ -10,27 +10,27 @@ type Config struct {
 	SystemInfo *SystemInfo
 }
 
-// Backend represents struct for a backend part of the project config.
+// Backend contains Go backend configuration options.
 type Backend struct {
 	ModuleName, GoFramework, Port string
 }
 
-// Frontend represents struct for a frontend part of the project config.
+// Frontend contains frontend stack configuration options.
 type Frontend struct {
 	PackageName, ReactivityLibrary, CSSFramework string
 }
 
-// Tools represents struct for a tools part of the project config.
+// Tools contains optional development tool selections.
 type Tools struct {
 	IsUseAir, IsUseBun, IsUseTempl, IsUseGolangCILint bool
 }
 
-// SystemInfo represents struct for a system info part of the project config.
+// SystemInfo contains detected operating system information.
 type SystemInfo struct {
 	IsArch64, IsWindows, IsDarwin, IsLinux bool
 }
 
-// New creates a new config.
+// New returns a Config with sensible default values.
 func New() *Config {
 	return &Config{
 		Backend: &Backend{

@@ -13,54 +13,42 @@ import (
 	"github.com/gowebly/gowebly/v3/internal/variables"
 )
 
-// Create creates a new project with the given configuration.
+// Create orchestrates the project creation workflow using the provided configuration.
 func Create(di *injectors.Injector) error {
-	// Add technical space for the 'create' command.
 	fmt.Println()
 
-	// Run create form.
 	if err := forms.RunCreateForm(di); err != nil {
 		return err
 	}
 
-	// Create a new context and a cancel function.
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
 
-	// Create buffered channel for one error value.
 	errCh := make(chan error, 1)
 	defer close(errCh)
 
-	// Run action that creates project in a goroutine.
 	go actions.CreateProjectAction(ctx, cancel, di, errCh)
 
-	// Add waiting text for the 'create' command.
 	fmt.Println(helpers.MakeStyled(messages.CommandCreateWaitingTitle, &helpers.StringStyle{Color: variables.ColorYellow}))
 
-	// Handle potential error from action.
 	if err := <-errCh; err != nil {
 		return err
 	}
 
-	// Define variables.
 	var goFramework, reactivityLibrary, cssFramework string
 
-	// Check if the specified Go framework is valid.
 	if _, ok := variables.ListGoFrameworks[di.Config.Backend.GoFramework]; ok {
 		goFramework = variables.ListGoFrameworks[di.Config.Backend.GoFramework][1]
 	}
 
-	// Check if the specified frontend reactivity library is valid.
 	if _, ok := variables.ListReactivityLibraries[di.Config.Frontend.ReactivityLibrary]; ok {
 		reactivityLibrary = variables.ListReactivityLibraries[di.Config.Frontend.ReactivityLibrary][1]
 	}
 
-	// Check if the specified frontend CSS framework is valid.
 	if _, ok := variables.ListCSSFrameworks[di.Config.Frontend.CSSFramework]; ok {
 		cssFramework = variables.ListCSSFrameworks[di.Config.Frontend.CSSFramework][1]
 	}
 
-	// Generate content body.
 	contentBody := fmt.Sprintf(
 		messages.CommandCreateSummaryDescription,
 		helpers.MakeStyled(messages.CommandCreateSummaryHeadingBackend, &helpers.StringStyle{Color: variables.ColorGrey}),
@@ -78,7 +66,6 @@ func Create(di *injectors.Injector) error {
 		helpers.MakeStyled(strconv.FormatBool(di.Config.Tools.IsUseGolangCILint), &helpers.StringStyle{Color: variables.ColorBlue}),
 	)
 
-	// Show created project info.
 	fmt.Println(helpers.MakeStyled(
 		messages.CommandCreateSummaryTitle,
 		&helpers.StringStyle{Color: variables.ColorGreen, IsBold: true},

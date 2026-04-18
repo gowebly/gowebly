@@ -12,12 +12,9 @@ import (
 )
 
 func main() {
-	// Parse flags.
 	flag.Parse()
 
-	// Run cmd with the parsed flags or exit with error.
 	if err := cmd.Run(flag.Args()); err != nil {
-		// Show error.
 		fmt.Println(helpers.MakeStyled(
 			messages.CommandErrorSummaryTitle,
 			&helpers.StringStyle{Color: variables.ColorRed, IsBold: true},
@@ -31,7 +28,6 @@ func main() {
 			&helpers.StringStyle{Color: variables.ColorYellow},
 		))
 
-		// Stop with error code.
 		os.Exit(1)
 	}
 }

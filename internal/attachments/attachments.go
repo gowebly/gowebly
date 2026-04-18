@@ -12,12 +12,12 @@ var (
 	TemplatesFiles embed.FS
 )
 
-// Attachments represents struct for embed files.
+// Attachments holds the embedded static files and templates.
 type Attachments struct {
 	Static, Templates embed.FS
 }
 
-// New creates a new collection with embed files by Attachments struct.
+// New returns Attachments with the embedded filesystems.
 func New() *Attachments {
 	return &Attachments{
 		Static:    StaticFiles,

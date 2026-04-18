@@ -12,29 +12,27 @@ import (
 	"github.com/gowebly/gowebly/v3/internal/messages"
 )
 
-// EmbedFile represent struct for embed file system.
+// EmbedFile represents a file to be copied from embedded filesystem.
 type EmbedFile struct {
 	EmbedFile  string
 	OutputFile string
 }
 
-// EmbedTemplate represents struct for a one template.
+// EmbedTemplate represents a template file with data to be generated.
 type EmbedTemplate struct {
 	EmbedFile  string
 	OutputFile string
 	Data       any
 }
 
-// CopyFilesFromEmbedFS function for copy all files from the embed file system.
+// CopyFilesFromEmbedFS copies files from embedded filesystem to output directory.
 func CopyFilesFromEmbedFS(efs embed.FS, files []EmbedFile) error {
 	for _, f := range files {
-		// Read the attachments (embedded) config file.
 		data, err := efs.ReadFile(f.EmbedFile)
 		if err != nil {
 			return err
 		}
 
-		// Create a config file.
 		if err := MakeFiles(
 			[]File{
 				{
@@ -49,22 +47,19 @@ func CopyFilesFromEmbedFS(efs embed.FS, files []EmbedFile) error {
 	return nil
 }
 
-// GenerateFilesByTemplateFromEmbedFS generates new files from the given template with
-// variables from embed FS.
+// GenerateFilesByTemplateFromEmbedFS processes templates and writes generated files to output.
+// Uses a temporary directory during processing to avoid partial writes.
 func GenerateFilesByTemplateFromEmbedFS(efs embed.FS, templates []EmbedTemplate) error {
-	// Create a new temp folder.
 	tempFolder, err := os.MkdirTemp("", "*")
 	if err != nil {
 		return err
 	}
 
 	for _, t := range templates {
-		// Check if file exists.
 		if IsExistInFolder(t.OutputFile, false) {
 			return fmt.Errorf(messages.ErrorOSFileIsExists, t.OutputFile)
 		}
 
-		// Parse template from embed file system.
 		tmpl, err := template.New(filepath.Base(t.EmbedFile)).
 			Funcs(template.FuncMap{
 				"trim": strings.TrimSpace,
@@ -74,39 +69,32 @@ func GenerateFilesByTemplateFromEmbedFS(efs embed.FS, templates []EmbedTemplate)
 			return err
 		}
 
-		// Create a new temp file with the given data.
 		tempFile, err := os.CreateTemp(tempFolder, "*")
 		if err != nil {
 			return err
 		}
 
-		// Set variables to the given.
 		if err := tmpl.Execute(tempFile, t.Data); err != nil {
 			return err
 		}
 
-		// Reset the record position to the beginning of the file.
 		if _, err := tempFile.Seek(0, 0); err != nil {
 			return err
 		}
 
-		// Copy temp file to the output file.
 		outputFile, err := os.Create(t.OutputFile)
 		if err != nil {
 			return err
 		}
 
-		// Copy file from the temp file to the output.
 		if _, err := io.Copy(outputFile, tempFile); err != nil {
 			return err
 		}
 
-		// Close temp file.
 		if err := tempFile.Close(); err != nil {
 			return err
 		}
 
-		// Close output file.
 		if err := outputFile.Close(); err != nil {
 			return err
 		}

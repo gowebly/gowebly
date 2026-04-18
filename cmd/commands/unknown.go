@@ -8,12 +8,10 @@ import (
 	"github.com/gowebly/gowebly/v3/internal/variables"
 )
 
-// Unknown runs an unknown cmd command or nothing.
+// Unknown displays the help message when no command or an invalid command is provided.
 func Unknown() error {
-	// Add technical space for 'unknown' command.
 	fmt.Println()
 
-	// Generate content body.
 	contentBody := fmt.Sprintf(
 		messages.CommandUnknownSummaryDescription,
 		helpers.MakeStyled(messages.CommandUnknownSummarySubTitle, &helpers.StringStyle{Color: variables.ColorGrey}),
@@ -22,7 +20,6 @@ func Unknown() error {
 		helpers.MakeStyled("run", &helpers.StringStyle{Color: variables.ColorBlue}),
 	)
 
-	// Show created project info.
 	fmt.Println(helpers.MakeStyled(
 		messages.CommandUnknownSummaryTitle,
 		&helpers.StringStyle{Color: variables.ColorBlue, IsBold: true},

@@ -15,12 +15,9 @@ import (
 // Injectors from wire.go:
 
 // Inject provides the dependency injection process by the "google/wire" package.
-func Inject() (*injectors.Injector, error) {
+func Inject() *injectors.Injector {
 	configConfig := config.New()
 	attachmentsAttachments := attachments.New()
-	injector, err := injectors.New(configConfig, attachmentsAttachments)
-	if err != nil {
-		return nil, err
-	}
-	return injector, nil
+	injector := injectors.New(configConfig, attachmentsAttachments)
+	return injector
 }

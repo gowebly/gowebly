@@ -5,16 +5,16 @@ import (
 	"github.com/gowebly/gowebly/v3/internal/config"
 )
 
-// Injector represents a struct for the dependency injection.
+// Injector provides access to application-wide dependencies.
 type Injector struct {
 	Config      *config.Config
 	Attachments *attachments.Attachments
 }
 
-// New creates a new injector instance with config.Config and attachments.Attachments.
-func New(cfg *config.Config, efs *attachments.Attachments) (*Injector, error) {
+// New creates an Injector with the given configuration and embedded files.
+func New(cfg *config.Config, efs *attachments.Attachments) *Injector {
 	return &Injector{
 		Config:      cfg,
 		Attachments: efs,
-	}, nil
+	}
 }

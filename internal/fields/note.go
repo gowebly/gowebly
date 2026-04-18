@@ -8,7 +8,7 @@ import (
 	"github.com/gowebly/gowebly/v3/internal/variables"
 )
 
-// WelcomeNote runs the welcome note.
+// WelcomeNote displays the CLI welcome message with version info.
 func WelcomeNote() *huh.Note {
 	return huh.NewNote().
 		Title(fmt.Sprintf("The Gowebly CLI (%s)", variables.GoweblyVersion)).

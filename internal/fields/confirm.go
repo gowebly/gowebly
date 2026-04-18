@@ -6,7 +6,7 @@ import (
 	"github.com/gowebly/gowebly/v3/internal/messages"
 )
 
-// IsUseAirConfirm runs the confirm if Air is used.
+// IsUseAirConfirm prompts for Air live-reload tool installation.
 func IsUseAirConfirm(di *injectors.Injector) *huh.Confirm {
 	return huh.NewConfirm().
 		Title(messages.FormAirUsageTitle).
@@ -16,7 +16,7 @@ func IsUseAirConfirm(di *injectors.Injector) *huh.Confirm {
 		Value(&di.Config.Tools.IsUseAir)
 }
 
-// IsUseTempleConfirm runs the confirm if Templ is used.
+// IsUseTempleConfirm prompts for Templ HTML template engine installation.
 func IsUseTempleConfirm(di *injectors.Injector) *huh.Confirm {
 	return huh.NewConfirm().
 		Title(messages.FormTemplUsageTitle).
@@ -26,7 +26,7 @@ func IsUseTempleConfirm(di *injectors.Injector) *huh.Confirm {
 		Value(&di.Config.Tools.IsUseTempl)
 }
 
-// IsUseBunConfirm runs the confirm if Bun is used.
+// IsUseBunConfirm prompts for Bun JavaScript runtime selection.
 func IsUseBunConfirm(di *injectors.Injector) *huh.Confirm {
 	return huh.NewConfirm().
 		Title(messages.FormBunUsageTitle).
@@ -36,7 +36,7 @@ func IsUseBunConfirm(di *injectors.Injector) *huh.Confirm {
 		Value(&di.Config.Tools.IsUseBun)
 }
 
-// IsUseGolangCILintConfirm runs the confirm if Golang CI Lint is used.
+// IsUseGolangCILintConfirm prompts for golangci-lint installation.
 func IsUseGolangCILintConfirm(di *injectors.Injector) *huh.Confirm {
 	return huh.NewConfirm().
 		Title(messages.FormGolangCILintUsageTitle).

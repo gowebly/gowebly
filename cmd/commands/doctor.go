@@ -11,42 +11,34 @@ import (
 	"github.com/gowebly/gowebly/v3/internal/variables"
 )
 
-// Doctor runs the 'doctor' cmd command.
+// Doctor displays system information and checks for installed dependencies.
 func Doctor() error {
-	// Add technical space for 'doctor' command.
 	fmt.Println()
 
-	// Get Go version.
-	goVersion, _ := helpers.GetToolVersion("go", "version")
-	if goVersion == "" {
+	goVersion, goInstalled := helpers.GetToolVersionSafe("go", "version")
+	if !goInstalled {
 		goVersion = "not installed"
 	}
 
-	// Get Node.js version.
-	nodeVersion, _ := helpers.GetToolVersion("node", "-v")
-	if nodeVersion == "" {
+	nodeVersion, nodeInstalled := helpers.GetToolVersionSafe("node", "-v")
+	if !nodeInstalled {
 		nodeVersion = "not installed"
 	}
 
-	// Get npm version.
-	npmVersion, _ := helpers.GetToolVersion("npm", "-v")
-	if npmVersion == "" {
+	npmVersion, npmInstalled := helpers.GetToolVersionSafe("npm", "-v")
+	if !npmInstalled {
 		npmVersion = "not installed"
 	}
 
-	// Get Bun version.
-	bunVersion, _ := helpers.GetToolVersion("bun", "-v")
-	if bunVersion == "" {
+	bunVersion, bunInstalled := helpers.GetToolVersionSafe("bun", "-v")
+	if !bunInstalled {
 		bunVersion = "not installed"
 	}
 
-	// Get Air version.
-	airVersion, _ := helpers.CheckToolIsInstalled("air", "-v")
+	_, airInstalled := helpers.GetToolVersionSafe("air", "-v")
 
-	// Get Templ version.
-	templVersion, _ := helpers.CheckToolIsInstalled("templ", "version")
+	_, templInstalled := helpers.GetToolVersionSafe("templ", "version")
 
-	// Generate content body.
 	contentBody := fmt.Sprintf(
 		messages.CommandDoctorSummaryDescription,
 		helpers.MakeStyled(messages.CommandDoctorSummarySubTitle, &helpers.StringStyle{Color: variables.ColorGrey}),
@@ -58,11 +50,10 @@ func Doctor() error {
 		helpers.MakeStyled(strings.ReplaceAll(nodeVersion, "v", ""), &helpers.StringStyle{Color: variables.ColorBlue}),
 		helpers.MakeStyled(npmVersion, &helpers.StringStyle{Color: variables.ColorBlue}),
 		helpers.MakeStyled(bunVersion, &helpers.StringStyle{Color: variables.ColorBlue}),
-		helpers.MakeStyled(strconv.FormatBool(airVersion), &helpers.StringStyle{Color: variables.ColorBlue}),
-		helpers.MakeStyled(strconv.FormatBool(templVersion), &helpers.StringStyle{Color: variables.ColorBlue}),
+		helpers.MakeStyled(strconv.FormatBool(airInstalled), &helpers.StringStyle{Color: variables.ColorBlue}),
+		helpers.MakeStyled(strconv.FormatBool(templInstalled), &helpers.StringStyle{Color: variables.ColorBlue}),
 	)
 
-	// Show created project info.
 	fmt.Println(helpers.MakeStyled(
 		messages.CommandDoctorSummaryTitle,
 		&helpers.StringStyle{Color: variables.ColorGreen, IsBold: true},

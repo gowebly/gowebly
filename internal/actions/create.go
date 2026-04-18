@@ -11,12 +11,11 @@ import (
 	"github.com/gowebly/gowebly/v3/internal/variables"
 )
 
-// CreateProjectAction creates a new project.
+// CreateProjectAction creates a new project in a goroutine with context support.
 func CreateProjectAction(ctx context.Context, cancel context.CancelFunc, di *injectors.Injector, errCh chan<- error) {
-	// Defer the cancel function.
 	defer cancel()
 
-	// Define the list of actions to execute.
+	// Ordered list of project creation steps.
 	actions := []struct {
 		op string
 		fn func(*injectors.Injector) error
@@ -28,22 +27,18 @@ func CreateProjectAction(ctx context.Context, cancel context.CancelFunc, di *inj
 		{"install project dependencies", installDependencies},
 	}
 
-	// Execute each action in the list
 	for _, action := range actions {
-		// Check context.
 		if ctx.Err() != nil {
 			errCh <- ctx.Err()
 			return
 		}
 
-		// Run action.
 		if err := action.fn(di); err != nil {
 			errCh <- fmt.Errorf(messages.ErrorGoroutineActionNotSuccess, action.op, err)
 			return
 		}
 	}
 
-	// Check context.
 	if ctx.Err() != nil {
 		errCh <- ctx.Err()
 		return
@@ -52,17 +47,16 @@ func CreateProjectAction(ctx context.Context, cancel context.CancelFunc, di *inj
 	errCh <- nil
 }
 
-// createProjectFolders creates project folders.
+// createProjectFolders creates the standard project folder structure.
 func createProjectFolders(di *injectors.Injector) error {
-	// Define a slice of folder paths.
 	folders := []string{"assets", "static/images", "templates/pages"}
 
 	return helpers.MakeFolders(folders...)
 }
 
-// copyStaticFiles copies static files.
+// copyStaticFiles copies embedded static assets to the project.
 func copyStaticFiles(di *injectors.Injector) error {
-	// Define the files to be copied.
+	// Favicon and PWA manifest files.
 	files := []helpers.EmbedFile{
 		{
 			EmbedFile:  "static/favicon.ico",
@@ -105,29 +99,25 @@ func copyStaticFiles(di *injectors.Injector) error {
 	return helpers.CopyFilesFromEmbedFS(di.Attachments.Static, files)
 }
 
-// createBackendFiles creates backend files.
+// createBackendFiles generates all backend source files and configuration.
 func createBackendFiles(di *injectors.Injector) error {
-	// Define variables.
 	var goFramework, reactivityLibrary, cssFramework string
 
-	// Check if the specified Go framework is valid.
+	// Lookup human-readable names for the selected options.
 	if _, ok := variables.ListGoFrameworks[di.Config.Backend.GoFramework]; ok {
 		goFramework = variables.ListGoFrameworks[di.Config.Backend.GoFramework][1]
 	}
 
-	// Check if the specified frontend reactivity library is valid.
 	if _, ok := variables.ListReactivityLibraries[di.Config.Frontend.ReactivityLibrary]; ok {
 		reactivityLibrary = variables.ListReactivityLibraries[di.Config.Frontend.ReactivityLibrary][1]
 	}
 
-	// Check if the specified frontend CSS framework is valid.
 	if _, ok := variables.ListCSSFrameworks[di.Config.Frontend.CSSFramework]; ok {
 		cssFramework = variables.ListCSSFrameworks[di.Config.Frontend.CSSFramework][1]
 	}
 
-	// Define embed templates.
 	templates := []helpers.EmbedTemplate{
-		// Common backend files.
+		// Core backend files
 		{
 			EmbedFile:  "templates/backend/go.mod.gotmpl",
 			OutputFile: "go.mod",
@@ -138,7 +128,7 @@ func createBackendFiles(di *injectors.Injector) error {
 			OutputFile: "main.go",
 			Data:       nil,
 		},
-		// Go framework specified files.
+		// Framework-specific handlers and server setup
 		{
 			EmbedFile:  fmt.Sprintf("templates/backend/%s/handlers.go.gotmpl", di.Config.Backend.GoFramework),
 			OutputFile: "handlers.go",
@@ -149,7 +139,7 @@ func createBackendFiles(di *injectors.Injector) error {
 			OutputFile: "server.go",
 			Data:       di.Config,
 		},
-		// Deploy files.
+		// Deployment configuration
 		{
 			EmbedFile:  "templates/deploy/docker-compose.yml.gotmpl",
 			OutputFile: "docker-compose.yml",
@@ -160,7 +150,7 @@ func createBackendFiles(di *injectors.Injector) error {
 			OutputFile: "Dockerfile",
 			Data:       di.Config,
 		},
-		// Misc files.
+		// Project documentation and config files
 		{
 			EmbedFile:  "templates/misc/README.md.gotmpl",
 			OutputFile: "README.md",
@@ -200,16 +190,13 @@ func createBackendFiles(di *injectors.Injector) error {
 		},
 	}
 
-	// Check if Air tool is used.
 	if di.Config.Tools.IsUseAir {
-		// Add Air template to the list.
 		templates = append(templates, helpers.EmbedTemplate{
 			EmbedFile:  "templates/misc/air.toml.gotmpl",
 			OutputFile: ".air.toml",
 			Data:       di.Config,
 		})
 	} else {
-		// Add Makefile to the list.
 		templates = append(templates, helpers.EmbedTemplate{
 			EmbedFile:  "templates/misc/Makefile.gotmpl",
 			OutputFile: "Makefile",
@@ -217,9 +204,7 @@ func createBackendFiles(di *injectors.Injector) error {
 		})
 	}
 
-	// Check if Golang CI Lint tool is used.
 	if di.Config.Tools.IsUseGolangCILint {
-		// Add golangci-lint template to the list.
 		templates = append(templates, helpers.EmbedTemplate{
 			EmbedFile:  "templates/misc/golangci.yml.gotmpl",
 			OutputFile: ".golangci.yml",
@@ -230,22 +215,18 @@ func createBackendFiles(di *injectors.Injector) error {
 	return helpers.GenerateFilesByTemplateFromEmbedFS(di.Attachments.Templates, templates)
 }
 
-// createFrontendFiles creates frontend files.
+// createFrontendFiles generates frontend assets and templates.
 func createFrontendFiles(di *injectors.Injector) error {
-	// Generate HTMX files.
 	if err := generateHTMXFiles(di); err != nil {
 		return err
 	}
 
-	// Check which CSS framework is configured for the frontend.
 	switch di.Config.Frontend.CSSFramework {
 	case "daisyui", "flowbite", "prelineui", "tailwindcss":
-		// Generate Tailwind CSS files for supported frameworks.
 		if err := generateTailwindCSSFiles(di); err != nil {
 			return err
 		}
 	case "unocss":
-		// Generate Uno CSS files.
 		if err := generateUnoCSSFiles(di); err != nil {
 			return err
 		}
@@ -254,9 +235,8 @@ func createFrontendFiles(di *injectors.Injector) error {
 	return nil
 }
 
-// generateHTMXFiles generates HTMX files.
+// generateHTMXFiles creates HTMX-related frontend files.
 func generateHTMXFiles(di *injectors.Injector) error {
-	// Define the files to be generated.
 	generateFiles := []helpers.EmbedTemplate{
 		{
 			EmbedFile:  "templates/frontend/styles.css.gotmpl",
@@ -275,7 +255,6 @@ func generateHTMXFiles(di *injectors.Injector) error {
 		},
 	}
 
-	// Check if Templ is used.
 	if di.Config.Tools.IsUseTempl {
 		generateFiles = append(generateFiles,
 			helpers.EmbedTemplate{
@@ -290,7 +269,6 @@ func generateHTMXFiles(di *injectors.Injector) error {
 			},
 		)
 	} else {
-		// Define the files to be copied.
 		copyFiles := []helpers.EmbedFile{
 			{
 				EmbedFile:  "templates/frontend/main.html.gotmpl",
@@ -302,7 +280,6 @@ func generateHTMXFiles(di *injectors.Injector) error {
 			},
 		}
 
-		// Copy files from the embed file system.
 		if err := helpers.CopyFilesFromEmbedFS(di.Attachments.Templates, copyFiles); err != nil {
 			return err
 		}
@@ -311,9 +288,8 @@ func generateHTMXFiles(di *injectors.Injector) error {
 	return helpers.GenerateFilesByTemplateFromEmbedFS(di.Attachments.Templates, generateFiles)
 }
 
-// generateTailwindCSSFiles generates Tailwind CSS files.
+// generateTailwindCSSFiles creates Tailwind CSS configuration files.
 func generateTailwindCSSFiles(di *injectors.Injector) error {
-	// Define the files to be generated.
 	files := []helpers.EmbedTemplate{
 		{
 			EmbedFile:  "templates/misc/postcssrc.gotmpl",
@@ -325,9 +301,8 @@ func generateTailwindCSSFiles(di *injectors.Injector) error {
 	return helpers.GenerateFilesByTemplateFromEmbedFS(di.Attachments.Templates, files)
 }
 
-// generateUnoCSSFiles generates Uno CSS files.
+// generateUnoCSSFiles creates Uno CSS configuration files.
 func generateUnoCSSFiles(di *injectors.Injector) error {
-	// Define the files to be generated.
 	files := []helpers.EmbedTemplate{
 		{
 			EmbedFile:  "templates/misc/postcssrc.gotmpl",
@@ -344,14 +319,11 @@ func generateUnoCSSFiles(di *injectors.Injector) error {
 	return helpers.GenerateFilesByTemplateFromEmbedFS(di.Attachments.Templates, files)
 }
 
-// installDependencies installs dependencies.
+// installDependencies runs all necessary dependency installation commands.
 func installDependencies(di *injectors.Injector) error {
-	// Define the commands to be executed.
 	commands := make([]helpers.Command, 0, 4)
 
-	// Check if Templ is used.
 	if di.Config.Tools.IsUseTempl {
-		// Generate templates.
 		commands = append(commands, helpers.Command{
 			Name:       "templ",
 			Options:    []string{"generate"},
@@ -359,7 +331,6 @@ func installDependencies(di *injectors.Injector) error {
 		})
 	}
 
-	// Install Go dependencies.
 	commands = append(commands,
 		helpers.Command{
 			Name:       "go",
@@ -373,16 +344,11 @@ func installDependencies(di *injectors.Injector) error {
 		},
 	)
 
-	// Define the frontend runtime environment.
 	frontendRuntimeEnv := "npm"
-
-	// Check if Bun is used.
 	if di.Config.Tools.IsUseBun {
-		// Set the frontend runtime environment to Bun.
 		frontendRuntimeEnv = "bun"
 	}
 
-	// Install frontend dependencies.
 	commands = append(commands,
 		helpers.Command{
 			Name:       frontendRuntimeEnv,

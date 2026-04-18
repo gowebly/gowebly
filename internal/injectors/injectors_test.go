@@ -9,6 +9,8 @@ import (
 )
 
 func TestNew(t *testing.T) {
-	_, err := New(&config.Config{Backend: &config.Backend{}, Frontend: &config.Frontend{}}, &attachments.Attachments{})
-	require.NoError(t, err)
+	injector := New(&config.Config{Backend: &config.Backend{}, Frontend: &config.Frontend{}}, &attachments.Attachments{})
+	require.NotNil(t, injector)
+	require.NotNil(t, injector.Config)
+	require.NotNil(t, injector.Attachments)
 }

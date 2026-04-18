@@ -8,38 +8,37 @@ import (
 	"github.com/gowebly/gowebly/v3/internal/messages"
 )
 
-// GetToolVersion gets the version of a tool by executing a command.
-//
-// It takes the name of the tool and the command to retrieve the version as input.
-// It returns the version as a string and any error encountered.
+// GetToolVersion executes the tool with the given version command and returns its output.
 func GetToolVersion(name, versionCommand string) (string, error) {
-	// Create a new command with the given tool name and version command.
 	cmd := exec.Command(name, versionCommand)
 
-	// Execute the command and retrieve the output.
 	output, err := cmd.Output()
 	if err != nil {
 		return "", fmt.Errorf(messages.ErrorCMDNotExecuteCommand, name, versionCommand, err)
 	}
 
-	// Return the output as a string and nil error.
 	return strings.TrimSpace(string(output)), nil
 }
 
-// CheckToolIsInstalled checks if a tool is installed by executing a command.
-//
-// It takes the name of the tool and the command to retrieve the version as input.
-// It returns the bool indicating if the tool is installed and any error encountered.
+// CheckToolIsInstalled verifies if a tool exists in PATH by running the version command.
 func CheckToolIsInstalled(name, versionCommand string) (bool, error) {
-	// Create a new command with the given tool name and version command.
 	cmd := exec.Command(name, versionCommand)
 
-	// Execute the command and retrieve the output.
 	_, err := cmd.Output()
 	if err != nil {
 		return false, fmt.Errorf(messages.ErrorCMDNotExecuteCommand, name, versionCommand, err)
 	}
 
-	// Return the output as a string and nil error.
 	return true, nil
+}
+
+// GetToolVersionSafe gets the version of a tool without returning an error.
+// Returns the version string and a boolean indicating if the tool is installed.
+// This is useful for diagnostic commands where missing tools are expected.
+func GetToolVersionSafe(name, versionCommand string) (string, bool) {
+	version, err := GetToolVersion(name, versionCommand)
+	if err != nil {
+		return "", false
+	}
+	return version, true
 }

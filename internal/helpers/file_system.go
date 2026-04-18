@@ -8,16 +8,14 @@ import (
 	"github.com/gowebly/gowebly/v3/internal/messages"
 )
 
-// File represent a struct to a file.
+// File represents a file with name and content data.
 type File struct {
 	Name string
 	Data []byte
 }
 
-// IsExistInFolder searches for a file or folder by the given name in the
-// current folder.
+// IsExistInFolder checks if a file or folder exists at the given path.
 func IsExistInFolder(name string, isFolder bool) bool {
-	// Check, if file or folder is existing.
 	info, err := os.Stat(filepath.Clean(name))
 	if err == nil && info != nil {
 		return info.IsDir() == isFolder
@@ -26,9 +24,8 @@ func IsExistInFolder(name string, isFolder bool) bool {
 	return false
 }
 
-// MakeFile makes a single file with name and data.
+// MakeFile creates a single file with the given name and data.
 func MakeFile(file File) error {
-	// Check, if file is existing.
 	if IsExistInFolder(file.Name, false) {
 		return fmt.Errorf(messages.ErrorOSFileIsExists, file.Name)
 	}
@@ -36,10 +33,9 @@ func MakeFile(file File) error {
 	return os.WriteFile(file.Name, file.Data, 0o600)
 }
 
-// MakeFiles makes a multiply files with names and data.
+// MakeFiles creates multiple files from the given slice.
 func MakeFiles(files []File) error {
 	for _, f := range files {
-		// Create a new file.
 		if err := MakeFile(f); err != nil {
 			return err
 		}
@@ -48,15 +44,13 @@ func MakeFiles(files []File) error {
 	return nil
 }
 
-// MakeFolders makes a multiply folders with names.
+// MakeFolders creates multiple directories with the given names.
 func MakeFolders(names ...string) error {
 	for _, name := range names {
-		// Check, if folder is existing.
 		if IsExistInFolder(name, true) {
 			return fmt.Errorf(messages.ErrorOSFolderIsExists, name)
 		}
 
-		// Create a new folder.
 		if err := os.MkdirAll(name, 0o700); err != nil {
 			return err
 		}
