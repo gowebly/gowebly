@@ -9,14 +9,14 @@ import (
 	"{{ trim .Backend.ModuleName }}/templates/pages"
 	{{ end }}
 	"github.com/angelofallars/htmx-go"
-	"github.com/labstack/echo/v5"
+	"github.com/pocketbase/pocketbase/core"
 )
 
 // indexViewHandler handles a view for the index page.
-func indexViewHandler(c echo.Context) error {
+func indexViewHandler(e *core.RequestEvent) error {
 	{{ if .Tools.IsUseTempl }}
 	// Set the response content type to HTML.
-	c.Response().Header().Set(echo.HeaderContentType, echo.MIMETextHTML)
+	e.Response.Header().Set("Content-Type", "text/html; charset=utf-8")
 
 	// Define template meta tags.
 	metaTags := pages.MetaTags(
@@ -37,25 +37,33 @@ func indexViewHandler(c echo.Context) error {
 		bodyContent,           // define body content
 	)
 
-	return htmx.NewResponse().RenderTempl(c.Request().Context(), c.Response().Writer, indexTemplate)
+	return htmx.NewResponse().RenderTempl(e.Request.Context(), e.Response, indexTemplate)
 	{{ else }}
-	return c.Render(http.StatusOK, "templates/pages/index.html", nil)
+	// Render the HTML template for the index page.
+	html, err := renderHTMLTemplate("index.html")
+	if err != nil {
+		return e.BadRequestError("failed to render template", err)
+	}
+
+	return e.HTML(http.StatusOK, html)
 	{{ end }}
 }
 
 // showContentAPIHandler handles an API endpoint to show content.
-func showContentAPIHandler(c echo.Context) error {
+func showContentAPIHandler(e *core.RequestEvent) error {
 	// Check, if the current request has a 'HX-Request' header.
 	// For more information, see https://htmx.org/docs/#request-headers
-	if !htmx.IsHTMX(c.Request()) {
+	if !htmx.IsHTMX(e.Request) {
 		// If not, return HTTP 400 error.
-		c.Response().WriteHeader(http.StatusBadRequest)
-		slog.Error("request API", "method", c.Request().Method, "status", http.StatusBadRequest, "path", c.Request().URL.Path)
-		return echo.NewHTTPError(http.StatusBadRequest, http.StatusText(http.StatusBadRequest))
+		slog.Error("request API", "method", e.Request.Method, "status", http.StatusBadRequest, "path", e.Request.URL.Path)
+		return e.BadRequestError(http.StatusText(http.StatusBadRequest), nil)
 	}
 
 	// Write HTML content.
-	c.Response().Write([]byte("<p>🎉 Yes, <strong>htmx</strong> is ready to use! (<code>GET /api/hello-world</code>)</p>"))
+	_, err := e.Response.Write([]byte("<p>🎉 Yes, <strong>htmx</strong> is ready to use! (<code>GET /api/hello-world</code>)</p>"))
+	if err != nil {
+		return err
+	}
 
-	return htmx.NewResponse().Write(c.Response().Writer)
+	return htmx.NewResponse().Write(e.Response)
 }

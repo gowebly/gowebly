@@ -2,35 +2,38 @@ package main
 
 import (
 	{{ if not .Tools.IsUseTempl }}
-	"io"
+	"bytes"
 	"html/template"
 	"path/filepath"
 	{{ end }}
 	"fmt"
+	"log/slog"
+	"os"
 	"strconv"
 	"time"
 
-	"github.com/labstack/echo/v5/middleware"
 	"github.com/pocketbase/pocketbase"
+	"github.com/pocketbase/pocketbase/apis"
 	"github.com/pocketbase/pocketbase/core"
+	"github.com/pocketbase/pocketbase/tools/hook"
 
 	gowebly "github.com/gowebly/helpers"
 )
 
 {{ if not .Tools.IsUseTempl }}
-// TemplateRegistry represents a custom 'html/template' renderer for Echo framework.
-type Template struct {
-	templates *template.Template
-}
-
-// Render renders all templates, using gowebly helper.
-func (t *Template) Render(w io.Writer, name string, data interface{}, c echo.Context) error {
-	tmpl, err := gowebly.ParseTemplates(filepath.Join("templates", "pages", t.templates.Name()))
+// renderHTMLTemplate parses and executes the named template from the templates directory.
+func renderHTMLTemplate(name string) (string, error) {
+	tmpl, err := template.ParseFiles(filepath.Join("templates", "main.html"), filepath.Join("templates", "pages", name))
 	if err != nil {
-		return err
+		return "", err
 	}
 
-	return tmpl.Execute(w, nil)
+	var buf bytes.Buffer
+	if err := tmpl.Execute(&buf, nil); err != nil {
+		return "", err
+	}
+
+	return buf.String(), nil
 }
 {{ end }}
 
@@ -45,37 +48,42 @@ func runServer() error {
 	// Create a new PocketBase server.
 	app := pocketbase.New()
 
-	// Add PocketBase onBeforeServe middleware.
-	app.OnBeforeServe().Add(func(e *core.ServeEvent) error {
-		{{ if not .Tools.IsUseTempl }}
-		// Create a new Echo renderer for templates.
-		e.Router.Renderer = &Template{
-			templates: template.Must(template.ParseGlob("templates/**/*.html")),
-		}
-		{{ end }}
+	// Add PocketBase OnServe hook to register routes and middlewares.
+	//
+	// Since PocketBase v0.23, the old Echo-based router has been replaced
+	// with a thin wrapper around the standard net/http.ServeMux, and the
+	// OnBeforeServe hook was renamed to OnServe.
+	app.OnServe().Bind(&hook.Handler[*core.ServeEvent]{
+		Func: func(e *core.ServeEvent) error {
+			// Add a simple logger middleware.
+			e.Router.BindFunc(func(re *core.RequestEvent) error {
+				slog.Info("request", "method", re.Request.Method, "path", re.Request.URL.Path)
+				return re.Next()
+			})
 
-		// Add Echo middlewares.
-		e.Router.Use(middleware.Logger())
+			// Handle static files.
+			//
+			// Since PocketBase v0.23, Router.Static no longer exists.
+			// Use the apis.Static handler with a wildcard route parameter.
+			e.Router.GET("/static/{path...}", apis.Static(os.DirFS("./static"), false))
 
-		// Handle static files.
-		e.Router.Static("/static", "./static")
+			// Handle index page view.
+			e.Router.GET("/", indexViewHandler)
 
-		// Handle index page view.
-		e.Router.GET("/", indexViewHandler)
+			// Handle API endpoints.
+			e.Router.GET("/api/hello-world", showContentAPIHandler)
 
-		// Handle API endpoints.
-		e.Router.GET("/api/hello-world", showContentAPIHandler)
+			// Set server options from environment variables.
+			// For more information, see https://blog.cloudflare.com/the-complete-guide-to-golang-net-http-timeouts/
+			// Note: The ReadTimeout and WriteTimeout settings may interfere with SSE (Server-Sent Event) or WS (WebSocket) connections.
+			// For SSE or WS, these timeouts can cause the connection to reset after 10 or 5 seconds due to the ReadTimeout and WriteTimeout settings.
+			// If you plan to use SSE or WS, consider commenting out or removing the ReadTimeout and WriteTimeout key-value pairs.
+			e.Server.Addr = fmt.Sprintf(":%d", port)
+			e.Server.ReadTimeout = 5 * time.Second
+			e.Server.WriteTimeout = 10 * time.Second
 
-		// Set server options from environment variables.
-		// For more information, see https://blog.cloudflare.com/the-complete-guide-to-golang-net-http-timeouts/
-	    // Note: The ReadTimeout and WriteTimeout settings may interfere with SSE (Server-Sent Event) or WS (WebSocket) connections.
-        // For SSE or WS, these timeouts can cause the connection to reset after 10 or 5 seconds due to the ReadTimeout and WriteTimeout settings.
-        // If you plan to use SSE or WS, consider commenting out or removing the ReadTimeout and WriteTimeout key-value pairs.
-		e.Server.Addr = fmt.Sprintf(":%d", port)
-		e.Server.ReadTimeout = 5 * time.Second
-		e.Server.WriteTimeout = 10 * time.Second
-
-		return nil
+			return e.Next()
+		},
 	})
 
 	return app.Start()
